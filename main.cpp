@@ -11,6 +11,7 @@
 #include <armadillo>
 #include "Metrics.hpp"
 #include "Knn.hpp"
+#include "Kfold.hpp"
 
 using namespace std;
 using namespace arma;
@@ -74,21 +75,24 @@ int main (int argc, char* argv[]) {
     resultsFile.close();
     if (ivdm.compare(argv[2]) == 0) probFile.close();
 
-    Col<int> un = unique(results);
+ 
 
+ 
 
-    mat example1 = {{5.1, 3.5, 1.4, 0.2},{6.0, 2.7, 5.1, 1.6},{6.5, 3.0, 5.2, 2.0}};
-    mat example2 = {{0.455, 0.365, 0.095, 0.514, 0.2245, 0.101, 0.15, 2},{0.35, 0.265, 0.09, 0.2255, 0.0995, 0.0485, 0.07, 2}};
-    //mat a = {{5.5,3.3,2.2,1.0},{4.4,3.2,2.1,1.0},{3.0,2.0,1.0,1.0}};
     IVDM iv(index,minmax,prob);
     Euclidean eu;
+    cout << kfold(iv,data,results,4,3) << endl;
+    //cout <<endl;
 
-    Knn k(data,results,un.n_rows);
-    Col<int> re = k.search(example1,5,iv);
-    re.print();
-    re = k.search(example1,5,eu);
-    cout << endl;
-    re.print();
+
+    /*
+    mat example1 = {{5.1, 3.5, 1.4, 0.2},{6.0, 2.7, 5.1, 1.6},{6.5, 3.0, 5.2, 2.0}};
+    Col<int> resultsEx1 ={0,1,2};
+    mat example2 = {{0.455, 0.365, 0.095, 0.514, 0.2245, 0.101, 0.15, 2},{0.35, 0.265, 0.09, 0.2255, 0.0995, 0.0485, 0.07, 2}};
+    //mat a = {{5.5,3.3,2.2,1.0},{4.4,3.2,2.1,1.0},{3.0,2.0,1.0,1.0}};
+
+    double re = k.score(example1,5,iv,resultsEx1);
+    cout << re << endl;
 
 
     /*

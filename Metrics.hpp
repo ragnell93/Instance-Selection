@@ -8,6 +8,8 @@ using namespace arma;
 
 struct Euclidean{
 
+    /* Euclidean distance */
+
     Euclidean(){}
 
     template<typename VecTypeA, typename VecTypeB>
@@ -17,6 +19,23 @@ struct Euclidean{
 };
 
 struct IVDM{
+
+    /*Interpolated Value Difference Metric. It needs the conditional probabilities for each atribute, value and class
+     *then do an interpolation calculating the probability of a given continuous value and adding every value for every
+     *atribute. Member attributes and functions:
+
+     minmax: the matrix where the first row is the max values of each attribute, the second row the min values and 
+             the 3 row the width of each attribute.
+
+     prob: matrix with the conditional probabilitie p(a,x,c)
+
+     index: index where the discrete attributes begin
+
+     discretize(x,j): takes x as the number to discretize and j the number of the attribute
+
+     Evaluate(a,b): takes 2 vectors and calculates their distance
+
+     */
 
     mat minmax;
     cube prob;
@@ -42,28 +61,18 @@ struct IVDM{
         while (i < index){ 
 
             u1 = discretize(*aux1,i);
+            if (u1 < 1) u1 = 1;
             mid1a = minmax(1,i) + minmax(2,i) * (u1+0.5);
             if (*aux1 < mid1a) u1--;
             mid1a = minmax(1,i) + minmax(2,i) * (u1+0.5);
             mid1b = minmax(1,i) + minmax(2,i) * (u1+1.5);
 
             u2 = discretize(*aux2,i);
+            if (u2 < 1) u2 = 1;
             mid2a = minmax(1,i) + minmax(2,i) * (u2+0.5);
             if (*aux2 < mid2a) u2--;
             mid2a = minmax(1,i) + minmax(2,i) * (u2+0.5);
             mid2b= minmax(1,i) + minmax(2,i) * (u2+1.5);
-
-            /*
-            cout << "Para el punto 1 se tiene: " << endl;
-            cout << "el valor discreto es: " << u1 << endl;
-            cout << "el punto medio es: " << mid1a << endl;
-            cout << "el punto medio alto es: " << mid1b << endl << endl;
-
-            cout << "Para el punto 2 se tiene: " << endl;
-            cout << "el valor discreto es: " << u2 << endl;
-            cout << "el punto medio es: " << mid2a << endl;
-            cout << "el punto medio alto es: " << mid2b << endl << endl;
-            */
   
             for (int k = 0; k < prob.n_slices; k++){
 
@@ -78,13 +87,7 @@ struct IVDM{
                 inter1(k) = lowerProb1 + ((*aux1 - mid1a)/(mid1b-mid1a)) * (upperProb1 - lowerProb1);
                 inter2(k) = lowerProb2 + ((*aux2 - mid2a)/(mid2b-mid2a)) * (upperProb2 - lowerProb2);
             }
-            /*
-            cout << "La interpolacion 1 es:"<< endl;
-            inter1.print();
-            cout << endl;
-            cout << "La interpolacion 2 es:" << endl;
-            inter2.print();
-            */
+
             iv(i) = sum(pow((inter1 - inter2),2));
             aux1++;
             aux2++;
@@ -105,14 +108,9 @@ struct IVDM{
             i++;
 
         }
-
-        //cout << "EL vector con los ivs" << endl;
-        //iv.print();
         
         double distance=0;
         for (int g=0; g < minmax.n_cols; g++) distance += iv(g)*iv(g);
-        //cout << endl << "la distancia es: " << distance << endl;
-
         return distance;
     }
 };
