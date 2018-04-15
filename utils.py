@@ -55,7 +55,7 @@ def ivdmPrep(index1,df,results):
 
     for i in range(0,df.iloc[:,0].count()):
         for j in range(0,df.iloc[0,:].count()):
-            nxac[discTable.iloc[i,j]-1,j,results[i]-1] += 1
+            nxac[discTable.iloc[i,j]-1,j,results[i]] += 1
             nxa[discTable.iloc[i,j]-1,j] += 1
 
     for i in range(0,s):

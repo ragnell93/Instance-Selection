@@ -6,12 +6,12 @@
 using namespace std;
 using namespace arma;
 
-struc Euclidean{
+struct Euclidean{
 
     Euclidean(){}
 
     template<typename VecTypeA, typename VecTypeB>
-    double Evaluate(VecTypeA& a,VecTypeB& b){
+    double Evaluate(VecTypeA  &a,VecTypeB &b){
         return sqrt(sum(pow((a - b),2)));
     }
 };
@@ -52,7 +52,19 @@ struct IVDM{
             if (*aux2 < mid2a) u2--;
             mid2a = minmax(1,i) + minmax(2,i) * (u2+0.5);
             mid2b= minmax(1,i) + minmax(2,i) * (u2+1.5);
- 
+
+            /*
+            cout << "Para el punto 1 se tiene: " << endl;
+            cout << "el valor discreto es: " << u1 << endl;
+            cout << "el punto medio es: " << mid1a << endl;
+            cout << "el punto medio alto es: " << mid1b << endl << endl;
+
+            cout << "Para el punto 2 se tiene: " << endl;
+            cout << "el valor discreto es: " << u2 << endl;
+            cout << "el punto medio es: " << mid2a << endl;
+            cout << "el punto medio alto es: " << mid2b << endl << endl;
+            */
+  
             for (int k = 0; k < prob.n_slices; k++){
 
                 if (u1 == 0) {lowerProb1 = 0; upperProb1 = prob(u1,i,k);}
@@ -66,19 +78,25 @@ struct IVDM{
                 inter1(k) = lowerProb1 + ((*aux1 - mid1a)/(mid1b-mid1a)) * (upperProb1 - lowerProb1);
                 inter2(k) = lowerProb2 + ((*aux2 - mid2a)/(mid2b-mid2a)) * (upperProb2 - lowerProb2);
             }
-
+            /*
+            cout << "La interpolacion 1 es:"<< endl;
+            inter1.print();
+            cout << endl;
+            cout << "La interpolacion 2 es:" << endl;
+            inter2.print();
+            */
             iv(i) = sum(pow((inter1 - inter2),2));
             aux1++;
             aux2++;
             i++;
         }    
-
+ 
         //Discrete values
         while (i < minmax.n_cols){
 
             for (int k = 0; k < prob.n_slices; k++){
-                inter1(k) = prob(*aux1,i,k);
-                inter2(k) = prob(*aux2,i,k);
+                inter1(k) = prob((int)*aux1,i,k);
+                inter2(k) = prob((int)*aux2,i,k);
             }
 
             iv(i) = sum(pow((inter1 - inter2),2));
@@ -87,9 +105,13 @@ struct IVDM{
             i++;
 
         }
+
+        //cout << "EL vector con los ivs" << endl;
+        //iv.print();
         
-        double distance;
-        for (int g; g < minmax.n_cols; g++) distance += iv(g)*iv(g);
+        double distance=0;
+        for (int g=0; g < minmax.n_cols; g++) distance += iv(g)*iv(g);
+        //cout << endl << "la distancia es: " << distance << endl;
 
         return distance;
     }
