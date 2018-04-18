@@ -6,6 +6,8 @@
 #include <armadillo>
 #include "Metrics.hpp"
 #include "Knn.hpp"
+#include "Heuristics.hpp"
+#include "Instance.hpp"
 
 using namespace std;
 using namespace arma;
@@ -17,8 +19,8 @@ using namespace arma;
   k scores using the kth partition as query set it calculates the mean accuracy
  */
 
-template <typename MetricType>
-double kfold(MetricType &met,mat &data,Col<int> &results,int k,int kn){
+template <typename Heuristic>
+double kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int knearest,double pNeigh,double pCost,double pIni){
 
     Col<int> un = unique(results); //number of classes
     vector <int> indexes(data.n_rows); //indexes of the instances
@@ -70,12 +72,15 @@ double kfold(MetricType &met,mat &data,Col<int> &results,int k,int kn){
         }
 
         trainSet.rows(aux,trainSet.n_rows-1) = lastFold;
-        trainRes.subvec(aux,trainSet.n_rows-1) = lastRes;  
-        
-        Knn knn(trainSet,trainRes,un.n_rows);
-        Col<int> queryRe = res.col(notin);
-        scores(j) = knn.score(folds.slice(notin),kn,met,queryRe);
+        trainRes.subvec(aux,trainSet.n_rows-1) = lastRes;
+        mat testSet(folds.slice(notin));
+        Col<int> testRes(res.col(notin));
 
+        Col<int> iConfig = initialInstance(pIni,trainSet.n_rows);
+        Instance initial(iConfig,pNeigh,pCost,&trainSet,&testSet,&trainRes,&testRes,un.n_rows);
+        pair <double,Instance> obtained = heu.find(initial,knearest);
+        
+        scores(j) = obtained.first;
         notin++;
     } 
 
@@ -90,11 +95,16 @@ double kfold(MetricType &met,mat &data,Col<int> &results,int k,int kn){
             aux2 += number;
     }
 
-    Knn knn(trainSet,trainRes,un.n_rows);
-    scores(k-1) = knn.score(lastFold,kn,met,lastRes);
+    Col<int> iConfig = initialInstance(pIni,trainSet.n_rows);
+    Instance initial(iConfig,pNeigh,pCost,&trainSet,&lastFold,&trainRes,&lastRes,un.n_rows);
+    pair <double,Instance> obtained = heu.find(initial,knearest);
+    scores(k-1) = obtained.first;
+    
+    cout << "scores " << endl;
+    scores.print();
 
     return sum(scores)/scores.n_rows;
-
+    
 }
 
 #endif

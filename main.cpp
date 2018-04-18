@@ -8,10 +8,14 @@
 #include <iostream>
 #include <fstream>
 #include <chrono>
+#include <random>
 #include <armadillo>
+#include <utility>
 #include "Metrics.hpp"
 #include "Knn.hpp"
 #include "Kfold.hpp"
+#include "Instance.hpp"
+#include "Heuristics.hpp"
 
 using namespace std;
 using namespace arma;
@@ -81,18 +85,36 @@ int main (int argc, char* argv[]) {
 
     IVDM iv(index,minmax,prob);
     Euclidean eu;
-    cout << kfold(iv,data,results,4,3) << endl;
-    //cout <<endl;
-
-
-    /*
     mat example1 = {{5.1, 3.5, 1.4, 0.2},{6.0, 2.7, 5.1, 1.6},{6.5, 3.0, 5.2, 2.0}};
     Col<int> resultsEx1 ={0,1,2};
-    mat example2 = {{0.455, 0.365, 0.095, 0.514, 0.2245, 0.101, 0.15, 2},{0.35, 0.265, 0.09, 0.2255, 0.0995, 0.0485, 0.07, 2}};
+     
+    LocalSearch<IVDM> ls(&iv);
+    double abcd = kfold(ls,data,results,4,1,0.1,0.5,0.5);
+    cout << "el score total es: " << abcd << endl;
+    
+    /* 
+    Col<int> units = initialInstance(0.5,data.n_rows);    
+    //Col<int> units = {0,0,0,0,0,0,1,0,1};
+
+    Instance iss(units,1,0.5,&data,&example1,&results,&resultsEx1,3);
+    cout << "el score es:" << endl;
+    cout << iss.cost(iv,1) << endl;
+
+    pair<double,Instance> neighbor = iss.searchNeighborhood(iv,1);
+    cout << "el escore es" << endl;
+    cout << neighbor.first << endl;
+
+
+    //cout << kfold(iv,data,results,4,3) << endl;
+    cout <<endl;
+
+
+
+    //mat example2 = {{0.455, 0.365, 0.095, 0.514, 0.2245, 0.101, 0.15, 2},{0.35, 0.265, 0.09, 0.2255, 0.0995, 0.0485, 0.07, 2}};
     //mat a = {{5.5,3.3,2.2,1.0},{4.4,3.2,2.1,1.0},{3.0,2.0,1.0,1.0}};
 
-    double re = k.score(example1,5,iv,resultsEx1);
-    cout << re << endl;
+    //double re = k.score(example1,5,iv,resultsEx1);
+    //cout << re << endl;
 
 
     /*
