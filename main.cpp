@@ -16,6 +16,7 @@
 #include "Kfold.hpp"
 #include "Instance.hpp"
 #include "Heuristics.hpp"
+#include "utils.h"
 
 using namespace std;
 using namespace arma;
@@ -85,12 +86,39 @@ int main (int argc, char* argv[]) {
 
     IVDM iv(index,minmax,prob);
     Euclidean eu;
-    mat example1 = {{5.1, 3.5, 1.4, 0.2},{6.0, 2.7, 5.1, 1.6},{6.5, 3.0, 5.2, 2.0}};
-    Col<int> resultsEx1 ={0,1,2};
-     
-    LocalSearch<IVDM> ls(&iv);
-    double abcd = kfold(ls,data,results,4,1,0.1,0.5,0.5);
-    cout << "el score total es: " << abcd << endl;
+    
+    //mat example1 = {{5.1, 3.5, 1.4, 0.2},{6.0, 2.7, 5.1, 1.6},{6.5, 3.0, 5.2, 2.0}};
+    //Col<int> resultsEx1 ={0,1,2};
+    mat example1 = {{1.14,-0.114}};
+    Col<int> resultsEx1 = {0};
+
+    double start_time = Utils::read_time_in_minutes();
+
+    Col<int> units(data.n_rows,fill::zeros);
+    units(0) = 1;
+    Col<int> units2(data.n_rows,fill::ones);
+    Instance iss(units,1,0.1,&data,&example1,&results,&resultsEx1,3);
+    CNN<Euclidean> cnn(&eu);
+    ENN<Euclidean> enn(&eu);
+    IB3<Euclidean> ib(&eu);
+    pair<double,Instance> pp = ib.find(iss,1);
+
+    double elapsed_time = Utils::read_time_in_minutes() - start_time;
+
+    cout << "el numer de instancias es : " << pp.second.training.n_rows << endl;
+    cout << "el score es: " << pp.first << endl; 
+    cout << "el tiempo en minutos es: " << elapsed_time << endl;
+
+    ofstream aux1("bananaSet.txt");
+    ofstream aux2("bananaRes.txt");
+    pp.second.training.print(aux1);
+    pp.second.trainResults.print(aux2);
+
+
+
+    //LocalSearch<IVDM> ls(&iv);
+    //double abcd = kfold(ls,data,results,4,1,0.1,0.5,0.5);
+    //cout << "el score total es: " << abcd << endl;
     
     /* 
     Col<int> units = initialInstance(0.5,data.n_rows);    

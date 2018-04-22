@@ -12,6 +12,7 @@
 using namespace std;
 using namespace arma;
 
+/* Function that given a probability and the data size gives an initial chromosome*/
 
 Col<int> initialInstance(double prob,int size){
     random_device rd; // obtain a random number from hardware
@@ -23,6 +24,29 @@ Col<int> initialInstance(double prob,int size){
 }
 
 struct Instance{
+
+    /*Chromosome for the Instance Selection problem. Member attributes and functions:
+
+    units = Bit string, 1 if the instance is in the subset 0 otherwise
+    percenVecinity = percentage of the vicinity that will be explored
+    percenCost = weight given to the accuracy and instance reduction 
+    originalTraining =  pointer to the original training dataset so one can create new Instances
+    originaltrainResults = pointer to the classes of the original training set
+    test = Test set that will be used when evaluating the instance
+    testResults = classes of the test set
+    training = Reduced dataset represented by units
+    trainResults = Classes of the reduced dataset
+    unique = number of classes
+    totalInstances = number of instances in the original dataset
+
+    changeTrainingSet() = computes again the reduced set for this cromosome
+
+    cost(MetricType &met,int knearest) = the cost of the instance in base to the accuracy and reduction
+
+    searchNeighborhood(MetricType &met, int knearest, chrono::steady_clock::time_point &tend) =
+        search for the best contiguous Instance using the cost function in the perecentage defined
+
+    */
 
     Col <int> units;
     double percenVecinity, percenCost;
@@ -55,6 +79,22 @@ struct Instance{
             }
         }
 
+    void changeTrainingSet(){
+            totalInstances = originalTraining->n_rows;
+            int count = 0,index=0;
+            for (int i=0;i<units.n_rows;i++){ if (units(i)==1) count++; }
+            training.set_size(count,originalTraining->n_cols);
+            trainResults.set_size(count);
+
+            for (int i=0;i<units.n_rows;i++){
+                if (units(i)==1){
+                    training.row(index) = originalTraining->row(i);
+                    trainResults(index) = (*originaltrainResults)(i);
+                    index++;
+                }
+            }
+    }
+
     template<typename MetricType>
     double cost(MetricType &met,int knearest){
 
@@ -64,7 +104,6 @@ struct Instance{
 
         return percenCost * accuracy + (1-percenCost)*reduction; 
     }
-
     
     template<typename MetricType>
     pair <double,Instance> searchNeighborhood(MetricType &met, int knearest, chrono::steady_clock::time_point &tend){

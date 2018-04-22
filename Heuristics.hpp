@@ -15,6 +15,13 @@ using namespace arma;
 template <typename MetricType>
 struct LocalSearch{
 
+    /*Class for the local search algorithm:
+
+    metric = metric used in the search
+
+    find(initial,knearest) = given an initial Instance perform a local serach using knearest neighbor
+    */
+
     MetricType* metric;
     LocalSearch(MetricType* met):metric(met){}
 
@@ -34,6 +41,246 @@ struct LocalSearch{
 
         return oldOne;
     }
+
+};
+
+template<typename MetricType>
+struct CNN{
+
+    /*Perform CNN, constructs a reduced data set beginning from one instance and adding each instance not 
+     classified correctly */ 
+
+    MetricType* metric;
+    CNN(MetricType* met):metric(met){}
+
+    pair<double,Instance> find(Instance &initial, int knearest){
+
+        bool flag = false, flag2 = false;
+        Instance current = initial;
+        int j = 0;
+
+        vector <int> indexes(initial.units.n_rows);
+        for (int i=0;i<initial.units.n_rows;i++) indexes[i] = i;
+        random_shuffle(indexes.begin(),indexes.end());
+
+        for (int i = 0; (i < initial.units.n_rows) && !flag; i++){
+
+            Knn knn(current.training,current.trainResults,current.unique);
+            flag2 = false;
+
+            while ((j < current.originalTraining->n_rows) && !flag2){
+
+                mat query(current.originalTraining->row(indexes[j]));
+                Col<int> prediction(knn.search(query,knearest,*metric));
+
+                if (prediction(0) != (*(current.originaltrainResults))(indexes[j])){
+                    Col<int> nunits(current.units);
+                    nunits(indexes[j]) = 1;
+                    current.units = nunits;
+                    current.changeTrainingSet();
+                    flag2 = true;
+                }
+                j++;
+            }
+            if (!flag2) flag = true; //flag becomes true when every point is classified correctly
+        }
+
+        Knn knn(current.training,current.trainResults,current.unique);
+        double costResult = knn.score(*(current.originalTraining),knearest,*metric,*(current.originaltrainResults));
+
+        return make_pair(costResult,current);
+    }
+};
+
+template<typename MetricType>
+struct ENN{
+
+    MetricType* metric;
+    ENN(MetricType* met):metric(met){}
+
+    pair<double,Instance> find(Instance &initial, int knearest){
+
+        Instance oldOne;
+        Instance current = initial;
+        for (int i = 0; i < initial.units.n_rows; i++){
+
+            oldOne = current;
+            Col<int> nunits(current.units);
+            nunits(i) = 0;
+            current.units = nunits;
+            current.changeTrainingSet();
+            mat newTest = (current.originalTraining)->row(i);
+            Col<int> newTestRes = (current.originaltrainResults)->row(i);
+
+            Knn knn(current.training,current.trainResults,current.unique);
+            Col<int> prediction(knn.search(newTest,knearest,*metric));
+
+            if (prediction(0) == newTestRes(0)) current = oldOne;
+
+        }
+
+        Knn knn(current.training,current.trainResults,current.unique);
+        double costResult = knn.score(*(current.test),knearest,*metric,*(current.testResults));
+
+        return make_pair(costResult,current);
+
+    }
+
+};
+
+template<typename MetricType>
+struct IB3{
+
+    MetricType* metric;
+    IB3(MetricType* met):metric(met){}
+
+    bool aceptable(Row<int> acp, int frecuency,int numProcessed,bool mode){
+        
+        //Accuracy intervals
+        double z;
+        if (mode) z = 0.9;
+        else z = 0.7;
+        int n = acp(0)+acp(1);
+        if (n==0) n++;
+        double p = acp(0)/n;
+
+        double lowerAcc = (p + pow(z,2)/(2*n) - z*sqrt(p*(1-p)/n + pow(z,2)/(4*pow(n,2)))) / (1 + pow(z,2)/n);
+        double upperAcc = (p + pow(z,2)/(2*n) + z*sqrt(p*(1-p)/n + pow(z,2)/(4*pow(n,2)))) / (1 + pow(z,2)/n);
+
+        //frecuency intervals
+        n = numProcessed;
+        if (n == 0) n++;
+        p = frecuency/n;
+
+        double lowerFrec = (p + pow(z,2)/(2*n) - z*sqrt(p*(1-p)/n + pow(z,2)/(4*pow(n,2)))) / (1 + pow(z,2)/n);
+        double upperFrec = (p + pow(z,2)/(2*n) + z*sqrt(p*(1-p)/n + pow(z,2)/(4*pow(n,2)))) / (1 + pow(z,2)/n);
+
+        bool resp;
+        if (mode){
+            resp = true;
+            if (upperAcc < lowerFrec) resp = false;
+        }
+        else if (!mode){
+            resp = true;
+            if (upperAcc < lowerFrec) resp = false;
+        }
+
+        return resp;
+
+    }
+    
+    pair<double,Instance> find(Instance &initial, int knearest){
+
+        vec sim(initial.originalTraining->n_rows);
+    
+        Mat<int> classRecord(initial.originalTraining->n_rows,2,fill::zeros); //first col is accerts, second mistakes
+        Col<int> frecuencyRecord(initial.unique);
+        int numProcessed = 1;
+        classRecord(0,0) = 1;
+        frecuencyRecord(initial.trainResults(0)) = 1;
+
+        Instance current = initial;
+        rowvec aux1, aux2;
+        random_device rd; // obtain a random number from hardware
+        mt19937 eng(rd()); // seed
+        int ymax,orderedIndex;
+        
+        for (int i = 0; i < initial.units.n_rows; i++){
+
+            mat data = current.training;
+            mat query = current.originalTraining->row(i);
+            frecuencyRecord((*(current.originaltrainResults))(i))++;
+            numProcessed++;
+            mat distances(data.n_rows,query.n_rows);
+            aux2 = query.row(0);
+
+            for (int j = 0; j < data.n_rows; j++){
+                aux1 = data.row(j);
+                distances(j,0) = metric->Evaluate(aux1,aux2);
+            }
+
+            mat ordered = sort(distances);
+            uvec index;
+            bool flag = false;
+            ymax = -1;
+
+            for (int j = 0; (j < distances.n_rows) && !flag; j++){
+                
+                index = arma::find(abs(distances.col(0)-ordered(j,0))<0.0000000001);
+                int k = 0,count = 0;
+                bool flag2 = false;
+                while (count < index(0)+1){
+                    if (current.units(k)==1) count++;
+                    k++;
+                }
+
+                Row<int> acp = classRecord.row(k-1);
+                int aux5 = (*(current.originaltrainResults))(k-1);
+                if (aceptable(acp,frecuencyRecord(aux5),numProcessed,true)){
+                    ymax = k-1;
+                    flag = true;
+                    orderedIndex = j;
+                }
+            }
+
+            if (!flag){
+                uniform_int_distribution<> disInt(0,data.n_rows-1);
+                orderedIndex = disInt(eng);
+                index = arma::find(abs(distances.col(0)-ordered(orderedIndex,0))<0.0000000001);
+                int k = 0,count = 0;
+                bool flag2 = false;
+                while (count < index(0)+1){
+                    if (current.units(k)==1) count++;
+                    k++;
+                }
+                ymax = k-1;
+            }
+
+            if ((*(current.originaltrainResults))(i) == (*(current.originaltrainResults))(ymax))
+                classRecord(ymax,0)++;
+            else{
+                classRecord(ymax,1)++;
+                Col<int> nunits(current.units);
+                nunits[i] = 1;
+                current.units = nunits;
+                current.changeTrainingSet();
+            }
+
+            for (int o = 0; o <orderedIndex; o++){
+
+                index = arma::find(abs(distances.col(0)-ordered(o,0))<0.0000000001);
+                int k = 0,count = 0;
+                bool flag2 = false;
+                while (count < index(0)+1){
+                    if (current.units(k)==1) count++;
+                    k++;
+                }
+                k--;
+                
+                int aux5 = (*(current.originaltrainResults))(k);
+                Row<int> acp = classRecord.row(k);
+
+                if ((*(current.originaltrainResults))(i) == aux5)
+                    classRecord(k,0)++;
+                else classRecord(k,1)++;
+
+                if (!aceptable(acp,frecuencyRecord(aux5),numProcessed,false)){
+                    Col<int> nunits(current.units);
+                    nunits[k] = 0;
+                    current.units = nunits;
+                    current.changeTrainingSet();
+                }
+
+            }
+        }
+
+        Knn knn(current.training,current.trainResults,current.unique);
+        double costResult = knn.score(*(current.originalTraining),knearest,*metric,*(current.originaltrainResults));
+
+        return make_pair(costResult,current);
+
+    }
+    
 
 };
 
