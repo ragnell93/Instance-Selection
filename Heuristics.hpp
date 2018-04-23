@@ -8,6 +8,7 @@
 #include "Knn.hpp"
 #include "Metrics.hpp"
 #include "Instance.hpp"
+#include "utils.h"
 
 using namespace std;
 using namespace arma;
@@ -83,6 +84,84 @@ struct CNN{
                 j++;
             }
             if (!flag2) flag = true; //flag becomes true when every point is classified correctly
+        }
+
+        Knn knn(current.training,current.trainResults,current.unique);
+        double costResult = knn.score(*(current.originalTraining),knearest,*metric,*(current.originaltrainResults));
+
+        return make_pair(costResult,current);
+    }
+};
+
+template<typename MetricType>
+struct RSS{
+
+    MetricType* metric;
+    RSS(MetricType* met):metric(met){}
+
+    pair<double,Instance> find(Instance &initial, int knearest){
+
+        mat data = initial.training;
+        mat query = initial.training;
+        mat distances(data.n_rows,query.n_rows);
+        rowvec aux1, aux2;
+
+        for (int i = 0; i < query.n_rows; i++){
+            aux2 = query.row(i);
+            for (int j = 0; j < data.n_rows; j++){ 
+                aux1 = data.row(j);
+                distances(j,i) = metric->Evaluate(aux1,aux2);
+            }
+        }
+
+        mat ordered = sort(distances);
+        vector<double> disNE(data.n_rows);
+        uvec index;
+        bool flag;
+
+        for (int i = 0; i < query.n_rows; i++){
+            flag = false;
+            for (int j = 0; j < data.n_rows && !flag; j++){
+                index = arma::find(abs(distances.col(i)-ordered(j,i))<0.0000000001);
+                if (initial.trainResults(index(0)) != initial.trainResults(i)){
+                    disNE[i] = ordered(j,i);
+                    flag = true;
+                }
+            }
+        }
+
+        vector<size_t> orderedIndex = Utils::sort_indexes(disNE);
+
+        Col<int> nunits(data.n_rows,fill::zeros);
+        nunits(0) = 1;
+        Instance current = initial;
+        current.units = nunits;
+        current.changeTrainingSet();
+
+        for (int i = 0;i < data.n_rows;i++){
+            
+            flag = false;
+            for (int j = 0; j<current.training.n_rows && !flag; j++){
+
+                aux2 = current.training.row(j);
+                aux1 = data.row(orderedIndex[i]);
+
+                int k = 0,count = 0;
+                while (count < j+1){
+                    if (current.units(k)==1) count++;
+                    k++;
+                }
+                k--;
+
+                if (metric->Evaluate(aux1,aux2) < disNE[k]) flag = true;
+            }
+            
+            if (!flag){
+                Col<int> newunits(current.units);
+                newunits(i) = 1;
+                current.units = newunits;
+                current.changeTrainingSet();
+            }
         }
 
         Knn knn(current.training,current.trainResults,current.unique);
@@ -278,10 +357,7 @@ struct IB3{
         double costResult = knn.score(*(current.originalTraining),knearest,*metric,*(current.originaltrainResults));
 
         return make_pair(costResult,current);
-
     }
-    
-
 };
 
 #endif
