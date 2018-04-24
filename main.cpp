@@ -97,12 +97,12 @@ int main (int argc, char* argv[]) {
     Col<int> units(data.n_rows,fill::zeros);
     units(0) = 1;
     Col<int> units2(data.n_rows,fill::ones);
-    Instance iss(units2,1,0.1,&data,&example1,&results,&resultsEx1,3);
+    Instance iss(units,1,0.1,&data,&example1,&results,&resultsEx1,3);
     CNN<Euclidean> cnn(&eu);
     ENN<Euclidean> enn(&eu);
     IB3<Euclidean> ib(&eu);
     RSS<Euclidean> rss(&eu);
-    pair<double,Instance> pp = rss.find(iss,1);
+    pair<double,Instance> pp = ib.find(iss,1);
 
     double elapsed_time = Utils::read_time_in_minutes() - start_time;
 

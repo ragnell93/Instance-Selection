@@ -30,12 +30,17 @@ if __name__ == '__main__':
         table.iloc[:,i] = table.iloc[:,i].astype('category')
 
     table2 = copy.deepcopy(table)
+
+    #Doing normalization for euclidean distance
+    for i in range(0,index2):
+        table2.iloc[:,i] = (table2.iloc[:,i]-(table2.iloc[:,i].mean()))/table2.iloc[:,i].std()
+
     results = table.iloc[:,-1]
     cat_columns = table.select_dtypes(['category']).columns
     table2.iloc[:,-1] = table2.iloc[:,-1].astype('category')
     results2 = table2.iloc[:,-1]
 
-    table2 = pd.get_dummies(table,dummy_na = False, columns = cat_columns[0:-1])
+    table2 = pd.get_dummies(table2,dummy_na = False, columns = cat_columns[0:-1])
     table[cat_columns] = table[cat_columns].apply(lambda x: x.cat.codes)
     dict( enumerate(table2[results2.name].cat.categories) )
     table2[results2.name] = table2[results2.name].cat.codes
@@ -76,6 +81,7 @@ if __name__ == '__main__':
 
     header2 = open("./euclidean/"+sys.argv[1]+".header",'w')
     header2.write("{:d} {:d} \n".format(table2.iloc[:,0].count(),len(table2.columns)))
+
     table2.to_csv(path_or_buf="./euclidean/"+sys.argv[1]+".data",sep=" ",header=False, index=False)
     results2.to_csv(path="./euclidean/"+sys.argv[1]+".results",sep=" ",header=False, index=False)
 

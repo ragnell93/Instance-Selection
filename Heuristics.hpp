@@ -214,6 +214,9 @@ struct IB3{
     IB3(MetricType* met):metric(met){}
 
     bool aceptable(Row<int> acp, int frecuency,int numProcessed,bool mode){
+
+        //Mode True if one is verifying that the instance is to be accepted with 0.9 confidence and
+        //Mode false if checking yif the instance will be deprecated with 0.7 confidence
         
         //Accuracy intervals
         double z;
@@ -236,12 +239,12 @@ struct IB3{
 
         bool resp;
         if (mode){
-            resp = true;
-            if (upperAcc < lowerFrec) resp = false;
+            resp = false;
+            if (lowerAcc >= upperFrec) resp = true;
         }
         else if (!mode){
             resp = true;
-            if (upperAcc < lowerFrec) resp = false;
+            if (upperAcc <= lowerFrec) resp = false;
         }
 
         return resp;
@@ -253,26 +256,26 @@ struct IB3{
         vec sim(initial.originalTraining->n_rows);
     
         Mat<int> classRecord(initial.originalTraining->n_rows,2,fill::zeros); //first col is accerts, second mistakes
-        Col<int> frecuencyRecord(initial.unique);
-        int numProcessed = 1;
-        classRecord(0,0) = 1;
-        frecuencyRecord(initial.trainResults(0)) = 1;
+        Col<int> frecuencyRecord(initial.unique); //frecuency of the each class
+        int numProcessed = 0;
 
         Instance current = initial;
         rowvec aux1, aux2;
         random_device rd; // obtain a random number from hardware
         mt19937 eng(rd()); // seed
         int ymax,orderedIndex;
-        
+
+        //For each x in Training Set
         for (int i = 0; i < initial.units.n_rows; i++){
 
-            mat data = current.training;
-            mat query = current.originalTraining->row(i);
-            frecuencyRecord((*(current.originaltrainResults))(i))++;
-            numProcessed++;
+            mat data = current.training; //obtaining current dataset from the chromosome
+            mat query = current.originalTraining->row(i); //getting current instance
+            frecuencyRecord((*(current.originaltrainResults))(i))++; //update the frecuency of the class
+            numProcessed++; //adding total number of instance processed
             mat distances(data.n_rows,query.n_rows);
             aux2 = query.row(0);
 
+            //Fill the distance matrix for the current instance 
             for (int j = 0; j < data.n_rows; j++){
                 aux1 = data.row(j);
                 distances(j,0) = metric->Evaluate(aux1,aux2);
@@ -285,6 +288,7 @@ struct IB3{
 
             for (int j = 0; (j < distances.n_rows) && !flag; j++){
                 
+                //find real index in original dataset 
                 index = arma::find(abs(distances.col(0)-ordered(j,0))<0.0000000001);
                 int k = 0,count = 0;
                 bool flag2 = false;
@@ -293,6 +297,7 @@ struct IB3{
                     k++;
                 }
 
+                //If the instance is acceptable with 0.9 confidence level
                 Row<int> acp = classRecord.row(k-1);
                 int aux5 = (*(current.originaltrainResults))(k-1);
                 if (aceptable(acp,frecuencyRecord(aux5),numProcessed,true)){
@@ -301,7 +306,7 @@ struct IB3{
                     orderedIndex = j;
                 }
             }
-
+            //If it isn't acceptable find a random one
             if (!flag){
                 uniform_int_distribution<> disInt(0,data.n_rows-1);
                 orderedIndex = disInt(eng);
@@ -315,6 +320,9 @@ struct IB3{
                 ymax = k-1;
             }
 
+            //If the accepted neighboor is of the same class as the query instance then update the
+            //classification record as positive. Else count it as negative and add the missclassified 
+            //instace to the current dataset.
             if ((*(current.originaltrainResults))(i) == (*(current.originaltrainResults))(ymax))
                 classRecord(ymax,0)++;
             else{
@@ -325,8 +333,11 @@ struct IB3{
                 current.changeTrainingSet();
             }
 
+
+            //For each neighboor that is at a smaller or equal distnace that the accepted one
             for (int o = 0; o <orderedIndex; o++){
 
+                //Find it's real index
                 index = arma::find(abs(distances.col(0)-ordered(o,0))<0.0000000001);
                 int k = 0,count = 0;
                 bool flag2 = false;
@@ -339,10 +350,12 @@ struct IB3{
                 int aux5 = (*(current.originaltrainResults))(k);
                 Row<int> acp = classRecord.row(k);
 
+                //Update the classification frecuency 
                 if ((*(current.originaltrainResults))(i) == aux5)
                     classRecord(k,0)++;
                 else classRecord(k,1)++;
 
+                //If said instance isn't acceptable with 0.7 confidence level, deprecate it.
                 if (!aceptable(acp,frecuencyRecord(aux5),numProcessed,false)){
                     Col<int> nunits(current.units);
                     nunits[k] = 0;
@@ -353,6 +366,7 @@ struct IB3{
             }
         }
 
+        //Return the current chromosome and it's score
         Knn knn(current.training,current.trainResults,current.unique);
         double costResult = knn.score(*(current.originalTraining),knearest,*metric,*(current.originaltrainResults));
 
