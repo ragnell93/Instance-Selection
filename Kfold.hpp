@@ -20,12 +20,16 @@ using namespace arma;
  */
 
 template <typename Heuristic>
-double kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int knearest,double pNeigh,double pCost,double pIni){
+pair<double,double> kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int knearest,double pNeigh,double pCost,double pIni,bool st,bool units){
 
     Col<int> un = unique(results); //number of classes
     vector <int> indexes(data.n_rows); //indexes of the instances
     for (int i=0;i<data.n_rows;i++) indexes[i] = i;
     random_shuffle(indexes.begin(),indexes.end());
+
+    random_device rd; // obtain a random number from hardware
+    mt19937 eng(rd()); // seed
+    uniform_int_distribution<> disInt(0,data.n_rows-1);
     
     int number = floor(data.n_rows/k); //number of elements for each fold
     cube folds(number,data.n_cols,k-1);
@@ -33,78 +37,208 @@ double kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int knearest,doubl
     mat lastFold(data.n_rows-number*(k-1),data.n_cols);
     Col<int> lastRes(data.n_rows-number*(k-1));
 
+    vector<vector<rowvec>> strata(un.n_rows,vector<rowvec>(0,rowvec(data.n_cols)));
+
+    for (int i = 0; i < data.n_rows; i++) strata[results(indexes[i])].push_back(data.row(indexes[i]));
+
     //Filling each fold with the given permutation of the indexes
-    int numRow = 0;
+    int numberSample = 0;
+    double strataProportion;
+    vector<int> stratIndex(un.n_rows,0);
+
     for (int q=0;q<k-1;q++){
-        for (int w=0;w<number;w++){
-            folds.slice(q).row(w) = data.row(indexes[numRow]);
-            res(w,q) = results(indexes[numRow]);
-            numRow++;
+        numberSample = 0;
+        for (int r=0; r < strata.size();r++){
+            strataProportion = floor(number*strata[r].size()/data.n_rows);
+            for (int t = 0; t < strataProportion; t++){
+                folds.slice(q).row(numberSample) = strata[r][stratIndex[r]];
+                res(numberSample,q) = r;
+                stratIndex[r]++;
+                numberSample++;
+            }
+        }
+
+        //Fill the remaining spots with randoms instances
+        while (numberSample < number){
+            int auxI = disInt(eng);
+            folds.slice(q).row(numberSample) = data.row(auxI);
+            res(numberSample,q) = results(auxI);
+            numberSample++;
+        }
+    }
+    
+    //filling the last fold with the remaining data
+    int aux = 0, aux2;
+    numberSample = 0;
+    for (int r=0; r < strata.size();r++){
+        strataProportion = floor(lastFold.n_rows*strata[r].size()/data.n_rows);
+        for (int t = 0; (t < strataProportion) && (stratIndex[r] < strata[r].size()); t++){
+            lastFold.row(numberSample) = strata[r][stratIndex[r]];
+            lastRes(numberSample) = r;
+            stratIndex[r]++;
+            numberSample++;
         }
     }
 
-    //filling the last fold with the remaining data
-    int aux = 0, aux2;
-    while (numRow < data.n_rows){
-        lastFold.row(aux) = data.row(indexes[numRow]);
-        lastRes(aux) = results(indexes[numRow]);
-        aux++;
-        numRow++;
+    //Fill the remaining spots with randoms instances
+    while (numberSample < number){
+        int auxI = disInt(eng);
+        lastFold.row(numberSample) = data.row(auxI);
+        lastRes(numberSample) = results(auxI);
+        numberSample++;
     }
 
     vec scores(k);
-    mat trainSet(number*(k-2)+lastFold.n_rows,data.n_cols);
-    Col<int> trainRes(number*(k-2)+lastFold.n_rows);
-    int notin=0;
+    vec reductionScore(k);
 
-    //for each fold constructs a training set without the kth fold 
-    for (int j=0;j<k-1;j++){
+    if (st){
+
+        vector<Instance> reduction(k);
+        Col<int> auxU;
+
+        for (int j=0; j<k-1;j++){
+            
+            if (units){
+                Col<int> auxU2(folds.slice(j).n_rows,fill::zeros);
+                auxU2(0) = 1;
+                auxU = auxU2;
+            }
+            else if (!units){
+                Col<int> auxU2(folds.slice(j).n_rows,fill::ones);
+                auxU = auxU2;
+            }
+
+            mat auxMat = folds.slice(j);
+            Col<int> auxCol = res.col(j);
+
+            Instance auxI(auxU,pNeigh,pCost,&auxMat,&auxMat,&auxCol,&auxCol,un.n_rows);
+            pair<double,Instance> pairAux = heu.find(auxI,knearest);
+            reduction[j] = pairAux.second;
+        }
+
+        if (units){
+            Col<int> auxU2(lastFold.n_rows,fill::zeros);
+            auxU2(0) = 1;
+            auxU = auxU2;
+        }
+        else if (!units){
+            Col<int> auxU2(lastFold.n_rows,fill::ones);
+            auxU = auxU2;
+        }
+
+        Instance auxI(auxU,pNeigh,pCost,&lastFold,&lastFold,&lastRes,&lastRes,un.n_rows);
+        pair<double,Instance> pairAux = heu.find(auxI,knearest);
+        reduction[k-1] = pairAux.second;
+
+        for (int l=0; l<k; l++){
+
+            mat trainSet;
+            Col<int> trainRes;
+            for (int z=0; z<k;z++){
+                if (z != l){
+                    trainSet.insert_rows(trainSet.n_rows,reduction[z].training);
+                    trainRes.insert_rows(trainRes.n_rows,reduction[z].trainResults);
+               }
+            }
+
+            mat auxMat;
+            Col<int> auxCol;
+            if (l != k-1){  
+                auxMat = folds.slice(l);
+                auxCol = res.col(l);
+            }
+            else if (l == k-1){
+                auxMat = lastFold;
+                auxCol = lastRes;
+            }
+            
+            Knn knn(trainSet,trainRes,un.n_rows);
+            scores(l) = 100*knn.score(auxMat,knearest,*(heu.metric),auxCol);
+            reductionScore(l) = 100*(data.n_rows - trainSet.n_rows) / data.n_rows;
+        }
+    }
+
+    else if (!st){
+
+        int notin=0;
+        mat trainSet(number*(k-2)+lastFold.n_rows,data.n_cols);
+        Col<int> trainRes(number*(k-2)+lastFold.n_rows);
+
+        //for each fold constructs a training set without the kth fold 
+        for (int j=0;j<k-1;j++){
+
+            aux = 0;
+            aux2=number;
+            for (int i=0;i<k-1;i++){
+                if (i != notin){
+                    trainSet.rows(aux,aux2-1) = folds.slice(i);
+                    trainRes.subvec(aux,aux2-1) = res.col(i);
+                    aux = aux2;
+                    aux2 += number;
+                }
+            }
+
+            trainSet.rows(aux,trainSet.n_rows-1) = lastFold;
+            trainRes.subvec(aux,trainSet.n_rows-1) = lastRes;
+            mat testSet(folds.slice(notin));
+            Col<int> testRes(res.col(notin));
+
+            Col<int> auxU;
+            if (units){
+                Col<int> auxU2(trainSet.n_rows,fill::zeros);
+                auxU2(0) = 1;
+                auxU = auxU2;
+            }
+            else if (!units){
+                Col<int> auxU2(trainSet.n_rows,fill::ones);
+                auxU = auxU2;
+            }
+
+            Instance initial(auxU,pNeigh,pCost,&trainSet,&testSet,&trainRes,&testRes,un.n_rows);
+            pair <double,Instance> obtained = heu.find(initial,knearest);
+
+            Knn knn(obtained.second.training,obtained.second.trainResults,un.n_rows);
+            scores(j) = 100*knn.score(testSet,knearest,*(heu.metric),testRes);
+            reductionScore(j) = 100*(data.n_rows - obtained.second.training.n_rows) / data.n_rows;
+            
+            notin++;
+        } 
 
         aux = 0;
         aux2=number;
+        trainSet.set_size(number*(k-1),data.n_cols);
+        trainRes.set_size(number*(k-1));
         for (int i=0;i<k-1;i++){
-            if (i != notin){
                 trainSet.rows(aux,aux2-1) = folds.slice(i);
                 trainRes.subvec(aux,aux2-1) = res.col(i);
                 aux = aux2;
                 aux2 += number;
-            }
         }
 
-        trainSet.rows(aux,trainSet.n_rows-1) = lastFold;
-        trainRes.subvec(aux,trainSet.n_rows-1) = lastRes;
-        mat testSet(folds.slice(notin));
-        Col<int> testRes(res.col(notin));
+        Col<int> auxU;
+        if (units){
+            Col<int> auxU2(trainSet.n_rows,fill::zeros);
+            auxU2(0) = 1;
+            auxU = auxU2;
+        }
+        else if (!units){
+            Col<int> auxU2(trainSet.n_rows,fill::ones);
+            auxU = auxU2;
+        }
 
-        Col<int> iConfig = initialInstance(pIni,trainSet.n_rows);
-        Instance initial(iConfig,pNeigh,pCost,&trainSet,&testSet,&trainRes,&testRes,un.n_rows);
+
+        Instance initial(auxU,pNeigh,pCost,&trainSet,&lastFold,&trainRes,&lastRes,un.n_rows);
         pair <double,Instance> obtained = heu.find(initial,knearest);
-        
-        scores(j) = obtained.first;
-        notin++;
-    } 
 
-    aux = 0;
-    aux2=number;
-    trainSet.set_size(number*(k-1),data.n_cols);
-    trainRes.set_size(number*(k-1));
-    for (int i=0;i<k-1;i++){
-            trainSet.rows(aux,aux2-1) = folds.slice(i);
-            trainRes.subvec(aux,aux2-1) = res.col(i);
-            aux = aux2;
-            aux2 += number;
+        Knn knn(obtained.second.training,obtained.second.trainResults,un.n_rows);
+        scores(k-1) = 100*knn.score(lastFold,knearest,*(heu.metric),lastRes);
+        reductionScore(k-1) = 100*(data.n_rows - obtained.second.training.n_rows) / data.n_rows;
+
+        scores.print();
+        reductionScore.print();
     }
 
-    Col<int> iConfig = initialInstance(pIni,trainSet.n_rows);
-    Instance initial(iConfig,pNeigh,pCost,&trainSet,&lastFold,&trainRes,&lastRes,un.n_rows);
-    pair <double,Instance> obtained = heu.find(initial,knearest);
-    scores(k-1) = obtained.first;
-    
-    cout << "scores " << endl;
-    scores.print();
-
-    return sum(scores)/scores.n_rows;
-    
+    return make_pair(sum(scores)/scores.n_rows,sum(reductionScore)/reductionScore.n_rows);  
 }
 
 #endif
