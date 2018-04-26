@@ -87,21 +87,30 @@ int main (int argc, char* argv[]) {
     IVDM iv(index,minmax,prob);
     Euclidean eu;
     
-    //mat example1 = {{5.1, 3.5, 1.4, 0.2},{6.0, 2.7, 5.1, 1.6},{6.5, 3.0, 5.2, 2.0}};
-    //Col<int> resultsEx1 ={0,1,2};
-    mat example1 = {{1.14,-0.114}};
-    Col<int> resultsEx1 = {0};
+    mat example1 = {{5.1, 3.5, 1.4, 0.2},{6.0, 2.7, 5.1, 1.6},{6.5, 3.0, 5.2, 2.0}};
+    Col<int> resultsEx1 ={0,1,2};
+    //mat example1 = {{1.14,-0.114}};
+    //Col<int> resultsEx1 = {0};
 
     double start_time = Utils::read_time_in_minutes();
 
-    Col<int> units(data.n_rows,fill::zeros);
-    units(0) = 1;
-    Col<int> units2(data.n_rows,fill::ones);
-    Instance iss(units,1,0.1,&data,&example1,&results,&resultsEx1,3);
+    //Col<int> units(data.n_rows,fill::zeros);
+    //units(0) = 1;
+    //Col<int> units2(data.n_rows,fill::ones);
+    //Instance iss(units,1,0.1,&data,&example1,&results,&resultsEx1,3);
     CNN<Euclidean> cnn(&eu);
     ENN<Euclidean> enn(&eu);
     IB3<Euclidean> ib(&eu);
     RSS<Euclidean> rss(&eu);
+
+    vector<double> rrees = kfold(ib,data,results,25,1,0.1,0.5,0.3,true,true);
+
+    ofstream outfile;
+    outfile.open("./results/resultados.txt",ios_base::app);
+    outfile << argv[1] << "," << rrees[0] << "," << rrees[1] << "," <<  60*rrees[2] << endl;
+
+
+    /*
     pair<double,Instance> pp = ib.find(iss,1);
 
     double elapsed_time = Utils::read_time_in_minutes() - start_time;

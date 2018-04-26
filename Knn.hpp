@@ -39,7 +39,6 @@ struct Knn{
     Col<int> search(mat &query,int k, MetricType &met){
 
         mat distances(data.n_rows,query.n_rows);
-
         rowvec aux1, aux2;
         for (int i = 0; i < query.n_rows; i++){
             aux2 = query.row(i);

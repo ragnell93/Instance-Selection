@@ -63,7 +63,7 @@ struct CNN{
         vector <int> indexes(initial.units.n_rows);
         for (int i=0;i<initial.units.n_rows;i++) indexes[i] = i;
         random_shuffle(indexes.begin(),indexes.end());
-
+ 
         for (int i = 0; (i < initial.units.n_rows) && !flag; i++){
 
             Knn knn(current.training,current.trainResults,current.unique);
@@ -82,6 +82,7 @@ struct CNN{
                     flag2 = true;
                 }
                 j++;
+
             }
             if (!flag2) flag = true; //flag becomes true when every point is classified correctly
         }
@@ -268,6 +269,8 @@ struct IB3{
         //For each x in Training Set
         for (int i = 0; i < initial.units.n_rows; i++){
 
+            Col<int> auxUnits(current.units);
+
             mat data = current.training; //obtaining current dataset from the chromosome
             mat query = current.originalTraining->row(i); //getting current instance
             frecuencyRecord((*(current.originaltrainResults))(i))++; //update the frecuency of the class
@@ -287,7 +290,7 @@ struct IB3{
             ymax = -1;
 
             for (int j = 0; (j < distances.n_rows) && !flag; j++){
-                
+
                 //find real index in original dataset 
                 index = arma::find(abs(distances.col(0)-ordered(j,0))<0.0000000001);
                 int k = 0,count = 0;
@@ -327,14 +330,13 @@ struct IB3{
                 classRecord(ymax,0)++;
             else{
                 classRecord(ymax,1)++;
-                Col<int> nunits(current.units);
+                Col<int> nunits(auxUnits);
                 nunits[i] = 1;
-                current.units = nunits;
-                current.changeTrainingSet();
+                auxUnits = nunits;
             }
 
 
-            //For each neighboor that is at a smaller or equal distnace that the accepted one
+            //For each neighboor that is at a smaller or equal distance that the accepted one
             for (int o = 0; o <orderedIndex; o++){
 
                 //Find it's real index
@@ -357,13 +359,14 @@ struct IB3{
 
                 //If said instance isn't acceptable with 0.7 confidence level, deprecate it.
                 if (!aceptable(acp,frecuencyRecord(aux5),numProcessed,false)){
-                    Col<int> nunits(current.units);
+                    Col<int> nunits(auxUnits);
                     nunits[k] = 0;
-                    current.units = nunits;
-                    current.changeTrainingSet();
+                    auxUnits = nunits;
                 }
-
             }
+
+            current.units = auxUnits;
+            current.changeTrainingSet();
         }
 
         //Return the current chromosome and it's score
