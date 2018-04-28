@@ -1,0 +1,10 @@
+heuristic: 2
+metaheuristic: 0
+#folds: 10
+#k-nearest-neighbor: 1
+stratification?: 0
+percentage-neighborhood: 0.1
+percentage-cost-function: 0.7
+percentage-initial-solutions: 0.3
+genetic-#poblation: 30
+genetic-#iterations: 1000

@@ -16,6 +16,7 @@
 #include "Kfold.hpp"
 #include "Instance.hpp"
 #include "Heuristics.hpp"
+#include "Metaheuristics.hpp"
 #include "utils.h"
 
 using namespace std;
@@ -74,37 +75,132 @@ int main (int argc, char* argv[]) {
             }
         }
     }
+    string dummy;
+    int numHeuristic,numMeta,numFolds,knearest,numPop,iterations,stratAux;
+    double pNeigh,pCost,pIni;
+    bool strat;
+
+    ifstream configFile(argv[3]);
+
+    configFile >> dummy >> numHeuristic;
+    configFile >> dummy >> numMeta;
+    configFile >> dummy >> numFolds;
+    configFile >> dummy >> knearest;
+    configFile >> dummy >> stratAux;
+    configFile >> dummy >> pNeigh;
+    configFile >> dummy >> pCost;
+    configFile >> dummy >> pIni;
+    configFile >> dummy >> numPop;
+    configFile >> dummy >> iterations;
+
+    if (stratAux == 0) strat = false;
+    else if (stratAux == 1) strat = true;
 
     headerFile.close();
     dataFile.close();
     resultsFile.close();
     if (ivdm.compare(argv[2]) == 0) probFile.close();
 
- 
-
- 
 
     IVDM iv(index,minmax,prob);
     Euclidean eu;
+
+    CNN<Euclidean> cnn1(&eu);
+    IB3<Euclidean> ib31(&eu);
+    RSS<Euclidean> rss1(&eu);
+    Genetic<Euclidean> gen1(&eu,iterations,numPop);
+
+    CNN<IVDM> cnn2(&iv);
+    IB3<IVDM> ib32(&iv);
+    RSS<IVDM> rss2(&iv);
+    Genetic<IVDM> gen2(&iv,iterations,numPop);
+
+    vector<double> resultados;
+    ofstream outfile;
+
+    if (euclidean.compare(argv[2]) == 0){
+
+        if ((numHeuristic == 0) && (numMeta == 0)){ 
+            resultados = kfold(cnn1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true);
+            outfile.open("./results/cnn_genetic.txt",ios_base::app);
+        }
+
+        else if ((numHeuristic == 1) && (numMeta == 0)){
+           resultados = kfold(rss1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false);
+           outfile.open("./results/rss_genetic.txt",ios_base::app);
+        }
+
+        else if ((numHeuristic == 2) && (numMeta == 0)){
+            resultados = kfold(ib31,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true);
+            outfile.open("./results/ib3_genetic.txt",ios_base::app);
+        }
+    }
+
+    else if (ivdm.compare(argv[2]) == 0){
+        
+        if ((numHeuristic == 0) && (numMeta == 0)){ 
+            resultados = kfold(cnn2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true);
+            outfile.open("./results/cnn_genetic.txt",ios_base::app);
+        }
+
+        else if ((numHeuristic == 1) && (numMeta == 0)){
+           resultados = kfold(rss2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false);
+           outfile.open("./results/rss_genetic.txt",ios_base::app);
+        } 
+
+        else if ((numHeuristic == 2) && (numMeta == 0)){
+            resultados = kfold(ib32,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true);
+            outfile.open("./results/ib3_genetic.txt",ios_base::app);
+        }
+    }
     
+    outfile << argv[1] << "," << resultados[0] << "," << resultados[1] << "," 
+            << resultados[2] << "," << resultados[3] << "," << numFolds << ","  << strat<< endl;
+
+
+    /*
+
     mat example1 = {{5.1, 3.5, 1.4, 0.2},{6.0, 2.7, 5.1, 1.6},{6.5, 3.0, 5.2, 2.0}};
     Col<int> resultsEx1 ={0,1,2};
     //mat example1 = {{1.14,-0.114}};
     //Col<int> resultsEx1 = {0};
 
-    double start_time = Utils::read_time_in_minutes();
+    
 
-    //Col<int> units(data.n_rows,fill::zeros);
-    //units(0) = 1;
-    //Col<int> units2(data.n_rows,fill::ones);
-    //Instance iss(units,1,0.1,&data,&example1,&results,&resultsEx1,3);
-    CNN<Euclidean> cnn(&eu);
-    ENN<Euclidean> enn(&eu);
-    IB3<Euclidean> ib(&eu);
-    RSS<Euclidean> rss(&eu);
+    Col<int> units(data.n_rows,fill::zeros);
+    units(0) = 1;
+    Col<int> units2(data.n_rows,fill::ones);
+    Col<int> units3 = initialInstance(0.3,data.n_rows);
+    Instance iss(units3,1,0.1,&data,&example1,&results,&resultsEx1,3);
 
-    vector<double> rrees = kfold(ib,data,results,25,1,0.1,0.5,0.3,true,true);
+    Knn knn(iss.training,iss.trainResults,iss.unique);
+    double costResult = knn.score(*(iss.originalTraining),knearest,eu,*(iss.originaltrainResults));
+    double kappaR1 = knn.kappa(*(iss.originalTraining),knearest,eu,*(iss.originaltrainResults));
 
+    auto start = chrono::high_resolution_clock::now();
+
+    pair<double,Instance> resultados4 = gen1.find(iss,1);
+
+    auto stop = chrono::high_resolution_clock::now();
+
+    using fpSeconds = chrono::duration<float,chrono::seconds::period>;
+
+    auto duration = fpSeconds(stop - start);
+
+    Knn knn2(resultados4.second.training,resultados4.second.trainResults,resultados4.second.unique);
+    double kappaR2 = knn2.kappa(*(resultados4.second.originalTraining),knearest,eu,*(resultados4.second.originaltrainResults));
+
+    cout << "el score original es: " << costResult << endl;
+    cout << "el kappa original es: " << kappaR1 << endl;
+    cout << "el tamaño original es: " << iss.training.n_rows << endl;
+    cout << "el score de la instancia es : " << resultados4.first << endl;
+    cout << "el kappa de la instancia es: " << kappaR2 << endl;
+    cout << "el tamaño de la reduccion es : " << resultados4.second.training.n_rows << endl;
+    cout << "el tiempo de ejecucion es: " << duration.count() << endl;
+ 
+
+    //vector<double> rrees = kfold(ib,data,results,25,1,0.1,0.5,0.3,true,true);
+    /*
     ofstream outfile;
     outfile.open("./results/resultados.txt",ios_base::app);
     outfile << argv[1] << "," << rrees[0] << "," << rrees[1] << "," <<  60*rrees[2] << endl;

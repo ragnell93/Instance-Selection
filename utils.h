@@ -28,11 +28,11 @@
 
 namespace Utils {
 
-inline double read_time_in_minutes() {
+inline double read_time_in_seconds() {
     struct rusage r_usage;
     getrusage(RUSAGE_SELF, &r_usage);
     return ((double)r_usage.ru_utime.tv_sec +
-           (double)r_usage.ru_utime.tv_usec / (double)1000000) / (double)60;
+           (double)r_usage.ru_utime.tv_usec / (double)1000000);
 }
 
 template<typename T> inline T abs(const T a) {

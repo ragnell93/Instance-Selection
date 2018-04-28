@@ -7,6 +7,7 @@
 #include "Metrics.hpp"
 #include "Knn.hpp"
 #include "Heuristics.hpp"
+#include "Metaheuristics.hpp"
 #include "Instance.hpp"
 #include "utils.h"
 
@@ -20,8 +21,8 @@ using namespace arma;
   k scores using the kth partition as query set it calculates the mean accuracy
  */
 
-template <typename Heuristic>
-vector<double> kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int knearest,double pNeigh,double pCost,double pIni,bool st,bool units){
+template <typename Heuristic, typename Meta>
+vector<double> kfold(Heuristic &heu,Meta &metaheu,mat &data,Col<int> &results,int k,int knearest,double pNeigh,double pCost,double pIni,bool st,bool units){
 
     Col<int> un = unique(results); //number of classes
     vector <int> indexes(data.n_rows); //indexes of the instances
@@ -90,6 +91,7 @@ vector<double> kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int kneare
     }
 
     vec scores(k);
+    vec kappas(k);
     vec reductionScore(k);
     vec tiempo(k);
 
@@ -114,9 +116,15 @@ vector<double> kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int kneare
             Col<int> auxCol = res.col(j);
 
             Instance auxI(auxU,pNeigh,pCost,&auxMat,&auxMat,&auxCol,&auxCol,un.n_rows);
-            double start_time = Utils::read_time_in_minutes();
-            pair<double,Instance> pairAux = heu.find(auxI,knearest);
-            tiempo(j) = (double) (Utils::read_time_in_minutes() - start_time);
+            auto start = chrono::high_resolution_clock::now();
+
+            pair<double,Instance> pairAux2 = heu.find(auxI,knearest);
+            pair<double,Instance> pairAux = metaheu.find(pairAux2.second,knearest);
+
+            auto stop = chrono::high_resolution_clock::now();
+            using fpSeconds = chrono::duration<float,chrono::seconds::period>;
+            tiempo(j) = (double)(fpSeconds(stop - start).count());
+
             reduction[j] = pairAux.second;
 
             cout << "el indice j es: " << j << endl;
@@ -132,14 +140,16 @@ vector<double> kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int kneare
             auxU = auxU2;
         }
 
-        //lastFold.row(2346).print();
-
-        //cout << endl << "el resultado es: " << lastRes(2346) << endl;
-
         Instance auxI(auxU,pNeigh,pCost,&lastFold,&lastFold,&lastRes,&lastRes,un.n_rows);
-        double start_time = Utils::read_time_in_minutes();
-        pair<double,Instance> pairAux = heu.find(auxI,knearest);
-        tiempo(k-1) = (double)(Utils::read_time_in_minutes() - start_time);
+        auto start = chrono::high_resolution_clock::now();
+
+        pair<double,Instance> pairAux2 = heu.find(auxI,knearest);
+        pair<double,Instance> pairAux = metaheu.find(pairAux2.second,knearest);
+        
+        auto stop = chrono::high_resolution_clock::now();
+        using fpSeconds = chrono::duration<float,chrono::seconds::period>;
+        tiempo(k-1) = (double)(fpSeconds(stop - start).count());
+
         reduction[k-1] = pairAux.second;
 
         for (int l=0; l<k; l++){
@@ -165,8 +175,9 @@ vector<double> kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int kneare
             }
             
             Knn knn(trainSet,trainRes,un.n_rows);
-            scores(l) = 100*knn.score(auxMat,knearest,*(heu.metric),auxCol);
-            reductionScore(l) = 100* ((double)data.n_rows - (double)trainSet.n_rows) / (double)data.n_rows;
+            scores(l) = knn.score(auxMat,knearest,*(heu.metric),auxCol);
+            kappas(l) = knn.kappa(auxMat,knearest,*(heu.metric),auxCol);
+            reductionScore(l) = ((double)data.n_rows - (double)trainSet.n_rows) / (double)data.n_rows;
 
             cout << "index l is : " << l << endl;
 
@@ -210,13 +221,19 @@ vector<double> kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int kneare
             }
 
             Instance initial(auxU,pNeigh,pCost,&trainSet,&testSet,&trainRes,&testRes,un.n_rows);
-            double start_time = Utils::read_time_in_minutes();
-            pair <double,Instance> obtained = heu.find(initial,knearest);
-            tiempo(j) =(double)(Utils::read_time_in_minutes() - start_time);
+            auto start = chrono::high_resolution_clock::now();
+
+            pair <double,Instance> pairAux2 = heu.find(initial,knearest);
+            pair<double,Instance> obtained = metaheu.find(pairAux2.second,knearest);
+
+            auto stop = chrono::high_resolution_clock::now();
+            using fpSeconds = chrono::duration<float,chrono::seconds::period>;
+            tiempo(j) = (double)(fpSeconds(stop - start).count());
 
             Knn knn(obtained.second.training,obtained.second.trainResults,un.n_rows);
-            scores(j) = 100*knn.score(testSet,knearest,*(heu.metric),testRes);
-            reductionScore(j) = 100*((double)data.n_rows - (double)obtained.second.training.n_rows) / (double)data.n_rows;
+            scores(j) = knn.score(testSet,knearest,*(heu.metric),testRes);
+            kappas(j) = knn.kappa(testSet,knearest,*(heu.metric),testRes);
+            reductionScore(j) = ((double)data.n_rows - (double)obtained.second.training.n_rows) / (double)data.n_rows;
             
             notin++;
         } 
@@ -245,19 +262,26 @@ vector<double> kfold(Heuristic &heu,mat &data,Col<int> &results,int k,int kneare
 
 
         Instance initial(auxU,pNeigh,pCost,&trainSet,&lastFold,&trainRes,&lastRes,un.n_rows);
-        double start_time = Utils::read_time_in_minutes();
-        pair <double,Instance> obtained = heu.find(initial,knearest);
-        tiempo(k-1) = (double)(Utils::read_time_in_minutes() - start_time);
+        auto start = chrono::high_resolution_clock::now();
+
+        pair <double,Instance> pairAux2 = heu.find(initial,knearest);
+        pair<double,Instance> obtained = metaheu.find(pairAux2.second,knearest);
+
+        auto stop = chrono::high_resolution_clock::now();
+        using fpSeconds = chrono::duration<float,chrono::seconds::period>;
+        tiempo(k-1) = (double)(fpSeconds(stop - start).count());
 
         Knn knn(obtained.second.training,obtained.second.trainResults,un.n_rows);
-        scores(k-1) = 100*knn.score(lastFold,knearest,*(heu.metric),lastRes);
-        reductionScore(k-1) = 100*((double)data.n_rows - (double)obtained.second.training.n_rows) / (double)data.n_rows;
+        scores(k-1) = knn.score(lastFold,knearest,*(heu.metric),lastRes);
+        kappas(k-1) = knn.kappa(lastFold,knearest,*(heu.metric),lastRes);
+        reductionScore(k-1) = ((double)data.n_rows - (double)obtained.second.training.n_rows) / (double)data.n_rows;
     }
 
-    vector<double> mean_results(3);
+    vector<double> mean_results(4);
     mean_results[0] = sum(scores)/(double)scores.n_rows;
-    mean_results[1] = sum(reductionScore)/(double)reductionScore.n_rows;
-    mean_results[2] = sum(tiempo)/(double)tiempo.n_rows;
+    mean_results[1] = sum(kappas)/(double)kappas.n_rows;
+    mean_results[2] = sum(reductionScore)/(double)reductionScore.n_rows;
+    mean_results[3] = sum(tiempo)/(double)tiempo.n_rows;
 
     return mean_results;  
 }
