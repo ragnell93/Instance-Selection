@@ -9,6 +9,7 @@
 #include <fstream>
 #include <chrono>
 #include <random>
+#include <thread>
 #include <armadillo>
 #include <utility>
 #include "Metrics.hpp"
