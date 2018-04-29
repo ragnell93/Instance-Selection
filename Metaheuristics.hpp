@@ -63,16 +63,18 @@ struct Genetic{
         mt19937 eng(rd()); // seed
         uniform_real_distribution<> disReal(0,1);
         uniform_int_distribution<> disInt(0,numPopulation-1);
+        uniform_int_distribution<> disInt2(0,initial.units.n_rows-1);
 
         vector<Instance> population(numPopulation);
         vector<Instance> newPopulation(numPopulation);
         Instance bestInstance = initial;
         double bestCost  = initial.cost(*metric,knearest);
         int bestIndex = 0;
-        int numRandom = round(numPopulation*0.1); //number of chromosomes that will be random
+        int numRandom = floor(numPopulation*0.1); //number of chromosomes that will be random
         population[0] = initial; //mantain the initial instance
 
         for (int i = 1; i < (numPopulation - numRandom);i++){
+
             Col<int> c = initialInstance(0.5,initial.units.n_rows);
             Col<int> aux(c.n_rows,fill::zeros);
             for (int j = 0; j < c.n_rows;j++){
@@ -92,6 +94,14 @@ struct Genetic{
             population[numPopulation-i-1].changeTrainingSet();
         }
 
+        for (int f = 0; f < numPopulation; f++){
+            if (population[f].training.n_rows == 0){
+                int onBit = disInt2(eng);
+                population[f].units(onBit) = 1;
+                population[f].changeTrainingSet();
+            }
+        }
+    
         for (int i = 1; i < numPopulation; i++){
             double costAux = population[i].cost(*metric,knearest);
             if (costAux > bestCost){
@@ -120,6 +130,14 @@ struct Genetic{
                 if (disReal(eng) < 0.1) newPopulation[z] = mutate(newPopulation[z]);
             }
 
+            for (int f = 0; f < numPopulation; f++){
+                if (newPopulation[f].training.n_rows == 0){
+                    int onBit = disInt2(eng);
+                    newPopulation[f].units(onBit) = 1;
+                    newPopulation[f].changeTrainingSet();
+                }
+            }
+
             for (int z=0; z < numPopulation; z++){
                 if (z != bestIndex) population[z] = newPopulation[z];
                 else{
@@ -141,8 +159,6 @@ struct Genetic{
                     bestIndex = z;
                 }
             }
-
-            //cout << "iteration " << i << endl;
         }
 
         Knn knn(bestInstance.training,bestInstance.trainResults,bestInstance.unique);

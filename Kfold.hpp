@@ -166,8 +166,6 @@ vector<double> kfold(Heuristic &heu,Meta &metaheu,mat &data,Col<int> &results,in
             Instance auxI(auxU,pNeigh,pCost,&(auxMat[j]),&(auxMat[j]),&(auxCol[j]),&(auxCol[j]),un.n_rows);
 
             threads1[j] = thread(searchInstanceStrat<Heuristic,Meta>,heu,metaheu,auxI,knearest,ref(tiempo),ref(reduction),j);
-
-            //cout << "el indice j es: " << j << endl;
         }
 
         if (units){
@@ -209,8 +207,6 @@ vector<double> kfold(Heuristic &heu,Meta &metaheu,mat &data,Col<int> &results,in
             }
 
             threads2[l] = thread(calcMetrics<Heuristic>,heu,trainSet,trainRes,auxMat,auxCol,knearest,data.n_rows,un.n_rows, ref(scores),ref(kappas),ref(reductionScore),l);
-
-            //cout << "index l is : " << l << endl;
         }
 
         for (int t = 0; t < k; t++) threads2[t].join();
@@ -225,6 +221,7 @@ vector<double> kfold(Heuristic &heu,Meta &metaheu,mat &data,Col<int> &results,in
         vector<Col<int>> trainRes2(k-1);
         vector<mat> testSet2(k-1);
         vector<Col<int>> testRes2(k-1);
+        
         //for each fold constructs a training set without the kth fold 
         for (int j=0;j<k-1;j++){
 

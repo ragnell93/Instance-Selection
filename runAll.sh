@@ -1,5 +1,5 @@
-declare -a small=("iris" "cleveland" "led7digit" "pima" "wdbc" "monk" "wisconsin" "wine" "glass" "banknote")
-declare -a medium=("banana" "cardiotocography" "eye_state" "page_blocks" "penbased" "satimage" "thyroid" "segment")
+declare -a small=("iris" "cleveland" "led7digit" "pima" "wdbc" "monk" "wisconsin" "wine" "glass")
+declare -a medium=("banknote" "banana" "cardiotocography" "eye_state" "page_blocks" "penbased" "satimage" "thyroid" "segment")
 declare -a large=("credit_card" "shuttle")
 
 declare -a smallConfig=("small_cnn_genetic" "small_rss_genetic" "small_ib3_genetic")
