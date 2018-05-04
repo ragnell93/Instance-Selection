@@ -5,6 +5,7 @@
 #include <utility>
 #include <random>
 #include <chrono>
+#include <algorithm>
 #include <vector>
 #include "Knn.hpp"
 #include "Metrics.hpp"
@@ -57,6 +58,7 @@ struct Instance{
     mat training;
     Col<int> trainResults;
     int unique,totalInstances;
+    Col<int> indexesT;
 
     Instance(){}
 
@@ -69,11 +71,13 @@ struct Instance{
             for (int i=0;i<u.n_rows;i++){ if (u(i)==1) count++; }
             training.set_size(count,tr->n_cols);
             trainResults.set_size(count);
+            indexesT.set_size(count);
 
             for (int i=0;i<u.n_rows;i++){
                 if (u(i)==1){
                     training.row(index) = tr->row(i);
                     trainResults(index) = (*trr)(i);
+                    indexesT(index) = i;
                     index++;
                 }
             }
@@ -85,11 +89,13 @@ struct Instance{
             for (int i=0;i<units.n_rows;i++){ if (units(i)==1) count++; }
             training.set_size(count,originalTraining->n_cols);
             trainResults.set_size(count);
+            indexesT.set_size(count);
 
             for (int i=0;i<units.n_rows;i++){
                 if (units(i)==1){
                     training.row(index) = originalTraining->row(i);
                     trainResults(index) = (*originaltrainResults)(i);
+                    indexesT(index) = i;
                     index++;
                 }
             }
@@ -103,6 +109,41 @@ struct Instance{
         double reduction = 100 * (totalInstances - training.n_rows) / totalInstances;
 
         return percenCost * accuracy + (1-percenCost)*reduction; 
+    }
+
+    double cost2(int knearest, vector<vector<size_t>> &ind, Knn &knn){
+
+        Mat<int> comparison(test->n_rows,unique,fill::zeros);
+
+        bool flag;
+        int l;
+        for (int i = 0; i < ind.size(); i++){
+            l = 0;
+            for (int j = 0; j < knearest; j++){
+                flag = false;
+                while (l < ind[i].size() && !flag){
+                    if (binary_search(indexesT.begin(),indexesT.end(),ind[i][l])){
+                        int indexAux = (*(originaltrainResults))(ind[i][l]);
+                        comparison(i,indexAux)++;
+                        flag = true;
+                    }
+                    l++;
+                }
+            }
+        }
+
+        Col<int> resultClass(test->n_rows);
+        for (int i = 0; i < test->n_rows; i++) resultClass(i) = comparison.row(i).index_max();
+
+        Mat<int> conf(knn.confMatrix(resultClass,*(testResults)));
+        double sc = 0;
+        for (int i=0; i < unique; i++) sc+=conf(i,i);
+        sc = sc/test->n_rows;
+        
+        double reduction = 100 * (totalInstances - training.n_rows) / totalInstances;
+
+        return percenCost * sc + (1-percenCost)*reduction;
+
     }
     
     template<typename MetricType>

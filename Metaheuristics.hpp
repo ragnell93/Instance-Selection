@@ -73,6 +73,9 @@ struct Genetic{
         int numRandom = floor(numPopulation*0.1); //number of chromosomes that will be random
         population[0] = initial; //mantain the initial instance
 
+        Knn knn2(*(initial.originalTraining),*(initial.originaltrainResults),initial.unique);
+        vector<vector<size_t>> ordIndex = knn2.search2(*(initial.originalTraining),knearest,*metric);
+
         for (int i = 1; i < (numPopulation - numRandom);i++){
 
             Col<int> c = initialInstance(0.5,initial.units.n_rows);
@@ -88,7 +91,7 @@ struct Genetic{
 
         //Filling with random samples 
         for (int i = 0; i < numRandom; i++){
-            Col<int> c = initialInstance(0.3,initial.units.n_rows);
+            Col<int> c = initialInstance(0.1,initial.units.n_rows);
             population[numPopulation-i-1] = initial;
             population[numPopulation-i-1].units = c;
             population[numPopulation-i-1].changeTrainingSet();
@@ -103,7 +106,7 @@ struct Genetic{
         }
     
         for (int i = 1; i < numPopulation; i++){
-            double costAux = population[i].cost(*metric,knearest);
+            double costAux = population[i].cost2(knearest,ordIndex,knn2);
             if (costAux > bestCost){
                 bestInstance = population[i];
                 bestCost = costAux;
@@ -141,7 +144,7 @@ struct Genetic{
             for (int z=0; z < numPopulation; z++){
                 if (z != bestIndex) population[z] = newPopulation[z];
                 else{
-                    double costoAux = newPopulation[z].cost(*metric,knearest);
+                    double costoAux = newPopulation[z].cost2(knearest,ordIndex,knn2);
                     if (costoAux > bestCost){
                         bestInstance = newPopulation[z];
                         bestCost = costoAux;
@@ -152,7 +155,7 @@ struct Genetic{
             }
 
             for (int z = 0; z < numPopulation; z++){
-                double costAux = population[z].cost(*metric,knearest);
+                double costAux = population[z].cost2(knearest,ordIndex,knn2);
                 if (costAux > bestCost){
                     bestInstance = population[z];
                     bestCost = costAux;

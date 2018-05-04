@@ -3,6 +3,7 @@
 #include <cmath>
 #include <armadillo>
 #include "Metrics.hpp"
+#include "utils.h"
 
 using namespace std;
 using namespace arma;
@@ -34,6 +35,25 @@ struct Knn{
     Col<int> results;
     int uniqueClasses;
     Knn (mat d, Col<int> r, int u):data(d), results(r), uniqueClasses(u){}
+
+    template<typename MetricType>
+    vector<vector<size_t>> search2(mat &query,int k, MetricType &met){
+        
+        vector<vector<double>> distances(query.n_rows,vector<double>(data.n_rows));
+        rowvec aux1,aux2;
+        for (int i = 0; i < query.n_rows; i++){
+            aux2 = query.row(i);
+            for (int j = 0; j < data.n_rows; j++){ 
+                aux1 = data.row(j);
+                distances[i][j] = met.Evaluate(aux1,aux2);
+            }
+        }
+
+        vector<vector<size_t>> ordered(query.n_rows,vector<size_t>(data.n_rows));
+        for (int i = 0; i < query.n_rows; i++) ordered[i] = Utils::sort_indexes(distances[i]);
+
+        return ordered;
+    }
 
     template<typename MetricType>
     Col<int> search(mat &query,int k, MetricType &met){

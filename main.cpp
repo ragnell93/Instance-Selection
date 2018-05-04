@@ -119,6 +119,8 @@ int main (int argc, char* argv[]) {
     vector<double> resultados;
     ofstream outfile;
 
+    /*
+
     if (euclidean.compare(argv[2]) == 0){
 
         if ((numHeuristic == 0) && (numMeta == 0)){ 
@@ -158,10 +160,10 @@ int main (int argc, char* argv[]) {
     outfile << argv[1] << "," << resultados[0] << "," << resultados[1] << "," 
             << resultados[2] << "," << resultados[3] << "," << numFolds << ","  << strat<< endl;
 
+    */
 
-    /*
 
-    mat example1 = {{5.1, 3.5, 1.4, 0.2},{6.0, 2.7, 5.1, 1.6},{6.5, 3.0, 5.2, 2.0}};
+    mat example1 ={{-0.8639, 1.2744, -1.2440, -1.2085},{1.2771, 0.4351, 0.4586, 0.1653},{0.4883, 0.7149, 1.1294, 1.4248}};
     Col<int> resultsEx1 ={0,1,2};
     //mat example1 = {{1.14,-0.114}};
     //Col<int> resultsEx1 = {0};
@@ -171,8 +173,49 @@ int main (int argc, char* argv[]) {
     Col<int> units(data.n_rows,fill::zeros);
     units(0) = 1;
     Col<int> units2(data.n_rows,fill::ones);
-    Col<int> units3 = initialInstance(0.3,data.n_rows);
-    Instance iss(units3,1,0.1,&data,&example1,&results,&resultsEx1,3);
+    Col<int> units3 = initialInstance(0.5,data.n_rows);
+    Instance iss(units3,1,0.1,&data,&data,&results,&results,3);
+
+    Knn knn(data,results,3);
+    vector<vector<size_t>> respuestas = knn.search2(data,1,eu);
+
+    auto start = chrono::high_resolution_clock::now();
+
+    pair<double,Instance> ajajaja = gen1.find(iss,1);
+
+    auto stop = chrono::high_resolution_clock::now();
+
+    using fpSeconds = chrono::duration<float,chrono::seconds::period>;
+
+    auto duration = fpSeconds(stop - start);
+
+    Knn knn2(iss.training,iss.trainResults,iss.unique);
+    double costResult = knn2.score(*(iss.originalTraining),knearest,eu,*(iss.originaltrainResults));
+
+    cout << "el tamaño original es: " << iss.training.n_rows << endl;
+    cout << "el score original es : " <<  costResult << endl;
+    cout << "el tamaño reducido es: " << ajajaja.second.training.n_rows << endl;
+    cout << "el score reducido es: " << ajajaja.first << endl;
+    cout << "el tiempo de ejecucion es: " << duration.count() << endl;
+
+
+    /*double aajj = iss.cost2(1,respuestas,knn);
+
+    cout << "el training set es: "<< endl;
+
+    iss.indexesT.print();
+    cout << endl;
+
+    cout << "el score es " << aajj << endl;
+
+    /*
+    for (int i = 0; i < respuestas.size(); i++){
+        for (int j= 0; j < respuestas[i].size();j++){
+            cout << respuestas[i][j] << " ";
+        }
+        cout << endl;
+    }
+    /*
 
     Knn knn(iss.training,iss.trainResults,iss.unique);
     double costResult = knn.score(*(iss.originalTraining),knearest,eu,*(iss.originaltrainResults));
