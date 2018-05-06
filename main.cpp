@@ -170,8 +170,8 @@ int main (int argc, char* argv[]) {
 
     
 
-    Col<int> units(data.n_rows,fill::zeros);
-    units(0) = 1;
+    Col<int> units1(data.n_rows,fill::zeros);
+    units1(0) = 1;
     Col<int> units2(data.n_rows,fill::ones);
     Col<int> units3 = initialInstance(0.5,data.n_rows);
     Instance iss(units3,1,0.1,&data,&data,&results,&results,3);
@@ -179,9 +179,13 @@ int main (int argc, char* argv[]) {
     Knn knn(data,results,3);
     vector<vector<size_t>> respuestas = knn.search2(data,1,eu);
 
+    ENN<Euclidean> enn(&eu);
+    Memetic<Euclidean> mem(&eu,1000,30);
+    CHC<Euclidean> chc(&eu,30000,50);
+
     auto start = chrono::high_resolution_clock::now();
 
-    pair<double,Instance> ajajaja = gen1.find(iss,1);
+    pair<double,Instance> ajajaja = chc.find(iss,1);
 
     auto stop = chrono::high_resolution_clock::now();
 
@@ -197,6 +201,23 @@ int main (int argc, char* argv[]) {
     cout << "el tamaño reducido es: " << ajajaja.second.training.n_rows << endl;
     cout << "el score reducido es: " << ajajaja.first << endl;
     cout << "el tiempo de ejecucion es: " << duration.count() << endl;
+
+    mat printing(ajajaja.second.training.n_rows,ajajaja.second.training.n_cols+1);
+
+    for (int i=0; i <ajajaja.second.training.n_cols;i++){
+        printing.col(i) = ajajaja.second.training.col(i);
+    }
+
+    vec v(ajajaja.second.trainResults.n_rows);
+    for (int i = 0; i< ajajaja.second.trainResults.n_rows; i++){
+        v(i) = (double)ajajaja.second.trainResults(i);
+    }
+
+    printing.col(ajajaja.second.training.n_cols) = v;
+
+    ofstream aux1("bananaSet.txt");
+    printing.print(aux1);
+
 
 
     /*double aajj = iss.cost2(1,respuestas,knn);

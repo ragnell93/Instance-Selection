@@ -86,6 +86,30 @@ struct Knn{
 
     }
 
+    int predict(rowvec &test,int knearest,vector<vector<size_t>> &ind,int index,Col<int> &results,Col<int> &indexesT){
+
+        Col<int> comparison(uniqueClasses,fill::zeros);
+        bool flag;
+        int l;
+        
+        l = 0;
+        for (int j = 0; j < knearest; j++){
+            flag = false;
+            while (l < ind[index].size() && !flag){
+                if (binary_search(indexesT.begin(),indexesT.end(),ind[index][l])){
+                    int indexAux = results(ind[index][l]);
+                    comparison(indexAux)++;
+                    flag = true;
+                }
+                l++;
+            }
+        }
+        
+        uword resultClass = comparison.index_max();
+        
+        return (int)resultClass;
+    }
+
     Mat<int> confMatrix(Col<int> &predicted,Col<int> &actual){
 
         Mat<int> matrix(uniqueClasses,uniqueClasses,fill::zeros);

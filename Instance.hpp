@@ -108,13 +108,13 @@ struct Instance{
         double accuracy = 100 * knn.score(*test,knearest,met,*testResults);
         double reduction = 100 * (totalInstances - training.n_rows) / totalInstances;
 
-        return percenCost * accuracy + (1-percenCost)*reduction; 
+        return percenCost * (100 - accuracy) + (1-percenCost)*(100 - reduction); 
+
     }
 
-    double cost2(int knearest, vector<vector<size_t>> &ind, Knn &knn){
+    Col<int> predict2(int knearest, vector<vector<size_t>> &ind){
 
         Mat<int> comparison(test->n_rows,unique,fill::zeros);
-
         bool flag;
         int l;
         for (int i = 0; i < ind.size(); i++){
@@ -135,14 +135,20 @@ struct Instance{
         Col<int> resultClass(test->n_rows);
         for (int i = 0; i < test->n_rows; i++) resultClass(i) = comparison.row(i).index_max();
 
+        return resultClass;
+    }
+
+    double cost2(int knearest, vector<vector<size_t>> &ind, Knn &knn){
+
+        Col<int> resultClass = predict2(knearest,ind);
         Mat<int> conf(knn.confMatrix(resultClass,*(testResults)));
         double sc = 0;
         for (int i=0; i < unique; i++) sc+=conf(i,i);
-        sc = sc/test->n_rows;
+        sc = 100* (sc/test->n_rows);
         
         double reduction = 100 * (totalInstances - training.n_rows) / totalInstances;
 
-        return percenCost * sc + (1-percenCost)*reduction;
+        return percenCost * (100 - sc) + (1-percenCost)* (100 - reduction);
 
     }
     
@@ -168,7 +174,7 @@ struct Instance{
             Instance neighbor(nunits,percenVecinity,percenCost,originalTraining,test,originaltrainResults,testResults,unique);
             neighborCost = neighbor.cost(met,knearest);
 
-            if (neighborCost > bestCost){
+            if (neighborCost < bestCost){
                 bestNeighbor = neighbor;
                 bestCost = neighborCost;
                 flag = true;
