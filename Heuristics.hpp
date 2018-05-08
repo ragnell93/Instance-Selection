@@ -100,6 +100,8 @@ struct CNN{
 template<typename MetricType>
 struct RSS{
 
+    /*Orders instances by nearest enemy and adds to the subset the instance that doesn't have a instance nearer than its enemy*/
+
     MetricType* metric;
     RSS(MetricType* met):metric(met){}
 
@@ -172,6 +174,8 @@ struct RSS{
 template<typename MetricType>
 struct ENN{
 
+    /*Removes instances that aren't the same class as their nearest neighbor*/
+
     MetricType* metric;
     ENN(MetricType* met):metric(met){}
 
@@ -210,7 +214,9 @@ template<typename MetricType>
 struct IB3{
 
     MetricType* metric;
-    IB3(MetricType* met):metric(met){}
+    double acept;
+    double drop;
+    IB3(MetricType* met,double a, double d):metric(met),acept(a),drop(d){}
 
     bool aceptable(Row<int> acp, int frecuency,int numProcessed,bool mode){
 
@@ -219,8 +225,8 @@ struct IB3{
         
         //Accuracy intervals
         double z;
-        if (mode) z = 0.9;
-        else z = 0.7;
+        if (mode) z = acept;
+        else z = drop;
         int n = acp(0)+acp(1);
         if (n==0) n++;
         double p = acp(0)/n;
@@ -243,7 +249,7 @@ struct IB3{
         }
         else if (!mode){
             resp = true;
-            if (upperAcc <= lowerFrec) resp = false;
+            if (upperAcc < lowerFrec) resp = false;
         }
 
         return resp;

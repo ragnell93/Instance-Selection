@@ -19,8 +19,13 @@ struct Knn{
 
         uniqueClasses: number of unique classes in the results
 
+        search2(query.k,met): gives matrix of ordered NN of each instance in the query
+
         search(query,k,met): find the k nearest instances for each and everyone of the queries using the 
                              given metric met.
+
+        predict(test,knearest,ind,index,results,indexesT) : predict the class if the instance "index" with the matrix
+            of distances and the array of given units in indexesT
 
         confMatrix(predicted,actual): given the predicted classes of a query, compares them to the actual classes and
                                      returns the confusion matrix

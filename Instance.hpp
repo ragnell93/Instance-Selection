@@ -39,12 +39,17 @@ struct Instance{
     trainResults = Classes of the reduced dataset
     unique = number of classes
     totalInstances = number of instances in the original dataset
+    indexesT = indexes in the original training set of the reduced instances
 
     changeTrainingSet() = computes again the reduced set for this cromosome
 
     cost(MetricType &met,int knearest) = the cost of the instance in base to the accuracy and reduction
 
-    searchNeighborhood(MetricType &met, int knearest, chrono::steady_clock::time_point &tend) =
+    predict2(knearest,ind): given the matrix of distances find the class from the NN
+
+    cost2(knearest,ind,knn): calculates the cost of the given instance
+
+    searchNeighborhood(met,knearest,tend) =
         search for the best contiguous Instance using the cost function in the perecentage defined
 
     */

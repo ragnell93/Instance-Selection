@@ -77,92 +77,567 @@ int main (int argc, char* argv[]) {
         }
     }
     string dummy;
-    int numHeuristic,numMeta,numFolds,knearest,numPop,iterations,stratAux;
-    double pNeigh,pCost,pIni;
+    int numHeuristic,numHeuristic2, numMeta,numFolds,knearest,numPop,iterations,stratAux,numPop2,numPop3,iterations2,iterations3;
+    double pNeigh,pCost,pIni,crossP,mutationP,crossP2,mutationP2,acept,drop;
     bool strat;
 
     ifstream configFile(argv[3]);
 
-    configFile >> dummy >> numHeuristic;
-    configFile >> dummy >> numMeta;
     configFile >> dummy >> numFolds;
     configFile >> dummy >> knearest;
     configFile >> dummy >> stratAux;
     configFile >> dummy >> pNeigh;
     configFile >> dummy >> pCost;
     configFile >> dummy >> pIni;
+    configFile >> dummy >> acept;
+    configFile >> dummy >> drop;
     configFile >> dummy >> numPop;
     configFile >> dummy >> iterations;
+    configFile >> dummy >> crossP;
+    configFile >> dummy >> mutationP;
+    configFile >> dummy >> numPop2;
+    configFile >> dummy >> iterations2;
+    configFile >> dummy >> crossP2;
+    configFile >> dummy >> mutationP2;
+    configFile >> dummy >> numPop3;
+    configFile >> dummy >> iterations3;
 
     if (stratAux == 0) strat = false;
     else if (stratAux == 1) strat = true;
 
+    string cnn("cnn"),rss("rss"),ib3("ib3"),enn("enn"),genetic("genetic"),memetic("memetic"),chc("chc");
+
+    if (cnn.compare(argv[4]) == 0) numHeuristic = 0;
+    if (rss.compare(argv[4]) == 0) numHeuristic = 1;
+    if (ib3.compare(argv[4]) == 0) numHeuristic = 2;
+    if (enn.compare(argv[4]) == 0) numHeuristic = 3;
+
+    if (cnn.compare(argv[5]) == 0) numHeuristic2 = 0;
+    if (rss.compare(argv[5]) == 0) numHeuristic2 = 1;
+    if (ib3.compare(argv[5]) == 0) numHeuristic2 = 2;
+    if (enn.compare(argv[5]) == 0) numHeuristic2 = 3;
+
+    if (genetic.compare(argv[6]) == 0) numMeta = 0;
+    if (memetic.compare(argv[6]) == 0) numMeta = 1;
+    if (chc.compare(argv[6]) == 0) numMeta = 2;
+    
     headerFile.close();
     dataFile.close();
     resultsFile.close();
     if (ivdm.compare(argv[2]) == 0) probFile.close();
-
+    configFile.close();
 
     IVDM iv(index,minmax,prob);
     Euclidean eu;
 
     CNN<Euclidean> cnn1(&eu);
-    IB3<Euclidean> ib31(&eu);
+    IB3<Euclidean> ib31(&eu,acept,drop);
     RSS<Euclidean> rss1(&eu);
-    Genetic<Euclidean> gen1(&eu,iterations,numPop);
+    ENN<Euclidean> enn1(&eu);
+    Genetic<Euclidean> gen1(&eu,iterations,numPop,crossP,mutationP);
+    Memetic<Euclidean> mem1(&eu,iterations2,numPop2,crossP2,mutationP2);
+    CHC<Euclidean> chc1(&eu,iterations3,numPop3);
 
     CNN<IVDM> cnn2(&iv);
-    IB3<IVDM> ib32(&iv);
+    IB3<IVDM> ib32(&iv,acept,drop);
     RSS<IVDM> rss2(&iv);
-    Genetic<IVDM> gen2(&iv,iterations,numPop);
+    ENN<IVDM> enn2(&iv);
+    Genetic<IVDM> gen2(&iv,iterations,numPop,crossP,mutationP);
+    Memetic<IVDM> mem2(&iv,iterations2,numPop2,crossP2,mutationP2);
+    CHC<IVDM> chc2(&iv,iterations3,numPop3);
 
     vector<double> resultados;
     ofstream outfile;
 
-    /*
-
     if (euclidean.compare(argv[2]) == 0){
-
-        if ((numHeuristic == 0) && (numMeta == 0)){ 
-            resultados = kfold(cnn1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true);
-            outfile.open("./results/cnn_genetic.txt",ios_base::app);
-        }
-
-        else if ((numHeuristic == 1) && (numMeta == 0)){
-           resultados = kfold(rss1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false);
-           outfile.open("./results/rss_genetic.txt",ios_base::app);
-        }
-
-        else if ((numHeuristic == 2) && (numMeta == 0)){
-            resultados = kfold(ib31,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true);
-            outfile.open("./results/ib3_genetic.txt",ios_base::app);
-        }
-    }
-
-    else if (ivdm.compare(argv[2]) == 0){
         
-        if ((numHeuristic == 0) && (numMeta == 0)){ 
-            resultados = kfold(cnn2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true);
-            outfile.open("./results/cnn_genetic.txt",ios_base::app);
+        if (numHeuristic == 0){
+            if (numHeuristic2 == 0){
+                if (numMeta == 0){
+                    resultados = kfold(cnn1,cnn1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_cnn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(cnn1,cnn1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_cnn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(cnn1,cnn1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_cnn_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 1){
+                if (numMeta == 0){
+                    resultados = kfold(cnn1,rss1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_rss_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(cnn1,rss1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_rss_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(cnn1,rss1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_rss_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 2){
+                if (numMeta == 0){
+                    resultados = kfold(cnn1,ib31,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_ib3_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(cnn1,ib31,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_ib3_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(cnn1,ib31,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_ib3_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 3){
+                if (numMeta == 0){
+                    resultados = kfold(cnn1,enn1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_enn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(cnn1,enn1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_enn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(cnn1,enn1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_enn_chc.txt",ios_base::app);
+                }
+            }
         }
 
-        else if ((numHeuristic == 1) && (numMeta == 0)){
-           resultados = kfold(rss2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false);
-           outfile.open("./results/rss_genetic.txt",ios_base::app);
-        } 
 
-        else if ((numHeuristic == 2) && (numMeta == 0)){
-            resultados = kfold(ib32,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true);
-            outfile.open("./results/ib3_genetic.txt",ios_base::app);
+        if (numHeuristic == 1){
+            if (numHeuristic2 == 0){
+                if (numMeta == 0){
+                    resultados = kfold(rss1,cnn1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_cnn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(rss1,cnn1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_cnn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(rss1,cnn1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_cnn_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 1){
+                if (numMeta == 0){
+                    resultados = kfold(rss1,rss1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_rss_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(rss1,rss1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_rss_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(rss1,rss1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_rss_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 2){
+                if (numMeta == 0){
+                    resultados = kfold(rss1,ib31,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_ib3_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(rss1,ib31,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_ib3_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(rss1,ib31,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_ib3_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 3){
+                if (numMeta == 0){
+                    resultados = kfold(rss1,enn1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_enn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(rss1,enn1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_enn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(rss1,enn1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_enn_chc.txt",ios_base::app);
+                }
+            }
+        }
+    
+
+        if (numHeuristic == 2){
+            if (numHeuristic2 == 0){
+                if (numMeta == 0){
+                    resultados = kfold(ib31,cnn1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_cnn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(ib31,cnn1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_cnn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(ib31,cnn1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_cnn_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 1){
+                if (numMeta == 0){
+                    resultados = kfold(ib31,rss1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_rss_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(ib31,rss1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_rss_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(ib31,rss1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_rss_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 2){
+                if (numMeta == 0){
+                    resultados = kfold(ib31,ib31,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_ib3_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(ib31,ib31,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_ib3_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(ib31,ib31,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_ib3_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 3){
+                if (numMeta == 0){
+                    resultados = kfold(ib31,enn1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_enn1_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(ib31,enn1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_enn1_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(ib31,enn1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_enn1_chc.txt",ios_base::app);
+                }
+            }
+        }
+    
+
+        if (numHeuristic == 3){
+            if (numHeuristic2 == 0){
+                if (numMeta == 0){
+                    resultados = kfold(enn1,cnn1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_cnn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(enn1,cnn1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_cnn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(enn1,cnn1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_cnn_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 1){
+                if (numMeta == 0){
+                    resultados = kfold(enn1,rss1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_rss_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(enn1,rss1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_rss_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(enn1,rss1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_rss_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 2){
+                if (numMeta == 0){
+                    resultados = kfold(enn1,ib31,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_ib3_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(enn1,ib31,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_ib3_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(enn1,ib31,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_ib3_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 3){
+                if (numMeta == 0){
+                    resultados = kfold(enn1,enn1,gen1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_enn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(enn1,enn1,mem1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_enn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(enn1,enn1,chc1,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_enn_chc.txt",ios_base::app);
+                }
+            }
         }
     }
-    
+
+    if (ivdm.compare(argv[2]) == 0){
+
+        if (numHeuristic == 0){
+            if (numHeuristic2 == 0){
+                if (numMeta == 0){
+                    resultados = kfold(cnn2,cnn2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_cnn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(cnn2,cnn2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_cnn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(cnn2,cnn2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_cnn_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 1){
+                if (numMeta == 0){
+                    resultados = kfold(cnn2,rss2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_rss_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(cnn2,rss2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_rss_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(cnn2,rss2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_rss_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 2){
+                if (numMeta == 0){
+                    resultados = kfold(cnn2,ib32,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_ib3_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(cnn2,ib32,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_ib3_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(cnn2,ib32,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/cnn_ib3_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 3){
+                if (numMeta == 0){
+                    resultados = kfold(cnn2,enn2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_enn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(cnn2,enn2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_enn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(cnn2,enn2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/cnn_enn_chc.txt",ios_base::app);
+                }
+            }
+        }
+
+
+        if (numHeuristic == 1){
+            if (numHeuristic2 == 0){
+                if (numMeta == 0){
+                    resultados = kfold(rss2,cnn2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_cnn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(rss2,cnn2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_cnn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(rss2,cnn2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_cnn_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 1){
+                if (numMeta == 0){
+                    resultados = kfold(rss2,rss2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_rss_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(rss2,rss2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_rss_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(rss2,rss2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_rss_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 2){
+                if (numMeta == 0){
+                    resultados = kfold(rss2,ib32,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_ib3_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(rss2,ib32,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_ib3_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(rss2,ib32,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/rss_ib3_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 3){
+                if (numMeta == 0){
+                    resultados = kfold(rss2,enn2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_enn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(rss2,enn2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_enn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(rss2,enn2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/rss_enn_chc.txt",ios_base::app);
+                }
+            }
+        }
+
+
+        if (numHeuristic == 2){
+            if (numHeuristic2 == 0){
+                if (numMeta == 0){
+                    resultados = kfold(ib32,cnn2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_cnn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(ib32,cnn2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_cnn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(ib32,cnn2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_cnn_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 1){
+                if (numMeta == 0){
+                    resultados = kfold(ib32,rss2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_rss_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(ib32,rss2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_rss_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(ib32,rss2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_rss_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 2){
+                if (numMeta == 0){
+                    resultados = kfold(ib32,ib32,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_ib3_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(ib32,ib32,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_ib3_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(ib32,ib32,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,true);
+                    outfile.open("./results/ib3_ib3_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 3){
+                if (numMeta == 0){
+                    resultados = kfold(ib32,enn2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_enn2_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(ib32,enn2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_enn2_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(ib32,enn2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,true,false);
+                    outfile.open("./results/ib3_enn2_chc.txt",ios_base::app);
+                }
+            }
+        }
+
+
+        if (numHeuristic == 3){
+            if (numHeuristic2 == 0){
+                if (numMeta == 0){
+                    resultados = kfold(enn2,cnn2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_cnn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(enn2,cnn2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_cnn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(enn2,cnn2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_cnn_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 1){
+                if (numMeta == 0){
+                    resultados = kfold(enn2,rss2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_rss_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(enn2,rss2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_rss_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(enn2,rss2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_rss_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 2){
+                if (numMeta == 0){
+                    resultados = kfold(enn2,ib32,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_ib3_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(enn2,ib32,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_ib3_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(enn2,ib32,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,true);
+                    outfile.open("./results/enn_ib3_chc.txt",ios_base::app);
+                }
+            }
+            if (numHeuristic2 == 3){
+                if (numMeta == 0){
+                    resultados = kfold(enn2,enn2,gen2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_enn_genetic.txt",ios_base::app);       
+                }
+                if (numMeta == 1){
+                    resultados = kfold(enn2,enn2,mem2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_enn_memetic.txt",ios_base::app);
+                }
+                if (numMeta == 2){
+                    resultados = kfold(enn2,enn2,chc2,data,results,numFolds,knearest,pNeigh,pCost,pIni,strat,false,false);
+                    outfile.open("./results/enn_enn_chc.txt",ios_base::app);
+                }
+            }
+        }
+    }
+ 
     outfile << argv[1] << "," << resultados[0] << "," << resultados[1] << "," 
             << resultados[2] << "," << resultados[3] << "," << numFolds << ","  << strat<< endl;
 
-    */
 
-
+    /*
     mat example1 ={{-0.8639, 1.2744, -1.2440, -1.2085},{1.2771, 0.4351, 0.4586, 0.1653},{0.4883, 0.7149, 1.1294, 1.4248}};
     Col<int> resultsEx1 ={0,1,2};
     //mat example1 = {{1.14,-0.114}};
@@ -174,18 +649,14 @@ int main (int argc, char* argv[]) {
     units1(0) = 1;
     Col<int> units2(data.n_rows,fill::ones);
     Col<int> units3 = initialInstance(0.5,data.n_rows);
-    Instance iss(units3,1,0.1,&data,&data,&results,&results,3);
+    Instance iss(units3,1,0.7,&data,&data,&results,&results,3);
 
     Knn knn(data,results,3);
     vector<vector<size_t>> respuestas = knn.search2(data,1,eu);
 
-    ENN<Euclidean> enn(&eu);
-    Memetic<Euclidean> mem(&eu,1000,30);
-    CHC<Euclidean> chc(&eu,30000,50);
-
     auto start = chrono::high_resolution_clock::now();
 
-    pair<double,Instance> ajajaja = chc.find(iss,1);
+    pair<double,Instance> ajajaja = gen1.find(iss,1);
 
     auto stop = chrono::high_resolution_clock::now();
 
@@ -195,6 +666,8 @@ int main (int argc, char* argv[]) {
 
     Knn knn2(iss.training,iss.trainResults,iss.unique);
     double costResult = knn2.score(*(iss.originalTraining),knearest,eu,*(iss.originaltrainResults));
+
+    /*
 
     cout << "el tamaño original es: " << iss.training.n_rows << endl;
     cout << "el score original es : " <<  costResult << endl;

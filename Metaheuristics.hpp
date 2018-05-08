@@ -17,11 +17,31 @@ using namespace arma;
 template <typename MetricType>
 struct Genetic{
 
+    /*Stationary genetic algorithm.
+    
+    metric: metric used to calculate distances
+    iterations: number of iterations the algorithm will run
+    numPopulation: number of elements in the population
+    crossP: probability that 2 selected chromosomes will cross
+    mutationP: probability that a chromosome will undergo mutation
+
+    cross(x,y,point): cross the given instances x & y using point as the pivot for the one point cross.
+                      two childs are returned.
+
+    mutate(x): will flip bits of x randomly with 5% probability per bit
+
+    find(initial,knearest): search the solution space using the stationary genetic algorithm
+    */
+
+
     MetricType* metric;
     int iterations;
     int numPopulation;
+    double crossP;
+    double mutationP;
 
-    Genetic(MetricType* met,int i,int np):metric(met),iterations(i),numPopulation(np){}
+    Genetic(MetricType* met,int i,int np,double cp,double mp):metric(met),iterations(i),
+        numPopulation(np),crossP(cp),mutationP(mp){}
 
     pair<Instance,Instance> cross(Instance &x,Instance &y,int point){
 
@@ -66,13 +86,14 @@ struct Genetic{
         vector<Instance> newPopulation(numPopulation);
         Instance bestInstance;
         double bestCost;
-        int numRandom = floor(numPopulation*0.1); //number of chromosomes that will be random
+        int numRandom = floor(numPopulation*0); //number of chromosomes that will be random
         population[0] = initial; //mantain the initial instance
         vector<double> vecCost(numPopulation);
 
         Knn knn2(*(initial.originalTraining),*(initial.originaltrainResults),initial.unique);
         vector<vector<size_t>> ordIndex = knn2.search2(*(initial.originalTraining),knearest,*metric);
 
+        //Fill population using the initial as template
         for (int i = 1; i < (numPopulation - numRandom);i++){
 
             Col<int> c = initialInstance(0.5,initial.units.n_rows);
@@ -94,6 +115,7 @@ struct Genetic{
             population[numPopulation-i-1].changeTrainingSet();
         }
 
+        //if an instance have an empty subset
         for (int f = 0; f < numPopulation; f++){
             if (population[f].training.n_rows == 0){
                 int onBit = disInt2(eng);
@@ -103,6 +125,7 @@ struct Genetic{
         }
 
         for (int i = 0; i < numPopulation; i++) vecCost[i] = population[i].cost2(knearest,ordIndex,knn2);
+
         bestInstance = population[0];
         bestCost = vecCost[0];
 
@@ -115,73 +138,72 @@ struct Genetic{
         
         for (int i = 0; i < iterations;i++){
 
-            int j = 0;
-            while (j < numPopulation){
-                if (disReal(eng) < 0.9){
+            if (disReal(eng) < crossP){
 
-                    int f1 = disInt(eng);
-                    for (int u = 0; u < 2; u++){
-                        int faux = disInt(eng);
-                        if (vecCost[faux] < vecCost[f1]) f1 = faux;
-                    }
-                    int f2 = disInt(eng);
-                    for (int u = 0; u < 2; u++){
-                        int faux = disInt(eng);
-                        if (vecCost[faux] < vecCost[f2]) f2 = faux;
-                    }
+                //Select the 2 parents from a 3-way tournament
 
-                    int point = disInt2(eng);
-                    pair<Instance,Instance> auxPair = cross(population[f1],population[f2],point);
-
-                    if (auxPair.first.training.n_rows == 0){
-                        int onBit = disInt2(eng);
-                        auxPair.first.units(onBit) = 1;
-                        auxPair.first.changeTrainingSet();
-                    }
-
-                    if (auxPair.second.training.n_rows == 0){
-                        int onBit = disInt2(eng);
-                        auxPair.second.units(onBit) = 1;
-                        auxPair.second.changeTrainingSet();
-                    }
-
-                    double costAux1 = auxPair.first.cost2(knearest,ordIndex,knn2);
-                    double costAux2 = auxPair.second.cost2(knearest,ordIndex,knn2);
-
-
-                    if (costAux1 < vecCost[f1]){
-                        population[f1] = auxPair.first;
-                        vecCost[f1] = costAux1;
-                    }
-                    else if (costAux1 < vecCost[f2]){
-                        population[f2] = auxPair.first;
-                        vecCost[f2] = costAux1;
-                    }
-                    if (costAux2 < vecCost[f1]){
-                        population[f1] = auxPair.second;
-                        vecCost[f1] = costAux2;
-                    }
-                    else if (costAux2 < vecCost[f2]){
-                        population[f2] = auxPair.second;
-                        vecCost[f2] = costAux2;
-                    }
-
-                    if (costAux1 < bestCost){
-                        bestInstance = auxPair.first;
-                        bestCost = costAux1;
-                    }
-
-                    if (costAux2 < bestCost){
-                        bestInstance = auxPair.second;
-                        bestCost = costAux2;
-                    }
-
-                    j += 2;
+                int f1 = disInt(eng);
+                for (int u = 0; u < 2; u++){
+                    int faux = disInt(eng);
+                    if (vecCost[faux] < vecCost[f1]) f1 = faux;
                 }
+                int f2 = disInt(eng);
+                for (int u = 0; u < 2; u++){
+                    int faux = disInt(eng);
+                    if (vecCost[faux] < vecCost[f2]) f2 = faux;
+                }
+
+                int point = disInt2(eng);
+                pair<Instance,Instance> auxPair = cross(population[f1],population[f2],point);
+
+                if (auxPair.first.training.n_rows == 0){
+                    int onBit = disInt2(eng);
+                    auxPair.first.units(onBit) = 1;
+                    auxPair.first.changeTrainingSet();
+                }
+
+                if (auxPair.second.training.n_rows == 0){
+                    int onBit = disInt2(eng);
+                    auxPair.second.units(onBit) = 1;
+                    auxPair.second.changeTrainingSet();
+                }
+
+                double costAux1 = auxPair.first.cost2(knearest,ordIndex,knn2);
+                double costAux2 = auxPair.second.cost2(knearest,ordIndex,knn2);
+
+                //Update the costs
+                if (costAux1 < vecCost[f1]){
+                    population[f1] = auxPair.first;
+                    vecCost[f1] = costAux1;
+                }
+                else if (costAux1 < vecCost[f2]){
+                    population[f2] = auxPair.first;
+                    vecCost[f2] = costAux1;
+                }
+                if (costAux2 < vecCost[f1]){
+                    population[f1] = auxPair.second;
+                    vecCost[f1] = costAux2;
+                }
+                else if (costAux2 < vecCost[f2]){
+                    population[f2] = auxPair.second;
+                    vecCost[f2] = costAux2;
+                }
+
+                if (costAux1 < bestCost){
+                    bestInstance = auxPair.first;
+                    bestCost = costAux1;
+                }
+
+                if (costAux2 < bestCost){
+                    bestInstance = auxPair.second;
+                    bestCost = costAux2;
+                }
+
             }
 
+            //Mutation
             for (int z=0; z < numPopulation; z++){
-                if (disReal(eng) < 0.01){
+                if (disReal(eng) < mutationP){
                     population[z] = mutate(population[z]);
                     if (population[z].training.n_rows == 0){
                         int onBit = disInt2(eng);
@@ -208,11 +230,37 @@ struct Genetic{
 template <typename MetricType>
 struct Memetic{
 
+    /*Memetic algorithm.
+    
+    metric: metric used to calculate distances
+    iterations: number of iterations the algorithm will run
+    numPopulation: number of elements in the population
+    crossP: probability that 2 selected chromosomes will cross
+    mutationP: probability that a chromosome will undergo mutation
+
+    cross(x,y,point): cross the given instances x & y using point as the pivot for the one point cross.
+                      1 child is returned.
+
+    mutate(x): will flip bits of x randomly with 5% probability per bit
+
+    findNeighbor(ind,ins,index): will find the nearest neighbor of the "index" instance from the set formet by ins
+                                using ind as a reference of distance matrix
+
+    localSearch(initial,ind,threshold): perform local search on the "initial" instance using "ind" as the distance matrix
+                                        and threshold as the point in which if the given gain is above, then the changes are
+                                        accepted
+
+    find(initial,knearest): search the solution space using a memetic algorithm 
+    */
+
     MetricType* metric;
     int iterations;
     int numPopulation;
+    double crossP;
+    double mutationP;
 
-    Memetic(MetricType* met,int i,int np):metric(met),iterations(i),numPopulation(np){}
+    Memetic(MetricType* met,int i,int np,double cp,double mp):metric(met),iterations(i),
+        numPopulation(np),crossP(cp),mutationP(mp){}
 
     Instance cross(Instance &x,Instance &y,int point){
 
@@ -252,10 +300,10 @@ struct Memetic{
 
     Instance localSearch(Instance &initial, vector<vector<size_t>> &ind,double threshold){
 
-        Instance S = initial;
-        vector<int> U(initial.units.n_rows);
-        vector<int> R;
-        vector<int> Uaux(initial.units.n_rows);
+        Instance S = initial; //current set
+        vector<int> U(initial.units.n_rows); //current vector of neighbors 
+        vector<int> R; //prohibited units
+        vector<int> Uaux(initial.units.n_rows); //backup of U
         for (int i=0; i<U.size(); i++) U[i] = findNeighbor(ind,initial,i);
 
         int i = 0,iteration = 0;
@@ -324,7 +372,7 @@ struct Memetic{
         double bestCost, worstCost;
         int worstIndex;
         double costAux1;
-        int numRandom = floor(numPopulation*0.1); //number of chromosomes that will be random
+        int numRandom = floor(numPopulation*0); //number of chromosomes that will be random
         population[0] = initial; //mantain the initial instance
         vector<double> vecCost(numPopulation);
 
@@ -386,79 +434,81 @@ struct Memetic{
 
         for (int i = 0; i < iterations;i++){
 
-            pastRed = actualRed;
-            pastAcc = actualAcc;
+            if (disReal(eng) < crossP){
 
-            int f1 = disInt(eng);
-            for (int u = 0; u < 2; u++){
-                int faux = disInt(eng);
-                if (vecCost[faux] > vecCost[f1]) f1 = faux;
-            }
-            int f2 = disInt(eng);
-            for (int u = 0; u < 2; u++){
-                int faux = disInt(eng);
-                if (vecCost[faux] > vecCost[f2]) f2 = faux;
-            }
+                pastRed = actualRed;
+                pastAcc = actualAcc;
 
-            int point = disInt2(eng);
-            Instance auxPair = cross(population[f1],population[f2],point);
-
-            if (disReal(eng) < 0.01) auxPair = mutate(auxPair);
-
-            if (auxPair.training.n_rows == 0){
-                int onBit = disInt2(eng);
-                auxPair.units(onBit) = 1;
-                auxPair.changeTrainingSet();
-            }
-
-            costAux1 = auxPair.cost2(knearest,ordIndex,knn2);
-            double pls = 0.0625;
-            if (costAux1 < worstCost) pls = 1;
-
-            Instance improvement = auxPair;
-
-            if (disReal(eng) < pls) improvement = localSearch(auxPair,ordIndex,threshold);
-
-            if (improvement.training.n_rows == 0){
-                int onBit = disInt2(eng);
-                improvement.units(onBit) = 1;
-                improvement.changeTrainingSet();
-            }
-
-            costAux1 = improvement.cost2(knearest,ordIndex,knn2);
-
-            if (costAux1 < worstCost){
-                population[worstIndex] = improvement;
-                vecCost[worstIndex] = costAux1;
-            }
-
-            if (costAux1 < bestCost){
-                bestInstance = improvement;
-                bestCost = costAux1;
-            }
-
-            worstInstance = population[0];
-            worstCost = vecCost[0];
-            worstIndex = 0;
-            for (int i = 0; i < numPopulation; i++){
-                if (vecCost[i] > worstCost){
-                    worstInstance = population[i];
-                    worstCost = vecCost[i];
-                    worstIndex = i;
+                int f1 = disInt(eng);
+                for (int u = 0; u < 2; u++){
+                    int faux = disInt(eng);
+                    if (vecCost[faux] > vecCost[f1]) f1 = faux;
                 }
+                int f2 = disInt(eng);
+                for (int u = 0; u < 2; u++){
+                    int faux = disInt(eng);
+                    if (vecCost[faux] > vecCost[f2]) f2 = faux;
+                }
+
+                int point = disInt2(eng);
+                Instance auxPair = cross(population[f1],population[f2],point);
+
+                if (disReal(eng) < mutationP) auxPair = mutate(auxPair);
+
+                if (auxPair.training.n_rows == 0){
+                    int onBit = disInt2(eng);
+                    auxPair.units(onBit) = 1;
+                    auxPair.changeTrainingSet();
+                }
+
+                costAux1 = auxPair.cost2(knearest,ordIndex,knn2);
+                double pls = 0.0625;
+                if (costAux1 < worstCost) pls = 1;
+
+                Instance improvement = auxPair;
+
+                if (disReal(eng) < pls) improvement = localSearch(auxPair,ordIndex,threshold);
+
+                if (improvement.training.n_rows == 0){
+                    int onBit = disInt2(eng);
+                    improvement.units(onBit) = 1;
+                    improvement.changeTrainingSet();
+                }
+
+                costAux1 = improvement.cost2(knearest,ordIndex,knn2);
+
+                if (costAux1 < worstCost){
+                    population[worstIndex] = improvement;
+                    vecCost[worstIndex] = costAux1;
+                }
+
+                if (costAux1 < bestCost){
+                    bestInstance = improvement;
+                    bestCost = costAux1;
+                }
+
+                worstInstance = population[0];
+                worstCost = vecCost[0];
+                worstIndex = 0;
+                for (int i = 0; i < numPopulation; i++){
+                    if (vecCost[i] > worstCost){
+                        worstInstance = population[i];
+                        worstCost = vecCost[i];
+                        worstIndex = i;
+                    }
+                }
+
+                actualAcc = bestCost;
+                actualRed = bestInstance.training.n_rows;
+
+                if (abs(actualAcc - pastAcc) < 0.00001) AccInd++;
+                else AccInd = 0;
+                if (abs(actualRed - pastRed) < 0.00001) RedInd++;
+                else RedInd = 0;
+
+                if (AccInd >= 10) threshold++;
+                if (RedInd >= 10) threshold--;
             }
-
-            actualAcc = bestCost;
-            actualRed = bestInstance.training.n_rows;
-
-            if (abs(actualAcc - pastAcc) < 0.00001) AccInd++;
-            else AccInd = 0;
-            if (abs(actualRed - pastRed) < 0.00001) RedInd++;
-            else RedInd = 0;
-
-            if (AccInd >= 10) threshold++;
-            if (RedInd >= 10) threshold--;
-
         }
 
         Knn knn(bestInstance.training,bestInstance.trainResults,bestInstance.unique);
@@ -574,7 +624,7 @@ struct CHC{
         vector<double> vecCost(numPopulation);
         bool flag;
 
-        double threshold = initial.units.n_rows/8;
+        double threshold = initial.units.n_rows/4;
 
         Knn knn2(*(initial.originalTraining),*(initial.originaltrainResults),initial.unique);
         vector<vector<size_t>> ordIndex = knn2.search2(*(initial.originalTraining),knearest,*metric);
@@ -640,8 +690,8 @@ struct CHC{
 
             if (!flag){
                 if (threshold <= 0){
-                    initPopulation(initial,ordIndex,population,vecCost,bestInstance,bestCost,worstInstance,worstCost,worstIndex,knn2,knearest,0.5,true);
-                    threshold = initial.units.n_rows/8;
+                    initPopulation(bestInstance,ordIndex,population,vecCost,bestInstance,bestCost,worstInstance,worstCost,worstIndex,knn2,knearest,0.5,true);
+                    threshold = initial.units.n_rows/4;
                 } 
                 else threshold--;
             }
