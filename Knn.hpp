@@ -139,10 +139,10 @@ struct Knn{
         Col<int> predicted(search(query,k,met));
         Mat<int> conf(confMatrix(predicted,queryResults));
 
-        double diagonal;
+        double diagonal = 0;
         for (int i=0; i < uniqueClasses; i++) diagonal+=conf(i,i);
 
-        double term2;
+        double term2 = 0;
         for (int i=0; i < uniqueClasses; i++) term2 += sum(conf.row(i)) * sum(conf.col(i));
 
         double result = (query.n_rows*diagonal - term2) / (pow(query.n_rows,2) - term2);

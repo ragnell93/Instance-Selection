@@ -3,7 +3,7 @@ declare -a medium=("banana" "cardiotocography" "eye_state" "page_blocks" "penbas
 declare -a large=("credit_card" "shuttle")
 
 declare -a heuristics=("cnn")
-declare -a meta=("genetic" "memetic" "chc")
+declare -a meta=("geneticS" "memetic" "chc" "geneticG")
 
 for i in "${small[@]}"
 do

@@ -354,7 +354,7 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
             Instance initial2(auxU3,pNeigh,pCost,&(trainSet2[j]),&(trainSet2[j]),&(trainRes2[j]),&(trainRes2[j]),un.n_rows);
 
             threads3[j] = thread(calcNoStrat<Heuristic,Heuristic2,Meta>,heu,heu2,metaheu,initial,initial2,testSet2[j],testRes2[j],knearest,data.n_rows,un.n_rows,ref(tiempo),ref(scores),ref(kappas),ref(reductionScore),j);
-            threads3[j].join();
+            //threads3[j].join();
             notin++;
 
         } 
@@ -396,8 +396,8 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
         Instance initial2(auxU3,pNeigh,pCost,&(trainSet2[k-1]),&(trainSet2[k-1]),&(trainRes2[k-1]),&(trainRes2[k-1]),un.n_rows);
 
         threads3[k-1] = thread(calcNoStrat<Heuristic,Heuristic2,Meta>,heu,heu2,metaheu,initial,initial2,lastFold,lastRes,knearest,data.n_rows,un.n_rows,ref(tiempo),ref(scores),ref(kappas),ref(reductionScore),k-1);
-        threads3[k-1].join();    
-        //for (int b = 0; b < k ; b++) threads3[b].join();
+        //threads3[k-1].join();    
+        for (int b = 0; b < k ; b++) threads3[b].join();
     }
 
 
