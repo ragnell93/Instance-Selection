@@ -19,8 +19,13 @@ struct Knn{
 
         uniqueClasses: number of unique classes in the results
 
+        search2(query.k,met): gives matrix of ordered NN of each instance in the query
+
         search(query,k,met): find the k nearest instances for each and everyone of the queries using the 
                              given metric met.
+
+        predict(test,knearest,ind,index,results,indexesT) : predict the class if the instance "index" with the matrix
+            of distances and the array of given units in indexesT
 
         confMatrix(predicted,actual): given the predicted classes of a query, compares them to the actual classes and
                                      returns the confusion matrix
@@ -86,6 +91,30 @@ struct Knn{
 
     }
 
+    int predict(rowvec &test,int knearest,vector<vector<size_t>> &ind,int index,Col<int> &results,Col<int> &indexesT){
+
+        Col<int> comparison(uniqueClasses,fill::zeros);
+        bool flag;
+        int l;
+        
+        l = 0;
+        for (int j = 0; j < knearest; j++){
+            flag = false;
+            while (l < ind[index].size() && !flag){
+                if (binary_search(indexesT.begin(),indexesT.end(),ind[index][l])){
+                    int indexAux = results(ind[index][l]);
+                    comparison(indexAux)++;
+                    flag = true;
+                }
+                l++;
+            }
+        }
+        
+        uword resultClass = comparison.index_max();
+        
+        return (int)resultClass;
+    }
+
     Mat<int> confMatrix(Col<int> &predicted,Col<int> &actual){
 
         Mat<int> matrix(uniqueClasses,uniqueClasses,fill::zeros);
@@ -110,10 +139,10 @@ struct Knn{
         Col<int> predicted(search(query,k,met));
         Mat<int> conf(confMatrix(predicted,queryResults));
 
-        double diagonal;
+        double diagonal = 0;
         for (int i=0; i < uniqueClasses; i++) diagonal+=conf(i,i);
 
-        double term2;
+        double term2 = 0;
         for (int i=0; i < uniqueClasses; i++) term2 += sum(conf.row(i)) * sum(conf.col(i));
 
         double result = (query.n_rows*diagonal - term2) / (pow(query.n_rows,2) - term2);

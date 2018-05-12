@@ -39,12 +39,17 @@ struct Instance{
     trainResults = Classes of the reduced dataset
     unique = number of classes
     totalInstances = number of instances in the original dataset
+    indexesT = indexes in the original training set of the reduced instances
 
     changeTrainingSet() = computes again the reduced set for this cromosome
 
     cost(MetricType &met,int knearest) = the cost of the instance in base to the accuracy and reduction
 
-    searchNeighborhood(MetricType &met, int knearest, chrono::steady_clock::time_point &tend) =
+    predict2(knearest,ind): given the matrix of distances find the class from the NN
+
+    cost2(knearest,ind,knn): calculates the cost of the given instance
+
+    searchNeighborhood(met,knearest,tend) =
         search for the best contiguous Instance using the cost function in the perecentage defined
 
     */
@@ -108,13 +113,13 @@ struct Instance{
         double accuracy = 100 * knn.score(*test,knearest,met,*testResults);
         double reduction = 100 * (totalInstances - training.n_rows) / totalInstances;
 
-        return percenCost * accuracy + (1-percenCost)*reduction; 
+        return percenCost * (100 - accuracy) + (1-percenCost)*(100 - reduction); 
+
     }
 
-    double cost2(int knearest, vector<vector<size_t>> &ind, Knn &knn){
+    Col<int> predict2(int knearest, vector<vector<size_t>> &ind){
 
         Mat<int> comparison(test->n_rows,unique,fill::zeros);
-
         bool flag;
         int l;
         for (int i = 0; i < ind.size(); i++){
@@ -135,14 +140,20 @@ struct Instance{
         Col<int> resultClass(test->n_rows);
         for (int i = 0; i < test->n_rows; i++) resultClass(i) = comparison.row(i).index_max();
 
+        return resultClass;
+    }
+
+    double cost2(int knearest, vector<vector<size_t>> &ind, Knn &knn){
+
+        Col<int> resultClass = predict2(knearest,ind);
         Mat<int> conf(knn.confMatrix(resultClass,*(testResults)));
         double sc = 0;
         for (int i=0; i < unique; i++) sc+=conf(i,i);
-        sc = sc/test->n_rows;
+        sc = 100* (sc/test->n_rows);
         
         double reduction = 100 * (totalInstances - training.n_rows) / totalInstances;
 
-        return percenCost * sc + (1-percenCost)*reduction;
+        return percenCost * (100 - sc) + (1-percenCost)* (100 - reduction);
 
     }
     
@@ -168,7 +179,7 @@ struct Instance{
             Instance neighbor(nunits,percenVecinity,percenCost,originalTraining,test,originaltrainResults,testResults,unique);
             neighborCost = neighbor.cost(met,knearest);
 
-            if (neighborCost > bestCost){
+            if (neighborCost < bestCost){
                 bestNeighbor = neighbor;
                 bestCost = neighborCost;
                 flag = true;

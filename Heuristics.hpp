@@ -45,12 +45,13 @@ struct LocalSearch{
 
 };
 
+
 template<typename MetricType>
 struct CNN{
 
     /*Perform CNN, constructs a reduced data set beginning from one instance and adding each instance not 
      classified correctly */ 
-
+ 
     MetricType* metric;
     CNN(MetricType* met):metric(met){}
 
@@ -60,21 +61,22 @@ struct CNN{
         Instance current = initial;
         int j = 0;
 
+        Knn knn2(*(initial.originalTraining),*(initial.originaltrainResults),initial.unique);
+        vector<vector<size_t>> ordIndex = knn2.search2(*(initial.originalTraining),knearest,*metric);
+
         vector <int> indexes(initial.units.n_rows);
         for (int i=0;i<initial.units.n_rows;i++) indexes[i] = i;
         random_shuffle(indexes.begin(),indexes.end());
  
         for (int i = 0; (i < initial.units.n_rows) && !flag; i++){
 
-            Knn knn(current.training,current.trainResults,current.unique);
             flag2 = false;
-
             while ((j < current.originalTraining->n_rows) && !flag2){
 
-                mat query(current.originalTraining->row(indexes[j]));
-                Col<int> prediction(knn.search(query,knearest,*metric));
+                rowvec query = current.originalTraining->row(indexes[j]);
+                int prediction = knn2.predict(query,knearest,ordIndex,indexes[j],(*(current.originaltrainResults)),current.indexesT);
 
-                if (prediction(0) != (*(current.originaltrainResults))(indexes[j])){
+                if (prediction != (*(current.originaltrainResults))(indexes[j])){
                     Col<int> nunits(current.units);
                     nunits(indexes[j]) = 1;
                     current.units = nunits;
@@ -94,8 +96,11 @@ struct CNN{
     }
 };
 
+
 template<typename MetricType>
 struct RSS{
+
+    /*Orders instances by nearest enemy and adds to the subset the instance that doesn't have a instance nearer than its enemy*/
 
     MetricType* metric;
     RSS(MetricType* met):metric(met){}
@@ -146,13 +151,7 @@ struct RSS{
 
                 aux2 = current.training.row(j);
                 aux1 = data.row(orderedIndex[i]);
-
-                int k = 0,count = 0;
-                while (count < j+1){
-                    if (current.units(k)==1) count++;
-                    k++;
-                }
-                k--;
+                int k = current.indexesT(j);
 
                 if (metric->Evaluate(aux1,aux2) < disNE[k]) flag = true;
             }
@@ -175,6 +174,8 @@ struct RSS{
 template<typename MetricType>
 struct ENN{
 
+    /*Removes instances that aren't the same class as their nearest neighbor*/
+
     MetricType* metric;
     ENN(MetricType* met):metric(met){}
 
@@ -182,6 +183,9 @@ struct ENN{
 
         Instance oldOne;
         Instance current = initial;
+        Knn knn2(*(initial.originalTraining),*(initial.originaltrainResults),initial.unique);
+        vector<vector<size_t>> ordIndex = knn2.search2(*(initial.originalTraining),knearest,*metric);
+
         for (int i = 0; i < initial.units.n_rows; i++){
 
             oldOne = current;
@@ -189,18 +193,16 @@ struct ENN{
             nunits(i) = 0;
             current.units = nunits;
             current.changeTrainingSet();
-            mat newTest = (current.originalTraining)->row(i);
+
+            rowvec query = current.originalTraining->row(i);
+            int prediction = knn2.predict(query,knearest,ordIndex,i,(*(current.originaltrainResults)),current.indexesT);
             Col<int> newTestRes = (current.originaltrainResults)->row(i);
-
-            Knn knn(current.training,current.trainResults,current.unique);
-            Col<int> prediction(knn.search(newTest,knearest,*metric));
-
-            if (prediction(0) == newTestRes(0)) current = oldOne;
+            if (prediction == newTestRes(0)) current = oldOne;
 
         }
 
         Knn knn(current.training,current.trainResults,current.unique);
-        double costResult = knn.score(*(current.test),knearest,*metric,*(current.testResults));
+        double costResult = knn.score(*(current.originalTraining),knearest,*metric,*(current.originaltrainResults));
 
         return make_pair(costResult,current);
 
@@ -212,7 +214,9 @@ template<typename MetricType>
 struct IB3{
 
     MetricType* metric;
-    IB3(MetricType* met):metric(met){}
+    double acept;
+    double drop;
+    IB3(MetricType* met,double a, double d):metric(met),acept(a),drop(d){}
 
     bool aceptable(Row<int> acp, int frecuency,int numProcessed,bool mode){
 
@@ -221,8 +225,8 @@ struct IB3{
         
         //Accuracy intervals
         double z;
-        if (mode) z = 0.9;
-        else z = 0.7;
+        if (mode) z = acept;
+        else z = drop;
         int n = acp(0)+acp(1);
         if (n==0) n++;
         double p = acp(0)/n;
@@ -245,7 +249,7 @@ struct IB3{
         }
         else if (!mode){
             resp = true;
-            if (upperAcc <= lowerFrec) resp = false;
+            if (upperAcc < lowerFrec) resp = false;
         }
 
         return resp;
