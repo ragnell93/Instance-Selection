@@ -43,7 +43,7 @@ struct IVDM{
     IVDM(int i, mat mm, cube p): index(i), minmax(mm), prob(p) {}
 
     int discretize(double x, int j){
-        if (x >= minmax(0,j)) return prob.n_rows;
+        if (x >= minmax(0,j)) return prob.n_rows-1;
         else return (floor((x-minmax(1,j))/minmax(2,j)) + 1);
     }
 
@@ -76,13 +76,13 @@ struct IVDM{
   
             for (int k = 0; k < prob.n_slices; k++){
 
-                if (u1 == 0) {lowerProb1 = 0; upperProb1 = prob(u1,i,k);}
-                else if (u1 == prob.n_rows) {lowerProb1 = prob(u1-1,i,k); upperProb1 = 0;}
-                else {lowerProb1 = prob(u1-1,i,k); upperProb1 = prob(u1,i,k);}
+                if (u1 == 0) {lowerProb1 = 0; upperProb1 = prob(u1+1,i,k);}
+                else if (u1 == prob.n_rows-1) {lowerProb1 = prob(u1,i,k); upperProb1 = 0;}
+                else {lowerProb1 = prob(u1,i,k); upperProb1 = prob(u1+1,i,k);}
 
-                if (u2 == 0) {lowerProb2 = 0; upperProb2 = prob(u2,i,k);}
-                else if (u2 == prob.n_rows) {lowerProb2 = prob(u2-1,i,k); upperProb2 = 0;}
-                else {lowerProb2 = prob(u2-1,i,k); upperProb2 = prob(u2,i,k);}
+                if (u2 == 0) {lowerProb2 = 0; upperProb2 = prob(u2+1,i,k);}
+                else if (u2 == prob.n_rows-1) {lowerProb2 = prob(u2,i,k); upperProb2 = 0;}
+                else {lowerProb2 = prob(u2,i,k); upperProb2 = prob(u2+1,i,k);}
                     
                 inter1(k) = lowerProb1 + ((*aux1 - mid1a)/(mid1b-mid1a)) * (upperProb1 - lowerProb1);
                 inter2(k) = lowerProb2 + ((*aux2 - mid2a)/(mid2b-mid2a)) * (upperProb2 - lowerProb2);
@@ -93,7 +93,7 @@ struct IVDM{
             aux2++;
             i++;
         }    
- 
+
         //Discrete values
         while (i < minmax.n_cols){
 

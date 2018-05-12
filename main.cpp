@@ -539,7 +539,6 @@ int main (int argc, char* argv[]) {
             }
         }
 
-
         if (numHeuristic == 1){
             if (numHeuristic2 == 0){
                 if (numMeta == 0){

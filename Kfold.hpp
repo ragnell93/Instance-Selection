@@ -231,7 +231,7 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
             Instance auxI2(auxU3,pNeigh,pCost,&(auxMat[j]),&(auxMat[j]),&(auxCol[j]),&(auxCol[j]),un.n_rows);
 
             threads1[j] = thread(searchInstanceStrat<Heuristic,Heuristic2,Meta>,heu,heu2,metaheu,auxI,auxI2,knearest,ref(tiempo),ref(reduction),j);
-            //threads1[j].join();
+            threads1[j].join();
         }
 
         if (units){
@@ -258,9 +258,9 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
         Instance auxI2(auxU3,pNeigh,pCost,&lastFold,&lastFold,&lastRes,&lastRes,un.n_rows);
 
         threads1[k-1] = thread(searchInstanceStrat<Heuristic,Heuristic2,Meta>,heu,heu2,metaheu,auxI,auxI2,knearest,ref(tiempo),ref(reduction),k-1);
-        //threads1[k-1].join();
+        threads1[k-1].join();
 
-        for (int b = 0; b<k; b++) threads1[b].join();
+        //for (int b = 0; b<k; b++) threads1[b].join();
 
         for (int l=0; l<k; l++){
 

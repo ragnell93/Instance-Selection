@@ -47,18 +47,20 @@ def ivdmPrep(index1,df,results):
                 discTable.iloc[i,j] = s
             else:
                 discTable.iloc[i,j] = m.floor((df.iloc[i,j]-df.iloc[:,j].min())/width[j])+1
+
                 
     #Getting the Conditional probabilities
-    nxac = np.zeros(shape=(s,numAttr,numClass),dtype=np.int64)
-    pxac = np.zeros(shape=(s,numAttr,numClass),dtype=np.float64)
-    nxa = np.zeros(shape=(s,numAttr),dtype=np.int64)
+    maxAttr = m.floor(discTable.max().max())+1
+    nxac = np.zeros(shape=(maxAttr,numAttr,numClass),dtype=np.int64)
+    pxac = np.zeros(shape=(maxAttr,numAttr,numClass),dtype=np.float64)
+    nxa = np.zeros(shape=(maxAttr,numAttr),dtype=np.int64)
 
     for i in range(0,df.iloc[:,0].count()):
         for j in range(0,df.iloc[0,:].count()):
-            nxac[discTable.iloc[i,j]-1,j,results[i]] += 1
-            nxa[discTable.iloc[i,j]-1,j] += 1
+            nxac[m.floor(discTable.iloc[i,j]),j,m.floor(results[i])] += 1
+            nxa[m.floor(discTable.iloc[i,j]),j] += 1
 
-    for i in range(0,s):
+    for i in range(0,maxAttr):
         for j in range(0,numAttr):
             for k in range(0,numClass):
                 if (nxa[i,j] == 0):
