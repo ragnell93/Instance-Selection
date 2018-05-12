@@ -1,0 +1,11 @@
+@article{Cano2012,
+	author    = {Garcia S., Derrac J., Cano J., \& Herrera F.},
+	title     = {Prototype selection for nearest neighbor classification: Taxonomy and empirical study.},
+	journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+	volume    = {34},
+	number    = {3},
+	year      = {2012},
+	pages     = {417-435},
+	ee        = { https://doi.org/10.1109/TPAMI.2011.142},
+}
+

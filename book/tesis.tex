@@ -1,0 +1,189 @@
+\documentclass[letterpaper, 12pt, oneside]{tesis}
+
+\setlength\paperheight{11in}
+\setlength\paperwidth{8.5in}
+
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+\usepackage[fixlanguage]{babelbib}
+\usepackage[T1]{fontenc}
+\usepackage{natbib}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{color}
+\usepackage{xcolor,colortbl}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+\hypersetup{urlcolor=blue, colorlinks=false}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mdframed}
+\usepackage{blindtext}
+\usepackage{paralist}
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage[noend]{algpseudocode}
+\usepackage[chapter]{algorithm}
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{0pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{1cm}{40pt}
+
+\floatname{algorithm}{Algoritmo}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\decimalpoint
+
+\let\oldtabular\tabular
+\renewcommand{\tabular}{\footnotesize\oldtabular}
+
+\graphicspath{{img/}}
+
+% Sangrías de 3 espacios (3 veces el espacio de la x)
+\parindent 3ex 
+% Interlineado
+\setlength{\baselineskip}{1.5pt}
+% Interpárrafo
+%\setlength{\parskip}{16.5pt}
+
+\topmargin 2cm
+
+\renewcommand\spanishtablename{Tabla}
+\renewcommand{\arraystretch}{1.1}
+\definecolor{Gray}{gray}{0.95}
+\newcolumntype{g}{>{\columncolor{Gray}}c}
+
+\newcommand\listsymbolname{Acrónimos y Símbolos}
+
+% Definiciones
+\theoremstyle{definition}
+\newtheorem{definicion}{Definición}
+
+% Portada
+\begin{titlepage}
+    \title{\vspace{-2cm} \includegraphics[width=1.2in]{./usb.pdf} \\[.2cm]
+        \large Universidad Simón Bolívar \\
+        Decanato de Estudios Profesionales \\
+        Coordinación de Ingeniería de la Computación
+        \vfill \LARGE Título \vfill}
+    \author{Por: \\
+        Antonio Álvarez \\[1.2cm]
+        Realizado con la asesoría de: \\
+        Emely Arráiz B.\\[1.2cm]
+        PROYECTO DE GRADO \\
+Presentado ante la Ilustre Universidad Simón Bolívar \\
+como requisito parcial para optar al título de \\
+Ingeniero de Computación}
+    \date{Sartenejas, septiembre de 2018}
+\end{titlepage}
+
+\begin{document}
+\frontmatter
+\maketitle
+\setstretch{1.3}
+
+% +------+
+% | ACTA |
+% +------+
+%\begin{minipage}[height=11in]{8.5in}
+%\vspace*{-2.8cm}
+%\hspace*{-3.5cm}
+%\includegraphics[width=8.5in]{acta}
+%\end{minipage}
+
+% +---------+
+% | RESUMEN |
+% +---------+
+\newpage
+\input{./partes/resumen}
+
+\clearpage
+\setstretch{1.3}
+
+% +-----------------+
+% | AGRADECIMIENTOS |
+% +-----------------+
+%\input{./partes/agradecimientos}
+
+%\pagestyle{fancy}
+
+% +--------+
+% | INDICE |
+% +--------+
+\lhead{\emph{Índice General}}
+\tableofcontents
+
+\lhead{\emph{Índice de Figuras}}
+\listoffigures
+
+\lhead{\emph{Índice de Tablas}}
+\renewcommand*\listtablename{Índice de Tablas}
+\listoftables
+
+\lhead{\emph{Índice de Algoritmos}}
+\renewcommand*\listalgorithmname{Índice de algoritmos}
+\listofalgorithms
+\addcontentsline{toc}{chapter}{Índice de algoritmos}
+
+% +----------------------+
+% | ACRONIMOS Y SIMBOLOS |
+% +----------------------+
+%\input{./partes/acronimos}
+
+%\pagestyle{empty}
+
+% +-------------+
+% | DEDICATORIA |
+% +-------------+
+%\input{./partes/dedicatoria}
+
+\mainmatter
+\pagestyle{fancy}
+
+% +--------------+
+% | INTRODUCCION |
+% +--------------+
+
+\input{./partes/introduccion}
+
+% +-----------+
+% | CAPITULOS |
+% +-----------+
+\input{./partes/capitulo1}
+\input{./partes/capitulo2}
+\input{./partes/capitulo3}
+%\input{./partes/capitulo4}
+
+% +--------------+
+% | CONCLUSIONES |
+% +--------------+
+\input{./partes/conclusiones}
+
+% +--------------+
+% | BIBLIOGRAFIA |
+% +--------------+
+\cleardoublepage
+\phantomsection
+\label{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliography{bibliografia}
+\lhead{\emph{Bibliografía}}
+\bibliographystyle{alpha}
+\addtocontents{toc}{\vspace{2em}}
+
+% +-----------+
+% | APENDICES |
+% +-----------+
+\appendix
+\input{./partes/apendiceA}
+%\input{./partes/apendiceB}
+%\addtocontents{toc}{\vspace{2em}}
+
+\backmatter
+
+\end{document}
