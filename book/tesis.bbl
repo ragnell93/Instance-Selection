@@ -1,10 +1,134 @@
-\begin{thebibliography}{GDCH12}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{KCH{\etalchar{+}}03}
 
-\bibitem[GDCH12]{Cano2012}
-S.~Garcia, J.~Derrac, J.~Cano, and F.~Herrera.
-\newblock Prototype selection for nearest neighbor classification: Taxonomy and
-  empirical study.
-\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  34(3):417--435, 2012.
+\bibitem[AD91]{almuallim1991learning}
+Hussein Almuallim and Thomas~G Dietterich.
+\newblock Learning with many irrelevant features.
+\newblock In {\em AAAI}, volume~91, pages 547--552, 1991.
+
+\bibitem[Ale14]{flores2014metaheuristics}
+Flores Alejandro.
+\newblock {\em Metaheur{\'i}sticas Bio-Inspiradas para Selecci{\'o}n de
+  Instancias}.
+\newblock PhD thesis, Undergraduate thesis,Departamento de Ciencias de la
+  Computaci{\'o}n, Universidad Sim{\'o}n Bol{\'i}var, Venezuela, 2014.
+
+\bibitem[Bat94]{battiti1994using}
+Roberto Battiti.
+\newblock Using mutual information for selecting features in supervised neural
+  net learning.
+\newblock {\em IEEE Transactions on neural networks}, 5(4):537--550, 1994.
+
+\bibitem[BF99]{brodley1999identifying}
+Carla~E Brodley and Mark~A Friedl.
+\newblock Identifying mislabeled training data.
+\newblock {\em Journal of artificial intelligence research}, 11:131--167, 1999.
+
+\bibitem[BLN86]{batini1986comparative}
+Carlo Batini, Maurizio Lenzerini, and Shamkant~B. Navathe.
+\newblock A comparative analysis of methodologies for database schema
+  integration.
+\newblock {\em ACM computing surveys (CSUR)}, 18(4):323--364, 1986.
+
+\bibitem[CAB11]{catal2011class}
+Cagatay Catal, Oral Alan, and Kerime Balkan.
+\newblock Class noise detection based on software metrics and roc curves.
+\newblock {\em Information Sciences}, 181(21):4867--4877, 2011.
+
+\bibitem[CKLS01]{cochinwala2001efficient}
+Munir Cochinwala, Verghese Kurien, Gail Lalk, and Dennis Shasha.
+\newblock Efficient data reconciliation.
+\newblock {\em Information Sciences}, 137(1-4):1--15, 2001.
+
+\bibitem[CPSK07]{cios2007data}
+Krzysztof~J Cios, Witold Pedrycz, Roman~W Swiniarski, and Lukasz~Andrzej
+  Kurgan.
+\newblock {\em Data mining: a knowledge discovery approach}.
+\newblock Springer Science \& Business Media, 2007.
+
+\bibitem[DL97]{dash1997feature}
+Manoranjan Dash and Huan Liu.
+\newblock Feature selection for classification.
+\newblock {\em Intelligent data analysis}, 1(3):131--156, 1997.
+
+\bibitem[FKP07]{farhangfar2007novel}
+Alireza Farhangfar, Lukasz~A Kurgan, and Witold Pedrycz.
+\newblock A novel framework for imputation of missing values in databases.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics-Part A:
+  Systems and Humans}, 37(5):692--709, 2007.
+
+\bibitem[FS69]{fellegi1969theory}
+Ivan~P Fellegi and Alan~B Sunter.
+\newblock A theory for record linkage.
+\newblock {\em Journal of the American Statistical Association},
+  64(328):1183--1210, 1969.
+
+\bibitem[FSS96]{fayyd1996data}
+Usama~M Fayyd, Gregory~P Shapiro, and Padhraic Smyth.
+\newblock From data mining to knowledge discovery: An overview.
+\newblock 1996.
+
+\bibitem[GLH16]{garcia2016data}
+Salvador Garc{\'\i}a, Juli{\'a}n Luengo, and Francisco Herrera.
+\newblock {\em Data preprocessing in data mining}.
+\newblock Springer, 2016.
+
+\bibitem[GLS{\etalchar{+}}13]{garcia2013survey}
+Salvador Garcia, Julian Luengo, Jos{\'e}~Antonio S{\'a}ez, Victoria Lopez, and
+  Francisco Herrera.
+\newblock A survey of discretization techniques: Taxonomy and empirical
+  analysis in supervised learning.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  25(4):734--750, 2013.
+
+\bibitem[KCH{\etalchar{+}}03]{kim2003taxonomy}
+Won Kim, Byoung-Ju Choi, Eui-Kyeong Hong, Soo-Kyung Kim, and Doheon Lee.
+\newblock A taxonomy of dirty data.
+\newblock {\em Data mining and knowledge discovery}, 7(1):81--99, 2003.
+
+\bibitem[KS96]{koller1996toward}
+Daphne Koller and Mehran Sahami.
+\newblock Toward optimal feature selection.
+\newblock Technical report, Stanford InfoLab, 1996.
+
+\bibitem[LM12]{liu2012feature}
+Huan Liu and Hiroshi Motoda.
+\newblock {\em Feature selection for knowledge discovery and data mining},
+  volume 454.
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem[LMD98]{liul1998monotonic}
+Huan Liul, Hiroshi Motoda, and Manoranjan Dash.
+\newblock A monotonic measure for optimal feature selection.
+\newblock In {\em European conference on machine learning}, pages 101--106.
+  Springer, 1998.
+
+\bibitem[LS{\etalchar{+}}96]{liu1996probabilistic}
+Huan Liu, Rudy Setiono, et~al.
+\newblock A probabilistic approach to feature selection-a filter solution.
+\newblock In {\em ICML}, volume~96, pages 319--327. Citeseer, 1996.
+
+\bibitem[Ten99]{teng1999correcting}
+Choh-Man Teng.
+\newblock Correcting noisy data.
+\newblock In {\em ICML}, pages 239--248. Citeseer, 1999.
+
+\bibitem[XYC88]{xu1988best}
+Lei Xu, Pingfan Yan, and Tong Chang.
+\newblock Best first strategy for feature selection.
+\newblock In {\em Pattern Recognition, 1988., 9th International Conference on},
+  pages 706--708. IEEE, 1988.
+
+\bibitem[YW09]{yang2009discretization}
+Ying Yang and Geoffrey~I Webb.
+\newblock Discretization for naive-bayes learning: managing discretization bias
+  and variance.
+\newblock {\em Machine learning}, 74(1):39--74, 2009.
+
+\bibitem[Zuk10]{zukhba2010np}
+AV~Zukhba.
+\newblock Np-completeness of the problem of prototype selection in the nearest
+  neighbor method.
+\newblock {\em Pattern Recognition and Image Analysis}, 20(4):484--494, 2010.
 
 \end{thebibliography}

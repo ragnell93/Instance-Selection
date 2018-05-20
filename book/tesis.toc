@@ -1,16 +1,19 @@
-\select@language {spanish}
-\select@language {spanish}
+\babel@toc {spanish}{}
+\babel@toc {spanish}{}
 \contentsline {chapter}{Resumen}{\es@scroman {i}}{dummy.1}
 \vspace {1em}
 \contentsline {chapter}{\IeC {\'I}ndice de Figuras}{\es@scroman {iii}}{dummy.3}
 \contentsline {chapter}{Lista de Tablas}{\es@scroman {iv}}{dummy.5}
 \contentsline {chapter}{\IeC {\'I}ndice de algoritmos}{\es@scroman {v}}{chapter*.7}
-\contentsline {chapter}{Introducci\IeC {\'o}n}{1}{chapter*.8}
-\contentsline {chapter}{\numberline {1}Marco te\IeC {\'o}rico}{2}{chapter.9}
-\contentsline {chapter}{\numberline {2}Marco metodol\IeC {\'o}gico}{3}{chapter.10}
-\contentsline {section}{\numberline {2.1}Descripci\IeC {\'o}n general}{3}{section.11}
-\contentsline {chapter}{\numberline {3}Resultados}{4}{chapter.12}
-\contentsline {chapter}{Conclusiones y Recomendaciones}{5}{chapter*.13}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{6}{section*.14}
+\contentsline {chapter}{Acr\IeC {\'o}nimos y S\IeC {\'\i }mbolos}{\es@scroman {vi}}{dummy.8}
+\contentsline {chapter}{Introducci\IeC {\'o}n}{1}{chapter*.11}
+\contentsline {chapter}{\numberline {1}Marco te\IeC {\'o}rico}{2}{chapter.12}
+\contentsline {section}{\numberline {1.1}Descubrimiento de Conocimiento y preprocesamiento de datos}{2}{section.13}
+\contentsline {section}{\numberline {1.2}Selecci\IeC {\'o}n de Instancias}{6}{section.16}
+\contentsline {chapter}{\numberline {2}Marco metodol\IeC {\'o}gico}{8}{chapter.19}
+\contentsline {section}{\numberline {2.1}Descripci\IeC {\'o}n general}{8}{section.20}
+\contentsline {chapter}{\numberline {3}Resultados}{9}{chapter.21}
+\contentsline {chapter}{Conclusiones y Recomendaciones}{10}{chapter*.22}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{11}{section*.23}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Ap\IeC {\'e}ndice A}{7}{appendix.16}
+\contentsline {chapter}{\numberline {A}Ap\IeC {\'e}ndice A}{14}{appendix.25}

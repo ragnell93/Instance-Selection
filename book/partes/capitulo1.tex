@@ -2,14 +2,74 @@
 \label{capitulo1}
 \lhead{Capítulo 1. \emph{Marco teórico}}
 
-Como lo exponen Cano et al. en \cite{Cano2012} el problema de selección de prototipos puede ser clasificado según la dirección de la búsqueda, el tipo de selección, la evaluación en la búsqueda y otros parámetros propios del clasificador K-NN:
+\section{Descubrimiento de Conocimiento y preprocesamiento de datos}
+
+Hoy en día, existe una creciente necesidad de procesar grandes volúmenes de datos, estos datos son producto de la recolección de información de procesos y actividades de distintas índoles y se vuelven un material valioso para extraer información sobre posibles tendencias que puedan existir en dichos procesos. Es aquí donde entra el descubrimiento de conocimiento en bases de datos (KDD por su ssiglas en inglés) como disciplina encargada del procesamiento de datos para la extracción de información.
+
+KDD es definida por Smyth, P. et al. \cite{fayyd1996data} como ``el proceso no trivial de identificar patrones en los datos que sean válidos, novedosos, potencialmente útiles y finalmente entendibles''. Para este fin, KDD se subdivide en distintas etapas a llevar a cabo para lograr el fin último de identificar patrones, éstas son \cite{garcia2016data}: especificación del problema, entendimiento del problema, preprocesamiento de los datos, minería de datos, evaluación de los resultados y explotación de los resultados. En este trabajo es de especial interés la etapa de preprocesamiento de datos.
+
+El preprocesamiento de datos consiste en el conjunto actividades destinadas a preparar los datos para ser usado por un algoritmo de minería de datos. Las actividades realizadas en el preprocesamiento pueden ser clasificadas como actividades para la preparación de los datos y la reducción de los mismos \cite{garcia2016data}.
+
+La preparación de datos es un paso obligatorio en el preprocesamiento ya que transforma los datos, que inicialmente son inservibles para el algoritmo de DM por asuntos como la presencia de atributos faltantes en instancias, datos erróneos y atributos con formatos no aceptables para el algoritmo a utilizar \cite{garcia2016data}. Dependiendo del enfoque dado, estas actividades pueden clasificarse en:
 
 \begin{itemize}
+\item \textbf{Limpieza de datos \cite{garcia2016data, kim2003taxonomy}}
+Incluye el tratamiento de los atributos faltantes y los datos erróneos, que si se dejan sin tratar resulta en un modelo de minería de datos poco confiable. Un atributo faltante en una instancia resulta de no haberlo introducido al momento del registro o por la pérdida en el proceso de almacenamiento. Los datos con atributos faltantes pueden tratarse de 3 maneras \cite{farhangfar2007novel}: la eliminación de las instancias que presenten el problema, utilizar métodos de estimación de máxima verosimilitud para calcular promedios y variancias con lo cual llenar los atributos faltantes y utilizar algoritmos del repertorio de machine learning como k-nn, k-means o Suport Vector Machine para estimar el valor de los atributos faltantes. 
 
-\item\textbf{Dirección de la búsqueda}
+Por su parte, los datos erróneos (también conocidos como datos ruidosos) pueden venir de dos formas \cite{catal2011class}: ruido de clase cuando la instancia está mal clasificada y ruido de atributo cuando uno o más valores de atributos en una instancia están distorisionados y no representan la realidad. Para tratar los datos ruidosos se puede usar 3 métodos: construir algoritmos de minería de datos que no se vean afectados en cierta medida ante el ruido (sean robustos), pulir los datos \cite{teng1999correcting} de tal manera que se corrijan los errores y por último se puede identificar los datos ruidosos para eliminarlos del conjunto y así quedarse sólo con datos correctos \cite{brodley1999identifying}. Cada uno de estos métodos tiene sus ventajas y desventajas; si sólo se cuenta con lo robusto del algoritmo de clasificación o regresión se tiene que tendrá un nivel de tolerancia del cual al pasarse los resultados serán inservibles, pulir los datos sólo es aplicable a conjuntos de tamño pequeño y mediano debido al alto costo computacional que tienden a tener los algoritmos que hacen el trabajo y si se decide filtrar todos los datos ruidosos se puede disminuir considerablemente el conjunto hasta un punto que no sea utilizable por los algoritmos de clasificación y regresión; por lo tanto, lo que se estila es usar una combinación en lo que sea posible de estos 3 métodos para obtener los mejores resultados
+
+\item \textbf{Transformación de datos \cite{garcia2016data}}
+Se centra en aplicar fórmulas matemáticas a los valores de los atributos para así obtener valores sintéticos que pueden proporcionar más información respecto a la instancia y al conjunto que pertenencen. Las transformaciones más comunes son la lineal y la cuadrática, la primera se usa principalmente para combinar distintos atributos y así crear uno sintético para ser usado por el algoritmo de minería de datos, la transformación cuadrática por su parte, es usada cuando una transformación lineal no es suficiente para derivar información útil de los atributos. En este sentido, existen otros tipos de transformaciones como la polinomial que engloba a la lineal y a la cuadrática y la no polinomial que trata con transformaciones más complejas.
+
+\item \textbf{Integración de los datos \cite{garcia2016data,batini1986comparative}}
+Consiste en la unión de las conjuntos de datos provenientes de distintas fuentes en un único conjunto. La integración tiene que tomar en cuenta algunos aspectos que se pueden presentar durante el proceso, entre ellos están la redundacia de atributos, la cual sucede cuando 2 atributos están fuertemente correlacionados y por lo tanto, con tener uno de ellos se puede derivar el otro. La redundancia de atributos puede traer consigo un sobre ajuste (overfitting) de los modelos predictivos, además de aumentar el tiempo de cómputo de los mismos, es por eso que se debe eliminar esta redundancia y para ello se usa una prueba de correlación $\chi^2$ con el fin de identificar los atributos redundantes y así decidir con cual quedarse. 
+
+Continuando, con los problemas que se pueden presentar al momento de la integración, se tiene también la duplicación de instancias. Problema que normalmente trae consigo la inconsistencia en los valores de los atributos debido a las diferencias con las que se registran los valores. Para solucionar este problema primero se tiene que identificar las instancias duplicadas usando técnicas de identificicación de similitud como la propuesta de \emph{Fellegi y Sunter} \cite{fellegi1969theory} que lo modela como un problema de inferencia bayesiana o como en \cite{cochinwala2001efficient} donde se usan árboles de clasificación y regresión (CART por sus siglas en inglés) para cumplir este trabajo.
+
+\item \textbf{Normalización de datos \cite{garcia2016data}}
+Busca cambiar la distribución de los datos originales de tal manera que se acoplen a las necesidades de los algoritmos predictivos. Dos de los tipos de normalización más usadas son la normalización min-max en la cual se aplica la fórmula en la ecuación 1.1, donde $max_A$ es el valor máximo del atributo sobre los valores en el conjunto, $min_A$ es el valor mínimo existente, $nuevo\_max_A$ y $nuevo\_min_A$ son los nuevos rangos para el atributo:
+
+\begin{equation}
+v' = \frac{v-min_A}{max_A-min_A}(nuevo\_max_A - nuevo\_min_A) + nuevo\_min_A
+\end{equation}
+
+El otro tipo de normalización es la puntuación Z (Z-score) en donde se llevan los datos a promedio 0 y desviación estándar 1 aplicando la fórmula de la ecuación 1.2:
+
+\begin{equation}
+v' = \frac{v-\mu_A}{\sigma_A}
+\end{equation}
+.\end{itemize}
+
+Pasando a la reducción de los datos, se tiene que engloba todas las técnicas que reducen el conjunto de datos original para obtener uno representativo con el cual trabajar en los modelos predictivos. La reducción de datos cobra especial importancia cuando se tienen conjuntos muy grandes que retardarían en gran medida el tiempo de cómputo de los algorimtos que los van a usar. Las técnicas de reducción de datos son \cite{garcia2016data}:
 
 \begin{itemize}
+\item \textbf{Discretización de datos \cite{garcia2016data,garcia2013survey}}
+Es el proceso de transformar datos numéricos en datos categóricos, definiendo un número finito de intervalos que representan rangos entre distintos valores consecutivos con el fin de poder tratarlos como valores nominales. Es de especial importancia el conseguir el número correcto de intervalos que mantengan la ínformación original de los datos, ya que muy pocos intervalos puede llegar a ocultar la relación existente entre un rango en específico y una clase dada y muchos intervalos puede llevar a un sobre ajuste \cite{cios2007data}. El principal atractivo de la discretización es que permite utilizar un algoritmo de minería de datos que trabaje principalmente con datos nominales como Naïve Bayes \cite{yang2009discretization} a partir de datos numéricos. Para un estudio más completo de la discretización se referencia a \cite{garcia2013survey}.
 
+\item \textbf{Selección de características \cite{garcia2016data,liu2012feature}}
+Busca eliminar atributos que sean redundantes o irrelevantes de tal manera que el subconjunto de características restantes mantenga la distribución original de las clases. El proceso de selección de características tiene ventajas como mantener e incluso mejorar la precisión de los modelos predictivos, reducir los tiempos de cómputo y reducir la complejidad de los modelos resultantes. La búsqueda de un subconjunto de atributos puede realizarse de 3 maneras: búsqueda exhaustiva, búsqueda heurística y métodos no determinísticos. La búsqueda exhaustiva cubre todo el espacio de soluciones, normalmente van probando todas las combinaciones posibles de atributos para conseguir el que mejor se acople a la métrica a optimizar, entre los métodos exhaustivos están Focus \cite{almuallim1991learning}, Automatic Branch \& Bound \cite{liul1998monotonic}, Best First Search \cite{xu1988best}, entre otros. Por su parte, la busqueda heurística busca una solución aproximada a la óptima en poco tiempo, entre sus métodos están los propuestos en \cite{dash1997feature,koller1996toward,battiti1994using}. Por último, están los métodos no determinísticos, de entre los que destacan los algoritmos géneticos, recocido simulado y Las Vegas Filter \cite{liu1996probabilistic}.
+
+\item \textbf{Selección de instancias \cite{garcia2016data}}
+Consiste en elegir un subconjunto de las instancias totales manteniendo las características del conjunto original. Es el problema a tratar en este trabajo y se elabora más sobre el mismo en la siguiente sección.
 \end{itemize}
 
-\end{itemize}
+\section{Selección de Instancias y Selección de Prototipos}
+
+La selección de instancias (IS por sus siglas en inglés) consiste en reducir el conjunto de datos dado a un conjunto reducido que va a ser utilizado con un algoritmo clasificador, manteniendo el desempeño del algorimto como si se usara el conjunto original.\\
+
+\begin{definicion}
+Dado un conjunto de datos X, se tiene que una instancia $X_i = (X_i^1,X_i^2,\dots,X_i^p)$ donde $X_i^j$ es el atributo j para la instancia $X_i$ con $X_i\in X$ y siendo p el número de atributos. La instancia $X_i$ es de clase $Y_j$ donde $Y_i\in Y$, siendo Y el conjunto de todas las clases definidas con $j\in (1\dots q)$ donde q es el número de clases totales. Se divide el conjunto X en un conjunto TR de entrenamiento y un conjunto TS de prueba. El problema de \textbf{Selección de Instancias} consiste en conseguir un conjunto ${S\subset TR$ con el cual al usarse con el clasificador T se obtengan los mismos valores de precisión o mejores que al usar T con TR \cite{garcia2016data}.
+\end{definicion}
+
+La respuesta óptima de un método de selección de instancias es un conjunto \emph{consistente} y de cardinalidad mínima.\\
+
+\begin{definicion}
+``Un conjunto $R$ es \textbf{consistente} con $T$, \emph{si y solo si} toda instancia $t \in T$ es clasificada correctamente mediante el uso de un clasificador \emph{M} y las instancias en $R$ como conjunto de entrenamiento.'' \cite{flores2014metaheuristics}
+\end{definicion}
+
+Sin embargo, conseguir la respuesta óptima es un problema NP-Duro (NP-Hard) como lo demuestra \emph{Zukhba} en \cite{zukhba2010np}. Por lo tanto, la mayoría de los métodos propuestos hasta la fecha se enfocan en obtener una solución aproximada.
+
+El problema de selección de instancias se puede enfocar como un problema de selección de prototipos (PS por sus siglas en inglés). PS es en esencia IS con el detalle de que el clasificador T usado es un clasificador basado en instancias \cite{garcia2016data}. De los cuales K Vecinos más Cercanos (KNN por sus siglas en inglés) es el más conocido y el cual será usado como clasificador para este trabajo.
+
+\subsection{K Vecinos más Cercanos (KNN)}
+
