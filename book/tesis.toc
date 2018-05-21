@@ -2,18 +2,27 @@
 \babel@toc {spanish}{}
 \contentsline {chapter}{Resumen}{\es@scroman {i}}{dummy.1}
 \vspace {1em}
-\contentsline {chapter}{\IeC {\'I}ndice de Figuras}{\es@scroman {iii}}{dummy.3}
-\contentsline {chapter}{Lista de Tablas}{\es@scroman {iv}}{dummy.5}
-\contentsline {chapter}{\IeC {\'I}ndice de algoritmos}{\es@scroman {v}}{chapter*.7}
-\contentsline {chapter}{Acr\IeC {\'o}nimos y S\IeC {\'\i }mbolos}{\es@scroman {vi}}{dummy.8}
+\contentsline {chapter}{\IeC {\'I}ndice de Figuras}{\es@scroman {iv}}{dummy.3}
+\contentsline {chapter}{Lista de Tablas}{\es@scroman {v}}{dummy.5}
+\contentsline {chapter}{\IeC {\'I}ndice de algoritmos}{\es@scroman {vi}}{chapter*.7}
+\contentsline {chapter}{Acr\IeC {\'o}nimos y S\IeC {\'\i }mbolos}{\es@scroman {vii}}{dummy.8}
 \contentsline {chapter}{Introducci\IeC {\'o}n}{1}{chapter*.11}
 \contentsline {chapter}{\numberline {1}Marco te\IeC {\'o}rico}{2}{chapter.12}
 \contentsline {section}{\numberline {1.1}Descubrimiento de Conocimiento y preprocesamiento de datos}{2}{section.13}
-\contentsline {section}{\numberline {1.2}Selecci\IeC {\'o}n de Instancias}{6}{section.16}
-\contentsline {chapter}{\numberline {2}Marco metodol\IeC {\'o}gico}{8}{chapter.19}
-\contentsline {section}{\numberline {2.1}Descripci\IeC {\'o}n general}{8}{section.20}
-\contentsline {chapter}{\numberline {3}Resultados}{9}{chapter.21}
-\contentsline {chapter}{Conclusiones y Recomendaciones}{10}{chapter*.22}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{11}{section*.23}
+\contentsline {section}{\numberline {1.2}Selecci\IeC {\'o}n de Instancias y Selecci\IeC {\'o}n de Prototipos}{6}{section.16}
+\contentsline {subsection}{\numberline {1.2.1}Regla de K vecinos m\IeC {\'a}s cercanos}{7}{subsection.19}
+\contentsline {subsection}{\numberline {1.2.2}Taxonom\IeC {\'\i }a del problema de selecci\IeC {\'o}n de prototipos}{9}{subsection.21}
+\contentsline {subsubsection}{\numberline {1.2.2.1}Direcci\IeC {\'o}n de b\IeC {\'u}squeda}{10}{subsubsection.22}
+\contentsline {subsubsection}{\numberline {1.2.2.2}Tipo de selecci\IeC {\'o}n}{10}{subsubsection.23}
+\contentsline {subsubsection}{\numberline {1.2.2.3}Evaluaci\IeC {\'o}n de la b\IeC {\'u}squeda}{11}{subsubsection.24}
+\contentsline {subsection}{\numberline {1.2.3}Heur\IeC {\'\i }sticas}{12}{subsection.26}
+\contentsline {subsubsection}{\numberline {1.2.3.1}Condensed Nearest Neighbor (CNN)}{12}{subsubsection.27}
+\contentsline {subsubsection}{\numberline {1.2.3.2}Edited Nearest Neighbor (ENN)}{13}{subsubsection.29}
+\contentsline {subsubsection}{\numberline {1.2.3.3}Relaxed Selective Subset (RSS)}{13}{subsubsection.31}
+\contentsline {chapter}{\numberline {2}Marco metodol\IeC {\'o}gico}{15}{chapter.33}
+\contentsline {section}{\numberline {2.1}Descripci\IeC {\'o}n general}{15}{section.34}
+\contentsline {chapter}{\numberline {3}Resultados}{16}{chapter.35}
+\contentsline {chapter}{Conclusiones y Recomendaciones}{17}{chapter*.36}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{18}{section*.37}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Ap\IeC {\'e}ndice A}{14}{appendix.25}
+\contentsline {chapter}{\numberline {A}Ap\IeC {\'e}ndice A}{22}{appendix.39}

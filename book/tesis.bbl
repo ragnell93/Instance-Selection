@@ -19,6 +19,11 @@ Roberto Battiti.
   net learning.
 \newblock {\em IEEE Transactions on neural networks}, 5(4):537--550, 1994.
 
+\bibitem[Ben75]{bentley1975multidimensional}
+Jon~Louis Bentley.
+\newblock Multidimensional binary search trees used for associative searching.
+\newblock {\em Communications of the ACM}, 18(9):509--517, 1975.
+
 \bibitem[BF99]{brodley1999identifying}
 Carla~E Brodley and Mark~A Friedl.
 \newblock Identifying mislabeled training data.
@@ -35,6 +40,11 @@ Cagatay Catal, Oral Alan, and Kerime Balkan.
 \newblock Class noise detection based on software metrics and roc curves.
 \newblock {\em Information Sciences}, 181(21):4867--4877, 2011.
 
+\bibitem[CH67]{cover1967nearest}
+Thomas Cover and Peter Hart.
+\newblock Nearest neighbor pattern classification.
+\newblock {\em IEEE transactions on information theory}, 13(1):21--27, 1967.
+
 \bibitem[CKLS01]{cochinwala2001efficient}
 Munir Cochinwala, Verghese Kurien, Gail Lalk, and Dennis Shasha.
 \newblock Efficient data reconciliation.
@@ -46,16 +56,31 @@ Krzysztof~J Cios, Witold Pedrycz, Roman~W Swiniarski, and Lukasz~Andrzej
 \newblock {\em Data mining: a knowledge discovery approach}.
 \newblock Springer Science \& Business Media, 2007.
 
+\bibitem[DGL13]{devroye2013probabilistic}
+Luc Devroye, L{\'a}szl{\'o} Gy{\"o}rfi, and G{\'a}bor Lugosi.
+\newblock {\em A probabilistic theory of pattern recognition}, volume~31.
+\newblock Springer Science \& Business Media, 2013.
+
 \bibitem[DL97]{dash1997feature}
 Manoranjan Dash and Huan Liu.
 \newblock Feature selection for classification.
 \newblock {\em Intelligent data analysis}, 1(3):131--156, 1997.
+
+\bibitem[FHJ51]{fix1951discriminatory}
+Evelyn Fix and Joseph~L Hodges~Jr.
+\newblock Discriminatory analysis-nonparametric discrimination: consistency
+  properties.
+\newblock Technical report, California Univ Berkeley, 1951.
 
 \bibitem[FKP07]{farhangfar2007novel}
 Alireza Farhangfar, Lukasz~A Kurgan, and Witold Pedrycz.
 \newblock A novel framework for imputation of missing values in databases.
 \newblock {\em IEEE Transactions on Systems, Man, and Cybernetics-Part A:
   Systems and Humans}, 37(5):692--709, 2007.
+
+\bibitem[FM]{floresnearest}
+Alejandro Flores and David~M Mount.
+\newblock Nearest neighbor condensation with guarantees.
 
 \bibitem[FS69]{fellegi1969theory}
 Ivan~P Fellegi and Alan~B Sunter.
@@ -67,6 +92,13 @@ Ivan~P Fellegi and Alan~B Sunter.
 Usama~M Fayyd, Gregory~P Shapiro, and Padhraic Smyth.
 \newblock From data mining to knowledge discovery: An overview.
 \newblock 1996.
+
+\bibitem[GDCH12]{garcia2012prototype}
+Salvador Garcia, Joaquin Derrac, Jose Cano, and Francisco Herrera.
+\newblock Prototype selection for nearest neighbor classification: Taxonomy and
+  empirical study.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  34(3):417--435, 2012.
 
 \bibitem[GLH16]{garcia2016data}
 Salvador Garc{\'\i}a, Juli{\'a}n Luengo, and Francisco Herrera.
@@ -81,10 +113,26 @@ Salvador Garcia, Julian Luengo, Jos{\'e}~Antonio S{\'a}ez, Victoria Lopez, and
 \newblock {\em IEEE Transactions on Knowledge and Data Engineering},
   25(4):734--750, 2013.
 
+\bibitem[Har68]{hart1968condensed}
+Peter Hart.
+\newblock The condensed nearest neighbor rule (corresp.).
+\newblock {\em IEEE transactions on information theory}, 14(3):515--516, 1968.
+
+\bibitem[Ind04]{indyk2004nearest}
+Piotr Indyk.
+\newblock Nearest neighbors in high-dimensional spaces.
+\newblock 2004.
+
 \bibitem[KCH{\etalchar{+}}03]{kim2003taxonomy}
 Won Kim, Byoung-Ju Choi, Eui-Kyeong Hong, Soo-Kyung Kim, and Doheon Lee.
 \newblock A taxonomy of dirty data.
 \newblock {\em Data mining and knowledge discovery}, 7(1):81--99, 2003.
+
+\bibitem[KM17]{keogh2017curse}
+Eamonn Keogh and Abdullah Mueen.
+\newblock Curse of dimensionality.
+\newblock In {\em Encyclopedia of Machine Learning and Data Mining}, pages
+  314--315. Springer, 2017.
 
 \bibitem[KS96]{koller1996toward}
 Daphne Koller and Mehran Sahami.
@@ -108,10 +156,43 @@ Huan Liu, Rudy Setiono, et~al.
 \newblock A probabilistic approach to feature selection-a filter solution.
 \newblock In {\em ICML}, volume~96, pages 319--327. Citeseer, 1996.
 
+\bibitem[Omo89]{omohundro1989five}
+Stephen~M Omohundro.
+\newblock {\em Five balltree construction algorithms}.
+\newblock International Computer Science Institute Berkeley, 1989.
+
+\bibitem[Pea84]{pearl1984heuristics}
+Judea Pearl.
+\newblock Heuristics: intelligent search strategies for computer problem
+  solving.
+\newblock 1984.
+
+\bibitem[SDI06]{shakhnarovich2006nearest}
+Gregory Shakhnarovich, Trevor Darrell, and Piotr Indyk.
+\newblock {\em Nearest-neighbor methods in learning and vision: theory and
+  practice (neural information processing)}.
+\newblock The MIT press, 2006.
+
+\bibitem[SSBD14]{shalev2014understanding}
+Shai Shalev-Shwartz and Shai Ben-David.
+\newblock {\em Understanding machine learning: From theory to algorithms}.
+\newblock Cambridge university press, 2014.
+
 \bibitem[Ten99]{teng1999correcting}
 Choh-Man Teng.
 \newblock Correcting noisy data.
 \newblock In {\em ICML}, pages 239--248. Citeseer, 1999.
+
+\bibitem[Uhl91]{uhlmann1991satisfying}
+Jeffrey~K Uhlmann.
+\newblock Satisfying general proximity/similarity queries with metric trees.
+\newblock {\em Information processing letters}, 40(4):175--179, 1991.
+
+\bibitem[Wil72]{wilson1972asymptotic}
+Dennis~L Wilson.
+\newblock Asymptotic properties of nearest neighbor rules using edited data.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics},
+  (3):408--421, 1972.
 
 \bibitem[XYC88]{xu1988best}
 Lei Xu, Pingfan Yan, and Tong Chang.

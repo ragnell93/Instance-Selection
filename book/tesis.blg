@@ -3,46 +3,51 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: tesis.aux
 The style file: alpha.bst
 Database file #1: bibliografia.bib
+Warning--empty journal in floresnearest
+Warning--empty year in floresnearest
 Warning--empty journal in fayyd1996data
-You've used 23 entries,
+Warning--empty journal in indyk2004nearest
+Warning--empty journal in pearl1984heuristics
+Warning--there's a number but no volume in wilson1972asymptotic
+You've used 38 entries,
             2543 wiz_defined-function locations,
-            706 strings with 8103 characters,
-and the built_in function-call counts, 10104 in all, are:
-= -- 1036
-> -- 497
-< -- 12
-+ -- 179
-- -- 172
-* -- 749
-:= -- 1655
-add.period$ -- 73
-call.type$ -- 23
-change.case$ -- 148
-chr.to.int$ -- 23
-cite$ -- 24
-duplicate$ -- 383
-empty$ -- 707
-format.name$ -- 196
-if$ -- 2061
+            784 strings with 10224 characters,
+and the built_in function-call counts, 15461 in all, are:
+= -- 1570
+> -- 729
+< -- 21
++ -- 255
+- -- 246
+* -- 1116
+:= -- 2544
+add.period$ -- 118
+call.type$ -- 38
+change.case$ -- 232
+chr.to.int$ -- 38
+cite$ -- 44
+duplicate$ -- 611
+empty$ -- 1107
+format.name$ -- 292
+if$ -- 3139
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 24
-newline$ -- 119
-num.names$ -- 69
-pop$ -- 132
+missing$ -- 42
+newline$ -- 193
+num.names$ -- 114
+pop$ -- 227
 preamble$ -- 1
-purify$ -- 174
+purify$ -- 276
 quote$ -- 0
-skip$ -- 328
+skip$ -- 507
 stack$ -- 0
-substring$ -- 619
-swap$ -- 74
-text.length$ -- 12
-text.prefix$ -- 4
+substring$ -- 902
+swap$ -- 95
+text.length$ -- 21
+text.prefix$ -- 11
 top$ -- 0
-type$ -- 172
-warning$ -- 1
-while$ -- 104
-width$ -- 28
-write$ -- 304
-(There was 1 warning)
+type$ -- 276
+warning$ -- 6
+while$ -- 157
+width$ -- 43
+write$ -- 489
+(There were 6 warnings)

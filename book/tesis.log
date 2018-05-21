@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.17)  19 MAY 2018 15:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.17)  21 MAY 2018 16:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1594,7 +1594,7 @@ babelbib extension \btxifchangecaseoff added to \extrasspanish
 babelbib: Load BibTeX extensions \bibsspanish for spanish
 babelbib: Set language for keywords in the bibliography fixed to spanish
 ABD: EveryShipout initializing macros
-<img/./usb.pdf, id=67, 171.64125pt x 114.4275pt>
+<img/./usb.pdf, id=103, 171.64125pt x 114.4275pt>
 File: img/./usb.pdf Graphic file (type pdf)
 <use img/./usb.pdf>
 Package pdftex.def Info: img/./usb.pdf  used on input line 88.
@@ -1627,14 +1627,14 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
-)
-\tf@toc=\write6
-\openout6 = `tesis.toc'.
-
  [2
 
 
-]
+])
+\tf@toc=\write6
+\openout6 = `tesis.toc'.
+
+ [3]
 ------------------------------------------------------------------------------
  \IeC {\'I}ndice de Figuras
 ------------------------------------------------------------------------------
@@ -1647,7 +1647,7 @@ LaTeX Info: Redefining \% on input line 2.
 \tf@lof=\write7
 \openout7 = `tesis.lof'.
 
- [3
+ [4
 
 
 ]
@@ -1663,21 +1663,21 @@ LaTeX Info: Redefining \% on input line 2.
 \tf@lot=\write8
 \openout8 = `tesis.lot'.
 
- [4
+ [5
 
 
 ] (./tesis.loa)
 \tf@loa=\write9
 \openout9 = `tesis.loa'.
 
- (./partes/acronimos.tex [5
+ (./partes/acronimos.tex [6
 
 
 ]
 ------------------------------------------------------------------------------
  Acr\IeC {\'o}nimos y S\IeC {\'\i }mbolos
 ------------------------------------------------------------------------------
-[6
+[7
 
 
 ]) (./partes/introduccion.tex) (./partes/capitulo1.tex [1
@@ -1701,37 +1701,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
-) (./partes/capitulo2.tex [7]
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 79.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [7] [8] [9] [10]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 147.
+
+<img/taxonomia.png, id=333, 1161.98824pt x 286.24588pt>
+File: img/taxonomia.png Graphic file (type png)
+<use img/taxonomia.png>
+Package pdftex.def Info: img/taxonomia.png  used on input line 149.
+(pdftex.def)             Requested size: 435.96745pt x 107.39435pt.
+[11]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 163.
+ [12 <./img/taxonomia.png>] [13]) (./partes/capitulo2.tex [14]
 Cap\'{\i }tulo 2.
 ------------------------------------------------------------------------------
  2 Marco metodol\IeC {\'o}gico
 ------------------------------------------------------------------------------
-) (./partes/capitulo3.tex [8
+) (./partes/capitulo3.tex [15
 
 ]
 Cap\'{\i }tulo 3.
 ------------------------------------------------------------------------------
  3 Resultados
 ------------------------------------------------------------------------------
-) (./partes/conclusiones.tex [9
+) (./partes/conclusiones.tex [16
 
-]) [10
+]) [17
 
 ] (./tesis.bbl
-Underfull \hbox (badness 1354) in paragraph at lines 44--48
+Underfull \hbox (badness 1354) in paragraph at lines 54--58
 []\T1/cmr/m/n/12 Krzysztof J Cios, Wi-told Pedrycz, Ro-man W Swi-niars-ki, and 
 Lu-
  []
 
-[11
+[18
 
 
-] [12]) (./partes/apendiceA.tex [13]
+]
+Underfull \hbox (badness 3009) in paragraph at lines 70--74
+[]\T1/cmr/m/n/12 Evelyn Fix and Jo-seph L Hod-ges Jr.  Dis-cri-mi-na-tory analy
+sis-
+ []
+
+[19] [20]) (./partes/apendiceA.tex [21]
 Ap\'{e}ndice A.
 ------------------------------------------------------------------------------
  A Ap\IeC {\'e}ndice A
 ------------------------------------------------------------------------------
-) [14
+) [22
 
 ]
 ------------------------------------------------------------------------------
@@ -1748,35 +1775,43 @@ LaTeX Info: Redefining \% on input line 25.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 189.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 189.
 Package rerunfilecheck Info: File `tesis.out' has not changed.
-(rerunfilecheck)             Checksum: 64DD5F8DB69A050A847C6E0AB51DC70D;2328.
+(rerunfilecheck)             Checksum: 849505DF83EB2AABA3F96CFEFDDD828F;4739.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 189.
  ) 
 Here is how much of TeX's memory you used:
- 35253 strings out of 492982
- 627719 string characters out of 6134896
- 692819 words of memory out of 5000000
- 38210 multiletter control sequences out of 15000+600000
- 548541 words of font info for 62 fonts, out of 8000000 for 9000
+ 35440 strings out of 492982
+ 631454 string characters out of 6134896
+ 695233 words of memory out of 5000000
+ 38347 multiletter control sequences out of 15000+600000
+ 551548 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,54p,10416b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,54p,10416b,713s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fo
-nts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-
-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb><
-/usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fon
-ts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-s
-uper/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></
-usr/share/texmf/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on tesis.pdf (21 pages, 246384 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></u
+sr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts
+/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/
+type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-supe
+r/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1200.pfb>
+Output written on tesis.pdf (30 pages, 421631 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 285 compressed objects within 3 object streams
- 70 named destinations out of 1000 (max. 500000)
- 138 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 508 PDF objects out of 1000 (max. 8388607)
+ 443 compressed objects within 5 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 215 words of extra memory for PDF output out of 10000 (max. 10000000)
 
