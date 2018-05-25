@@ -244,10 +244,10 @@ Propuesto por  \emph{Wilson, D.} en \cite{wilson1972asymptotic} ENN es un métod
 
 \section{Meteheurísticas y algoritmos evolutivos}
 
-Las metaheurísticas son métodos de optimización que buscan una solución aproximada. Según \emph{Dorigo, M. et al.} en \cite{Dorigo2017} una metaheurística es un conjunto de conceptos que pueden ser utilizados para resolver una gran variedad de problemas de optimización sin necesitar muchos cambios estructurares al adaptarlo a cada problema. Al momento de diseñar una metaheurística se debe tomar en cuenta dos conceptos: intensificación y diversificación \cite{talbi2009metaheuristics}. En un proceso de intensificación, las regiones en el espacio de soluciones prometedoras son exhaustivamente revisadas con la esperanza de conseguir mejores soluciones. En un proceso de diversificación, las regiones no exploradas son visitadas para poder abarcar la mayor cantidad de espacio en el espacio de soluciones y así evitar que la exploración se estanque un una región específica. Las metaheurísticas se pueden clasificar como metaheurísticas basadas en una única solución o metaheurísticas basadas en una población \cite{talbi2009metaheuristics}. Para estudiar los distinos métodos, primero se necesita definir una serie de conceptos que son comunes para todos:\\
+Las metaheurísticas son métodos de optimización que buscan una solución aproximada. Según \emph{Dorigo, M. et al.} en \cite{Dorigo2017} una metaheurística es un conjunto de conceptos que pueden ser utilizados para resolver una gran variedad de problemas de optimización sin necesitar muchos cambios estructurales al adaptarlo a cada problema. Al momento de diseñar una metaheurística se debe tomar en cuenta dos conceptos: intensificación y diversificación \cite{talbi2009metaheuristics}. En un proceso de intensificación, las regiones en el espacio de soluciones prometedoras son exhaustivamente revisadas con la esperanza de conseguir mejores soluciones. En un proceso de diversificación, las regiones no exploradas son visitadas para poder abarcar la mayor cantidad de espacio en el espacio de soluciones y así evitar que la exploración se estanque un una región específica. Las metaheurísticas se pueden clasificar como metaheurísticas basadas en una única solución o metaheurísticas basadas en una población \cite{talbi2009metaheuristics}. Para estudiar los distinos métodos, primero se necesita definir una serie de conceptos que son comunes para todos:\\
 
 \begin{definicion}
-La \textbf{representación del problema} es la manera de codificar las soluciones pertenecientes al espacio de soluciones. Debe ser acorde al problema de tal manera que cumpla con las siguientes características: debe ser completo, es decir, todas las soluciones del espacio deben poder ser codificadas; debe ser conexo, lo que se traduce a que debe haber un camino entre dos cualesquiera soluciones y por último, debe ser eficiente de tal manera que la manipulación por los operadores de búsqueda tenga un costo en tiempo y espacio mínimo \cite{talbi2009metaheuristics}.\\
+La \textbf{representación del problema} es la manera de codificar las soluciones pertenecientes al espacio de soluciones. Debe ser acorde al problema de tal manera que cumpla con las siguientes características: debe ser completo, es decir, todas las soluciones del espacio deben poder ser codificadas; debe ser conexo, lo que se traduce a que debe haber un camino entre dos cualesquiera soluciones y por último, debe ser eficiente, de tal manera que la manipulación por los operadores de búsqueda tenga un costo en tiempo y espacio mínimo \cite{talbi2009metaheuristics}.\\
 \end{definicion}
 
 \begin{definicion}
@@ -260,12 +260,12 @@ La \textbf{vecindad} es el conjunto de soluciones N(s) que se le asocia a una so
 
 \subsection{Metaheurísticas basadas en una única solución}
 
-También conocidas como metaheurísticas de trayectoria, se centran en mejorar una única solución que van cambiando a lo largo del curso del algoritmo, se pueden ver como trayectorias de búsqueda en el espacio de soluciones, dichas trayectorias son trazadas por procesos iterativos que se mueven de una solución a otra dependiendo del criterio de aceptación particular de la metaheurística utilizada. Esta clase de metaheurísticas se enfocan principalmente en la explotación del espacio de soluciones e introducen el componente de exploración de distintas formas. A continuación se presentan algunas metaheurísticas de este tipo: 
+También conocidas como metaheurísticas de trayectoria, se centran en mejorar una única solución que van cambiando a lo largo del curso del algoritmo; se pueden ver como trayectorias de búsqueda en el espacio de soluciones, dichas trayectorias son trazadas por procesos iterativos que se mueven de una solución a otra dependiendo del criterio de aceptación particular de la metaheurística utilizada. Esta clase de metaheurísticas se enfocan principalmente en la explotación del espacio de soluciones e introducen el componente de exploración de distintas formas. A continuación se presentan algunas metaheurísticas de este tipo: 
 
 \begin{itemize}
 
 \item \textbf{Búsqueda Local \cite{talbi2009metaheuristics,aarts2003local}:}
-es la base para la mayoría de las metaheurísticas basadas en una única solución. Dado una solución inicial, en cada iteración el método reemplaza la solución actual por un vecino que mejore el valor de la función objetivo, la búsqueda termina cuando todos los vecinos candidatos a evaluarse son peores que la solución actual, lo cual significa que un óptimo local ha sido alcanzado. Para vecindades muy grandes se puede restringir el conjunto a un procentaje dado para agilizar las operaciones. Otro de los factores que se debe elegir al momento de implementar búsqueda local es si en cada iteración se elige el mejor elemento de la vecindad, el primer vecino encontrado que mejore la solución actual o inclusive un vecino aleatorio al momento de reemplazar la respuesta actual. El principal problema de este método es que se queda atrapado en un óptimo local y no hay forma de salir del mismo, esto se debe a que búsqueda local es un método únicamente de intensificación; sin embargo, los métodos que se derivaron de éste utilizan técnicas de diversificación para escapar del óptimo local.
+es la base para la mayoría de las metaheurísticas basadas en una única solución. Dado una solución inicial, en cada iteración el método reemplaza la solución actual por un vecino que mejore el valor de la función objetivo, la búsqueda termina cuando todos los vecinos candidatos a evaluarse son peores que la solución actual, lo cual significa que un óptimo local ha sido alcanzado. Para vecindades muy grandes se puede restringir el conjunto a un procentaje dado para agilizar las operaciones. Otro de los factores que se debe elegir al momento de implementar búsqueda local es si en cada iteración se elige el mejor elemento de la vecindad, el primer vecino encontrado que mejore la solución actual o inclusive un vecino aleatorio al momento de reemplazar la respuesta actual. El principal problema de este método es que se queda atrapado en un óptimo local y no hay forma de salir del mismo, esto se debe a que la búsqueda local es un método únicamente de intensificación; sin embargo, los métodos que se derivaron de éste utilizan técnicas de diversificación para escapar del óptimo local.
 
 \item \textbf{Recocido Simulado \cite{talbi2009metaheuristics,kirkpatrick1983optimization}:}
 es un método con una forma muy peculiar de escapar de óptimos locales usando un concepto propio de la estadística mecánica. El algoritmo genera una solución aleatoria en cada iteración; si dicha solución mejora el valor de la función de costo entonces es aceptada como nueva respuesta y se desecha la anterior, en cambio, si la solución aleatoria es peor que la actual, se acepta con una probabilidad que depende de un parámetro llamado ``temperatura'' con distribución de Boltzmann, donde $\Delta E$ representa la diferencia de los valores de la función objetivo, $f(s)$ la evaluación de la función objetivo con la respuesta s y T la temperatura:
@@ -274,9 +274,9 @@ es un método con una forma muy peculiar de escapar de óptimos locales usando u
 P(\Delta E,T) = e^{-\frac{f(s')-f(s)}{T}}
 \end{equation} 
 
-Cuando T es elevada al principio del proceso, se aceptan muchas soluciones que representan un detrimento con la idea de diversificar la búsqueda por gran parte del espacio de soluciones. Luego, en cada iteración se va bajando poco a poco la temperatura para empezar a estabilizar la búsqueda y así enfocarse en una región prometedora, luego de muchas iteraciones en un proceso de intensificación. 
+Cuando T es elevada al principio del proceso, se aceptan muchas soluciones que representan un detrimento con la idea de diversificar la búsqueda por gran parte del espacio de soluciones. Luego, en cada iteración se va bajando poco a poco la temperatura para empezar a estabilizar la búsqueda y así enfocarse en una región prometedora, pasado muchas iteraciones, en un proceso de intensificación. 
 
-Cabe destacar que \emph{Czarnowski, I. \& J{\k{e}}drzejowicz, P} en \cite{czarnowski2011application} propusieron un modelo en el cual se conjugan los algoritmos basados en agentes de aprendizaje poblacionales (A-team) \cite{talukdar1998asynchronous} con recocido simulado y búsqueda tabú para solucionar el problema de selección de instancias. La idea principal es que usar el A-team como base, ya que mantiene una población de soluciones comunes que se van mejorando continuamente con la ayuda de un agente en específico. Los agentes usados en este trabajo son una parte basados en recocido simulado y los restantes en búsqueda tabú.
+Cabe destacar que \emph{Czarnowski, I. \& J{\k{e}}drzejowicz, P} en \cite{czarnowski2011application} propusieron un modelo en el cual se conjugan los algoritmos basados en agentes de aprendizaje poblacionales (A-team) \cite{talukdar1998asynchronous} con recocido simulado y búsqueda tabú para solucionar el problema de selección de instancias. La idea principal es usar el A-team como base, ya que mantiene una población de soluciones comunes que se van mejorando continuamente con la ayuda de un agente en específico. Los agentes usados en este trabajo son, una parte basados en recocido simulado y los restantes en búsqueda tabú.
 
 \item \textbf{Búsqueda tabú \cite{talbi2009metaheuristics,glover1989tabu}:}
 se comporta como una búsqueda local hasta que llega a un óptimo local, en este punto acepta una solución peor a la actual para escapar. El punto crucial de la búsqueda tabú es el uso de una lista tabú, una estructura que almacena las soluciones por las que ha pasado y es usada al momento de ir a una solución peor para evitar caer en ciclos. La lista tabú representa una memoria a corto plazo, donde se debe definir cuantos movimientos hacia atrás se almacenan. Otra característica de este método es que posee un ``criterio de aspiración'' con el cual se pueden hacer excepciones de la lista tabú si un movimiento prohibido es de especial interés. La búsqueda tabú se puede mejorar introduciendo los conceptos de memoria a mediano plazo, la cual guarda las mejores soluciones encontradas hasta el momento para sesgar la búsqueda en favor a los atributos que componen dichas soluciones y el otro concepto de mejora es el de memoria a largo plazo, con la cual se espera lograr una diversificación de la búsqueda evitando repetir patrones ya vistos. En lo referente a la aplicación al problema de selección de instancias \emph{Cerverón, V. \& Ferri, F.} en \cite{cerveron2001another} usan la búsqueda tabú para solucionarlo.
@@ -286,7 +286,7 @@ Otras técnicas basadas en una única solución incluyen Búsqueda Local Iterada
 
 \subsection{Metaheurísticas basadas en una población}
 
-Estas metaheurísticas empiezan con una población incial de soluciones, que puede ser elegida de manera aleatoria o con heurísticas que introduzcan ``buenas'' soluciones, e iterativamente generan nuevos elementos que pueden llegar a suplantar los de la población actual según un criterio de selección. El proceso de generación y selección se repite hasta que se cumpla un criterio de parada, el cual puede ser un número de iteraciones fijas o hasta que la población converga a una región sin mejoras por cierto tiempo. Dichos procesos de generación y selección pueden ser sin memoria, es decir, solo dependen de la población actual como el caso de los algoritmos genéticos tradicionales o pueden ser con memoria y usar información adquirida durante el proceso de búsqueda para dirigir la generación y selección a mejores resultados.\cite{talbi2009metaheuristics}. Un esquema general para los algoritmos basados en una población es el presentado en \ref{pmeta}.
+Estas metaheurísticas empiezan con una población incial de soluciones, que puede ser elegida de manera aleatoria o con heurísticas que introduzcan ``buenas'' soluciones, e iterativamente generan nuevos elementos que pueden llegar a suplantar los de la población actual según un criterio de selección. El proceso de generación y selección se repite hasta que se cumpla un criterio de parada, el cual puede ser un número de iteraciones fijas o hasta que la población converga a una región sin mejoras por cierto tiempo. Dichos procesos de generación y selección pueden ser sin memoria, es decir, solo dependen de la población actual, como el caso de los algoritmos genéticos tradicionales o pueden ser con memoria y usar información adquirida durante el proceso de búsqueda para dirigir la generación y selección a mejores resultados.\cite{talbi2009metaheuristics}. Un esquema general para los algoritmos basados en una población es el presentado en \ref{pmeta}.
 
 \begin{algorithm}
 \caption{Plantilla para las metaheurísticas basadas en una población}
@@ -314,15 +314,15 @@ el método comienza generando una población inicial P que satisface los criteri
 \item \textbf{Colonia de hormigas \cite{talbi2009metaheuristics,dorigo1992optimization}:}
 es un método que utiliza un mecanismo de comunicación entre los agentes (hormigas) que participan en la búsqueda, dicho mecanismo es una matriz de ``feromonas'' con la información que deja cada hormiga al construir una solución indicando cuán buena es. La idea es que con la matriz de feromonas, las hormigas vayan construyendo mejores soluciones en dirección a las regiones prometedoras que sus antecesoras han conseguido. El mecanismo de las feromonas tiene la particularidad que se intensifica el rastro en una región cada vez que una hormiga construye una solución cerca de la misma; por otro lado, se va debilitando el rastro cuando pasa tiempo sin que una hormiga explore la región.
 
-\emph{Anwar, I. et al.} en \cite{anwar2015instance,anwar2015adr} adaptan colonia de hormigas al problema de selección de instancias. Aquí, la construcción de soluciones por cada hormiga implica ir escogiendo cuáles instancias pertenencen al conjunto reducido $S \subseteq TR$ y renovando la feromona correspondiente dependiendo del porcentaje de precisión obtenida con un clasificador dado. En la propuesta de \emph{Anwar, I. et al.} se divide la optimización en dos fases: la primera donde se consigue S y la segunda donde se entrena el modelo final.
+\emph{Anwar, I. et al.} en \cite{anwar2015instance,anwar2015adr} adaptan colonia de hormigas al problema de selección de instancias. Aquí, la construcción de soluciones por cada hormiga implica ir escogiendo cuáles instancias pertenencen al conjunto reducido $S \subseteq TR$ y va renovando la feromona correspondiente dependiendo del porcentaje de precisión obtenida con un clasificador dado. En la propuesta de \emph{Anwar, I. et al.} se divide la optimización en dos fases: la primera donde se consigue S y la segunda donde se entrena el modelo final.
 
 \item \textbf{Optimización de enjambre de partículas \cite{talbi2009metaheuristics,eberhart2001swarm}:}
-abreviada PSO por sus siglas en inglés,consiste en un enjambre de N partículas que se mueven en el espacio de soluciones. La partícula i es una solución y a parte de su posición en el espacio tiene un parámetro de velocidad y dirección de búsqueda con la cual se va moviendo. Las partículas se ayudan entré sí ya que mantienen una memoria colectiva de la mejor posición encontrada por todo el enjambre, la cual usan para dirigir la búsqueda de cada partícula.
+abreviada PSO por sus siglas en inglés, consiste en un enjambre de N partículas que se mueven en el espacio de soluciones. La partícula i es una solución y a parte de su posición en el espacio tiene un parámetro de velocidad y dirección de búsqueda con la cual se va moviendo. Las partículas se ayudan entré sí ya que mantienen una memoria colectiva de la mejor posición encontrada por todo el enjambre, la cual usan para dirigir la búsqueda de cada partícula.
 
-\emph{Ahmad, S. \& Pedrycz, W} en \cite{ahmad2011feature} usan una variación de PSO conocida como CPSO para tratar simultáneamente el problema de selección de instancias y selección de atributos para modelos de regresión. En CPSO existen múltiples enjambres con memoria compartida distinta cada uno. Es así como el método propuesto asigna al primer enjambre la tarea de reducir el conjunto de características y el resto de los enjambres trabajan con subgrupos de instancias para llegar a varios subconjuntos reducidos. Esta metodología tiene la particularidad de que escala muy bien frente a conjunto de datos de gran tamaño porque subdivide el trabajo en varias partes. Cuando la búsqueda en todos los enjambres termina, se integra los resultados de cada uno en la solución al problema.
+\emph{Ahmad, S. \& Pedrycz, W} en \cite{ahmad2011feature} usan una variación de PSO conocida como CPSO para tratar simultáneamente el problema de selección de instancias y selección de atributos para modelos de regresión. En CPSO existen múltiples enjambres con memoria compartida distinta para cada uno. Es así como el método propuesto asigna al primer enjambre la tarea de reducir el conjunto de características y el resto de los enjambres trabajan con subgrupos de instancias para llegar a varios subconjuntos reducidos. Esta metodología tiene la particularidad de que escala muy bien frente a conjunto de datos de gran tamaño porque subdivide el trabajo en varias partes. Cuando la búsqueda en todos los enjambres termina, se integra los resultados de cada uno en la solución al problema.
 
 \item \textbf{Algoritmos de estimación de distribución \cite{talbi2009metaheuristics,lozano2006towards}:}
-se extrae información estadística de la población para construir una distribución probabilistica y se crean nuevos individuos usando muestreo a partir de la distribución creada. Lo que los separa esencialmente de los algoritmos genéticoses que reemplazan los operadores de cruce y mutación por distribuciones probabilísticas. \emph{Sierra, B. et al.} usan algoritmos de estimación de distribución para realizar selección de instancias y selección de características en un caso de estudio en \cite{sierra2001prototype}.
+se extrae información estadística de la población para construir una distribución probabilistica y se crean nuevos individuos usando muestreo a partir de la distribución creada. Lo que los separa esencialmente de los algoritmos genéticos es que reemplazan los operadores de cruce y mutación por distribuciones probabilísticas. \emph{Sierra, B. et al.} usan algoritmos de estimación de distribución para realizar selección de instancias y selección de características en un caso de estudio en \cite{sierra2001prototype}.
 
 \item \textbf{Evolución Diferencial \cite{talbi2009metaheuristics,price2006differential}:}
 DE por sus siglas en inglés, se usa principalmente para optimización continua. La idea principal es usar vectores de diferencia (combinaciones lineales entre instancias) para perturbar la población. El algoritmo empieza con una población inicial P donde cada individuo es un vector de valores reales. Luego se establece una función de recombinación que se basa en la combinación lineal de los elementos que conforman los padres elegidos de la población para formar un hijo; además se establece una función de mutación donde se perturba un elemento dado y así se va creando nuevos elementos en el espacio continuo que van convergiendo a un valor óptimo.
@@ -334,3 +334,205 @@ representan una clase de metaheurísticas poblacionales.Son el principal punto a
 \end{itemize} 
 
 \subsubsection{Algoritmos evolutivos}
+
+Los algoritmos evolutivos están basadas en la competencia entre individuos de una población llamados cromosomas; la población se inicializa con cromosomas elegidos aleatoriamente o a través de heurísticas. Con esto, dado una función objetivo, se evalúa cuán bueno es cada cromosoma y con esta información se decide por medio de un proceso de selección cuáles serán los cromosomas que se van a cruzar, dando como resultado uno o más hijos que comparten características de sus padres. Luego del cruze, viene la mutación de los nuevos individuos con un operador definido que perturba ligeramente al cromosoma. Por último viene un proceso de reemplazo donde se decide si los hijos suplantan algún elemento de la población (esquema estacionario) o si se construye una nueva población con los hijos que va a suplantar totalmente a sus padres (esquema generacional) \cite{talbi2009metaheuristics}. 
+
+El diseño de un algoritmo evolutivo viene dado con la toma de decisiones respecto a algunos componentes. Algunos comunes a todas las metaheurísticas como la representación del problema, el cual puede ser un vector de valores binarios, enteros, reales, una permutación, entre otros; la inicialización de la población, que puede ser por medio de heurísticas o aleatoria; la elección de una función objetivo que represente cuán buena es un cromosoma y el criterio de parada. Por otro lado, hay unos componentes que son propios de los algoritmos evolutivos como el criterio de selección para reproducirse, el operador de cruce, el operador de mutación y la estrategia de reemplazo.
+
+\emph{Cano, J.} en \cite{de2004reduccion} hace un estudio comparativo de varias algoritmos evolutivos con respecto a las heurísticas tradicionales de PS. En este trabajo compara un algoritmo genético generacional (GGA), un algoritmo genético estacionario (SSGA), CHC y aprendizaje incremental basado en población (PBIL); aquí obtuvo que los algoritmos evolutivos obtinene buenos resultados y CHC en especial supera a los métodos tradicionales cuando se evalúa tanto el nivel de reducción como de precisión del clasificador. Por otra parte, \emph{Cano, J. et al.} en \cite{garcia2008memetic}, plantean un algoritmo memético estacionario que obtiene también muy buenos resultados con respecto a otros algoritmos evolutivos en cuestión de reducción (CHC estando por encima) y con precisión comparable al resto. 
+
+Los algoritmos evolutivos que fueron implementados en este trabajo fueron:
+
+\paragraph{Algoritmo Genético Generacional (GGA)}
+
+ Generational Genetic Algorithm (GGA) en inglés, es el esquema tradicional de algoritmos genéticos; los algoritmos genéticos fueron desarrollados por \emph{Holland, H.} en \cite{holland1975adaptation}. La versión generacional usa una estrategia de reemplazo en la cual se genera una población nueva de hijos en cada ciclo del algortimo y ésta suplanta a la generación anterior. El algoritmo empieza generando una población incial aleatoria y empieza a crear poblaciones nuevas en cada generación hasta que se cumpla una condición de parada. En medio del proceso está actuando un operador de cruce que mezcla los elementos seleccionados como padres y una operación de mutación que modifica la nueva generación. El algoritmo se presenta en \ref{gga} \cite{flores2014metaheuristics}.
+
+\begin{algorithm}
+\caption{Algoritmo Genético Generacional}
+\label{gga}
+\begin{algorithmic}[1]
+
+\Require{\texttt{pop} tamaño de la población,
+	\texttt{cp} probabilidad de cruce,
+	\texttt{mp} probabilidad de mutación}
+\Ensure{Una solución al problema}
+
+\State $P \gets$ Generar población aleatoria de $\texttt{pop}$ individuos
+\State $s^* \gets $ el \emph{mejor} individuo en $P$
+\While{$\neg$ Condición de parada}
+	\State $P' \gets \emptyset$
+	\While{$\mid P' \mid < \texttt{pop}$}
+		\State $p_1 \gets$ Seleccionar un individuo en $P$
+		\State $p_2 \gets$ Seleccionar un individuo en $P$
+		\State $c_1, c_2 \gets $ recombinar $p_1$ y $p_2$ con probabilidad $\texttt{cp}$
+		\State Mutar $c_1$ y $c_2$ con probabilidad $\texttt{mp}$
+		\State $P' \gets P' \cup \left\lbrace c_1, c_2 \right\rbrace$
+	\EndWhile
+	\State $P \gets P'$
+	\If{El \emph{mejor} individuo en $P$ es \emph{mejor} que $s^*$}
+		\State $s^* \gets$ el \emph{mejor} individuo en $P$
+	\EndIf
+\EndWhile
+\State \Return $s^*$
+
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Algoritmo Genético Estacionario (SSGA)}
+
+Steady State Genetic Algorithm (SSGA) en inglés, es otra variación de los algoritmos genéticos. En este caso, la estrategia de reemplazo consiste en generar uno o dos hijos por iteración y decidir al momento si va a suplantar algún elemento de la población; puede suplantar a uno de los padres si es mejor que uno de ellos o puede suplantar al peor elemento de la población. Al igual que GGA, se tiene que definir un operador de mutación y cruce. El algoritmo se presenta en \ref{sga} \cite{flores2014metaheuristics}.
+
+\begin{algorithm}
+\caption{Algoritmo Genético Estacionario}
+\label{sga}
+\begin{algorithmic}[1]
+
+\Require{\texttt{pop} tamaño de la población,
+	\texttt{cp} probabilidad de cruce,
+	\texttt{mp} probabilidad de mutación}
+\Ensure{Una solución al problema}
+
+\State $P \gets$ Generar población aleatoria de $\texttt{pop}$ individuos
+\State $s^* \gets $ el \emph{mejor} individuo en $P$
+\While{$\neg$ Condición de parada}
+	\State $p_1 \gets$ Seleccionar un individuo en $P$
+	\State $p_2 \gets$ Seleccionar un individuo en $P$
+	\State $c_1, c_2 \gets $ recombinar $p_1$ y $p_2$ con probabilidad $\texttt{cp}$
+	\State Mutar $c_1$ y $c_2$ con probabilidad $\texttt{mp}$
+	\State Seguir algún criterio de reemplazo de individuos en $P$ por $c_1$ y $c_2$
+	\If{El \emph{mejor} individuo en $P$ es \emph{mejor} que $s^*$}
+		\State $s^* \gets$ el \emph{mejor} individuo en $P$
+	\EndIf
+\EndWhile
+\State \Return $s^*$
+
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Algoritmo Memético (MA)}
+
+Memetic Algorithm en inglés, es un algoritmo evolutivo basado en los algoritmos genéticos que tiene la peculiaridad de tener un proceso de optimización interno llamado ``meme'', el cual es aplicado a todos o algunos elementos de la población en cada iteración; el meme más común es una búsqueda local \cite{neri2012memetic}. El esquema clásico se basa en los GGA y primero genera una población nueva con los cruces y mutaciones propios de un GGA, para luego pasar a una fase de intensificación donde aplica el meme a todas las soluciones y se genera una nueva población optimizada que suplanta la generación anterior. Otro esquema se basa en los SSGA y en cada iteración se cruzan una serie de padres para generar uno o dos hijos que, luego de mutar con cierta probabilidad dada, se decide si pasan a un proceso de optimización con el meme y el resultado se decide si se incorpora a la población.  En \ref{ssma} se presenta el algoritmo para la versión estacionaria de los algorimos meméticos (SSMA).
+
+\begin{algorithm}
+\caption{Algoritmo Memético Estacionario}
+\label{ssma}
+\begin{algorithmic}[1]
+
+\Require{\texttt{pop} tamaño de la población,
+	\texttt{cp} probabilidad de cruce,
+	\texttt{mp} probabilidad de mutación,
+	\texttt{mem} meme usado}
+\Ensure{Una solución al problema}
+
+\State $P \gets$ Generar población de $\texttt{pop}$ individuos
+\State $s^* \gets $ el \emph{mejor} individuo en $P$
+\While{$\neg$ Condición de parada}
+	\State $p_1 \gets$ Seleccionar un individuo en $P$
+	\State $p_2 \gets$ Seleccionar un individuo en $P$
+	\State $c_1, c_2 \gets $ recombinar $p_1$ y $p_2$ con probabilidad $\texttt{cp}$
+	\State Mutar $c_1$ y $c_2$ con probabilidad $\texttt{mp}$
+	\State Determinar si $c_1$ y $c_2$ van a ser optimizados con \texttt{mem} y almacenar el resultado en $c'_1$ y $c'_2$
+	\State Seguir algún criterio de reemplazo de individuos en $P$ por $c'_1$ y $c'_2$
+	\If{El \emph{mejor} individuo en $P$ es \emph{mejor} que $s^*$}
+		\State $s^* \gets$ el \emph{mejor} individuo en $P$
+	\EndIf
+\EndWhile
+\State \Return $s^*$
+
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{CHC Adaptative Search Algorithm}
+
+Propuesto inicialmente por \emph{Eshelman, L.} en \cite{eshelman1991chc}, es un algoritmo evolutivo generacional con la diferencia de que es totalmente elitista, ya que elige los mejores n elementos de entre la vieja y nueva población para conformar la nueva generación (n es el número de elementos en la población). También tiene la particularidad de que implementa un operador de cruce llamado HUX en el cual, dado dos padres, intercambia la mitad de los genes que no coincidan entre ellos de manera aleatoria con el fin de crear hijos lo más distinto posible de los padres. Además CHC tiene un mecanismo de prevención de incesto en el cual se usa la distancia de Hamming entre los dos posibles candidatos a ser padres pra determinar si son lo suficientemente distintos para cruzarse, para esto usa un umbral que inicialmente es l/4 donde l es la longitud del cromosoma. Por último, no existe una operación de mutación y en cambio, cuando pasa una generación sin individuos nuevos, se disminuye el umbral de incesto en 1, hasta que llega a 0 y se toma la decisión de reinicializar la población, preservando el mejor elemento encontrado hasta el momento y poblando los elementos restantes con variaciones del mejor, donde se perturban hasta un 35\% de los genes asociados al cromosoma. El algoritmo se presenta en \ref{chc}, donde t es la generación actual, d es el umbral de incesto, P(t) es la población de la generación t, L es la longitud del cromosoma.
+
+\begin{algorithm}
+\caption{CHC}
+\label{chc}
+\begin{algorithmic}[1]
+
+\Require{\texttt{pop} tamaño de la población}
+\Ensure{Una solución al problema}
+
+\State $t=0$
+\State $d=L/4$
+\State $P(t) \gets$ Generar población de $\texttt{pop}$ individuos
+\State $s^* \gets $ el \emph{mejor} individuo en $P$
+\While{$\neg$ condición de parada}
+	\State $t=t+1$
+	\State $C(t) \gets P(t-1)$
+	\State \textbf{recombinar} las estructuras en C(t) para formar C'(t)
+	\State evauluar las estructuras en C'(t) con la función objetivo
+	\State seleccionar P(t) de C'(t) y P(t-1) sólo con los mejores elementos
+	\If{El \emph{mejor} individuo en $P$ es \emph{mejor} que $s^*$}
+		\State $s^* \gets$ el \emph{mejor} individuo en $P$
+	\EndIf
+	\If{$P(t)=P(t-1)$}
+		\State $d--$
+	\EndIf
+	\If{$d<0$}
+		\State \textbf{divergir} P(t)
+		\State $d=L/4$
+	\EndIf
+\EndWhile
+\State \Return $s^*$
+
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{Recombinar}
+\label{recombinar}
+\begin{algorithmic}
+
+\Require{C(t) candidatos a padre, d umbral de incesto}
+\Ensure{C'(t) hijos}
+
+\ForAll{par de instancias en C(t) $x_1$ y $x_2$}
+	\State $ham \gets$ distancia de hamming entre $x_1$ y $x_2$
+	\If{$ham/2 > d$}
+		\State cambiar la mitad de elementos que difieran entre $x_1$ y $x_2$ de forma aleatoria para generar $x'_1$ y $x'_2$
+		\State $C'(t) \gets C'(t) \cup \left\{x'_1,x'_2\right\}$
+	\Else
+		\State borrar el par $x_1$ y $x_2$ de C(t)
+	\EndIf
+\EndFor
+
+\State \Return C'(t)
+
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{Divergir}
+\label{Divergir}
+\begin{algorithmic}
+
+\Require{P(t-1) población anterior, $s^*$ mejor solución, r porecentaje de genes a cambiar}
+\Ensure{P(t) población renovada}
+
+\State Llenar P(t) con copias de $s^*$
+\ForAll{miembros $x_i\in P(t)$ excepto uno}
+	\State Cambiar $r*L$ genes de manera aleatoria de $x_i$
+	\State Evaluar $x_i$ con la función objetivo
+\EndFor
+
+\State \Return P(t)
+
+\end{algorithmic}
+\end{algorithm}
+
+\section{Criterios para comparar los métodos de selección de prototipos}
+
+Al momento de comparar los distintos métodos de PS, se usan los siguiente criterios para evaluar las fortalezas y debilidades relativad de cada algoritmo \cite{garcia2016data}:
+
+\begin{itemize}
+\item \textbf{Reducción en el espacio de almacenamiento:}
+se asocia con la cantidad de instancias que permanecen al final de proceso. La reducción de las instancias trae consigo una disminución en los tiempos de cómputo al tener que revisar menos individuos en cada iteración para clasificar una nueva instancia.
+
+\item \textbf{Precisión en la generalización:}
+se espera que aún con el conjunto reducido, se mantenga las tasas de acierto de cada clasificador o inclusive, llegen a mejorar. Un algoritmo de PS debe poder mantener la precisión al momento de ser evaluado con el conjunto de prueba luego de realizar la reducción.
+
+\item \textbf{Tiempo de cómputo:}
+involucra cuánto tiempo le lleva al algoritmo realizar la reducción de los datos. Un factor importante al momento de escalar los métodos a conjuntos muy grandes, ya que pueden ser inutilizables si tardan demasiado.
+\end{itemize}

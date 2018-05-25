@@ -92,6 +92,14 @@ Krzysztof~J Cios, Witold Pedrycz, Roman~W Swiniarski, and Lukasz~Andrzej
 \newblock {\em Data mining: a knowledge discovery approach}.
 \newblock Springer Science \& Business Media, 2007.
 
+\bibitem[dA04]{de2004reduccion}
+Jos{\'e} Ram{\'o}n~Cano de~Amo.
+\newblock {\em Reducci{\'o}n de datos basada en Selecci{\'o}n Evolutiva de
+  Instancias para Miner{\i}a de Datos}.
+\newblock PhD thesis, PhD thesis, Departamento de Ciencias de la
+  Computaci{\'o}n e Inteligencia Artificial, Universidad de Granada, Spain,
+  2004.
+
 \bibitem[DBS17]{Dorigo2017}
 Marco Dorigo, Mauro Birattari, and Thomas St{\"u}tzle.
 \newblock {\em Metaheuristic}, pages 817--818.
@@ -111,6 +119,13 @@ Manoranjan Dash and Huan Liu.
 Marco Dorigo.
 \newblock Optimization, learning and natural algorithms.
 \newblock {\em PhD Thesis, Politecnico di Milano}, 1992.
+
+\bibitem[Esh91]{eshelman1991chc}
+Larry~J Eshelman.
+\newblock The chc adaptive search algorithm: How to have safe search when
+  engaging in nontraditional genetic recombination.
+\newblock In {\em Foundations of genetic algorithms}, volume~1, pages 265--283.
+  Elsevier, 1991.
 
 \bibitem[ESK01]{eberhart2001swarm}
 Russell~C Eberhart, Yuhui Shi, and James Kennedy.
@@ -150,6 +165,12 @@ Usama~M Fayyd, Gregory~P Shapiro, and Padhraic Smyth.
 \newblock From data mining to knowledge discovery: An overview.
 \newblock 1996.
 
+\bibitem[GCH08]{garcia2008memetic}
+Salvador Garc{\'\i}a, Jos{\'e}~Ram{\'o}n Cano, and Francisco Herrera.
+\newblock A memetic algorithm for evolutionary prototype selection: A scaling
+  up approach.
+\newblock {\em Pattern Recognition}, 41(8):2693--2709, 2008.
+
 \bibitem[GDCH12]{garcia2012prototype}
 Salvador Garcia, Joaquin Derrac, Jose Cano, and Francisco Herrera.
 \newblock Prototype selection for nearest neighbor classification: Taxonomy and
@@ -184,6 +205,13 @@ Salvador Garcia, Julian Luengo, Jos{\'e}~Antonio S{\'a}ez, Victoria Lopez, and
 Peter Hart.
 \newblock The condensed nearest neighbor rule (corresp.).
 \newblock {\em IEEE transactions on information theory}, 14(3):515--516, 1968.
+
+\bibitem[Hol75]{holland1975adaptation}
+John~H Holland.
+\newblock Adaptation in natural and artificial systems. an introductory
+  analysis with application to biology, control, and artificial intelligence.
+\newblock {\em Ann Arbor, MI: University of Michigan Press}, pages 439--444,
+  1975.
 
 \bibitem[Ind04]{indyk2004nearest}
 Piotr Indyk.
@@ -243,6 +271,12 @@ Huan Liu, Rudy Setiono, et~al.
 Nenad Mladenovi{\'c} and Pierre Hansen.
 \newblock Variable neighborhood search.
 \newblock {\em Computers \& operations research}, 24(11):1097--1100, 1997.
+
+\bibitem[NC12]{neri2012memetic}
+Ferrante Neri and Carlos Cotta.
+\newblock Memetic algorithms and memetic computing optimization: A literature
+  review.
+\newblock {\em Swarm and Evolutionary Computation}, 2:1--14, 2012.
 
 \bibitem[Omo89]{omohundro1989five}
 Stephen~M Omohundro.
