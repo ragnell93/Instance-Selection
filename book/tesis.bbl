@@ -1,10 +1,18 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{TBGDS98}
+\begin{thebibliography}{LIDLC{\etalchar{+}}16}
 
 \bibitem[AD91]{almuallim1991learning}
 Hussein Almuallim and Thomas~G Dietterich.
 \newblock Learning with many irrelevant features.
 \newblock In {\em AAAI}, volume~91, pages 547--552, 1991.
+
+\bibitem[AFFL{\etalchar{+}}11]{alcala2011keel}
+Jes{\'u}s Alcal{\'a}-Fdez, Alberto Fern{\'a}ndez, Juli{\'a}n Luengo,
+  Joaqu{\'\i}n Derrac, Salvador Garc{\'\i}a, Luciano S{\'a}nchez, and Francisco
+  Herrera.
+\newblock Keel data-mining software tool: data set repository, integration of
+  algorithms and experimental analysis framework.
+\newblock {\em Journal of Multiple-Valued Logic \& Soft Computing}, 17, 2011.
 
 \bibitem[AL03]{aarts2003local}
 Emile~HL Aarts and Jan~Karel Lenstra.
@@ -57,6 +65,13 @@ Carlo Batini, Maurizio Lenzerini, and Shamkant~B. Navathe.
   integration.
 \newblock {\em ACM computing surveys (CSUR)}, 18(4):323--364, 1986.
 
+\bibitem[BSPV02]{birattari2002racing}
+Mauro Birattari, Thomas St{\"u}tzle, Luis Paquete, and Klaus Varrentrapp.
+\newblock A racing algorithm for configuring metaheuristics.
+\newblock In {\em Proceedings of the 4th Annual Conference on Genetic and
+  Evolutionary Computation}, pages 11--18. Morgan Kaufmann Publishers Inc.,
+  2002.
+
 \bibitem[CAB11]{catal2011class}
 Cagatay Catal, Oral Alan, and Kerime Balkan.
 \newblock Class noise detection based on software metrics and roc curves.
@@ -73,6 +88,11 @@ Vicente Cerveron and Francesc~J Ferri.
 Thomas Cover and Peter Hart.
 \newblock Nearest neighbor pattern classification.
 \newblock {\em IEEE transactions on information theory}, 13(1):21--27, 1967.
+
+\bibitem[CHL05]{cano2005stratification}
+Jos{\'e}~Ram{\'o}n Cano, Francisco Herrera, and Manuel Lozano.
+\newblock Stratification for scaling up evolutionary prototype selection.
+\newblock {\em Pattern Recognition Letters}, 26(7):953--963, 2005.
 
 \bibitem[CJ11]{czarnowski2011application}
 Ireneusz Czarnowski and Piotr J{\k{e}}drzejowicz.
@@ -110,6 +130,10 @@ Luc Devroye, L{\'a}szl{\'o} Gy{\"o}rfi, and G{\'a}bor Lugosi.
 \newblock {\em A probabilistic theory of pattern recognition}, volume~31.
 \newblock Springer Science \& Business Media, 2013.
 
+\bibitem[DKT17]{Dua:2017}
+Dua Dheeru and Efi Karra~Taniskidou.
+\newblock {UCI} machine learning repository, 2017.
+
 \bibitem[DL97]{dash1997feature}
 Manoranjan Dash and Huan Liu.
 \newblock Feature selection for classification.
@@ -119,6 +143,12 @@ Manoranjan Dash and Huan Liu.
 Marco Dorigo.
 \newblock Optimization, learning and natural algorithms.
 \newblock {\em PhD Thesis, Politecnico di Milano}, 1992.
+
+\bibitem[ES11]{eiben2011parameter}
+Agoston~E Eiben and Selmar~K Smit.
+\newblock Parameter tuning for configuring and analyzing evolutionary
+  algorithms.
+\newblock {\em Swarm and Evolutionary Computation}, 1(1):19--31, 2011.
 
 \bibitem[Esh91]{eshelman1991chc}
 Larry~J Eshelman.
@@ -218,6 +248,12 @@ Piotr Indyk.
 \newblock Nearest neighbors in high-dimensional spaces.
 \newblock 2004.
 
+\bibitem[K{\etalchar{+}}95]{kohavi1995study}
+Ron Kohavi et~al.
+\newblock A study of cross-validation and bootstrap for accuracy estimation and
+  model selection.
+\newblock In {\em Ijcai}, volume~14, pages 1137--1145. Montreal, Canada, 1995.
+
 \bibitem[KCH{\etalchar{+}}03]{kim2003taxonomy}
 Won Kim, Byoung-Ju Choi, Eui-Kyeong Hong, Soo-Kyung Kim, and Doheon Lee.
 \newblock A taxonomy of dirty data.
@@ -238,6 +274,13 @@ Eamonn Keogh and Abdullah Mueen.
 Daphne Koller and Mehran Sahami.
 \newblock Toward optimal feature selection.
 \newblock Technical report, Stanford InfoLab, 1996.
+
+\bibitem[LIDLC{\etalchar{+}}16]{lopez2016irace}
+Manuel L{\'o}pez-Ib{\'a}{\~n}ez, J{\'e}r{\'e}mie Dubois-Lacoste,
+  Leslie~P{\'e}rez C{\'a}ceres, Mauro Birattari, and Thomas St{\"u}tzle.
+\newblock The irace package: Iterated racing for automatic algorithm
+  configuration.
+\newblock {\em Operations Research Perspectives}, 3:43--58, 2016.
 
 \bibitem[LLIB06]{lozano2006towards}
 Jose~A Lozano, Pedro Larra{\~n}aga, I{\~n}aki Inza, and Endika Bengoetxea.
