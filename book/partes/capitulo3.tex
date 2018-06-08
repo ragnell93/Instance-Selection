@@ -1,6 +1,65 @@
 \chapter{Resultados}
 \label{capitulo3}
-\lhead{Capítulo 3. \emph{Resultados y análisis de resultados}}
+\lhead{Capítulo 3. \emph{Evaluación experimental}}
+
+\section{Diseño experimental}
+
+El objetivo de este estudio es determinar si existe una mejoría en el desempeño de los algoritmos evolutivos utilizados en este trabajo (GGA, SSGA, MA y CHC), al usar como conjunto inicial los resultados obtenidos por CNN, ENN y RSS, en vez de usar una inicialización aleatoria. 
+
+Para lograr este objetivo, lo primero que se hace es entonar los algoritmos evolutivos para que devuelvan el mejor valor posible al probarse con los conjuntos de datos expuestos en la sección 2.4. Para lograr la entonación, se usa \emph{irace}, expuesto en la sección 2.6, con los parámetros de la tabla \ref{irace-param}. Se utilizan todos las instancias de la sección 2.4 en la entonación, se consigue 3 configuraciones para cada algoritmo evolutivo, una para los conjuntos pequeños, otra para los medianos y la última para los grandes. Se usa 1000 iteraciones para entonar los conjuntos pequeños y medianos y 400 para los conjuntos grandes, la otra modificación es que el número de iteraciones dado a cada metaheurística en cada carrera es 1000 para los conjuntos pequeños y medianos y 300 para los grandes; además, en la entonación de los conjuntos grandes sólo se realiza cada prueba con cada estrato una vez, en vez de las 3 veces decididas en la sección 2.5; esto se debe a que sin estas simplificaciones y reducciones, el tiempo de entonación con los conjuntos grandes sería muy elevado. Por último, se usa 100 iteraciones para entonar solamente el número de iteraciones sin mejorías una vez que se fijan los otros parámetros a su configuración óptima.
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c}
+\hline
+Parámetros & irace \\
+\hline
+\hline
+Iteraciones                                 &  1000, 400 y 100\\
+Número decimales significativos             &    4            \\
+Prueba estadística                          &  t-test         \\
+Nivel de confianza para prueba estadística  &  0.95           \\
+Frecuencia de la prueba estadística         &    1 iteración  \\
+Número de configuraciones élites            &  automática     \\
+Reinicialización por convergencia prematura &     Sí          \\
+Modo elitista                               &     Sí          \\
+
+\hline
+\end{tabular}
+\caption{Parámetros usados para \emph{irace}}
+\label{irace-param}
+\end{table}
+
+Los parámetros a entonar son: iteraciones sin mejorías para detener el algoritmo, población, probabilidad de cruce, probabilidad de mutación y número de elementos ha considerar en el torneo. Los rangos válidos para cada parámetro se presentan en la tabla \ref{rangos}. Se usa una población de entre 10  y 150 porque \emph{Cano, J. et al.} en muchos de sus trabajos como \cite{de2004reduccion} usa poblaciones de alrededor de 50; se usa un rango de probabilidad de mutación con cota superior de 1\% haciendo referencia a los mismos trabajos de \emph{Cano, J. et al.} \cite{de2004reduccion,garcia2012prototype,garcia2008memetic}, donde nunca superan esta cota; se coloca un torneo de entre 1 y 10 por las recomendaciones de \emph{Talbi, E.} en \cite{talbi2009metaheuristics} donde explican que mientras mayor sea el número del torneo menos oportunidades tienen los peores cromosomas de la población para reproducirse; por lo tanto se elige 10 como cota superior, considerando que si las poblaciones están alrededor de los 50 cromosomas, entonces 1/5 de la población no tiene oportunidad de reproducirse.
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c}
+\hline
+Parámetros & Tipo de dato & Rangos \\
+\hline
+\hline
+Iteraciones sin mejorías & entero           &  [10,100]       \\
+Población                & entero           &  [10,150]       \\
+Probabilidad de cruce    & real             &  [0,1]          \\
+Probabilidad de mutación & real             &  [0,0.01]      \\
+Número del torneo        & entero           &  [1,10]         \\  
+
+\hline
+\end{tabular}
+\caption{Rangos usados para los parámetros en la entonación}
+\label{rangos}
+\end{table}
+
+Una vez obtenido las distintas configuraciones para cada algoritmo evolutivo. Se procede con el experimento principal, el cual consta de obtener los resultados de reducción, precisión y kappa evaluados en el conjunto de entrenamiento y en el conjunto de prueba y tiempo en segundos de cada heurística y metaheurística. Primero se obtienen los resultados de CNN, RSS y ENN por sí solas. Luego el experimento se divide en dos modalidades, la primera consta de probar las metaheurísticas utilizando como criterio de parada el paso de un número de iteraciones sin mejorías, de tal manera que cada metaheurística tenga la posibilidad de converger a una solución sin restricciones de tiempo, a esta fase se le nombra como modalidad A; por otra parte la modalidad B prueba las metaheurísticas fijando el número de iteraciones en el cual corren, ésto con el sentido de poder comparar el desempeño de las metaheurísticas dado los mismos recursos de número de iteraciones, en este caso se fijan las iteraciones a 1000 para todas las metaheurísticas.
+
+Entrando en la modalidad A, primero se prueban las metaheurísticas utilizando una población inicial generada aleatoriamente donde cada gen tiene una probabilidad de tener valor 1 de 50\%. Esto se decide en base a los resultados de \emph{Flores, A.} en \cite{flores2014metaheuristics} donde muestran que tienen las menores tasas de error tanto en el entrenamiento como en la validación. Luego se hacen las combinaciones entre heurísticas y metaheurísticas, se usa el conjunto reducido S obtenido de la heurística como cromosoma base para la creación de la población inicial de la metaheurística; esta población se forma heredando aleatoriamente 50\% de los genes con valor 1 del cromosoma base S, de tal manera de que se varíen las soluciones, pero manteniendo por fuera las instancias del conjunto original que fueron eliminadas por la heurística, la idea es usar una población inicial con las características particulares proporcionadas por RSS, CNN y ENN. Acto seguido, se prueban las metaheurísticas usando como cromosoma base S el conjunto combinado por los resultados de CNN con RSS y ENN con RSS; esto con el fin de explorar la posibilidad de que el conjunto hallado por RSS pueda complementar al conjunto hallado por CNN y ENN y mejore el desempeño de las metaheurísticas. Por otra parte la modalidad B es idéntica a la A con el detalle que las metaheurísticas se detienen exactamente a 1000 iteraciones.
+
+Los resultados para cada conjunto de datos individualmente evaluadas se presentan en el anexo A, en la sección 3.3 se presentan tablas con los promedios de reducción, precisión, kappa y tiempo en segundos de las distintas heurísticas, metaheurísticas y sus combinaciones. Además, se presentan tablas en las cuales se le asignan grados a los distintos algoritmos de acuerdo a cuántas veces tuvieron los mejores resultados para cada instancia, estos grados se determinan para cada uno de los criterios mencionados anteriormente y para las combinaciones reducción + precisión y reducción + kappa expresados como combinación lineal con vectores de pesos de 0.5. Por último, para comparar si realmente existen diferencias entre los resultados se utiliza una prueba no paramétrica de grado con signo de \emph{Wilcoxon} con un nivel significativo de 1\%; se hacen pruebas para cada criterio y sus combinaciones como las realizadas en las tablas para grados. Luego, se presentan los resultados en unas tablas en las cuales se compara cada par de algoritmo y combinación antes expuesta en cada columna y cada fila, de tal manera que en una casilla hay un (+) si el algoritmo presente en la fila es mejor que el algoritmo presente en la columna, un (-) si es peor y (=) si son iguales y se agregan dos columna al final que cuentan cuántos algoritmos de las columnas son iguales o peores que el algoritmo de la fila y cuántos algoritmos de las columnas son peores que el algoritmo de la fila.
+
+Los experimentos fueron hechos con un procesador Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz, 4 procesadores y 4GB de memoria RAM. El preprocesamiento de los datos fue hecho con Python v.3.6.5, la entonación fue hecha con \emph{Irace} v.2.4 y R v.3.4.4, los experimentos principales fueron realizados con GCC v.7.3.0.
+
+\section{Resultados de la entonación}
 
 \begin{table}[]
 \centering
@@ -11,11 +70,12 @@
 	& GGA & SGA & ME & CHC \\
 \hline
 \hline
-Iteraciones        &  1000    &  1000    &  1000      &  1000 \\
-Población          &    70    &    90    &    21      &    33 \\
-Prob. de Cruce     &   0.4837 &   0.9848 &     0.9496 &     - \\
-Prob. de Mutación  &   0      &  0.0057  &     0.0071 &     - \\
-Número del torneo  &   -      &    3     &     1      &     - \\
+Iteraciones fijas       &  1000    &  1000    &  1000      &  1000 \\
+Iteraciones sin mejoría &    -     &    -     &    -       &    -  \\
+Población               &    70    &    90    &    21      &    33 \\
+Prob. de Cruce          &   0.4837 &   0.9848 &     0.9496 &     - \\
+Prob. de Mutación       &   0.0001 &  0.0057  &     0.0071 &     - \\
+Número del torneo       &   -      &    3     &     1      &     - \\
 \hline
 \end{tabular}
 \caption{Parámetros usados para los conjuntos pequeños}
@@ -32,11 +92,12 @@ Número del torneo  &   -      &    3     &     1      &     - \\
 	& GGA & SGA & ME & CHC \\
 \hline
 \hline
-Iteraciones        &  1000    &  1000    &  1000      &  1000 \\
-Población          &    88    &    132   &    32      &    33 \\
-Prob. de Cruce     &   0.5779 &   0.9859 &     0.9549 &     - \\
-Prob. de Mutación  &   0      &  0.0001  &     0.0004 &     - \\
-Número del torneo  &   -      &    1     &     3      &     - \\
+Iteraciones fijas       &  1000    &  1000    &  1000      &  1000 \\
+Iteraciones sin mejoría &    -     &    -     &    -       &    -  \\
+Población               &    88    &    132   &    32      &    33 \\
+Prob. de Cruce          &   0.5779 &   0.9859 &     0.9549 &     - \\
+Prob. de Mutación       &   0.0001 &  0.0001  &     0.0004 &     - \\
+Número del torneo       &   -      &    1     &     3      &     - \\
 \hline
 \end{tabular}
 \caption{Parámetros usados para los conjuntos medianos}

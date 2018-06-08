@@ -1,12 +1,12 @@
-\contentsline {algorithm}{\numberline {1.1}{\ignorespaces CNN\relax }}{13}{algorithm.28}
-\contentsline {algorithm}{\numberline {1.2}{\ignorespaces ENN\relax }}{13}{algorithm.30}
-\contentsline {algorithm}{\numberline {1.3}{\ignorespaces RSS\relax }}{14}{algorithm.32}
-\contentsline {algorithm}{\numberline {1.4}{\ignorespaces Plantilla para las metaheur\IeC {\'\i }sticas basadas en una poblaci\IeC {\'o}n\relax }}{18}{algorithm.40}
-\contentsline {algorithm}{\numberline {1.5}{\ignorespaces Algoritmo Gen\IeC {\'e}tico Generacional\relax }}{22}{algorithm.43}
-\contentsline {algorithm}{\numberline {1.6}{\ignorespaces Algoritmo Gen\IeC {\'e}tico Estacionario\relax }}{23}{algorithm.45}
-\contentsline {algorithm}{\numberline {1.7}{\ignorespaces Algoritmo Mem\IeC {\'e}tico Estacionario\relax }}{24}{algorithm.47}
-\contentsline {algorithm}{\numberline {1.8}{\ignorespaces CHC\relax }}{25}{algorithm.49}
-\contentsline {algorithm}{\numberline {1.9}{\ignorespaces Recombinar\relax }}{25}{algorithm.50}
-\contentsline {algorithm}{\numberline {1.10}{\ignorespaces Divergir\relax }}{26}{algorithm.51}
-\contentsline {algorithm}{\numberline {2.1}{\ignorespaces Meme\relax }}{32}{algorithm.63}
-\contentsline {algorithm}{\numberline {2.2}{\ignorespaces IRACE\relax }}{36}{algorithm.72}
+\contentsline {algorithm}{\numberline {1.1}{\ignorespaces CNN\relax }}{12}{algorithm.26}
+\contentsline {algorithm}{\numberline {1.2}{\ignorespaces ENN\relax }}{12}{algorithm.28}
+\contentsline {algorithm}{\numberline {1.3}{\ignorespaces RSS\relax }}{13}{algorithm.30}
+\contentsline {algorithm}{\numberline {1.4}{\ignorespaces Plantilla para las metaheur\IeC {\'\i }sticas basadas en una poblaci\IeC {\'o}n\relax }}{16}{algorithm.38}
+\contentsline {algorithm}{\numberline {1.5}{\ignorespaces Algoritmo Gen\IeC {\'e}tico Generacional\relax }}{18}{algorithm.41}
+\contentsline {algorithm}{\numberline {1.6}{\ignorespaces Algoritmo Gen\IeC {\'e}tico Estacionario\relax }}{18}{algorithm.43}
+\contentsline {algorithm}{\numberline {1.7}{\ignorespaces Algoritmo Mem\IeC {\'e}tico Estacionario\relax }}{19}{algorithm.45}
+\contentsline {algorithm}{\numberline {1.8}{\ignorespaces CHC\relax }}{20}{algorithm.47}
+\contentsline {algorithm}{\numberline {1.9}{\ignorespaces Recombinar\relax }}{21}{algorithm.48}
+\contentsline {algorithm}{\numberline {1.10}{\ignorespaces Reinicializar\relax }}{21}{algorithm.49}
+\contentsline {algorithm}{\numberline {2.1}{\ignorespaces Meme\relax }}{28}{algorithm.62}
+\contentsline {algorithm}{\numberline {2.2}{\ignorespaces IRACE\relax }}{32}{algorithm.71}

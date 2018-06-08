@@ -26,23 +26,6 @@ Flores Alejandro.
 \newblock PhD thesis, Undergraduate thesis,Departamento de Ciencias de la
   Computaci{\'o}n, Universidad Sim{\'o}n Bol{\'i}var, Venezuela, 2014.
 
-\bibitem[AP11]{ahmad2011feature}
-S~Sakinah~S Ahmad and Witold Pedrycz.
-\newblock Feature and instance selection via cooperative pso.
-\newblock In {\em Systems, Man, and Cybernetics (SMC), 2011 IEEE International
-  Conference on}, pages 2127--2132. IEEE, 2011.
-
-\bibitem[ASA15a]{anwar2015adr}
-Ismail~M Anwar, Khalid~M Salama, and Ashraf~M Abdelbar.
-\newblock Adr-miner: An ant-based data reduction algorithm for classification.
-\newblock In {\em Evolutionary Computation (CEC), 2015 IEEE Congress on}, pages
-  515--521. IEEE, 2015.
-
-\bibitem[ASA15b]{anwar2015instance}
-Ismail~M Anwar, Khalid~M Salama, and Ashraf~M Abdelbar.
-\newblock Instance selection with ant colony optimization.
-\newblock {\em Procedia Computer Science}, 53:248--256, 2015.
-
 \bibitem[Bat94]{battiti1994using}
 Roberto Battiti.
 \newblock Using mutual information for selecting features in supervised neural
@@ -77,13 +60,6 @@ Cagatay Catal, Oral Alan, and Kerime Balkan.
 \newblock Class noise detection based on software metrics and roc curves.
 \newblock {\em Information Sciences}, 181(21):4867--4877, 2011.
 
-\bibitem[CF01]{cerveron2001another}
-Vicente Cerveron and Francesc~J Ferri.
-\newblock Another move toward the minimum consistent subset: a tabu search
-  approach to the condensed nearest neighbor rule.
-\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics, Part B
-  (Cybernetics)}, 31(3):408--413, 2001.
-
 \bibitem[CH67]{cover1967nearest}
 Thomas Cover and Peter Hart.
 \newblock Nearest neighbor pattern classification.
@@ -93,13 +69,6 @@ Thomas Cover and Peter Hart.
 Jos{\'e}~Ram{\'o}n Cano, Francisco Herrera, and Manuel Lozano.
 \newblock Stratification for scaling up evolutionary prototype selection.
 \newblock {\em Pattern Recognition Letters}, 26(7):953--963, 2005.
-
-\bibitem[CJ11]{czarnowski2011application}
-Ireneusz Czarnowski and Piotr J{\k{e}}drzejowicz.
-\newblock Application of agent-based simulated annealing and tabu search
-  procedures to solving the data reduction problem.
-\newblock {\em International Journal of Applied Mathematics and Computer
-  Science}, 21(1):57--68, 2011.
 
 \bibitem[CKLS01]{cochinwala2001efficient}
 Munir Cochinwala, Verghese Kurien, Gail Lalk, and Dennis Shasha.
@@ -344,15 +313,6 @@ Gregory Shakhnarovich, Trevor Darrell, and Piotr Indyk.
   practice (neural information processing)}.
 \newblock The MIT press, 2006.
 
-\bibitem[SLI{\etalchar{+}}01]{sierra2001prototype}
-Basilio Sierra, Elena Lazkano, I{\~n}aki Inza, Marisa Merino, Pedro
-  Larra{\~n}aga, and Jorge Quiroga.
-\newblock Prototype selection and feature subset selection by estimation of
-  distribution algorithms. a case study in the survival of cirrhotic patients
-  treated with tips.
-\newblock In {\em Conference on Artificial Intelligence in Medicine in Europe},
-  pages 20--29. Springer, 2001.
-
 \bibitem[SSBD14]{shalev2014understanding}
 Shai Shalev-Shwartz and Shai Ben-David.
 \newblock {\em Understanding machine learning: From theory to algorithms}.
@@ -362,11 +322,6 @@ Shai Shalev-Shwartz and Shai Ben-David.
 El-Ghazali Talbi.
 \newblock {\em Metaheuristics: from design to implementation}, volume~74.
 \newblock John Wiley \& Sons, 2009.
-
-\bibitem[TBGDS98]{talukdar1998asynchronous}
-Sarosh Talukdar, Lars Baerentzen, Andrew Gove, and Pedro De~Souza.
-\newblock Asynchronous teams: Cooperation schemes for autonomous agents.
-\newblock {\em Journal of Heuristics}, 4(4):295--321, 1998.
 
 \bibitem[Ten99]{teng1999correcting}
 Choh-Man Teng.
@@ -389,13 +344,6 @@ Dennis~L Wilson.
 \newblock Asymptotic properties of nearest neighbor rules using edited data.
 \newblock {\em IEEE Transactions on Systems, Man, and Cybernetics},
   (3):408--421, 1972.
-
-\bibitem[WXGZ16]{wang2016differential}
-Jiaheng Wang, Bing Xue, Xiaoying Gao, and Mengjie Zhang.
-\newblock A differential evolution approach to feature selection and instance
-  selection.
-\newblock In {\em Pacific Rim International Conference on Artificial
-  Intelligence}, pages 588--602. Springer, 2016.
 
 \bibitem[XYC88]{xu1988best}
 Lei Xu, Pingfan Yan, and Tong Chang.

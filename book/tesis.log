@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.17)  5 JUN 2018 18:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.17)  8 JUN 2018 14:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1598,7 +1598,7 @@ babelbib extension \btxifchangecaseoff added to \extrasspanish
 babelbib: Load BibTeX extensions \bibsspanish for spanish
 babelbib: Set language for keywords in the bibliography fixed to spanish
 ABD: EveryShipout initializing macros
-<img/./usb.pdf, id=159, 171.64125pt x 114.4275pt>
+<img/./usb.pdf, id=167, 171.64125pt x 114.4275pt>
 File: img/./usb.pdf Graphic file (type pdf)
 <use img/./usb.pdf>
 Package pdftex.def Info: img/./usb.pdf  used on input line 97.
@@ -1700,44 +1700,56 @@ Cap\'{\i }tulo 1.
 ------------------------------------------------------------------------------
 [2
 
-] [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+] [3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
-
- []
-
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 79.
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 70.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [7] [8] [9] [10]
+) [7]
+Overfull \hbox (3.49959pt too wide) in paragraph at lines 92--93
+[]\T1/cmr/m/n/12 En es-te tra-ba-jo se adop-ta la ta-xo-no-mía pro-pues-ta por 
+\T1/cmr/m/it/12 Gar-cía, S. et al. \T1/cmr/m/n/12 en [[]].
+ []
+
+[8] [9]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 147.
+               Default added (so using `tbp') on input line 138.
 
-<img/taxonomia.png, id=439, 1161.98824pt x 286.24588pt>
+<img/taxonomia.png, id=447, 1161.98824pt x 286.24588pt>
 File: img/taxonomia.png Graphic file (type png)
 <use img/taxonomia.png>
-Package pdftex.def Info: img/taxonomia.png  used on input line 149.
+Package pdftex.def Info: img/taxonomia.png  used on input line 140.
 (pdftex.def)             Requested size: 435.96745pt x 107.39435pt.
-[11]
+[10]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 163.
- [12 <./img/taxonomia.png>] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
+put line 154.
+ [11 <./img/taxonomia.png>] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 250--251
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
 
  []
 
@@ -1746,8 +1758,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 254--255
 
  []
 
-[15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]) (./partes/capitulo2.tex
-[26]
+[14] [15] [16] [17] [18] [19] [20] [21]) (./partes/capitulo2.tex [22]
 Cap\'{\i }tulo 2.
 ------------------------------------------------------------------------------
  2 Marco metodol\IeC {\'o}gico
@@ -1756,24 +1767,24 @@ Cap\'{\i }tulo 2.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 15.
 
-<img/representacion.png, id=607, 503.8825pt x 171.64125pt>
+<img/representacion.png, id=589, 503.8825pt x 171.64125pt>
 File: img/representacion.png Graphic file (type png)
 <use img/representacion.png>
 Package pdftex.def Info: img/representacion.png  used on input line 17.
 (pdftex.def)             Requested size: 284.525pt x 85.35683pt.
-[27
+[23
 
-] [28 <./img/representacion.png>]
+] [24 <./img/representacion.png>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 42.
 
-<img/cruce.png, id=625, 710.655pt x 170.6375pt>
+<img/cruce.png, id=609, 710.655pt x 170.6375pt>
 File: img/cruce.png Graphic file (type png)
 <use img/cruce.png>
 Package pdftex.def Info: img/cruce.png  used on input line 44.
 (pdftex.def)             Requested size: 435.96745pt x 104.68497pt.
-[29 <./img/cruce.png>] [30] [31]
+[25 <./img/cruce.png>] [26] [27]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 117.
@@ -1786,72 +1797,68 @@ LaTeX Warning: No positions in optional float specifier.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 165.
 
-[32]
+[28]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 186.
 
-<img/classicCV.png, id=662, 436.63126pt x 370.38374pt>
+<img/classicCV.png, id=645, 436.63126pt x 370.38374pt>
 File: img/classicCV.png Graphic file (type png)
 <use img/classicCV.png>
 Package pdftex.def Info: img/classicCV.png  used on input line 188.
 (pdftex.def)             Requested size: 130.99039pt x 111.11597pt.
-[33] [34 <./img/classicCV.png>]
+[29] [30 <./img/classicCV.png>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 197.
 
-<img/stratCV.png, id=678, 643.40375pt x 370.38374pt>
+<img/stratCV.png, id=662, 643.40375pt x 370.38374pt>
 File: img/stratCV.png Graphic file (type png)
 <use img/stratCV.png>
 Package pdftex.def Info: img/stratCV.png  used on input line 199.
 (pdftex.def)             Requested size: 193.02261pt x 111.11597pt.
-[35 <./img/stratCV.png>]
-
-LaTeX Warning: Command \' invalid in math mode on input line 233.
-
-Missing character: There is no á in font cmr8!
-
-LaTeX Warning: Command \' invalid in math mode on input line 233.
-
-Missing character: There is no á in font cmr8!
-[36]
-
-LaTeX Warning: Command \' invalid in math mode on input line 246.
-
-Missing character: There is no á in font cmr6!
-) (./partes/capitulo3.tex [37] [38]
+[31 <./img/stratCV.png>] [32] [33]) (./partes/capitulo3.tex [34]
 Cap\'{\i }tulo 3.
 ------------------------------------------------------------------------------
  3 Resultados
 ------------------------------------------------------------------------------
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 5.
+               Default added (so using `tbp') on input line 11.
+
+[35
+
+]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 35.
+
+[36] [37]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 64.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 26.
+               Default added (so using `tbp') on input line 86.
 
-) (./partes/conclusiones.tex [39
-
-]) [40
+) (./partes/conclusiones.tex [38] [39]) [40
 
 ] (./tesis.bbl [41
 
 
-] [42] [43]
-Underfull \hbox (badness 1728) in paragraph at lines 166--170
+] [42]
+Underfull \hbox (badness 1728) in paragraph at lines 135--139
 []\T1/cmr/m/n/12 Evelyn Fix and Jo-seph L Hod-ges Jr.  Dis-cri-mi-na-tory analy
 sis-
  []
 
-[44] [45] [46] [47]) (./partes/apendiceA.tex [48]
+[43] [44] [45] [46]) (./partes/apendiceA.tex [47]
 Ap\'{e}ndice A.
 ------------------------------------------------------------------------------
  A Ap\IeC {\'e}ndice A
 ------------------------------------------------------------------------------
-) [49
+) [48
 
 ]
 ------------------------------------------------------------------------------
@@ -1868,15 +1875,15 @@ LaTeX Info: Redefining \% on input line 25.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
 Package rerunfilecheck Info: File `tesis.out' has not changed.
-(rerunfilecheck)             Checksum: D988C231DE3A2EF2EE76DEEDCC729D4E;8682.
+(rerunfilecheck)             Checksum: B1A5E75E969C092BA908FBF2A48EE930;8957.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
  ) 
 Here is how much of TeX's memory you used:
- 35765 strings out of 492982
- 637471 string characters out of 6134896
- 706011 words of memory out of 5000000
- 38554 multiletter control sequences out of 15000+600000
- 554742 words of font info for 84 fonts, out of 8000000 for 9000
+ 35745 strings out of 492982
+ 636803 string characters out of 6134896
+ 706152 words of memory out of 5000000
+ 38538 multiletter control sequences out of 15000+600000
+ 556130 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,12n,54p,10416b,713s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
@@ -1890,23 +1897,25 @@ cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/sha
-re/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfb
-x1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/shar
-e/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/
-public/cm-super/sfcc1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc
-1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share
-/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/p
-ublic/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1
-200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/
-texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/pu
-blic/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt08
-00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/t
-exmf/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on tesis.pdf (57 pages, 607694 bytes).
+re/texmf/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf/fonts/type1
+/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfb
+x1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/shar
+e/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/
+public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc
+1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share
+/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/p
+ublic/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1
+095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/
+texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/pu
+blic/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti10
+95.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/t
+exmf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/pub
+lic/cm-super/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc120
+0.pfb>
+Output written on tesis.pdf (56 pages, 635579 bytes).
 PDF statistics:
- 895 PDF objects out of 1000 (max. 8388607)
- 790 compressed objects within 8 object streams
- 211 named destinations out of 1000 (max. 500000)
- 347 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 906 PDF objects out of 1000 (max. 8388607)
+ 800 compressed objects within 8 object streams
+ 205 named destinations out of 1000 (max. 500000)
+ 363 words of extra memory for PDF output out of 10000 (max. 10000000)
 
