@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.17)  8 JUN 2018 14:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.17)  21 JUN 2018 10:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1516,38 +1516,106 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidthlast=\dimen290
 \titlewidthfirst=\dimen291
 )
-\c@definicion=\count354
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2012/05/21 v1.0 Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks55
+\XKV@tempa@toks=\toks56
+)
+\XKV@depth=\count354
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
+
+(/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box71
+)
+\tc@llx=\dimen292
+\tc@lly=\dimen293
+\tc@urx=\dimen294
+\tc@ury=\dimen295
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen296
+\adjbox@Height=\dimen297
+\adjbox@Depth=\dimen298
+\adjbox@Totalheight=\dimen299
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count355
+)
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box72
+\sift@deathcycles=\count356
+\@vwid@loff=\dimen300
+\@vwid@roff=\dimen301
+))
+\c@definicion=\count357
  (./tesis.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
-LaTeX Info: Redefining \. on input line 25.
-LaTeX Info: Redefining \% on input line 25.
+LaTeX Info: Redefining \. on input line 26.
+LaTeX Info: Redefining \% on input line 26.
+
+
+LaTeX Warning: Label `table-inits-rank' multiply defined.
+
+
+LaTeX Warning: Label `table-inits-rank' multiply defined.
+
+
+LaTeX Warning: Label `table-inits-rank' multiply defined.
+
+
+LaTeX Warning: Label `table-inits-rank' multiply defined.
+
+
+LaTeX Warning: Label `table-inits-rank' multiply defined.
+
+
+LaTeX Warning: Label `Ap\IeC {\'e}ndices' multiply defined.
+
 )
 \openout1 = `tesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: longtable package is loaded.
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
@@ -1555,39 +1623,39 @@ Package caption Info: End \AtBeginDocument code.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count355
-\scratchdimen=\dimen292
-\scratchbox=\box71
-\nofMPsegments=\count356
-\nofMParguments=\count357
-\everyMPshowfont=\toks55
-\MPscratchCnt=\count358
-\MPscratchDim=\dimen293
-\MPnumerator=\count359
-\makeMPintoPDFobject=\count360
-\everyMPtoPDFconversion=\toks56
+\scratchcounter=\count358
+\scratchdimen=\dimen302
+\scratchbox=\box73
+\nofMPsegments=\count359
+\nofMParguments=\count360
+\everyMPshowfont=\toks57
+\MPscratchCnt=\count361
+\MPscratchDim=\dimen303
+\MPnumerator=\count362
+\makeMPintoPDFobject=\count363
+\everyMPtoPDFconversion=\toks58
 )
-\c@lstlisting=\count361
-\AtBeginShipoutBox=\box72
-Package hyperref Info: Link coloring OFF on input line 94.
+\c@lstlisting=\count364
+\AtBeginShipoutBox=\box74
+Package hyperref Info: Link coloring OFF on input line 96.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count362
+\c@section@level=\count365
 )
-LaTeX Info: Redefining \ref on input line 94.
-LaTeX Info: Redefining \pageref on input line 94.
-LaTeX Info: Redefining \nameref on input line 94.
+LaTeX Info: Redefining \ref on input line 96.
+LaTeX Info: Redefining \pageref on input line 96.
+LaTeX Info: Redefining \nameref on input line 96.
 
 (./tesis.out) (./tesis.out)
 \@outlinefile=\write5
 \openout5 = `tesis.out'.
 
-LaTeX Info: Redefining \. on input line 94.
-LaTeX Info: Redefining \% on input line 94.
+LaTeX Info: Redefining \. on input line 96.
+LaTeX Info: Redefining \% on input line 96.
 
 babelbib: Set bibliography fall-back language to spanish
 (/usr/share/texlive/texmf-dist/tex/latex/babelbib/spanish.bdf
@@ -1598,22 +1666,22 @@ babelbib extension \btxifchangecaseoff added to \extrasspanish
 babelbib: Load BibTeX extensions \bibsspanish for spanish
 babelbib: Set language for keywords in the bibliography fixed to spanish
 ABD: EveryShipout initializing macros
-<img/./usb.pdf, id=167, 171.64125pt x 114.4275pt>
+<img/./usb.pdf, id=179, 171.64125pt x 114.4275pt>
 File: img/./usb.pdf Graphic file (type pdf)
 <use img/./usb.pdf>
-Package pdftex.def Info: img/./usb.pdf  used on input line 97.
+Package pdftex.def Info: img/./usb.pdf  used on input line 99.
 (pdftex.def)             Requested size: 86.72377pt x 57.81422pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 97.
+LaTeX Font Info:    Try loading font information for U+msa on input line 99.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 97.
+LaTeX Font Info:    Try loading font information for U+msb on input line 99.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 97.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 99.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1668,25 +1736,26 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
-)
-\tf@lot=\write8
-\openout8 = `tesis.lot'.
-
  [5
 
 
-] (./tesis.loa)
+] [6] [7] [8])
+\tf@lot=\write8
+\openout8 = `tesis.lot'.
+
+ [9] (./tesis.loa)
 \tf@loa=\write9
 \openout9 = `tesis.loa'.
 
- (./partes/acronimos.tex [6
+ (./partes/acronimos.tex
+[10
 
 
 ]
 ------------------------------------------------------------------------------
  Acr\IeC {\'o}nimos y S\IeC {\'\i }mbolos
 ------------------------------------------------------------------------------
-[7
+[11
 
 
 ]) (./partes/introduccion.tex) (./partes/capitulo1.tex [1
@@ -1711,54 +1780,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--56
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
-
- []
-
-[6]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 70.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [7]
 Overfull \hbox (3.49959pt too wide) in paragraph at lines 92--93
 []\T1/cmr/m/n/12 En es-te tra-ba-jo se adop-ta la ta-xo-no-mía pro-pues-ta por 
 \T1/cmr/m/it/12 Gar-cía, S. et al. \T1/cmr/m/n/12 en [[]].
  []
 
-[8] [9]
+[6] [7]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 138.
 
-<img/taxonomia.png, id=447, 1161.98824pt x 286.24588pt>
+<img/taxonomia.png, id=690, 1161.98824pt x 286.24588pt>
 File: img/taxonomia.png Graphic file (type png)
 <use img/taxonomia.png>
 Package pdftex.def Info: img/taxonomia.png  used on input line 140.
 (pdftex.def)             Requested size: 435.96745pt x 107.39435pt.
-[10]
+[8 <./img/taxonomia.png>]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 154.
- [11 <./img/taxonomia.png>] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 158.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [9]
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
  []
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
 
  []
 
-[14] [15] [16] [17] [18] [19] [20] [21]) (./partes/capitulo2.tex [22]
+[12] [13] [14] [15] [16]) (./partes/capitulo2.tex [17] [18]
 Cap\'{\i }tulo 2.
 ------------------------------------------------------------------------------
  2 Marco metodol\IeC {\'o}gico
@@ -1767,155 +1832,841 @@ Cap\'{\i }tulo 2.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 15.
 
-<img/representacion.png, id=589, 503.8825pt x 171.64125pt>
+<img/representacion.png, id=810, 503.8825pt x 171.64125pt>
 File: img/representacion.png Graphic file (type png)
 <use img/representacion.png>
 Package pdftex.def Info: img/representacion.png  used on input line 17.
 (pdftex.def)             Requested size: 284.525pt x 85.35683pt.
-[23
+[19
 
-] [24 <./img/representacion.png>]
+]
+
+LaTeX Warning: Command \' invalid in math mode on input line 27.
+
+Missing character: There is no ó in font cmr12!
+[20 <./img/representacion.png>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 42.
 
-<img/cruce.png, id=609, 710.655pt x 170.6375pt>
+<img/cruce.png, id=830, 710.655pt x 170.6375pt>
 File: img/cruce.png Graphic file (type png)
 <use img/cruce.png>
 Package pdftex.def Info: img/cruce.png  used on input line 44.
 (pdftex.def)             Requested size: 435.96745pt x 104.68497pt.
-[25 <./img/cruce.png>] [26] [27]
+[21 <./img/cruce.png>] [22] [23] [24]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 117.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 142.
+               Default added (so using `tbp') on input line 140.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 165.
+               Default added (so using `tbp') on input line 181.
 
-[28]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 186.
+               Default added (so using `tbp') on input line 213.
 
-<img/classicCV.png, id=645, 436.63126pt x 370.38374pt>
+[25]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 234.
+
+<img/classicCV.png, id=876, 616.4206pt x 522.8947pt>
 File: img/classicCV.png Graphic file (type png)
 <use img/classicCV.png>
-Package pdftex.def Info: img/classicCV.png  used on input line 188.
-(pdftex.def)             Requested size: 130.99039pt x 111.11597pt.
-[29] [30 <./img/classicCV.png>]
+Package pdftex.def Info: img/classicCV.png  used on input line 236.
+(pdftex.def)             Requested size: 184.9276pt x 156.86961pt.
+[26] [27 <./img/classicCV.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 197.
+               Default added (so using `tbp') on input line 245.
 
-<img/stratCV.png, id=662, 643.40375pt x 370.38374pt>
+<img/stratCV.png, id=891, 948.01236pt x 627.75706pt>
 File: img/stratCV.png Graphic file (type png)
 <use img/stratCV.png>
-Package pdftex.def Info: img/stratCV.png  used on input line 199.
-(pdftex.def)             Requested size: 193.02261pt x 111.11597pt.
-[31 <./img/stratCV.png>] [32] [33]) (./partes/capitulo3.tex [34]
+Package pdftex.def Info: img/stratCV.png  used on input line 247.
+(pdftex.def)             Requested size: 284.4059pt x 188.32857pt.
+[28 <./img/stratCV.png>] [29]) (./partes/capitulo3.tex [30]
 Cap\'{\i }tulo 3.
 ------------------------------------------------------------------------------
- 3 Resultados
+ 3 Evaluaci\IeC {\'o}n experimental
 ------------------------------------------------------------------------------
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 11.
 
-[35
+[31
 
 ]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 35.
 
-[36] [37]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 64.
+               Default added (so using `tbp') on input line 54.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 86.
-
-) (./partes/conclusiones.tex [38] [39]) [40
-
-] (./tesis.bbl [41
+               Default added (so using `tbp') on input line 76.
 
 
-] [42]
-Underfull \hbox (badness 1728) in paragraph at lines 135--139
-[]\T1/cmr/m/n/12 Evelyn Fix and Jo-seph L Hod-ges Jr.  Dis-cri-mi-na-tory analy
-sis-
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 97.
+
+[32]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 142.
+
+
+Overfull \hbox (16.32317pt too wide) in paragraph at lines 144--165
+ [][] 
  []
 
-[43] [44] [45] [46]) (./partes/apendiceA.tex [47]
+[33]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 169.
+
+
+Overfull \hbox (16.32317pt too wide) in paragraph at lines 171--192
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 196.
+
+
+Overfull \hbox (16.32317pt too wide) in paragraph at lines 198--219
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 223.
+
+
+Overfull \hbox (19.58626pt too wide) in paragraph at lines 225--246
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 250.
+
+
+Overfull \hbox (19.58626pt too wide) in paragraph at lines 252--273
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 277.
+
+
+Overfull \hbox (19.58626pt too wide) in paragraph at lines 279--300
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 305.
+
+
+Overfull \hbox (9.79698pt too wide) in paragraph at lines 307--328
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 333.
+
+
+Overfull \hbox (9.79698pt too wide) in paragraph at lines 335--356
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 360.
+
+
+Overfull \hbox (9.79698pt too wide) in paragraph at lines 362--383
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 388.
+
+
+Overfull \hbox (15.07347pt too wide) in paragraph at lines 390--411
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 416.
+
+
+Overfull \hbox (15.07347pt too wide) in paragraph at lines 418--439
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 444.
+
+
+Overfull \hbox (15.07347pt too wide) in paragraph at lines 446--467
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 471.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 517.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 563.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 609.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 655.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 701.
+
+) (./partes/conclusiones.tex [34] [35] [36] [37] [38] [39] [40] [41] [42])
+[43
+
+] (./tesis.bbl [44
+
+
+] [45] [46] [47] [48]) (./partes/apendiceA.tex [49]
 Ap\'{e}ndice A.
 ------------------------------------------------------------------------------
- A Ap\IeC {\'e}ndice A
+ A Resultados de todos los conjuntos
 ------------------------------------------------------------------------------
-) [48
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 7.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 9--50
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 55.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 57--89
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 95.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 118.
+
+
+Overfull \hbox (16.35094pt too wide) in paragraph at lines 120--161
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 167.
+
+
+Overfull \hbox (24.4323pt too wide) in paragraph at lines 169--201
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 207.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 230.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 232--273
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 279.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 281--313
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 319.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 342.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 344--385
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 391.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 393--425
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 431.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 454.
+
+
+Overfull \hbox (16.35094pt too wide) in paragraph at lines 456--497
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 503.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 505--537
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 543.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 566.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 568--609
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 615.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 617--649
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 655.
+
+[50
+
+] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 681.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 683--724
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 729.
+
+
+Overfull \hbox (24.4323pt too wide) in paragraph at lines 731--763
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 768.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 791.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 793--834
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 839.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 841--873
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 878.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 901.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 903--944
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 949.
+
+
+Overfull \hbox (24.4323pt too wide) in paragraph at lines 951--983
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 988.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1011.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 1013--1054
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1059.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 1061--1093
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1098.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1121.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 1123--1164
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1169.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 1171--1203
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1208.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1231.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 1233--1274
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1279.
+
+
+Overfull \hbox (24.4323pt too wide) in paragraph at lines 1281--1313
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1318.
+
+[62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1343.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 1345--1386
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1391.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 1393--1425
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1430.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1453.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 1455--1496
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1501.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 1503--1535
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1540.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1563.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 1565--1606
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1611.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 1613--1645
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1650.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1673.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 1675--1716
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1720.
+
+
+Overfull \hbox (24.4323pt too wide) in paragraph at lines 1722--1754
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1761.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1784.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 1786--1827
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1832.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 1834--1866
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1870.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1893.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 1895--1936
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1941.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 1943--1975
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1980.
+
+[74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2005.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 2007--2048
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2053.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 2055--2087
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2092.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2115.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 2117--2158
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2163.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 2165--2197
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2202.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2226.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 2228--2269
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2274.
+
+
+Overfull \hbox (24.4323pt too wide) in paragraph at lines 2276--2308
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2313.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2336.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 2338--2379
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2384.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 2386--2418
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2423.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2446.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 2448--2489
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2494.
+
+
+Overfull \hbox (24.4323pt too wide) in paragraph at lines 2496--2528
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2533.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2556.
+
+
+Overfull \hbox (13.01842pt too wide) in paragraph at lines 2558--2599
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2604.
+
+
+Overfull \hbox (21.09978pt too wide) in paragraph at lines 2606--2638
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2643.
+
+) (./partes/apendiceB.tex [86] [87] [88] [89] [90] [91] [92] [93] [94] [95]
+[96] [97]
+Ap\'{e}ndice B.
+------------------------------------------------------------------------------
+ B Pruebas estad\IeC {\'\i }sticas
+------------------------------------------------------------------------------
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 5.
+
+) [98
+
+
+
 
 ]
 ------------------------------------------------------------------------------
  Bibliograf\'{\i }a
 ------------------------------------------------------------------------------
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 200.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 200.
 (./tesis.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
-LaTeX Info: Redefining \. on input line 25.
-LaTeX Info: Redefining \% on input line 25.
+LaTeX Info: Redefining \. on input line 26.
+LaTeX Info: Redefining \% on input line 26.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 200.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 200.
 Package rerunfilecheck Info: File `tesis.out' has not changed.
-(rerunfilecheck)             Checksum: B1A5E75E969C092BA908FBF2A48EE930;8957.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
+(rerunfilecheck)             Checksum: B68D3181243ACEB2FA8ED90D420A4256;10067.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 200.
  ) 
 Here is how much of TeX's memory you used:
- 35745 strings out of 492982
- 636803 string characters out of 6134896
- 706152 words of memory out of 5000000
- 38538 multiletter control sequences out of 15000+600000
- 556130 words of font info for 86 fonts, out of 8000000 for 9000
+ 36742 strings out of 492982
+ 651350 string characters out of 6134896
+ 883384 words of memory out of 5000000
+ 39367 multiletter control sequences out of 15000+600000
+ 555051 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,54p,10416b,713s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 105i,13n,103p,10416b,708s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/sha
-re/texmf/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfb
-x1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/shar
-e/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/
-public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc
-1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share
-/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/p
-ublic/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1
-095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/
-texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/pu
-blic/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti10
-95.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/t
-exmf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc120
-0.pfb>
-Output written on tesis.pdf (56 pages, 635579 bytes).
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.
+pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texm
+f/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1095.p
+fb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf
+/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/
+cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pf
+b></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfxc1200.pfb>
+Output written on tesis.pdf (110 pages, 696886 bytes).
 PDF statistics:
- 906 PDF objects out of 1000 (max. 8388607)
- 800 compressed objects within 8 object streams
- 205 named destinations out of 1000 (max. 500000)
- 363 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1385 PDF objects out of 1440 (max. 8388607)
+ 1221 compressed objects within 13 object streams
+ 336 named destinations out of 1000 (max. 500000)
+ 387 words of extra memory for PDF output out of 10000 (max. 10000000)
 

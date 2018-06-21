@@ -2,12 +2,105 @@
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Conjuntos de datos peque\IeC {\~n}os\relax }}{29}{table.caption.64}
-\contentsline {table}{\numberline {2.2}{\ignorespaces Conjuntos de datos medianos\relax }}{29}{table.caption.65}
-\contentsline {table}{\numberline {2.3}{\ignorespaces Conjuntos de datos grandes\relax }}{29}{table.caption.66}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Conjuntos de datos peque\IeC {\~n}os\relax }}{26}{table.caption.60}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Conjuntos de datos medianos\relax }}{27}{table.caption.61}
+\contentsline {table}{\numberline {2.3}{\ignorespaces Conjuntos de datos grandes\relax }}{27}{table.caption.62}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Par\IeC {\'a}metros usados para \emph {irace}\relax }}{36}{table.caption.76}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Rangos usados para los par\IeC {\'a}metros en la entonaci\IeC {\'o}n\relax }}{36}{table.caption.77}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Par\IeC {\'a}metros usados para los conjuntos peque\IeC {\~n}os\relax }}{38}{table.caption.79}
-\contentsline {table}{\numberline {3.4}{\ignorespaces Par\IeC {\'a}metros usados para los conjuntos medianos\relax }}{39}{table.caption.80}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Par\IeC {\'a}metros usados para \emph {irace}\relax }}{31}{table.caption.70}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Rangos usados para los par\IeC {\'a}metros en la entonaci\IeC {\'o}n\relax }}{32}{table.caption.71}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Par\IeC {\'a}metros usados para los conjuntos peque\IeC {\~n}os\relax }}{32}{table.caption.72}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Par\IeC {\'a}metros usados para los conjuntos medianos\relax }}{32}{table.caption.73}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Par\IeC {\'a}metros usados para los conjuntos grandes\relax }}{33}{table.caption.74}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Promedios de GGA para los conjuntos peque\IeC {\~n}os 1000 iteraciones\relax }}{34}{table.caption.79}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Promedios de GGA para los conjuntos medianos 1000 iteraciones\relax }}{34}{table.caption.80}
+\contentsline {table}{\numberline {3.8}{\ignorespaces Promedios de GGA para los conjuntos grandes con 1000 iteracioenes\relax }}{34}{table.caption.81}
+\contentsline {table}{\numberline {3.9}{\ignorespaces Promedios de SSGA para los conjuntos peque\IeC {\~n}os 1000 iteraciones\relax }}{35}{table.caption.82}
+\contentsline {table}{\numberline {3.10}{\ignorespaces Promedios de SSGA para los conjuntos medianos 1000 iteraciones\relax }}{35}{table.caption.83}
+\contentsline {table}{\numberline {3.11}{\ignorespaces Promedios de SSGA para los conjuntos grandes con 1000 iteraciones\relax }}{35}{table.caption.84}
+\contentsline {table}{\numberline {3.12}{\ignorespaces Promedios de MA para los conjuntos peque\IeC {\~n}os 1000 iteraciones\relax }}{35}{table.caption.85}
+\contentsline {table}{\numberline {3.13}{\ignorespaces Promedios de MA para los conjuntos medianos 1000 iteraciones\relax }}{36}{table.caption.86}
+\contentsline {table}{\numberline {3.14}{\ignorespaces Promedios de MA para los conjuntos grandes con 1000 iteraciones\relax }}{36}{table.caption.87}
+\contentsline {table}{\numberline {3.15}{\ignorespaces Promedios de CHC para los conjuntos peque\IeC {\~n}os 1000 iteraciones\relax }}{36}{table.caption.88}
+\contentsline {table}{\numberline {3.16}{\ignorespaces Promedios de CHC para los conjuntos medianos con 1000 iteraciones\relax }}{36}{table.caption.89}
+\contentsline {table}{\numberline {3.17}{\ignorespaces Promedios de CHC para los conjuntos grandes con 1000 iteraciones\relax }}{37}{table.caption.90}
+\contentsline {table}{\numberline {3.18}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy}, \emph {kappa} y reducci\IeC {\'o}n para los conjuntos peque\IeC {\~n}os\relax }}{37}{table.caption.91}
+\contentsline {table}{\numberline {3.19}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy + reducci\IeC {\'o}n}, \emph {kappa + reducci\IeC {\'o}n} y tiempo para los conjuntos peque\IeC {\~n}os\relax }}{38}{table.caption.92}
+\contentsline {table}{\numberline {3.20}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy}, \emph {kappa} y reducci\IeC {\'o}n para los conjuntos medianos\relax }}{39}{table.caption.93}
+\contentsline {table}{\numberline {3.21}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy + reducci\IeC {\'o}n}, \emph {kappa + reducci\IeC {\'o}n} y tiempo para los conjuntos medianos\relax }}{40}{table.caption.94}
+\contentsline {table}{\numberline {3.22}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy}, \emph {kappa} y reducci\IeC {\'o}n para los conjuntos grandes\relax }}{41}{table.caption.95}
+\contentsline {table}{\numberline {3.23}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy + reducci\IeC {\'o}n}, \emph {kappa + reducci\IeC {\'o}n} y tiempo para los conjuntos grandes\relax }}{42}{table.caption.96}
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Resultados de GGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{50}{table.caption.101}
+\contentsline {table}{\numberline {A.2}{\ignorespaces Resultados de GGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{51}{table.caption.102}
+\contentsline {table}{\numberline {A.3}{\ignorespaces Resultados de GGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{51}{table.caption.103}
+\contentsline {table}{\numberline {A.4}{\ignorespaces Resultados de CNN-GGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{52}{table.caption.104}
+\contentsline {table}{\numberline {A.5}{\ignorespaces Resultados de CNN-GGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{53}{table.caption.105}
+\contentsline {table}{\numberline {A.6}{\ignorespaces Resultados de CNN-GGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{53}{table.caption.106}
+\contentsline {table}{\numberline {A.7}{\ignorespaces Resultados de ENN-GGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{54}{table.caption.107}
+\contentsline {table}{\numberline {A.8}{\ignorespaces Resultados de ENN-GGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{55}{table.caption.108}
+\contentsline {table}{\numberline {A.9}{\ignorespaces Resultados de ENN-GGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{55}{table.caption.109}
+\contentsline {table}{\numberline {A.10}{\ignorespaces Resultados de RSS-GGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{56}{table.caption.110}
+\contentsline {table}{\numberline {A.11}{\ignorespaces Resultados de RSS-GGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{57}{table.caption.111}
+\contentsline {table}{\numberline {A.12}{\ignorespaces Resultados de RSS-GGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{57}{table.caption.112}
+\contentsline {table}{\numberline {A.13}{\ignorespaces Resultados de CNN-RSS-GGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{58}{table.caption.113}
+\contentsline {table}{\numberline {A.14}{\ignorespaces Resultados de CNN-RSS-GGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{59}{table.caption.114}
+\contentsline {table}{\numberline {A.15}{\ignorespaces Resultados de CNN-RSS-GGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{59}{table.caption.115}
+\contentsline {table}{\numberline {A.16}{\ignorespaces Resultados de ENN-RSS-GGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{60}{table.caption.116}
+\contentsline {table}{\numberline {A.17}{\ignorespaces Resultados de ENN-RSS-GGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{61}{table.caption.117}
+\contentsline {table}{\numberline {A.18}{\ignorespaces Resultados de ENN-RSS-GGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{61}{table.caption.118}
+\contentsline {table}{\numberline {A.19}{\ignorespaces Resultados de SSGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{62}{table.caption.119}
+\contentsline {table}{\numberline {A.20}{\ignorespaces Resultados de SSGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{63}{table.caption.120}
+\contentsline {table}{\numberline {A.21}{\ignorespaces Resultados de SSGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{63}{table.caption.121}
+\contentsline {table}{\numberline {A.22}{\ignorespaces Resultados de CNN-SSGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{64}{table.caption.122}
+\contentsline {table}{\numberline {A.23}{\ignorespaces Resultados de CNN-SSGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{65}{table.caption.123}
+\contentsline {table}{\numberline {A.24}{\ignorespaces Resultados de CNN-SSGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{65}{table.caption.124}
+\contentsline {table}{\numberline {A.25}{\ignorespaces Resultados de ENN-SSGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{66}{table.caption.125}
+\contentsline {table}{\numberline {A.26}{\ignorespaces Resultados de ENN-SSGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{67}{table.caption.126}
+\contentsline {table}{\numberline {A.27}{\ignorespaces Resultados de ENN-SSGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{67}{table.caption.127}
+\contentsline {table}{\numberline {A.28}{\ignorespaces Resultados de RSS-SSGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{68}{table.caption.128}
+\contentsline {table}{\numberline {A.29}{\ignorespaces Resultados de RSS-SSGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{69}{table.caption.129}
+\contentsline {table}{\numberline {A.30}{\ignorespaces Resultados de RSS-SSGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{69}{table.caption.130}
+\contentsline {table}{\numberline {A.31}{\ignorespaces Resultados de CNN-RSS-SSGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{70}{table.caption.131}
+\contentsline {table}{\numberline {A.32}{\ignorespaces Resultados de CNN-RSS-SSGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{71}{table.caption.132}
+\contentsline {table}{\numberline {A.33}{\ignorespaces Resultados de CNN-RSS-SSGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{71}{table.caption.133}
+\contentsline {table}{\numberline {A.34}{\ignorespaces Resultados de ENN-RSS-SSGA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{72}{table.caption.134}
+\contentsline {table}{\numberline {A.35}{\ignorespaces Resultados de ENN-RSS-SSGA para conjuntos medianos con 1000 iteraciones fijas\relax }}{73}{table.caption.135}
+\contentsline {table}{\numberline {A.36}{\ignorespaces Resultados de ENN-RSS-SSGA para conjuntos grandes con 1000 iteraciones fijas\relax }}{73}{table.caption.136}
+\contentsline {table}{\numberline {A.37}{\ignorespaces Resultados de MA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{74}{table.caption.137}
+\contentsline {table}{\numberline {A.38}{\ignorespaces Resultados de MA para conjuntos medianos con 1000 iteraciones fijas\relax }}{75}{table.caption.138}
+\contentsline {table}{\numberline {A.39}{\ignorespaces Resultados de MA para conjuntos grandes con 1000 iteraciones fijas\relax }}{75}{table.caption.139}
+\contentsline {table}{\numberline {A.40}{\ignorespaces Resultados de CNN-MA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{76}{table.caption.140}
+\contentsline {table}{\numberline {A.41}{\ignorespaces Resultados de CNN-MA para conjuntos medianos con 1000 iteraciones fijas\relax }}{77}{table.caption.141}
+\contentsline {table}{\numberline {A.42}{\ignorespaces Resultados de CNN-MA para conjuntos grandes con 1000 iteraciones fijas\relax }}{77}{table.caption.142}
+\contentsline {table}{\numberline {A.43}{\ignorespaces Resultados de ENN-MA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{78}{table.caption.143}
+\contentsline {table}{\numberline {A.44}{\ignorespaces Resultados de ENN-MA para conjuntos medianos con 1000 iteraciones fijas\relax }}{79}{table.caption.144}
+\contentsline {table}{\numberline {A.45}{\ignorespaces Resultados de ENN-MA para conjuntos grandes con 1000 iteraciones fijas\relax }}{79}{table.caption.145}
+\contentsline {table}{\numberline {A.46}{\ignorespaces Resultados de RSS-MA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{80}{table.caption.146}
+\contentsline {table}{\numberline {A.47}{\ignorespaces Resultados de RSS-MA para conjuntos medianos con 1000 iteraciones fijas\relax }}{81}{table.caption.147}
+\contentsline {table}{\numberline {A.48}{\ignorespaces Resultados de RSS-MA para conjuntos grandes con 1000 iteraciones fijas\relax }}{81}{table.caption.148}
+\contentsline {table}{\numberline {A.49}{\ignorespaces Resultados de CNN-RSS-MA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{82}{table.caption.149}
+\contentsline {table}{\numberline {A.50}{\ignorespaces Resultados de CNN-RSS-MA para conjuntos medianos con 1000 iteraciones fijas\relax }}{83}{table.caption.150}
+\contentsline {table}{\numberline {A.51}{\ignorespaces Resultados de CNN-RSS-MA para conjuntos grandes con 1000 iteraciones fijas\relax }}{83}{table.caption.151}
+\contentsline {table}{\numberline {A.52}{\ignorespaces Resultados de ENN-RSS-MA para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{84}{table.caption.152}
+\contentsline {table}{\numberline {A.53}{\ignorespaces Resultados de ENN-RSS-MA para conjuntos medianos con 1000 iteraciones fijas\relax }}{85}{table.caption.153}
+\contentsline {table}{\numberline {A.54}{\ignorespaces Resultados de ENN-RSS-MA para conjuntos grandes con 1000 iteraciones fijas\relax }}{85}{table.caption.154}
+\contentsline {table}{\numberline {A.55}{\ignorespaces Resultados de CHC para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{86}{table.caption.155}
+\contentsline {table}{\numberline {A.56}{\ignorespaces Resultados de CHC para conjuntos medianos con 1000 iteraciones fijas\relax }}{87}{table.caption.156}
+\contentsline {table}{\numberline {A.57}{\ignorespaces Resultados de CHC para conjuntos grandes con 1000 iteraciones fijas\relax }}{87}{table.caption.157}
+\contentsline {table}{\numberline {A.58}{\ignorespaces Resultados de CNN-CHC para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{88}{table.caption.158}
+\contentsline {table}{\numberline {A.59}{\ignorespaces Resultados de CNN-CHC para conjuntos medianos con 1000 iteraciones fijas\relax }}{89}{table.caption.159}
+\contentsline {table}{\numberline {A.60}{\ignorespaces Resultados de CNN-CHC para conjuntos grandes con 1000 iteraciones fijas\relax }}{89}{table.caption.160}
+\contentsline {table}{\numberline {A.61}{\ignorespaces Resultados de ENN-CHC para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{90}{table.caption.161}
+\contentsline {table}{\numberline {A.62}{\ignorespaces Resultados de ENN-CHC para conjuntos medianos con 1000 iteraciones fijas\relax }}{91}{table.caption.162}
+\contentsline {table}{\numberline {A.63}{\ignorespaces Resultados de ENN-CHC para conjuntos grandes con 1000 iteraciones fijas\relax }}{91}{table.caption.163}
+\contentsline {table}{\numberline {A.64}{\ignorespaces Resultados de RSS-CHC para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{92}{table.caption.164}
+\contentsline {table}{\numberline {A.65}{\ignorespaces Resultados de RSS-CHC para conjuntos medianos con 1000 iteraciones fijas\relax }}{93}{table.caption.165}
+\contentsline {table}{\numberline {A.66}{\ignorespaces Resultados de RSS-CHC para conjuntos grandes con 1000 iteraciones fijas\relax }}{93}{table.caption.166}
+\contentsline {table}{\numberline {A.67}{\ignorespaces Resultados de CNN-RSS-CHC para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{94}{table.caption.167}
+\contentsline {table}{\numberline {A.68}{\ignorespaces Resultados de CNN-RSS-CHC para conjuntos medianos con 1000 iteraciones fijas\relax }}{95}{table.caption.168}
+\contentsline {table}{\numberline {A.69}{\ignorespaces Resultados de CNN-RSS-CHC para conjuntos grandes con 1000 iteraciones fijas\relax }}{95}{table.caption.169}
+\contentsline {table}{\numberline {A.70}{\ignorespaces Resultados de ENN-RSS-CHC para conjuntos peque\IeC {\~n}os con 1000 iteraciones fijas\relax }}{96}{table.caption.170}
+\contentsline {table}{\numberline {A.71}{\ignorespaces Resultados de ENN-RSS-CHC para conjuntos medianos con 1000 iteraciones fijas\relax }}{97}{table.caption.171}
+\contentsline {table}{\numberline {A.72}{\ignorespaces Resultados de ENN-RSS-CHC para conjuntos grandes con 1000 iteraciones fijas\relax }}{97}{table.caption.172}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {B.1}{\ignorespaces Pruebas de \emph {Wilcoxon} entre GGA y las dem\IeC {\'a}s metaheur\IeC {\'\i }sticas}}{98}{table.caption.174}

@@ -42,6 +42,7 @@ def ivdmPrep(index1,df,results):
     #discretization
     discTable = copy.deepcopy(df)
     for i in range(0,df.iloc[:,0].count()):
+        #print("indice ",i)
         for j in range(0,index1):
             if (discTable.iloc[i,j] == df.iloc[:,j].max()):
                 discTable.iloc[i,j] = s
@@ -56,6 +57,7 @@ def ivdmPrep(index1,df,results):
     nxa = np.zeros(shape=(maxAttr,numAttr),dtype=np.int64)
 
     for i in range(0,df.iloc[:,0].count()):
+        #print("indice2 ",i)
         for j in range(0,df.iloc[0,:].count()):
             nxac[m.floor(discTable.iloc[i,j]),j,m.floor(results[i])] += 1
             nxa[m.floor(discTable.iloc[i,j]),j] += 1

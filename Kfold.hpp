@@ -19,8 +19,8 @@ template <typename Heuristic,typename Heuristic2, typename Meta>
 void searchInstanceStrat(Heuristic heu,Heuristic2 heu2,Meta metaheu, Instance auxI, Instance auxI2, int knearest, vec &tiempo, vector<Instance> &reduction,int index){
 
     auto start = chrono::high_resolution_clock::now();
-    /*
-    pair<double,Instance> pairAux = heu.find(auxI,knearest);
+    
+    pair<double,Instance> pairAux2  = heu.find(auxI,knearest);
     pair<double,Instance> pairAux3  = heu2.find(auxI2,knearest);
 
     Col<int> newUnits(auxI.units.n_rows,fill::zeros);
@@ -31,13 +31,14 @@ void searchInstanceStrat(Heuristic heu,Heuristic2 heu2,Meta metaheu, Instance au
     Instance newInstance = auxI;
     newInstance.units = newUnits;
     newInstance.changeTrainingSet();
-    */
     
+    /*
     Col<int> units3 = initialInstance(0.5,auxI.units.n_rows);
     Instance newInstance  = auxI;
     newInstance.units = units3;
     newInstance.changeTrainingSet();
-    
+    */
+
     pair<double,Instance> pairAux = metaheu.find(newInstance,knearest);
     
     auto stop = chrono::high_resolution_clock::now();
@@ -47,21 +48,22 @@ void searchInstanceStrat(Heuristic heu,Heuristic2 heu2,Meta metaheu, Instance au
 }
 
 template <typename Heuristic>
-void calcMetrics(Heuristic heu,mat trainSet,Col<int> trainRes,mat auxMat,Col<int>auxCol, int knearest, double total,int un, vec &scores,vec &kappas, vec &reductionScore,int index){
+void calcMetrics(Heuristic heu,mat trainSet,Col<int> trainRes,mat trainSet2,Col<int> trainRes2,mat auxMat,Col<int>auxCol, int knearest, double total,int un, vec &scores,vec &kappas, vec &scores2,vec &kappas2, vec &reductionScore,int index){
 
     Knn knn(trainSet,trainRes,un);
     scores(index) = knn.score(auxMat,knearest,*(heu.metric),auxCol);
     kappas(index) = knn.kappa(auxMat,knearest,*(heu.metric),auxCol);
+    scores2(index) = knn.score(trainSet2,knearest,*(heu.metric),trainRes2);
+    kappas2(index) = knn.kappa(trainSet2,knearest,*(heu.metric),trainRes2);
     reductionScore(index) = ((double)total - (double)trainSet.n_rows) / (double)total;
 }
 
 template <typename Heuristic,typename Heuristic2, typename Meta>
-void calcNoStrat(Heuristic heu,Heuristic2 heu2,Meta metaheu, Instance initial, Instance initial2, mat testSet, Col<int>testRes, int knearest, double total, int un,vec &tiempo, vec &scores,vec &kappas,vec &reductionScore, int index){
+void calcNoStrat(Heuristic heu,Heuristic2 heu2,Meta metaheu, Instance initial, Instance initial2, mat testSet, Col<int>testRes, int knearest, double total, int un,vec &tiempo, vec &scores,vec &kappas,vec &scores2,vec &kappas2,vec &reductionScore, int index){
 
     auto start = chrono::high_resolution_clock::now();
 
-    /*
-    pair<double,Instance> obtained = heu.find(initial,knearest); 
+    pair<double,Instance> pairAux2  = heu.find(initial,knearest); 
     pair<double,Instance> pairAux3  = heu2.find(initial2,knearest);
 
     Col<int> newUnits(initial.units.n_rows,fill::zeros);
@@ -73,21 +75,25 @@ void calcNoStrat(Heuristic heu,Heuristic2 heu2,Meta metaheu, Instance initial, I
     newInstance.units = newUnits;
     newInstance.changeTrainingSet();
     
-    */
+
+    /*
     Col<int> units3 = initialInstance(0.5,initial.units.n_rows);
     Instance newInstance  = initial;
     newInstance.units = units3;
     newInstance.changeTrainingSet();
-
+    */
+    
     pair<double,Instance> obtained = metaheu.find(newInstance,knearest);
 
     auto stop = chrono::high_resolution_clock::now();
     using fpSeconds = chrono::duration<float,chrono::seconds::period>;
-    tiempo = (double)(fpSeconds(stop - start).count());
+    tiempo(index) = (double)(fpSeconds(stop - start).count());
 
     Knn knn(obtained.second.training,obtained.second.trainResults,un);
     scores(index) = knn.score(testSet,knearest,*(heu.metric),testRes);
     kappas(index) = knn.kappa(testSet,knearest,*(heu.metric),testRes);
+    scores2(index) = knn.score(*(initial.originalTraining),knearest,*(heu.metric),*(initial.originaltrainResults));
+    kappas2(index) = knn.kappa(*(initial.originalTraining),knearest,*(heu.metric),*(initial.originaltrainResults));
     reductionScore(index) = ((double)total - (double)obtained.second.training.n_rows) / (double)total;
 
 }
@@ -188,6 +194,8 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
 
     vec scores(k);
     vec kappas(k);
+    vec scores2(k);
+    vec kappas2(k);
     vec reductionScore(k);
     vec tiempo(k);
     vector<thread> threads1(k);
@@ -201,7 +209,6 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
         vector<mat> auxMat(k);
         vector<Col<int>> auxCol(k);
 
-    
         for (int j=0; j<k-1;j++){
 
             if (units){
@@ -232,6 +239,8 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
 
             threads1[j] = thread(searchInstanceStrat<Heuristic,Heuristic2,Meta>,heu,heu2,metaheu,auxI,auxI2,knearest,ref(tiempo),ref(reduction),j);
             threads1[j].join();
+
+            //cout << "index A is " << j << endl;
         }
 
         if (units){
@@ -273,8 +282,34 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
                }
             }
 
+            Knn knn(trainSet,trainRes,un.n_rows);
+
+            mat completeTrainSet;
+            Col<int> completeTrainResults;
+
             mat auxMat;
             Col<int> auxCol;
+            vec auxScores(k);
+            vec auxKappas(k);
+
+            for (int p = 0; p < k; p++){
+                if (p != l && p != k-1){
+                    auxMat = folds.slice(p);
+                    auxCol = res.col(p);
+                    auxScores(p) = knn.score(auxMat,knearest,*(heu.metric),auxCol);
+                    auxKappas(p) = knn.kappa(auxMat,knearest,*(heu.metric),auxCol);
+                }
+                else if (p != l && p == k-1){
+                    auxMat = lastFold;
+                    auxCol = lastRes;
+                    auxScores(p) = knn.score(auxMat,knearest,*(heu.metric),auxCol);
+                    auxKappas(p) = knn.kappa(auxMat,knearest,*(heu.metric),auxCol);
+                }
+            }
+
+            scores2(l) = sum(auxScores)/(double)auxScores.n_rows;
+            kappas2(l) = sum(auxKappas)/(double)auxKappas.n_rows;
+
             if (l != k-1){  
                 auxMat = folds.slice(l);
                 auxCol = res.col(l);
@@ -284,13 +319,15 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
                 auxCol = lastRes;
             }
 
-            Knn knn(trainSet,trainRes,un.n_rows);
             scores(l) = knn.score(auxMat,knearest,*(heu.metric),auxCol);
             kappas(l) = knn.kappa(auxMat,knearest,*(heu.metric),auxCol);
             reductionScore(l) = ((double)data.n_rows - (double)trainSet.n_rows) / (double)data.n_rows;
 
-            //threads2[l] = thread(calcMetrics<Heuristic>,heu,trainSet,trainRes,auxMat,auxCol,knearest,data.n_rows,un.n_rows, ref(scores),ref(kappas),ref(reductionScore),l);
+            //threads2[l] = thread(calcMetrics<Heuristic>,heu,trainSet,trainRes,completeTrainSet,completeTrainResults,auxMat,auxCol,knearest,data.n_rows,un.n_rows, ref(scores),ref(kappas),ref(scores2),ref(kappas2),ref(reductionScore),l);
             //threads2[l].join();
+
+            //cout << "index B is " << l << endl;
+            
         }
 
         //for (int t = 0; t < k; t++) threads2[t].join();
@@ -353,7 +390,7 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
             Instance initial(auxU,pNeigh,pCost,&(trainSet2[j]),&(trainSet2[j]),&(trainRes2[j]),&(trainRes2[j]),un.n_rows);
             Instance initial2(auxU3,pNeigh,pCost,&(trainSet2[j]),&(trainSet2[j]),&(trainRes2[j]),&(trainRes2[j]),un.n_rows);
 
-            threads3[j] = thread(calcNoStrat<Heuristic,Heuristic2,Meta>,heu,heu2,metaheu,initial,initial2,testSet2[j],testRes2[j],knearest,data.n_rows,un.n_rows,ref(tiempo),ref(scores),ref(kappas),ref(reductionScore),j);
+            threads3[j] = thread(calcNoStrat<Heuristic,Heuristic2,Meta>,heu,heu2,metaheu,initial,initial2,testSet2[j],testRes2[j],knearest,data.n_rows,un.n_rows,ref(tiempo),ref(scores),ref(kappas),ref(scores2),ref(kappas2),ref(reductionScore),j);
             //threads3[j].join();
             notin++;
 
@@ -395,17 +432,20 @@ vector<double> kfold(Heuristic &heu, Heuristic2 &heu2,Meta &metaheu,mat &data,Co
         Instance initial(auxU,pNeigh,pCost,&(trainSet2[k-1]),&(trainSet2[k-1]),&(trainRes2[k-1]),&(trainRes2[k-1]),un.n_rows);
         Instance initial2(auxU3,pNeigh,pCost,&(trainSet2[k-1]),&(trainSet2[k-1]),&(trainRes2[k-1]),&(trainRes2[k-1]),un.n_rows);
 
-        threads3[k-1] = thread(calcNoStrat<Heuristic,Heuristic2,Meta>,heu,heu2,metaheu,initial,initial2,lastFold,lastRes,knearest,data.n_rows,un.n_rows,ref(tiempo),ref(scores),ref(kappas),ref(reductionScore),k-1);
+        threads3[k-1] = thread(calcNoStrat<Heuristic,Heuristic2,Meta>,heu,heu2,metaheu,initial,initial2,lastFold,lastRes,knearest,data.n_rows,un.n_rows,ref(tiempo),ref(scores),ref(kappas),ref(scores2),ref(kappas2),ref(reductionScore),k-1);
         //threads3[k-1].join();    
         for (int b = 0; b < k ; b++) threads3[b].join();
     }
 
 
-    vector<double> mean_results(4);
-    mean_results[0] = sum(scores)/(double)scores.n_rows;
-    mean_results[1] = sum(kappas)/(double)kappas.n_rows;
-    mean_results[2] = sum(reductionScore)/(double)reductionScore.n_rows;
-    mean_results[3] = sum(tiempo)/(double)tiempo.n_rows;
+    vector<double> mean_results(7);
+    mean_results[0] = sum(scores2)/(double)scores2.n_rows;
+    mean_results[1] = sum(scores)/(double)scores.n_rows;
+    mean_results[2] = sum(kappas2)/(double)kappas2.n_rows;
+    mean_results[3] = sum(kappas)/(double)kappas.n_rows;
+    mean_results[4] = sum(reductionScore)/(double)reductionScore.n_rows;
+    mean_results[5] = sum(tiempo)/(double)tiempo.n_rows;
+    mean_results[6] = sum(tiempo);
 
     return mean_results;  
 }

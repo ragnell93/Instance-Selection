@@ -39,9 +39,10 @@ struct GeneticS{
     int numPopulation;
     double crossP;
     double mutationP;
+    int tournament;
 
-    GeneticS(MetricType* met,int i,int np,double cp,double mp):metric(met),iterations(i),
-        numPopulation(np),crossP(cp),mutationP(mp){}
+    GeneticS(MetricType* met,int i,int np,double cp,double mp,int t):metric(met),iterations(i),
+        numPopulation(np),crossP(cp),mutationP(mp),tournament(t){}
 
     pair<Instance,Instance> cross(Instance &x,Instance &y,int point){
 
@@ -143,12 +144,12 @@ struct GeneticS{
                 //Select the 2 parents from a 3-way tournament
 
                 int f1 = disInt(eng);
-                for (int u = 0; u < 2; u++){
+                for (int u = 0; u < tournament; u++){
                     int faux = disInt(eng);
                     if (vecCost[faux] < vecCost[f1]) f1 = faux;
                 }
                 int f2 = disInt(eng);
-                for (int u = 0; u < 2; u++){
+                for (int u = 0; u < tournament; u++){
                     int faux = disInt(eng);
                     if (vecCost[faux] < vecCost[f2]) f2 = faux;
                 }
@@ -258,9 +259,10 @@ struct Memetic{
     int numPopulation;
     double crossP;
     double mutationP;
+    int tournament;
 
-    Memetic(MetricType* met,int i,int np,double cp,double mp):metric(met),iterations(i),
-        numPopulation(np),crossP(cp),mutationP(mp){}
+    Memetic(MetricType* met,int i,int np,double cp,double mp,int t):metric(met),iterations(i),
+        numPopulation(np),crossP(cp),mutationP(mp),tournament(t){}
 
     vector<Instance> cross(Instance &x,Instance &y,int point){
 
@@ -451,12 +453,12 @@ struct Memetic{
                 pastAcc = actualAcc;
 
                 int f1 = disInt(eng);
-                for (int u = 0; u < 2; u++){
+                for (int u = 0; u < tournament; u++){
                     int faux = disInt(eng);
                     if (vecCost[faux] > vecCost[f1]) f1 = faux;
                 }
                 int f2 = disInt(eng);
-                for (int u = 0; u < 2; u++){
+                for (int u = 0; u < tournament; u++){
                     int faux = disInt(eng);
                     if (vecCost[faux] > vecCost[f2]) f2 = faux;
                 }
@@ -561,6 +563,7 @@ struct CHC{
         random_device rd; // obtain a random number from hardware
         mt19937 eng(rd()); // seed
         uniform_real_distribution<> disReal(0,1);
+        uniform_int_distribution<> disInt2(0,x.units.n_rows-1);
 
         int dis = hamming(x.units,y.units)/2;
         Instance resx = x, resy = y;
@@ -574,6 +577,18 @@ struct CHC{
         }
         resx.changeTrainingSet();
         resy.changeTrainingSet();
+
+        if (resx.training.n_rows == 0){
+            int onBit = disInt2(eng);
+            resx.units(onBit) = 1;
+            resx.changeTrainingSet();
+        }
+
+        if (resy.training.n_rows == 0){
+            int onBit = disInt2(eng);
+            resy.units(onBit) = 1;
+            resy.changeTrainingSet();
+        }
 
         return make_pair(resx,resy);
     }

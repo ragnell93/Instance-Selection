@@ -1,12 +1,12 @@
-\chapter{Resultados}
+\chapter{Evaluación experimental}
 \label{capitulo3}
 \lhead{Capítulo 3. \emph{Evaluación experimental}}
 
 \section{Diseño experimental}
 
-El objetivo de este estudio es determinar si existe una mejoría en el desempeño de los algoritmos evolutivos utilizados en este trabajo (GGA, SSGA, MA y CHC), al usar como conjunto inicial los resultados obtenidos por CNN, ENN y RSS, en vez de usar una inicialización aleatoria. 
+En este capítulo se describe todas las decisiones tomadas con respecto a la experimentación; esto incluye los parámetros usados para la entonación, las particiones hechas en la validación cruzada y la estratificación, el diseño de los experimentos combinando las heurísticas con las metaheurísticas y finalmente se presentan los resultados de cada prueba realizada. 
 
-Para lograr este objetivo, lo primero que se hace es entonar los algoritmos evolutivos para que devuelvan el mejor valor posible al probarse con los conjuntos de datos expuestos en la sección 2.4. Para lograr la entonación, se usa \emph{irace}, expuesto en la sección 2.6, con los parámetros de la tabla \ref{irace-param}. Se utilizan todos las instancias de la sección 2.4 en la entonación, se consigue 3 configuraciones para cada algoritmo evolutivo, una para los conjuntos pequeños, otra para los medianos y la última para los grandes. Se usa 1000 iteraciones para entonar los conjuntos pequeños y medianos y 400 para los conjuntos grandes, la otra modificación es que el número de iteraciones dado a cada metaheurística en cada carrera es 1000 para los conjuntos pequeños y medianos y 300 para los grandes; además, en la entonación de los conjuntos grandes sólo se realiza cada prueba con cada estrato una vez, en vez de las 3 veces decididas en la sección 2.5; esto se debe a que sin estas simplificaciones y reducciones, el tiempo de entonación con los conjuntos grandes sería muy elevado. Por último, se usa 100 iteraciones para entonar solamente el número de iteraciones sin mejorías una vez que se fijan los otros parámetros a su configuración óptima.
+Lo primero que se hace es entonar los algoritmos evolutivos para que devuelvan el mejor valor posible al probarse con los conjuntos de datos expuestos en la sección 2.4. Para lograr la entonación, se usa \emph{irace}, expuesto en la sección 2.6, con los parámetros de la tabla \ref{irace-param}. Se consigue 1 configuración de parámetros para los problemas pequeños, medianos y grandes respectivamente.
 
 \begin{table}[]
 \centering
@@ -30,7 +30,7 @@ Modo elitista                               &     Sí          \\
 \label{irace-param}
 \end{table}
 
-Los parámetros a entonar son: iteraciones sin mejorías para detener el algoritmo, población, probabilidad de cruce, probabilidad de mutación y número de elementos ha considerar en el torneo. Los rangos válidos para cada parámetro se presentan en la tabla \ref{rangos}. Se usa una población de entre 10  y 150 porque \emph{Cano, J. et al.} en muchos de sus trabajos como \cite{de2004reduccion} usa poblaciones de alrededor de 50; se usa un rango de probabilidad de mutación con cota superior de 1\% haciendo referencia a los mismos trabajos de \emph{Cano, J. et al.} \cite{de2004reduccion,garcia2012prototype,garcia2008memetic}, donde nunca superan esta cota; se coloca un torneo de entre 1 y 10 por las recomendaciones de \emph{Talbi, E.} en \cite{talbi2009metaheuristics} donde explican que mientras mayor sea el número del torneo menos oportunidades tienen los peores cromosomas de la población para reproducirse; por lo tanto se elige 10 como cota superior, considerando que si las poblaciones están alrededor de los 50 cromosomas, entonces 1/5 de la población no tiene oportunidad de reproducirse.
+Los parámetros a entonar son: condición de parada, cardinalidad de la población, probabilidad de cruce, probabilidad de mutación y número del torneo. Los rangos válidos para cada parámetro se presentan en la tabla \ref{rangos}. La elección de los rangos se hace en base a los trabajos \cite{de2004reduccion,de2004reduccion,garcia2012prototype,garcia2008memetic,talbi2009metaheuristics}. Los resultados de la entonación se presentan en las tablas \ref{param-peq}, \ref{param-med} y \ref{param-grande}.
 
 \begin{table}[]
 \centering
@@ -39,7 +39,7 @@ Los parámetros a entonar son: iteraciones sin mejorías para detener el algorit
 Parámetros & Tipo de dato & Rangos \\
 \hline
 \hline
-Iteraciones sin mejorías & entero           &  [10,100]       \\
+Iteraciones sin mejorías & entero           &  [10,1000]       \\
 Población                & entero           &  [10,150]       \\
 Probabilidad de cruce    & real             &  [0,1]          \\
 Probabilidad de mutación & real             &  [0,0.01]      \\
@@ -51,27 +51,17 @@ Número del torneo        & entero           &  [1,10]         \\
 \label{rangos}
 \end{table}
 
-Una vez obtenido las distintas configuraciones para cada algoritmo evolutivo. Se procede con el experimento principal, el cual consta de obtener los resultados de reducción, precisión y kappa evaluados en el conjunto de entrenamiento y en el conjunto de prueba y tiempo en segundos de cada heurística y metaheurística. Primero se obtienen los resultados de CNN, RSS y ENN por sí solas. Luego el experimento se divide en dos modalidades, la primera consta de probar las metaheurísticas utilizando como criterio de parada el paso de un número de iteraciones sin mejorías, de tal manera que cada metaheurística tenga la posibilidad de converger a una solución sin restricciones de tiempo, a esta fase se le nombra como modalidad A; por otra parte la modalidad B prueba las metaheurísticas fijando el número de iteraciones en el cual corren, ésto con el sentido de poder comparar el desempeño de las metaheurísticas dado los mismos recursos de número de iteraciones, en este caso se fijan las iteraciones a 1000 para todas las metaheurísticas.
-
-Entrando en la modalidad A, primero se prueban las metaheurísticas utilizando una población inicial generada aleatoriamente donde cada gen tiene una probabilidad de tener valor 1 de 50\%. Esto se decide en base a los resultados de \emph{Flores, A.} en \cite{flores2014metaheuristics} donde muestran que tienen las menores tasas de error tanto en el entrenamiento como en la validación. Luego se hacen las combinaciones entre heurísticas y metaheurísticas, se usa el conjunto reducido S obtenido de la heurística como cromosoma base para la creación de la población inicial de la metaheurística; esta población se forma heredando aleatoriamente 50\% de los genes con valor 1 del cromosoma base S, de tal manera de que se varíen las soluciones, pero manteniendo por fuera las instancias del conjunto original que fueron eliminadas por la heurística, la idea es usar una población inicial con las características particulares proporcionadas por RSS, CNN y ENN. Acto seguido, se prueban las metaheurísticas usando como cromosoma base S el conjunto combinado por los resultados de CNN con RSS y ENN con RSS; esto con el fin de explorar la posibilidad de que el conjunto hallado por RSS pueda complementar al conjunto hallado por CNN y ENN y mejore el desempeño de las metaheurísticas. Por otra parte la modalidad B es idéntica a la A con el detalle que las metaheurísticas se detienen exactamente a 1000 iteraciones.
-
-Los resultados para cada conjunto de datos individualmente evaluadas se presentan en el anexo A, en la sección 3.3 se presentan tablas con los promedios de reducción, precisión, kappa y tiempo en segundos de las distintas heurísticas, metaheurísticas y sus combinaciones. Además, se presentan tablas en las cuales se le asignan grados a los distintos algoritmos de acuerdo a cuántas veces tuvieron los mejores resultados para cada instancia, estos grados se determinan para cada uno de los criterios mencionados anteriormente y para las combinaciones reducción + precisión y reducción + kappa expresados como combinación lineal con vectores de pesos de 0.5. Por último, para comparar si realmente existen diferencias entre los resultados se utiliza una prueba no paramétrica de grado con signo de \emph{Wilcoxon} con un nivel significativo de 1\%; se hacen pruebas para cada criterio y sus combinaciones como las realizadas en las tablas para grados. Luego, se presentan los resultados en unas tablas en las cuales se compara cada par de algoritmo y combinación antes expuesta en cada columna y cada fila, de tal manera que en una casilla hay un (+) si el algoritmo presente en la fila es mejor que el algoritmo presente en la columna, un (-) si es peor y (=) si son iguales y se agregan dos columna al final que cuentan cuántos algoritmos de las columnas son iguales o peores que el algoritmo de la fila y cuántos algoritmos de las columnas son peores que el algoritmo de la fila.
-
-Los experimentos fueron hechos con un procesador Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz, 4 procesadores y 4GB de memoria RAM. El preprocesamiento de los datos fue hecho con Python v.3.6.5, la entonación fue hecha con \emph{Irace} v.2.4 y R v.3.4.4, los experimentos principales fueron realizados con GCC v.7.3.0.
-
-\section{Resultados de la entonación}
-
 \begin{table}[]
 \centering
 \begin{tabular}{l c c c c}
 \hline
 \multirow{2}{*}{\textsc{Parámetros}}
 	& \multicolumn{4}{c}{\textsc{Algoritmos}} \\
-	& GGA & SGA & ME & CHC \\
+	& GGA & SGA & MA & CHC \\
 \hline
 \hline
 Iteraciones fijas       &  1000    &  1000    &  1000      &  1000 \\
-Iteraciones sin mejoría &    -     &    -     &    -       &    -  \\
+Iteraciones sin mejoría &  215     &    682   &    516     &  134  \\
 Población               &    70    &    90    &    21      &    33 \\
 Prob. de Cruce          &   0.4837 &   0.9848 &     0.9496 &     - \\
 Prob. de Mutación       &   0.0001 &  0.0057  &     0.0071 &     - \\
@@ -89,12 +79,12 @@ Número del torneo       &   -      &    3     &     1      &     - \\
 \hline
 \multirow{2}{*}{\textsc{Parámetros}}
 	& \multicolumn{4}{c}{\textsc{Algoritmos}} \\
-	& GGA & SGA & ME & CHC \\
+	& GGA & SGA & MA & CHC \\
 \hline
 \hline
 Iteraciones fijas       &  1000    &  1000    &  1000      &  1000 \\
-Iteraciones sin mejoría &    -     &    -     &    -       &    -  \\
-Población               &    88    &    132   &    32      &    33 \\
+Iteraciones sin mejoría &    574   &   973    &    393     &   263 \\
+Población               &    88    &    132   &    32      &    27 \\
 Prob. de Cruce          &   0.5779 &   0.9859 &     0.9549 &     - \\
 Prob. de Mutación       &   0.0001 &  0.0001  &     0.0004 &     - \\
 Número del torneo       &   -      &    1     &     3      &     - \\
@@ -103,3 +93,653 @@ Número del torneo       &   -      &    1     &     3      &     - \\
 \caption{Parámetros usados para los conjuntos medianos}
 \label{param-med}
 \end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c}
+\hline
+\multirow{2}{*}{\textsc{Parámetros}}
+	& \multicolumn{4}{c}{\textsc{Algoritmos}} \\
+	& GGA & SGA & MA & CHC \\
+\hline
+\hline
+Iteraciones fijas       &  1000    &  1000    &  1000      &  1000 \\
+Iteraciones sin mejoría &    530   &   593    &    514     &   221 \\
+Población               &    102   &    122   &    35      &    37 \\
+Prob. de Cruce          &   0.5158 &   0.9554 &     0.9698 &     - \\
+Prob. de Mutación       &   0.0001 &  0.0078  &     0.0049 &     - \\
+Número del torneo       &   -      &    7     &     3      &     - \\
+\hline
+\end{tabular}
+\caption{Parámetros usados para los conjuntos grandes}
+\label{param-grande}
+\end{table}
+
+Para la validación cruzada se usa k = 10 y se repite cada prueba 3 veces basándose en el trabajo de \emph{Cano, J.} en \cite{de2004reduccion}. Este esquema de validación cruzada se aplica a los conjuntos de tamaño pequeño como lo hacen en \cite{de2004reduccion}. Para la estratificación se adopta k = 10 para los conjuntos medianos y k = 50 para los conjuntos grandes, tal y como se determinan en \cite{cano2005stratification}, cuya idea es hacer que el algoritmo de PS no trabaje con más de 2000 instancias por estrato para reducir la cantidad a un conjunto de tamaño pequeño según la clasificación anteriormente expuesta. Además, al igual que en la validación cruzada, las metaheurísticas utilizadas son estocásticas y por lo tanto, cada una de las k pruebas realizadas se repite 3 veces, regresando el promedio de todas las pruebas realizadas como resultado.
+
+Una vez obtenido las distintas configuraciones para cada algoritmo evolutivo. Se procede con el experimento principal, el cual consta de obtener los resultados de reducción, precisión y kappa evaluados en el conjunto de entrenamiento y en el conjunto de prueba y tiempo en segundos de cada heurística y metaheurística. Primero se obtienen los resultados de CNN, RSS y ENN por sí solas. Luego el experimento se divide en dos modalidades, la primera consta de probar las metaheurísticas utilizando como criterio de parada el paso de un número de iteraciones sin mejorías, de tal manera que cada metaheurística tenga la posibilidad de converger a una solución sin restricciones de tiempo, a esta fase se le nombra como modalidad A; por otra parte la modalidad B prueba las metaheurísticas fijando el número de iteraciones en el cual corren, ésto con el sentido de poder comparar el desempeño de las metaheurísticas dado los mismos recursos de número de iteraciones, en este caso se fijan las iteraciones a 1000 para todas las metaheurísticas.
+
+Los experimentos fueron hechos con un procesador Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz, 4 procesadores y 4GB de memoria RAM. El preprocesamiento de los datos fue hecho con Python v.3.6.5, la entonación fue hecha con \emph{Irace} v.2.4 y R v.3.4.4, los experimentos principales fueron realizados con GCC v.7.3.0.
+
+En las siguientes secciones se van presentando los experimentos realizados con sus respectivos resultados.
+
+%Entrando en la modalidad A, primero se prueban las metaheurísticas utilizando una población inicial generada aleatoriamente donde cada gen tiene una probabilidad de tener valor 1 de 50\%. Esto se decide en base a los resultados de \emph{Flores, A.} en \cite{flores2014metaheuristics} donde muestran que tienen las menores tasas de error tanto en el entrenamiento como en la validación. Luego se hacen las combinaciones entre heurísticas y metaheurísticas, se usa el conjunto reducido S obtenido de la heurística como cromosoma base para la creación de la población inicial de la metaheurística; esta población se forma heredando aleatoriamente 50\% de los genes con valor 1 del cromosoma base S, de tal manera de que se varíen las soluciones, pero manteniendo por fuera las instancias del conjunto original que fueron eliminadas por la heurística, la idea es usar una población inicial con las características particulares proporcionadas por RSS, CNN y ENN. Acto seguido, se prueban las metaheurísticas usando como cromosoma base S el conjunto combinado por los resultados de CNN con RSS y ENN con RSS; esto con el fin de explorar la posibilidad de que el conjunto hallado por RSS pueda complementar al conjunto hallado por CNN y ENN y mejore el desempeño de las metaheurísticas. Por otra parte la modalidad B es idéntica a la A con el detalle que las metaheurísticas se detienen exactamente a 1000 iteraciones.
+
+
+%El clasificador utilizado es 1-NN con un método de almacenamiento ingenuo en el cual se guardan todas las instancias sin un orden en específico. Esta decisión se toma porque no hay ventajas reales en reducción de tiempo de cómputo al usar una estructura como los árboles KD o los árboles esfera si se va a utilizar la estratificación, ya que con ésta, el clasificador 1-NN nunca va a trabajar con más de 2000 instancias si se usa el número de estratos adecuado. Otro punto a resaltar es que se usa la estratificación con los conjuntos de datos medianos y grandes; para los conjuntos pequeños se usa la validación cruzada clásica porque son perfectamente computables por todos los algoritmos implementados en tiempos razonables. 
+
+%Los resultados para cada conjunto de datos individualmente evaluadas se presentan en el anexo A, en la sección 3.3 se presentan tablas con los promedios de reducción, precisión, kappa y tiempo en segundos de las distintas heurísticas, metaheurísticas y sus combinaciones. Además, se presentan tablas en las cuales se le asignan grados a los distintos algoritmos de acuerdo a cuántas veces tuvieron los mejores resultados para cada instancia, estos grados se determinan para cada uno de los criterios mencionados anteriormente y para las combinaciones reducción + precisión y reducción + kappa expresados como combinación lineal con vectores de pesos de 0.5. Por último, para comparar si realmente existen diferencias entre los resultados se utiliza una prueba no paramétrica de grado con signo de \emph{Wilcoxon} con un nivel significativo de 1\%; se hacen pruebas para cada criterio y sus combinaciones como las realizadas en las tablas para grados. Luego, se presentan los resultados en unas tablas en las cuales se compara cada par de algoritmo y combinación antes expuesta en cada columna y cada fila, de tal manera que en una casilla hay un (+) si el algoritmo presente en la fila es mejor que el algoritmo presente en la columna, un (-) si es peor y (=) si son iguales y se agregan dos columna al final que cuentan cuántos algoritmos de las columnas son iguales o peores que el algoritmo de la fila y cuántos algoritmos de las columnas son peores que el algoritmo de la fila.
+
+
+\subsection{Resultados de heurísticas}
+
+\subsection{Resultados de la combinación entre heurísticas y metaheurísticas}
+
+\subsubsection{Con número de iteraciones variable}
+
+\subsubsection{Fijando el número de iteraciones}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+GGA         & 0.8312 & 0.7525 & 0.7017 & 0.5557 & 0.5532 & 12.8250 \\
+CNN-GGA     & 0.5736 & 0.4911 & 0.3525 & 0.2151 & 0.7491 & 44.6228 \\
+ENN-GGA     & 0.8533 & 0.7891 & 0.7327 & 0.6093 & 0.2611 & 14.6024 \\
+RSS-GGA     & 0.6626 & 0.6177 & 0.4044 & 0.3263 & 0.7717 & 21.5376 \\
+CNN-RSS-GGA & 0.7883 & 0.6809 & 0.6353 & 0.4472 & 0.6221 & 17.2401 \\
+ENN-RSS-GGA & 0.8973 & 0.7872 & 0.8182 & 0.6063 & 0.1994 & 14.6176 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de GGA para los conjuntos pequeños 1000 iteraciones}
+\label{peq-gga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+GGA         & 0.8702 & 0.7982 & 0.7375 & 0.5812 & 0.5641 & 110.0812 \\
+CNN-GGA     & 0.7990 & 0.7051 & 0.5952 & 0.4426 & 0.7745 & 232.8342 \\
+ENN-GGA     & 0.8475 & 0.8071 & 0.6949 & 0.5965 & 0.2862 & 125.8465 \\
+RSS-GGA     & 0.8027 & 0.7520 & 0.5575 & 0.4547 & 0.6733 & 137.0381 \\
+CNN-RSS-GGA & 0.8932 & 0.7890 & 0.7571 & 0.5516 & 0.5514 & 123.7841 \\
+ENN-RSS-GGA & 0.9141 & 0.8155 & 0.8246 & 0.6168 & 0.1981 & 125.7187 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de GGA para los conjuntos medianos 1000 iteraciones}
+\label{med-gga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+GGA         & 0.9316 & 0.8644 & 0.7994 & 0.6014 & 0.5050 & 672.0273 \\
+CNN-GGA     & 0.7106 & 0.6431 & 0.4478 & 0.3094 & 0.8409 & 8473.8825 \\
+ENN-GGA     & 0.9357 & 0.8890 & 0.7944 & 0.6453 & 0.1502 & 668.0400 \\
+RSS-GGA     & 0.9150 & 0.8719 & 0.7227 & 0.5821 & 0.7083 & 1197.0505 \\
+CNN-RSS-GGA & 0.9455 & 0.8588 & 0.8410 & 0.9455 & 0.6089 & 1058.65 \\
+ENN-RSS-GGA & 0.9574 & 0.9574 & 0.9574 & 0.6238 & 0.1025 & 681.3705 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de GGA para los conjuntos grandes con 1000 iteracioenes}
+\label{grande-gga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+SSGA & 0.8654 & 0.7716 & 0.7635 & 0.5917 & 0.8432 & 0.6655 \\
+CNN-SSGA & 0.8791 & 0.7695 & 0.7840 & 0.5815 & 0.8425 & 1.2187 \\
+ENN-SSGA & 0.8733 & 0.7919 & 0.7683 & 0.6112 & 0.7823 & 0.8601 \\
+RSS-SSGA & 0.8581 & 0.7726 & 0.7460 & 0.5905 & 0.8958 & 1.0116 \\
+CNN-RSS-SSGA & 0.8808 & 0.7742 & 0.7884 & 0.5974 & 0.8373 & 0.9554 \\
+EEN-RSS-SSGA & 0.8843 & 0.7890 & 0.7904 & 0.6134 & 0.7586 & 0.8282 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de SSGA para los conjuntos pequeños 1000 iteraciones}
+\label{peq-ssga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+SSGA & 0.8431 & 0.8029 & 0.6676 & 0.5871 & 0.8392 & 3.5589 \\
+CNN-SSGA & 0.8540 & 0.8007 & 0.6965 & 0.5923 & 0.8547 & 6.4410 \\
+ENN-SSGA & 0.8200 & 0.8009 & 0.6324 & 0.5793 & 0.7459 & 5.6722 \\
+RSS-SSGA & 0.8302 & 0.8045 & 0.6389 & 0.5854 & 0.8690 & 5.9946 \\
+CNN-RSS-SSGA & 0.8586 & 0.8047 & 0.7043 & 0.5977 & 0.8121 & 5.2934 \\
+ENN-RSS-SSGA & 0.8550 & 0.8078 & 0.7042 & 0.6004 & 0.7049 & 5.2147 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de SSGA para los conjuntos medianos 1000 iteraciones}
+\label{med-ssga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+SSGA & 0.8911 & 0.8743 & 0.6953 & 0.6201 & 0.8056 & 27.6637 \\
+CNN-SSGA & 0.8897 & 0.8512 & 0.7002 & 0.5939 & 0.8807 & 105.1004 \\
+ENN-SSGA & 0.9097 & 0.8892 & 0.7113 & 0.6441 & 0.6823 & 34.9024 \\
+RSS-SSGA & 0.8968 & 0.8826 & 0.6743 & 0.6271 & 0.8927 & 57.7995 \\
+CNN-RSS-SSGA & 0.9002 & 0.8634 & 0.7140 & 0.6069 & 0.8434 & 49.5815 \\
+ENN-RSS-SSGA & 0.9112 & 0.8805 & 0.7245 & 0.6272 & 0.6668 & 39.2984 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de SSGA para los conjuntos grandes con 1000 iteraciones}
+\label{grande-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+MA   & 0.8570 & 0.7918 & 0.7440 & 0.6216 & 0.9561 & 4.1047 \\
+CNN-MA & 0.8653 & 0.7987 & 0.7519 & 0.6307 & 0.9486 & 5.9638 \\
+ENN-MA & 0.8666 & 0.7930 & 0.7576 & 0.6215 & 0.9534 & 4.2491 \\
+RSS-MA & 0.8446 & 0.7795 & 0.7137 & 0.5903 & 0.9630 & 4.6391 \\
+CNN-RSS-MA  & 0.8639 & 0.7848 & 0.7538 & 0.6090 & 0.9507 & 5.9923 \\
+ENN-RSS-MA & 0.8736 & 0.7942 & 0.7716 & 0.6268 & 0.9474 & 5.5961 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de MA para los conjuntos pequeños 1000 iteraciones}
+\label{peq-ma}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+MA   & 0.8057 & 0.7908 & 0.5825 & 0.5564 & 0.9624 & 73.3461 \\
+CNN-MA & 0.8623 & 0.8523 & 0.6374 & 0.6125 & 1.0171 & 60.9810 \\
+ENN-MA & 0.7938 & 0.7925 & 0.5747 & 0.5608 & 0.9707 & 67.5310 \\
+RSS-MA & 0.7924 & 0.7893 & 0.5611 & 0.5449 & 0.9671 & 69.5927 \\
+CNN-RSS-MA & 0.8051 & 0.8015 & 0.5962 & 0.5808 & 0.9654 & 80.8147 \\
+ENN-RSS-MA & 0.8070 & 0.7971 & 0.5886 & 0.8070 & 0.9633 & 74.6872 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de MA para los conjuntos medianos 1000 iteraciones}
+\label{med-ma}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+MA   & 0.8904 & 0.8999 & 0.6499 & 0.6510 & 0.9973 & 256.1432 \\
+CNN-MA & 0.8925 & 0.8926 & 0.6360 & 0.6341 & 0.9884 & 612.7902 \\
+ENN-MA & 0.8807 & 0.8902 & 0.6072 & 0.6145 & 0.9976 & 288.6525 \\
+RSS-MA & 0.9000 & 0.9002 & 0.6347 & 0.6343 & 0.9746 & 527.9115 \\
+CNN-RSS-MA & 0.8857 & 0.8951 & 0.6176 & 0.6160 & 0.9707 & 640.2634 \\
+ENN-RSS-MA & 0.8746 & 0.8912 & 0.6292 & 0.6386 & 0.9969 & 295.3335 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de MA para los conjuntos grandes con 1000 iteraciones}
+\label{grande-ma}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+CHC & 0.8446 & 0.7843 & 0.7172 & 0.6084 & 0.9466 & 0.5266 \\
+CNN-CHC & 0.8495 & 0.7812 & 0.7269 & 0.6027 & 0.9385 & 0.7891 \\
+ENN-CHC & 0.8429 & 0.7863 & 0.7179 & 0.6132 & 0.9424 & 0.7445 \\
+RSS-CHC & 0.8383 & 0.7779 & 0.6963 & 0.5836 & 0.9546 & 0.7137 \\
+CNN-RSS-CHC  & 0.8442 & 0.7794 & 0.7099 & 0.5864 & 0.9437 & 0.7429 \\
+ENN-RSS-CHC & 0.8484 & 0.7846 & 0.7224 & 0.6030 & 0.9333 & 0.7149 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de CHC para los conjuntos pequeños 1000 iteraciones}
+\label{peq-chc}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+CHC & 0.8313 & 0.8115 & 0.6347 & 0.5986 & 0.9455 & 2.8843 \\
+CNN-CHC & 0.8303 & 0.8081 & 0.6337 & 0.5925 & 0.9352 & 4.6572 \\
+ENN-CHC & 0.8107 & 0.8032 & 0.6084 & 0.5834 & 0.9356 & 5.0976 \\
+RSS-CHC & 0.8151 & 0.8058 & 0.6074 & 0.5851 & 0.9535 & 4.7450 \\
+CNN-RSS-CHC & 0.8276 & 0.8073 & 0.6280 & 0.5871 & 0.9319 & 4.5240 \\
+ENN-RSS-CHC  & 0.8255 & 0.8074 & 0.6355 & 0.5944 & 0.9154 & 4.6856 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de CHC para los conjuntos medianos con 1000 iteraciones}
+\label{med-chc}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+CHC  & 0.8961 & 0.8934 & 0.6614 & 0.6506 & 0.9615 & 16.8665 \\
+CNN-CHC & 0.8903 & 0.8871 & 0.6554 & 0.6437 & 0.9771 & 38.3314 \\
+ENN-CHC & 0.8993 & 0.8964 & 0.6746 & 0.6631 & 0.9233 & 27.3520 \\
+RSS-CHC & 0.8972 & 0.8962 & 0.6591 & 0.6526 & 0.9819 & 41.1142 \\
+CNN-RSS-CHC & 0.8945 & 0.8910 & 0.8945 & 0.6435 & 0.9719 & 33.7200 \\
+ENN-RSS-CHC & 0.8975 & 0.8922 & 0.6721 & 0.6532 & 0.9099 & 31.6004 \\
+
+\hline
+\end{tabular}
+\caption{Promedios de CHC para los conjuntos grandes con 1000 iteraciones}
+\label{grande-chc}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy}}
+	& \multicolumn{3}{c|}{\textsc{Kappa}}
+	& \multicolumn{3}{c}{\textsc{Reducción}} \\
+\hline
+Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor \\
+\hline
+\hline
+
+ENN-SSGA     & 7.80  & 1 & CNN-MA       & 8.42  & 3 & RSS-MA       & 2.84  & 11 \\
+CNN-MA       & 8.15  & 3 & ENN-SSGA     & 8.42  & 1 & RSS-CHC      & 3.80  & 7  \\
+ENN-GGA      & 8.38  & 2 & ENN-GGA      & 9.03  & 1 & MA           & 5.92  & 1  \\
+ENN-MA       & 9.11  & 0 & ENN-RSS-MA   & 9.26  & 2 & CHC          & 6.76  & 2  \\
+ENN-RSS-MA   & 9.34  & 1 & ENN-MA       & 9.38  & 0 & ENN-MA       & 6.88  & 1  \\
+MA           & 9.53  & 3 & MA           & 9.61  & 3 & CNN-RSS-CHC  & 6.96  & 2  \\
+ENN-RSS-GGA  & 9.65  & 4 & ENN-RSS-GGA  & 9.69  & 5 & CNN-RSS-MA   & 7.00  & 1  \\
+CHC          & 10.42 & 1 & ENN-RSS-SSGA & 9.88  & 1 & ENN-CHC      & 7.57  & 1  \\
+ENN-RSS-SGGA & 10.42 & 1 & ENN-CHC      & 10.65 & 0 & CNN-MA       & 7.76  & 0  \\
+ENN-CHC      & 10.65 & 0 & CHC          & 11.00 & 2 & ENN-RSS-MA   & 8.00  & 0  \\
+ENN-RSS-CHC  & 11.23 & 2 & RSS-MA       & 11.61 & 3 & CNN-CHC      & 8.03  & 0  \\
+RSS-MA       & 11.53 & 4 & ENN-RSS-CHC  & 11.73 & 0 & ENN-RSS-CHC  & 8.53  & 0  \\
+CNN-RSS-MA   & 12.03 & 0 & CNN-RSS-MA   & 11.80 & 0 & RSS-SSGA     & 13.03 & 0  \\
+RSS-CHC      & 12.19 & 0 & CNN-RSS-SSGA & 12.11 & 2 & CNN-SSGA     & 15.50 & 0  \\
+CNN-RSS-CHC  & 12.91 & 1 & SSGA         & 12.38 & 0 & SSGA         & 15.65 & 0  \\
+CNN-CHC      & 12.92 & 0 & CNN-CHC      & 13.15 & 0 & CNN-RSS-SSGA & 15.80 & 0  \\
+SSGA         & 13.00 & 0 & RSS-CHC      & 13.23 & 0 & RSS-GGA      & 17.30 & 0  \\
+CNN-RSS-SSGA & 13.03 & 0 & RSS-SSGA     & 13.42 & 2 & CNN-GGA      & 17.42 & 0  \\
+RSS-SSGA     & 13.73 & 2 & CNN-RSS-CHC  & 13.53 & 0 & ENN-SSGA     & 17.57 & 0  \\ 
+CNN-SSGA     & 14.50 & 1 & CNN-SSGA     & 14.50 & 1 & ENN-RSS-SSGA & 18.88 & 0  \\ 
+GGA          & 16.15 & 0 & GGA          & 15.26 & 0 & CNN-RSS-GGA  & 20.69 & 0  \\
+CNN-RSS-GGA  & 19.03 & 0 & CNN-RSS-GGA  & 18.03 & 0 & GGA          & 21.23 & 0  \\
+RSS-GGA      & 21.23 & 0 & RSS-GGA      & 20.73 & 0 & ENN-GGA      & 22.80 & 0  \\
+CNN-GGA      & 23.26 & 0 & CNN-GGA      & 23.07 & 0 & ENN-RSS-GGA  & 23.96 & 0  \\
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy}, \emph{kappa} y reducción para los conjuntos pequeños}
+\label{table-inits-rank}
+\end{table} 
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{3}{c|}{\textsc{Kappa + Reducción}}
+	& \multicolumn{3}{c}{\textsc{Tiempo}} \\
+\hline
+Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor \\
+\hline
+\hline
+
+MA           & 5.38  & 5 & CNN-MA       & 1.30  & 22 & CHC          & 1.53  & 20 \\
+ENN-MA       & 5.46  & 2 & MA           & 6.03  & 2  & SSGA         & 3.07  & 3 \\
+CNN-MA       & 5.57  & 4 & ENN-MA       & 6.03  & 0  & RSS-CHC      & 4.07  & 0 \\
+RSS-MA       & 6.07  & 6 & ENN-RSS-MA   & 6.38  & 1  & ENN-RSS-CHC  & 5.11  & 0 \\
+ENN-RSS-MA   & 6.30  & 3 & RSS-MA       & 7.23  & 0  & CNN-RSS-CHC  & 6.00  & 0 \\
+RSS-CHC      & 6.80  & 1 & CNN-RSS-MA   & 7.38  & 0  & ENN-CHC      & 6.19  & 0 \\
+CNN-RSS-MA   & 6.96  & 0 & ENN-CHC      & 7.76  & 0  & CNN-CHC      & 6.84  & 0 \\
+CHC          & 7.07  & 0 & CHC          & 7.80  & 0  & ENN-RSS-SSGA & 7.34  & 1 \\
+ENN-CHC      & 7.53  & 0 & RSS-CHC      & 8.23  & 0  & ENN-SSGA     & 8.11  & 1 \\
+CNN-RSS-CHC  & 7.65  & 2 & CNN-RSS-CHC  & 8.30  & 0  & CNN-RSS-SSGA & 8.96  & 0 \\
+ENN-RSS-CHC  & 7.88  & 2 & ENN-RSS-CHC  & 8.61  & 0  & RSS-SSGA     & 10.19 & 1 \\
+CNN-CHC      & 8.73  & 1 & CNN-CHC      & 8.92  & 1  & CNN-SSGA     & 10.53 & 0 \\
+RSS-SSGA     & 12.07 & 0 & RSS-SSGA     & 11.96 & 0  & MA           & 14.42 & 0 \\
+CNN-SSGA     & 14.53 & 0 & SSGA         & 14.34 & 0  & ENN-MA       & 15.00 & 0 \\
+SSGA         & 14.88 & 0 & CNN-RSS-SSGA & 14.38 & 0  & RSS-MA       & 15.15 & 0 \\
+CNN-RSS-SSGA & 15.07 & 0 & CNN-SSGA     & 14.53 & 0  & ENN-RSS-MA   & 15.61 & 0 \\
+ENN-SSGA     & 16.11 & 0 & ENN-SSGA     & 15.26 & 0  & CNN-RSS-MA   & 16.23 & 0 \\
+ENN-RSS-SSGA & 17.26 & 0 & ENN-RSS-SSGA & 16.46 & 0  & CNN-MA       & 16.76 & 0 \\
+RSS-GGA      & 19.11 & 0 & GGA          & 20.15 & 0  & GGA          & 20.46 & 0 \\
+GGA          & 20.73 & 0 & RSS-GGA      & 20.19 & 0  & CNN-RSS-GGA  & 20.73 & 0 \\
+CNN-RSS-GGA  & 20.84 & 0 & CNN-RSS-GGA  & 20.88 & 0  & ENN-GGA      & 21.23 & 0 \\
+CNN-GGA      & 21.30 & 0 & CNN-GGA      & 21.69 & 0  & ENN-RSS-GGA  & 21.34 & 0 \\
+ENN-GGA      & 22.73 & 0 & ENN-GGA      & 22.53 & 0  & RSS-GGA      & 22.07 & 0 \\
+ENN-RSS-GGA  & 23.84 & 0 & ENN-RSS-GGA  & 23.53 & 0  & CNN-GGA      & 22.96 & 0 \\
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy + reducción}, \emph{kappa + reducción} y tiempo para los conjuntos pequeños}
+\label{table-inits-rank}
+\end{table} 
+
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy}}
+	& \multicolumn{3}{c|}{\textsc{Kappa}}
+	& \multicolumn{3}{c}{\textsc{Reducción}} \\
+\hline
+Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor \\
+\hline
+\hline
+
+ENN-RSS-GGA  & 5.64  & 7 & ENN-RSS-GGA  & 4.82  & 9 & RSS-MA       & 4.05  & 4 \\
+ENN-GGA      & 5.94  & 2 & ENN-GGA      & 6.11  & 1 & CNN-RSS-MA   & 4.70  & 2 \\ 
+ENN-SSGA     & 7.88  & 0 & ENN-RSS-SSGA & 8.64  & 0 & ENN-RSS-MA   & 4.76  & 3 \\
+ENN-RSS-SSGA & 8.17  & 1 & ENN-SSGA     & 8.88  & 0 & ENN-MA       & 4.76  & 3 \\ 
+CHC          & 9.23  & 1 & GGA          & 9.64  & 0 & MA           & 5.41  & 1 \\
+ENN-CHC      & 10.64 & 1 & CHC          & 9.88  & 1 & CNN-MA       & 6.00  & 3 \\
+ENN-RSS-CHC  & 10.64 & 0 & ENN-RSS-CHC  & 10.05 & 0 & RSS-CHC      & 6.29  & 1 \\
+GGA          & 11.29 & 0 & SSGA         & 10.64 & 1 & CHC          & 7.52  & 0 \\
+SSGA         & 11.52 & 0 & CNN-RSS-SSGA & 10.64 & 0 & CNN-CHC      & 8.35  & 0 \\
+CNN-RSS-SSGA & 11.82 & 0 & ENN-CHC      & 11.05 & 0 & CNN-RSS-CHC  & 9.23  & 0 \\
+CNN-CHC      & 11.94 & 0 & CNN-RSS-MA   & 12.41 & 0 & ENN-CHC      & 9.23  & 0 \\
+CNN-RSS-MA   & 12.41 & 1 & CNN-SSGA     & 12.76 & 0 & ENN-RSS-CHC  & 10.64 & 0 \\
+RSS-CHC      & 12.88 & 0 & CNN-CHC      & 13.23 & 0 & RSS-SSGA     & 13.64 & 0 \\
+RSS-SSGA     & 12.88 & 0 & CNN-RSS-GGA  & 13.70 & 1 & CNN-SSGA     & 13.70 & 0 \\
+CNN-MA       & 13.00 & 1 & RSS-SSGA     & 13.70 & 0 & SSGA         & 15.35 & 0 \\
+CNN-RSS-CHC  & 13.05 & 1 & RSS-CHC      & 13.94 & 0 & CNN-GGA      & 16.05 & 0 \\
+ENN-MA       & 13.70 & 1 & MA           & 14.05 & 0 & CNN-RSS-SSGA & 16.29 & 0 \\
+MA           & 13.94 & 0 & ENN-MA       & 14.11 & 2 & ENN-SSGA     & 17.05 & 0 \\
+CNN-SSGA     & 14.23 & 0 & CNN-RSS-CHC  & 14.23 & 1 & ENN-RSS-SSGA & 18.82 & 0 \\
+ENN-RSS-MA   & 14.41 & 0 & CNN-MA       & 14.52 & 0 & RSS-GGA      & 19.41 & 0 \\
+CNN-RSS-GGA  & 14.64 & 0 & ENN-RSS-MA   & 14.76 & 0 & GGA          & 21.23 & 0 \\
+RSS-MA       & 18.35 & 0 & RSS-MA       & 18.47 & 0 & CNN-RSS-GGA  & 21.47 & 0 \\
+RSS-GGA      & 20.58 & 1 & RSS-GGA      & 19.58 & 1 & ENN-GGA      & 22.11 & 0 \\
+CNN-GGA      & 21.11 & 0 & CNN-GGA      & 20.05 & 0 & ENN-RSS-GGA  & 23.82 & 0 \\
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy}, \emph{kappa} y reducción para los conjuntos medianos}
+\label{table-inits-rank}
+\end{table} 
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{3}{c|}{\textsc{Kappa + Reducción}}
+	& \multicolumn{3}{c}{\textsc{Tiempo}} \\
+\hline
+Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor \\
+\hline
+\hline
+
+CNN-RSS-MA   & 4.76  & 5 & CNN-MA       & 1.94  & 13 & CHC          & 1.52  & 12 \\
+ENN-MA       & 5.05  & 4 & CHC          & 5.58  & 1  & SSGA         & 2.05  & 3 \\
+CHC          & 5.52  & 2 & ENN-MA       & 5.94  & 1  & CNN-CHC      & 5.52  & 0 \\
+CNN-MA       & 5.94  & 3 & CNN-RSS-MA   & 6.00  & 1  & ENN-RSS-CHC  & 5.64  & 0 \\
+ENN-RSS-MA   & 5.94  & 1 & RSS-CHC      & 6.94  & 0  & CNN-RSS-CHC  & 5.76  & 0 \\
+RSS-CHC      & 5.94  & 0 & ENN-RSS-MA   & 7.47  & 1  & RSS-CHC      & 6.64  & 0 \\
+MA           & 6.29  & 0 & CNN-CHC      & 7.58  & 0  & ENN-RSS-SSGA & 6.82  & 1 \\
+RSS-MA       & 7.05  & 1 & MA           & 7.64  & 0  & ENN-CHC      & 7.11  & 0 \\
+CNN-CHC      & 7.35  & 0 & ENN-CHC      & 7.82  & 0  & CNN-RSS-SSGA & 8.05  & 1 \\
+ENN-CHC      & 8.41  & 0 & CNN-RSS-CHC  & 8.58  & 0  & ENN-SSGA     & 8.11  & 0 \\
+CNN-RSS-CHC  & 8.70  & 0 & ENN-RSS-CHC  & 8.76  & 0  & CNN-SSGA     & 10.05 & 0 \\
+ENN-RSS-CHC  & 10.00 & 1 & RSS-MA       & 8.82  & 0  & RSS-SSGA     & 10.64 & 0 \\
+RSS-SSGA     & 13.47 & 0 & CNN-SSGA     & 13.00 & 0  & MA           & 14.76 & 0 \\
+CNN-SSGA     & 13.47 & 0 & RSS-SSGA     & 13.17 & 0  & RSS-MA       & 15.35 & 0 \\
+SSGA         & 14.70 & 0 & SSGA         & 14.29 & 0  & CNN-RSS-MA   & 16.05 & 0 \\
+CNN-RSS-SSGA & 15.82 & 0 & CNN-RSS-SSGA & 15.11 & 0  & CNN-MA       & 16.29 & 0 \\
+ENN-SSGA     & 16.64 & 0 & ENN-SSGA     & 16.82 & 0  & ENN-MA       & 16.41 & 0 \\
+CNN-GGA      & 18.17 & 0 & ENN-RSS-SSGA & 18.00 & 0  & ENN-RSS-MA   & 16.76 & 0 \\
+ENN-RSS-SSGA & 18.47 & 0 & CNN-GGA      & 18.52 & 0  & GGA          & 19.82 & 0 \\
+RSS-GGA      & 19.94 & 0 & GGA          & 20.47 & 0  & ENN-RSS-GGA  & 20.11 & 0 \\
+GGA          & 21.00 & 0 & RSS-GGA      & 20.52 & 0  & ENN-GGA      & 20.41 & 0 \\
+CNN-RSS-GGA  & 21.41 & 0 & CNN-RSS-GGA  & 21.23 & 0  & CNN-RSS-GGA  & 21.00 & 0 \\
+ENN-GGA      & 22.05 & 0 & ENN-GGA      & 22.05 & 0  & RSS-GGA      & 21.82 & 0 \\
+ENN-RSS-GGA  & 23.82 & 0 & ENN-RSS-GGA  & 23.64 & 0  & CNN-GGA      & 23.17 & 0 \\
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy + reducción}, \emph{kappa + reducción} y tiempo para los conjuntos medianos}
+\label{table-inits-rank}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy}}
+	& \multicolumn{3}{c|}{\textsc{Kappa}}
+	& \multicolumn{3}{c}{\textsc{Reducción}} \\
+\hline
+Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor \\
+\hline
+\hline
+
+GGA          & 11.00 & 0 & ENN-GGA      & 6.50  & 0 & ENN-MA       & 2.00  & 1 \\
+CNN-GGA      & 24.00 & 0 & ENN-SSGA     & 7.00  & 0 & MA           & 3.00  & 0 \\
+ENN-GGA      & 9.50  & 0 & ENN-RSS-GGA  & 8.50  & 1 & ENN-RSS-MA   & 4.50  & 0 \\
+RSS-GGA      & 15.00 & 0 & ENN-RSS-CHC  & 8.50  & 0 & RSS-MA       & 5.50  & 1 \\
+CNN-RSS-GGA  & 12.50 & 0 & ENN-RSS-SSGA & 9.00  & 0 & CNN-MA       & 6.00  & 0 \\
+ENN-RSS-GGA  & 9.00  & 1 & CNN-MA       & 10.00 & 0 & RSS-CHC      & 6.50  & 0 \\
+SSGA         & 12.50 & 0 & ENN-CHC      & 10.00 & 1 & CNN-RSS-MA   & 7.00  & 0 \\
+CNN-SSGA     & 16.00 & 0 & GGA          & 11.00 & 0 & CNN-CHC      & 7.00  & 0 \\
+ENN-SSGA     & 8.50  & 0 & CHC          & 11.00 & 0 & CHC          & 9.50  & 0 \\
+RSS-SSGA     & 14.50 & 0 & SSGA         & 11.50 & 0 & CNN-RSS-CHC  & 9.50  & 0 \\
+CNN-RSS-SSGA & 15.50 & 0 & RSS-CHC      & 11.50 & 0 & CNN-GGA      & 11.50 & 0 \\
+ENN-RSS-SSGA & 10.00 & 0 & MA           & 12.00 & 0 & CNN-SSGA     & 11.50 & 0 \\
+MA           & 11.50 & 1 & CNN-RSS-CHC  & 12.00 & 0 & RSS-SSGA     & 13.00 & 0 \\
+CNN-MA       & 8.00  & 0 & CNN-CHC      & 12.50 & 0 & ENN-CHC      & 13.00 & 0 \\
+ENN-MA       & 13.50 & 0 & CNN-RSS-GGA  & 13.00 & 0 & ENN-RSS-CHC  & 14.00 & 0 \\
+RSS-MA       & 8.50  & 0 & RSS-MA       & 13.00 & 0 & CNN-RSS-SSGA & 15.00 & 0 \\
+CNN-RSS-MA   & 9.00  & 0 & RSS-SSGA     & 14.00 & 0 & SSGA         & 16.00 & 0 \\
+ENN-RSS-MA   & 15.50 & 0 & CNN-RSS-SSGA & 14.50 & 0 & RSS-GGA      & 18.50 & 0 \\
+CHC          & 12.00 & 0 & CNN-SSGA     & 15.00 & 0 & ENN-SSGA     & 19.00 & 0 \\
+CNN-CHC      & 16.00 & 0 & CNN-RSS-MA   & 15.00 & 0 & ENN-RSS-SSGA & 19.00 & 0 \\
+ENN-CHC      & 11.00 & 0 & ENN-RSS-MA   & 15.50 & 0 & CNN-RSS-GGA  & 20.50 & 0 \\
+RSS-CHC      & 12.50 & 0 & RSS-GGA      & 17.00 & 0 & GGA          & 21.50 & 0 \\
+CNN-RSS-CHC  & 13.50 & 0 & ENN-MA       & 18.00 & 0 & ENN-GGA      & 23.50 & 0 \\
+ENN-RSS-CHC  & 11.00 & 0 & CNN-GGA      & 24.00 & 0 & ENN-RSS-GGA  & 23.50 & 0 \\
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy}, \emph{kappa} y reducción para los conjuntos grandes}
+\label{table-inits-rank}
+\end{table} 
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{3}{c|}{\textsc{Kappa + Reducción}}
+	& \multicolumn{3}{c}{\textsc{Tiempo}} \\
+\hline
+Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor \\
+\hline
+\hline
+
+MA           & 1.50  & 1 & CNN-MA       & 2.00  & 1 & CHC          &  1.00 & 2 \\
+ENN-MA       & 3.00  & 0 & MA           & 2.00  & 0 & ENN-CHC      & 4.00  & 0 \\
+ENN-RSS-MA   & 3.50  & 1 & ENN-RSS-MA   & 3.00  & 1 & SSGA         & 4.00  & 0 \\
+CNN-MA       & 5.00  & 0 & RSS-CHC      & 4.50  & 0 & ENN-RSS-CHC  & 4.00  & 0 \\
+RSS-MA       & 5.50  & 0 & CNN-CHC      & 6.50  & 0 & CNN-RSS-CHC  & 4.50  & 0 \\
+RSS-CHC      & 7.00  & 0 & ENN-MA       & 8.00  & 0 & CNN-CHC      & 5.00  & 0 \\
+CNN-RSS-MA   & 7.50  & 0 & RSS-MA       & 8.00  & 0 & RSS-CHC      & 8.00  & 0 \\
+CNN-CHC      & 7.50  & 0 & CHC          & 8.00  & 0 & ENN-SSGA     &  8.00 & 0 \\
+CHC          & 9.00  & 0 & CNN-RSS-CHC  & 8.50  & 0 & ENN-RSS-SSGA &  8.00 & 0 \\
+CNN-RSS-CHC  & 9.00  & 0 & ENN-CHC      & 9.50  & 0 & CNN-RSS-SSGA & 9.00  & 0 \\
+CNN-SSGA     & 11.00 & 0 & CNN-SSGA     & 10.50 & 0 & CNN-SSGA     & 11.00 & 0 \\
+ENN-CHC      & 11.50 & 0 & CNN-RSS-MA   & 11.50 & 0 & RSS-SSGA     & 11.50 & 0 \\
+RSS-SSGA     & 12.50 & 0 & ENN-RSS-CHC  & 12.50 & 0 & MA           & 13.50 & 0 \\
+ENN-RSS-CHC  & 13.50 & 0 & RSS-SSGA     & 12.50 & 0 & ENN-MA       & 16.00 & 0 \\
+CNN-RSS-SSGA & 15.00 & 0 & CNN-RSS-SSGA & 15.00 & 0 & ENN-RSS-MA   & 16.00 & 0 \\
+SSGA         & 15.50 & 0 & SSGA         & 15.50 & 0 & CNN-RSS-MA   & 17.00 & 0 \\
+RSS-GGA      & 17.50 & 0 & ENN-SSGA     & 17.50 & 0 & RSS-MA       & 17.50 & 0 \\
+ENN-SSGA     & 18.00 & 0 & RSS-GGA      & 18.00 & 0 & CNN-MA       & 17.50 & 0 \\
+ENN-RSS-SSGA & 19.00 & 0 & ENN-RSS-SSGA & 18.50 & 0 & GGA          & 19.00 & 0 \\
+CNN-GGA      & 19.50 & 0 & CNN-RSS-GGA  & 20.00 & 0 & ENN-GGA      & 19.00 & 0 \\
+CNN-RSS-GGA  & 20.00 & 0 & CNN-GGA      & 20.50 & 0 & ENN-RSS-GGA  & 20.50 & 0 \\
+GGA          & 21.50 & 0 & GGA          & 21.00 & 0 & RSS-GGA      & 21.00 & 0 \\
+ENN-GGA      & 23.50 & 0 & ENN-GGA      & 23.50 & 0 & CNN-RSS-GGA  & 21.50 & 0 \\
+ENN-RSS-GGA  & 23.50 & 0 & ENN-RSS-GGA  & 23.50 & 0 & CNN-GGA      & 23.50 & 0 \\
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy + reducción}, \emph{kappa + reducción} y tiempo para los conjuntos grandes}
+\label{table-inits-rank}
+\end{table}
+

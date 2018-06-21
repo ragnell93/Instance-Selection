@@ -46,50 +46,50 @@ consiste en elegir un subconjunto de las instancias totales manteniendo las cara
 
 \section{Selección de Instancias y Selección de Prototipos}
 
-La selección de instancias (IS por sus siglas en inglés) consiste en reducir el conjunto de datos dado a un conjunto reducido que va a ser utilizado con un algoritmo de clasificación o regresión, manteniendo el desempeño del algoritmo como si se usara el conjunto original.\\
+La selección de instancias (IS por sus siglas en inglés) consiste en reducir el conjunto de datos dado a un conjunto reducido que conserve las capacidades de representación del conjunto original, para ser utilizado con un algoritmo de clasificación o regresión, manteniendo el desempeño del algoritmo como si se usara el conjunto original.\\
 
 \begin{definicion}
-Dado un conjunto de datos X, se tiene que una instancia $X_i = (X_i^1,X_i^2,\dots,X_i^p)$ donde $X_i^j$ es el atributo j para la instancia $X_i$ con $X_i\in X$ y siendo p el número de atributos. La instancia $X_i$ es de clase $Y_j$ donde $Y_j\in Y$, siendo Y el conjunto de todas las clases definidas con $j\in (1\dots q)$ donde q es el número de clases totales. Se divide el conjunto X en un conjunto TR de entrenamiento y un conjunto TS de prueba. El problema de \textbf{Selección de Instancias} consiste en conseguir un conjunto $S\subseteq TR$ con el cual, al usarse con el clasificador T se obtengan los mismos valores de precisión o mejores que al usar T con TR \cite{garcia2016data}.
+Dado un conjunto de datos X, se tiene que una instancia $X_i = (X_i^1,X_i^2,\dots,X_i^p)$ donde $X_i^j$ es el atributo j para la instancia $X_i$ con $X_i\in X$ y siendo p el número de atributos. La instancia $X_i$ es de clase $Y_j$ donde $Y_j\in Y$, siendo Y el conjunto de todas las clases definidas con $j\in (1\dots q)$ donde q es el número de clases totales. Se divide el conjunto X en un conjunto TR de entrenamiento y un conjunto TS de prueba. El problema de \textbf{Selección de Instancias} consiste en conseguir un conjunto reducido $S\subseteq TR$ con el cual, al usarse con el clasificador M se mantenga o mejore la capacidad de representación del conjunto original \cite{garcia2016data}.
 \end{definicion}
 
 La respuesta óptima de un método de selección de instancias es un conjunto \emph{consistente} y de cardinalidad mínima.\\
 
 \begin{definicion}
-``Un conjunto $R$ es \textbf{consistente} con $T$, \emph{si y solo si} toda instancia $t \in T$ es clasificada correctamente mediante el uso de un clasificador \emph{M} y las instancias en $R$ como conjunto de entrenamiento.'' \cite{flores2014metaheuristics}
+Un conjunto $R$ es \textbf{consistente} con $T$, \emph{si y solo si} toda instancia $t \in T$ es clasificada correctamente mediante el uso de un clasificador \emph{M} y las instancias en $R$ como conjunto de entrenamiento. \cite{flores2014metaheuristics}
 \end{definicion}
 
 Sin embargo, conseguir la respuesta óptima es un problema NP-Duro (\emph{NP-Hard}) como lo demuestra \emph{Zukhba, A.} en \cite{zukhba2010np}. Por lo tanto, la mayoría de los métodos propuestos hasta la fecha se enfocan en obtener una solución aproximada.
 
-El problema de selección de instancias se puede enfocar como un problema de selección de prototipos (PS por sus siglas en inglés). PS es en esencia IS con el detalle de que el clasificador T usado es un clasificador basado en instancias \cite{garcia2016data}, de los cuales K Vecinos más Cercanos (KNN por sus siglas en inglés) es el más conocido. En este trabajo se usa 1-NN como clasificador.
+El problema de selección de instancias se puede enfocar como un problema de selección de prototipos (PS por sus siglas en inglés). PS es en esencia IS con el detalle de que el clasificador M usado es un clasificador basado en instancias \cite{garcia2016data}, de los cuales K Vecinos más Cercanos (KNN por sus siglas en inglés) es el más conocido. En este trabajo se usa 1-NN como clasificador.
 
-\subsection{Regla de K vecinos más cercanos}
+%\subsection{Regla de K vecinos más cercanos}
 
-Inicialmente propuesta por \emph{Fix, E. \& Hodges, J.} en \cite{fix1951discriminatory}. La regla KNN clasifica instancias a partir de los datos adyacentes; esto viene dado bajo el razonamiento de que una instancia probablemente comparta la misma clase que sus vecinos. Formalmente, el algoritmo de clasificación usando KNN se puede definir como:\\  
+%Inicialmente propuesta por \emph{Fix, E. \& Hodges, J.} en \cite{fix1951discriminatory}. La regla KNN clasifica instancias a partir de los datos adyacentes; esto viene dado bajo el razonamiento de que una instancia probablemente comparta la misma clase que sus vecinos. Formalmente, el algoritmo de clasificación usando KNN se puede definir como:\\  
 
-\begin{definicion}
-Sea X un conjunto de datos con $X_i\in X$ una instancia del conjunto, con clase $Y_{X_i}\in Y$ la clase a la cual pertenece, siendo Y el conjunto de las clases presentes en los datos. Sea $\pi_1(X_i)\dots \pi_n(X_i)$ un reordenamiento de las n instancias que conforman el conjunto X de acuerdo a la distancia a la que se encuentren de la instancia $X_i$, usando una métrica de distancia dada $\rho:\chi$ \texttt{X} $\chi \rightarrow \mathbb{R}$, donde $\chi$ es el dominio de las instancias en X, tal que $\rho(X_i,\pi_k(X_i)) \leq \rho(X_i,\pi_{k+1}(X_i))$. Para clasificar una instancia $X_j$ se usa la clase de la mayoría perteneciente al conjunto $\left\{Y_{\pi_i(X_j)} \mid i \leq k\right\}$ siendo k el número de vecinos que se toma en consideración. \cite{shalev2014understanding}
-\end{definicion}
+%\begin{definicion}
+%Sea X un conjunto de datos con $X_i\in X$ una instancia del conjunto, con clase $Y_{X_i}\in Y$ la clase a la cual pertenece, siendo Y el conjunto de las clases presentes en los datos. Sea $\pi_1(X_i)\dots \pi_n(X_i)$ un reordenamiento de las n instancias que conforman el conjunto X de acuerdo a la distancia a la que se encuentren de la instancia $X_i$, usando una métrica de distancia dada $\rho:\chi$ \texttt{X} $\chi \rightarrow \mathbb{R}$, donde $\chi$ es el dominio de las instancias en X, tal que $\rho(X_i,\pi_k(X_i)) \leq \rho(X_i,\pi_{k+1}(X_i))$. Para clasificar una instancia $X_j$ se usa la clase de la mayoría perteneciente al conjunto $\left\{Y_{\pi_i(X_j)} \mid i \leq k\right\}$ siendo k el número de vecinos que se toma en consideración. \cite{shalev2014understanding}
+%\end{definicion}
 
-Lo simple del algoritmo ha impulsado KNN a ser uno de los algoritmos de DM más usados y ha inspirado numerosos estudios sobre el comportamiento de convergencia y acotaciones sobre el error en la clasificación. Entre dichos trabajos se encuentra el de \emph{Cover, T. \& Hart, P.} \cite{cover1967nearest} donde muestran que la probabilidad de error R del clasificador NN está acotada por debajo por la probabilidad de error de Bayes R* y acotada por arriba por $R^*(\frac{2-MR^*}{M-1})$ cuando el número de instancias tiende al infinito y además la regla NN es admisible en la clase de reglas KNN, esto quiere decir que no hay $k\neq 1$ para el cual la probabilidad de error R sea menor que para $k=1$. Para un estudio más formal de las propiedades de convergencia se refiere a \cite{devroye2013probabilistic}.
+%Lo simple del algoritmo ha impulsado KNN a ser uno de los algoritmos de DM más usados y ha inspirado numerosos estudios sobre el comportamiento de convergencia y acotaciones sobre el error en la clasificación. Entre dichos trabajos se encuentra el de \emph{Cover, T. \& Hart, P.} \cite{cover1967nearest} donde muestran que la probabilidad de error R del clasificador NN está acotada por debajo por la probabilidad de error de Bayes R* y acotada por arriba por $R^*(\frac{2-MR^*}{M-1})$ cuando el número de instancias tiende al infinito y además la regla NN es admisible en la clase de reglas KNN, esto quiere decir que no hay $k\neq 1$ para el cual la probabilidad de error R sea menor que para $k=1$. Para un estudio más formal de las propiedades de convergencia se refiere a \cite{devroye2013probabilistic}.
 
-Una implementación ingenua de KNN dado una instancia a clasificar q, consta de calcular la distancia de todos los puntos con respecto a q y reportar los k puntos más cercanos; esto tiene una complejidad de $O(dn)$ donde d es el número de atributos en una instancia y n es el total de instancias \cite{shakhnarovich2006nearest}. Es por eso que mucho de los esfuerzos de la investigación de KNN es encontrar estructuras de ordenado y almacenamiento que lleven la complejidad a un orden sublineal o inclusive logarítmico; entre ellas están:
+%Una implementación ingenua de KNN dado una instancia a clasificar q, consta de calcular la distancia de todos los puntos con respecto a q y reportar los k puntos más cercanos; esto tiene una complejidad de $O(dn)$ donde d es el número de atributos en una instancia y n es el total de instancias \cite{shakhnarovich2006nearest}. Es por eso que mucho de los esfuerzos de la investigación de KNN es encontrar estructuras de ordenado y almacenamiento que lleven la complejidad a un orden sublineal o inclusive logarítmico; entre ellas están:
 
-\begin{itemize}
-\item \textbf{Árboles KD \cite{shakhnarovich2006nearest,bentley1975multidimensional}:}
-también conocidos como \emph{KD Trees} en inglés, se construyen de la siguiente manera: dado n puntos en un conjunto P en un espacio d-dimensional, primero se calcula la mediana M de los valores del i-ésimo atributo de los n puntos (inicialmente i = 1) y con este valor M se particiona el conjunto P en $P_L$ como el conjunto con puntos cuyo valor del i-ésimo atributo es menor a M y $P_R$ como el conjunto de puntos cuyo valor del i-ésimo atributo es mayor o igual a M. En la siguiente iteración se elige otro atributo i y se particionan $P_L$ y $P_R$ en dos cada uno. El proceso se repite hasta que el conjunto de puntos en un nodo del árbol construido llegue a tener cardinalidad 1. El tiempo de construcción del árbol es de O(nlog(n)) y el tiempo de búsqueda en G(d)log(n) dado una función G la cual es exponencial en d, cabe destacar que el tiempo de búsqueda es al lo sumo O(dn).
+%\begin{itemize}
+%\item \textbf{Árboles KD \cite{shakhnarovich2006nearest,bentley1975multidimensional}:}
+%también conocidos como \emph{KD Trees} en inglés, se construyen de la siguiente manera: dado n puntos en un conjunto P en un espacio d-dimensional, primero se calcula la mediana M de los valores del i-ésimo atributo de los n puntos (inicialmente i = 1) y con este valor M se particiona el conjunto P en $P_L$ como el conjunto con puntos cuyo valor del i-ésimo atributo es menor a M y $P_R$ como el conjunto de puntos cuyo valor del i-ésimo atributo es mayor o igual a M. En la siguiente iteración se elige otro atributo i y se particionan $P_L$ y $P_R$ en dos cada uno. El proceso se repite hasta que el conjunto de puntos en un nodo del árbol construido llegue a tener cardinalidad 1. El tiempo de construcción del árbol es de O(nlog(n)) y el tiempo de búsqueda en G(d)log(n) dado una función G la cual es exponencial en d, cabe destacar que el tiempo de búsqueda es al lo sumo O(dn).
 
-\item \textbf{Árboles de esfera \cite{shakhnarovich2006nearest,omohundro1989five,uhlmann1991satisfying}:}
-los árboles de esfera (\emph{balltrees} en inglés) son árboles binarios donde las hojas corresponden a las instancias y cada nodo interior del árbol corresponde a una esfera en el espacio de los datos, cada esfera requiere ser la más pequeña que contenga las esferas asociadas a los nodos hijos. En contraste con los árboles KD, las regiones asociadas entre nodos vecinos en los árboles de esfera pueden intersectarse y no tienen que cubrir la totalidad del espacio, lo que permite una cobertura más flexible que refleje la estructura inherente a los datos.
+%\item \textbf{Árboles de esfera \cite{shakhnarovich2006nearest,omohundro1989five,uhlmann1991satisfying}:}
+%los árboles de esfera (\emph{balltrees} en inglés) son árboles binarios donde las hojas corresponden a las instancias y cada nodo interior del árbol corresponde a una esfera en el espacio de los datos, cada esfera requiere ser la más pequeña que contenga las esferas asociadas a los nodos hijos. En contraste con los árboles KD, las regiones asociadas entre nodos vecinos en los árboles de esfera pueden intersectarse y no tienen que cubrir la totalidad del espacio, lo que permite una cobertura más flexible que refleje la estructura inherente a los datos.
 
-\item \textbf{Hashing sensitivo a la localidad \cite{shakhnarovich2006nearest,indyk2004nearest}:}
-la idea principal detrás del Hashing Sensitivo a la localidad (LSH por sus siglas en inglés) es realizar un hashing con los datos usando varias funciones de hash de tal manera que la probabilidad de colisión entre dos puntos sea mayor mientras más cerca estén uno del otro usando una métrica de distancia. Entonces, una vez construida la tabla de hash, se puede determinar los vecinos más cercanos retornando los elementos en el contenedor correspondiente a su valor calculado por la función de hash.
-\end{itemize}
+%\item \textbf{Hashing sensitivo a la localidad \cite{shakhnarovich2006nearest,indyk2004nearest}:}
+%la idea principal detrás del Hashing Sensitivo a la localidad (LSH por sus siglas en inglés) es realizar un hashing con los datos usando varias funciones de hash de tal manera que la probabilidad de colisión entre dos puntos sea mayor mientras más cerca estén uno del otro usando una métrica de distancia. Entonces, una vez construida la tabla de hash, se puede determinar los vecinos más cercanos retornando los elementos en el contenedor correspondiente a su valor calculado por la función de hash.
+%\end{itemize}
 
-Un concepto que está presente al momento de clasificar usando KNN es la llamada maldición de dimensionalidad, ésta afecta la clasificación de dos maneras: la primera estipula que un pequeño incremento en las dimensiones de los datos trae consigo un gran aumento en el número de instancias necesarias para mantener la misma precisión del clasificador. La segunda, por su parte, menciona que para métodos de almacenamiento como los árboles KD y los árboles esfera un aumento en las dimensiones tiende a degradar su desempeño a una búsqueda lineal como la implementación ingenua \cite{keogh2017curse}. Lo cual afecta la aplicabilidad del algoritmo a datos de muy grandes dimensiones y abre un campo de estudio continuo a formas de optimización del ordenamiento y almacenamiento de las instancias.
+%Un concepto que está presente al momento de clasificar usando KNN es la llamada maldición de dimensionalidad, ésta afecta la clasificación de dos maneras: la primera estipula que un pequeño incremento en las dimensiones de los datos trae consigo un gran aumento en el número de instancias necesarias para mantener la misma precisión del clasificador. La segunda, por su parte, menciona que para métodos de almacenamiento como los árboles KD y los árboles esfera un aumento en las dimensiones tiende a degradar su desempeño a una búsqueda lineal como la implementación ingenua \cite{keogh2017curse}. Lo cual afecta la aplicabilidad del algoritmo a datos de muy grandes dimensiones y abre un campo de estudio continuo a formas de optimización del ordenamiento y almacenamiento de las instancias.
 
 \subsection{Taxonomía del problema de selección de prototipos}
 
-En este trabajo se adopta la taxonomía propuesta por \emph{García, S. et al.} en \cite{garcia2012prototype}. En ella se definen unas propiedades comunes de todos los algoritmos de PS con los que se pueden comparar y así establecer la taxonomía. Sea TR el conjunto de entrenamiento y S el conjunto reducido, las propiedades son las siguientes:
+En este trabajo se adopta la taxonomía propuesta por \emph{García, S. et al.} en \cite{garcia2012prototype}. Sea TR el conjunto de entrenamiento y S el conjunto reducido, las propiedades son las siguientes:
 
 \subsubsection{Dirección de búsqueda}
 
@@ -98,10 +98,10 @@ En este trabajo se adopta la taxonomía propuesta por \emph{García, S. et al.} 
 se empieza con un conjunto vacío S y se va añadiendo instancias de TR si cumple con cierto criterio. El orden de presentación de las instancias puede llegar a afectar el resultado final para muchos algoritmos, por eso se acostumbra a presentar los datos de manera aleatoria. Una búsqueda incremental tiene la ventaja de que puede seguir agregando instancias una vez finalizado un proceso de selección inicial, lo cual lo hace bastante atractivo para el aprendizaje continuo
 
 \item \textbf{Decremental:}
-la búsqueda empieza con S = TR y se va seleccionando instancias para remover de S. El orden de presentación sigue siendo importante, pero a diferencia de los métodos incrementales, se tiene todo el conjunto desde el inicio. Los algoritmos decrementales tienden a presentar un mayor costo computacional que los incrementales y el aprendizaje no puede continuar luego de terminar el lote inicial.
+la búsqueda empieza con S = TR y se va seleccionando instancias para remover de S. El orden de presentación sigue siendo importante, pero a diferencia de los métodos incrementales, se tiene todo el conjunto desde el inicio. Los algoritmos decrementales tienden a presentar un mayor costo computacional que los incrementales.
 
 \item \textbf{Por lote:}
-se elige un grupo y se evalúan todos los elementos del mismo para su eliminación, los que no pasen la prueba seleccionada son desechados a la vez. El proceso se repite con distintos lotes hasta terminar.
+se elige un grupo y se evalúan todos los elementos del mismo para su eliminación, los que no pasen la prueba seleccionada son desechados. El proceso se repite con distintos lotes hasta terminar.
 
 \item \textbf{Mixto:}
 S empieza como un subconjunto preseleccionado (puede ser de manera aleatoria o usando un proceso incremental/decremental) e iterativamente puede añadir o remover instancias que cumplan con criterios en específico.
@@ -127,10 +127,10 @@ su principal objetivo es mantener la precisión del clasificador usando un conju
 
 \begin{itemize}
 \item \textbf{Filtro:}
-son los métodos que usan un conjunto parcial de datos para decidir cuáles remover o añadir sin usar un esquema de validación, donde se deja uno por fuera para probar con el resto de los datos en cada iteración del algoritmo. La simplificación en la validación cruzada y el uso de un subconjunto de TR agiliza los cálculos realizados por el algoritmo a costa de precisión.
+son los métodos que usan un conjunto parcial de datos para decidir cuáles remover o añadir sin usar un esquema de validación, donde se deja uno por fuera para probar con el resto de los datos en cada iteración del algoritmo. 
 
 \item \textbf{Envolventes:}
-usan todo el conjunto TR en un proceso de validación cruzada, donde en cada iteración se va excluyendo cada instancia para evaluar si vale la pena eliminarla. Son métodos más costosos que los filtros, pero tienden a obtener una precisión mayor al momento de generalizar usando un algoritmo de DM.
+usan todo el conjunto TR en un proceso de validación cruzada. Son métodos más costosos que los filtros, pero tienden a obtener una precisión mayor al momento de generalizar usando un algoritmo de DM.
 \end{itemize}
 
 A continuación se presenta en la la figura \ref{taxonomia} la clasificación que se le puede dar a los algoritmos. Para un estudio más extenso sobre los distintos algoritmos se recomienda leer \cite{garcia2016data}
@@ -144,11 +144,11 @@ A continuación se presenta en la la figura \ref{taxonomia} la clasificación qu
 
 \subsection{Heurísticas}
 
-En esta sección se exponen las heurísticas utilizadas en este trabajo. Citando a \emph{Pearl, J.} en \cite{pearl1984heuristics}: ``Una heurística es un criterio, método o principio para decidir cual, de entre varias alternativas de acciones a seguir, promete ser la más efectiva para alcanzar un objetivo''. Para el caso de PS, dicho objetivo es alcanzar un buen aproximado del conjunto de cardinalidad mínima y máxima precisión en la clasificación. Sea $S\subseteq TR$ el conjunto reducido a devolver y TR el conjunto de entrenamiento:
+En esta sección se exponen las heurísticas utilizadas en este trabajo. Citando a \emph{Pearl, J.} en \cite{pearl1984heuristics}: ``Una heurística es un criterio, método o principio para decidir cual, de entre varias alternativas de acciones a seguir, promete ser la más efectiva para alcanzar un objetivo''. Para el caso de PS, dicho objetivo es alcanzar un buen aproximado del conjunto de cardinalidad mínima y máxima precisión en la clasificación.
 
 \subsubsection{Condensed Nearest Neighbor (CNN)}
 
-Propuesto inicialmente por \emph{Hart, P.} en \cite{hart1968condensed},CNN es un método de condensación incremental. El conjunto S se construye de tal manera que cada elemento de TR está más cerca de un miembro de S de la misma clase que un miembro de S de clase distinta. El algoritmo empieza seleccionando una instancia aleatoria x y se coloca en S (inicialmente vacío), acto seguido se empieza a clasificar todas las instancias de TR sólo usando como referencia las pertenecientes S, si una instancia es clasificada incorrectamente, se agrega a S, asegurando así que en la siguiente vuelta sea clasificada correctamente. Una vez aumentado S se vuelve a probar cada instancia de TR y se agregan las que sean mal clasificadas. El proceso se repite hasta que no existan instancias en TR que se encuentren mal clasificadas. El algoritmo se presenta en \ref{cnn}. 
+Propuesto inicialmente por \emph{Hart, P.} en \cite{hart1968condensed},CNN es un método de condensación incremental. El conjunto S se construye de tal manera que cada elemento de TR está más cerca de un miembro de S de la misma clase que un miembro de S de clase distinta. El algoritmo empieza seleccionando una instancia aleatoria $s$ y se coloca en S (inicialmente vacío), acto seguido se empieza a clasificar las instancias de TR sólo usando las instancias pertenecientes S; si una instancia es clasificada incorrectamente, se agrega a S, asegurando así que en la siguiente vuelta sea clasificada correctamente. Una vez aumentado S se vuelve a probar cada instancia de TR y se agregan las que sean mal clasificadas. El proceso se repite hasta que no existan instancias en TR que se encuentren mal clasificadas. CNN se presenta en el algoritmo \ref{cnn}. 
 
 \begin{algorithm}
 \caption{CNN}
@@ -158,15 +158,15 @@ Propuesto inicialmente por \emph{Hart, P.} en \cite{hart1968condensed},CNN es un
 \Require{\texttt{TR} conjunto de entrenamiento, \texttt{k} número de vecinos a ser considerado en la clasificación}
 \Ensure{\texttt{S} conjunto reducido}
 
-\State $S \gets$ instancia aleatoria x
+\State $S \gets$ instancia aleatoria s
 \State $flag \gets false$
 
 \While{$\neg flag$}
   \ForAll{$x \in TR$}
-    \State $Y \gets$ \texttt{k} vecinos más cercanos a x pertenecientes a S \Comment{Si $\mid S \mid < \texttt{k}$ elegir $\mid S \mid$ elementos}
-    \State Clasificar x con la misma clase que sea mayoría en Y
-    \If{x está mal clasificada}
-      \State $S \gets S \cup \left\{x\right\}$
+    \State $Y \gets$ \texttt{k} vecinos más cercanos a s pertenecientes a S
+    \State Clasificar s con la misma clase que sea mayoría en Y
+    \If{s está mal clasificada}
+      \State $S \gets S \cup \left\{s\right\}$
       \State Retornar a 3 
     \EndIf
   \EndFor
@@ -183,7 +183,7 @@ Propuesto inicialmente por \emph{Hart, P.} en \cite{hart1968condensed},CNN es un
 
 \subsubsection{Edited Nearest Neighbor (ENN)}
 
-Propuesto por  \emph{Wilson, D.} en \cite{wilson1972asymptotic} ENN es un método de edición decremental. Empieza con S = TR y se va iterando sobre las instancias de S, removiendo aquellas que no concuerdan con la clase de la mayoría de sus k vecinos más cercanos. El algoritmo se presenta en \ref{enn}
+Propuesto por  \emph{Wilson, D.} en \cite{wilson1972asymptotic} ENN es un método de edición decremental. Empieza con S = TR y se va iterando sobre las instancias de S, removiendo aquellas que no concuerdan con la clase de la mayoría de sus k vecinos más cercanos. ENN se presenbta en el algoritmo \ref{enn}.
 
 \begin{algorithm}
 \caption{ENN}
@@ -194,10 +194,10 @@ Propuesto por  \emph{Wilson, D.} en \cite{wilson1972asymptotic} ENN es un métod
 \Ensure{\texttt{S} conjunto reducido}
 
 \State $S \gets$ TR
-\For{$x \in S$}
-  \State $Y \gets$ \texttt{k} vecinos más cercanos a x pertenecientes a S
-  \If{la clase de x es distinta a la clase mayoritaria en Y}
-    \State Se elimina x de S
+\For{$s \in S$}
+  \State $Y \gets$ \texttt{k} vecinos más cercanos a s pertenecientes a S
+  \If{la clase de s es distinta a la clase mayoritaria en Y}
+    \State Se elimina s de S
   \EndIf
 \EndFor
 
@@ -208,7 +208,7 @@ Propuesto por  \emph{Wilson, D.} en \cite{wilson1972asymptotic} ENN es un métod
 
 \subsubsection{Relaxed Selective Subset (RSS)}
 
- Propuesto por \emph{Flores, A. \& Mount, D.} en \cite{floresnearest} se tiene que RSS es un algoritmo híbrido incremental con la particularidad de que no es sensible al orden de presentación de las instancias, porque realiza un ordenamiento inicial de las mismas. El método primero ordena las instancias según la distancia que tengan a su enemigo más cercano (la instancia más cercana con clase distinta) de manera incremental (de la distancia más corta a la más larga). Luego, empezando con un conjunto S vacío, se van presentando las instancias en el orden establecido anteriormente y se agrega a S aquellas para las cuales no exista un punto $r \in S$ que esté a una distancia menor que la distancia que tiene r a su enemigo más cercano. Sea $d_{NE}(p)$ la distancia del punto p a su enemigo más cercano y sea $d(p_i,r)$ la distancia de un punto $p_i$ a un punto r. El algoritmo se presenta en \ref{rss}
+ Propuesto por \emph{Flores, A. \& Mount, D.} en \cite{floresnearest} se tiene que RSS es un algoritmo híbrido incremental con la particularidad de que no es sensible al orden de presentación de las instancias, porque realiza un ordenamiento inicial de las mismas. El método primero ordena las instancias según la distancia que tengan a su enemigo más cercano (la instancia más cercana con clase distinta) de manera incremental (de la distancia más corta a la más larga). Luego, empezando con un conjunto S vacío, se van presentando las instancias y se agrega a S aquellas para las cuales no exista un punto $s \in S$ que esté a una distancia menor que la distancia que tiene $s$ a su enemigo más cercano. Sea $d_{NE}(p)$ la distancia del punto p a su enemigo más cercano y sea $d(p_i,s)$ la distancia de un punto $p_i$ a un punto $s$. Rss se presenta en el algoritmo \ref{rss}.
 
 \begin{algorithm}
 \caption{RSS}
@@ -222,8 +222,8 @@ Propuesto por  \emph{Wilson, D.} en \cite{wilson1972asymptotic} ENN es un métod
 \State Sea $\left\{p_i\right\}_{i=1}^n$ los puntos en TR ordenados de manera ascendente respecto a $d_{NE}(p_i)$
 
 \ForAll{$p_i \in TR$}
-	\If{$\neg \exists r \in S$ tal que $d(p_i,r) < d_{NE}(r)$}
-		\State $S \gets S \cup \left\{p\right\}$
+	\If{$\neg \exists s \in S$ tal que $d(p_i,r) < d_{NE}(r)$}
+		\State $S \gets S \cup \left\{p_i\right\}$
 	\EndIf
 \EndFor
 
@@ -235,28 +235,34 @@ Propuesto por  \emph{Wilson, D.} en \cite{wilson1972asymptotic} ENN es un métod
 
 \section{Meteheurísticas}
 
-Las metaheurísticas son métodos de optimización que buscan una solución aproximada. Según \emph{Dorigo, M. et al.} en \cite{Dorigo2017} una metaheurística es un algoritmo que pueden ser utilizado para resolver una gran variedad de problemas de optimización sin necesitar muchos cambios estructurales al adaptarlo a cada problema. Al momento de diseñar una metaheurística se debe tomar en cuenta dos conceptos: intensificación y diversificación \cite{talbi2009metaheuristics}. En un proceso de intensificación, las regiones en el espacio de soluciones prometedoras son exhaustivamente revisadas con la esperanza de conseguir mejores soluciones. En un proceso de diversificación, las regiones no exploradas son visitadas para poder abarcar distintos lugares en el espacio de soluciones y así evitar que la exploración se estanque en una región específica. Las metaheurísticas se pueden clasificar como metaheurísticas basadas en una única solución o metaheurísticas basadas en una población \cite{talbi2009metaheuristics}. Para estudiar los distintos métodos, primero se necesita definir una serie de conceptos que son comunes para todos:\\
+%Las metaheurísticas son métodos de optimización que buscan una solución aproximada. Según \emph{Dorigo, M. et al.} en \cite{Dorigo2017} una metaheurística es un algoritmo que pueden ser utilizado para resolver una gran variedad de problemas de optimización sin necesitar muchos cambios estructurales al adaptarlo a cada problema. 
+
+Las metaheurísticas son una familia de algoritmos aproximados de propósito general y no determinístico; consistentes en procedimientos iterativos que guían una heurística subordinada. Al momento de diseñar una metaheurística se debe tomar en cuenta dos conceptos: intensificación y diversificación \cite{talbi2009metaheuristics}. En un proceso de intensificación, las regiones en el espacio de soluciones prometedoras son revisadas con la esperanza de conseguir mejores soluciones. En un proceso de diversificación, las regiones no exploradas son visitadas para poder abarcar distintos lugares en el espacio de soluciones y así evitar que la exploración se estanque en una región específica. Las metaheurísticas se pueden clasificar como metaheurísticas basadas en una única solución o metaheurísticas basadas en una población \cite{talbi2009metaheuristics}. Para estudiar los distintos métodos, primero se necesita definir una serie de conceptos que son comunes para todos:\\
 
 \begin{definicion}
-La \textbf{representación del problema} es la manera de codificar las soluciones pertenecientes al espacio de soluciones. Debe ser acorde al problema de tal manera que cumpla con las siguientes características: debe ser completo, es decir, todas las soluciones del espacio deben poder ser codificadas; debe ser conexo, lo que se traduce a que debe haber un camino entre dos cualesquiera soluciones y por último, debe ser eficiente, de tal manera que la manipulación por los operadores de búsqueda tenga un costo en tiempo y espacio mínimo \cite{talbi2009metaheuristics}.\\
+La \textbf{representación del problema} es la manera de codificar las soluciones pertenecientes al espacio de soluciones. Debe ser acorde al problema de tal manera que cumpla con las siguientes características: debe ser completo, es decir, todas las soluciones deben poder ser codificadas; debe ser conexo, lo que se traduce a que debe haber un camino entre dos cualesquiera soluciones y por último, debe ser eficiente, de tal manera que la manipulación por los operadores de búsqueda tenga un costo en tiempo y espacio razonable \cite{talbi2009metaheuristics}.\\
 \end{definicion}
 
 \begin{definicion}
-La \textbf{función objetivo} (también conocida como función de costo o de utilidad) $\mathcal{F}$ asocia a cada solución un valor real que describe la calidad de la solución: $\mathcal{F}: S \rightarrow \mathbb{R}$, donde S es el espacio de soluciones. Con la función objetivo se guía la búsqueda hacia ``buenas'' soluciones en el espacio \cite{talbi2009metaheuristics}.\\
+La \textbf{función objetivo} (también conocida como función de adaptabilidad o de utilidad) $\mathcal{F}$ asocia a cada solución un valor real que mide la calidad de la solución: $\mathcal{F}: S \rightarrow \mathbb{R}$, donde S es el espacio de soluciones. Con la función objetivo se guía la búsqueda hacia ``buenas'' soluciones\cite{talbi2009metaheuristics}.\\
 \end{definicion}
 
+%\begin{definicion}
+%La \textbf{vecindad} es el conjunto de soluciones N(s) que se le asocia a una solución s por una función de vecindad $N:S \rightarrow 2^S$. Donde S es el espacio de soluciones. Una solución $s' \in N(s)$ se conoce como \textbf{vecina} de s y se obtiene de realizar una pequeña perturbación a s con un operador de movimiento \cite{talbi2009metaheuristics}.   
+%\end{definicion}
+
 \begin{definicion}
-La \textbf{vecindad} es el conjunto de soluciones N(s) que se le asocia a una solución s por una función de vecindad $N:S \rightarrow 2^S$. Donde S es el espacio de soluciones. Una solución $s' \in N(s)$ se conoce como \textbf{vecina} de s y se obtiene de realizar una pequeña perturbación a s con un operador de movimiento \cite{talbi2009metaheuristics}.   
+La \textbf{vecindad} de una solución $s$ es el conjunto de soluciones cercanas a $s$. Se obtienen realizando una pequeña perturbación a $s$ con un operador de movimiento \cite{talbi2009metaheuristics}.
 \end{definicion}
 
 \subsection{Metaheurísticas basadas en una única solución}
 
-También conocidas como metaheurísticas de trayectoria, se centran en mejorar una única solución que van cambiando a lo largo del curso del algoritmo; se pueden ver como trayectorias de búsqueda en el espacio de soluciones, dichas trayectorias son trazadas por procesos iterativos que se mueven de una solución a otra dependiendo del criterio de aceptación particular de la metaheurística utilizada. Esta clase de metaheurísticas se enfocan principalmente en la explotación del espacio de soluciones e introducen el componente de exploración de distintas formas. Entre ellas se encuentra la búsqueda local \cite{talbi2009metaheuristics,aarts2003local}, el recocido simulado \cite{talbi2009metaheuristics,kirkpatrick1983optimization}, la búsqueda tabú \cite{talbi2009metaheuristics,glover1989tabu}, Búsqueda Local Iterada (ILS) \cite{lourencco2003iterated}, Búsqueda de Vecindad Variable (VNS) \cite{mladenovic1997variable},Búsqueda Local Guiada (GLS) \cite{voudouris1998guided}, GRASP \cite{feo1995greedy}, entre otros. De especial importancia está la búsqueda local, la cual juega un papel importante en la mayoría de las metaheurísticas de trayectoria y en algunas metaheurísticas poblacionales:\\ 
+También conocidas como metaheurísticas de trayectoria, se centran en mejorar una solución que van cambiando a lo largo del curso del algoritmo; se puede ver como trayectorias de búsqueda en el espacio de soluciones, dichas trayectorias son trazadas por procesos iterativos que se mueven de una solución a otra dependiendo del criterio de aceptación particular de la metaheurística utilizada. Esta clase de metaheurísticas se enfocan principalmente en la explotación del espacio de soluciones. Entre ellas se encuentra la búsqueda local \cite{talbi2009metaheuristics,aarts2003local}, el recocido simulado \cite{talbi2009metaheuristics,kirkpatrick1983optimization}, la búsqueda tabú \cite{talbi2009metaheuristics,glover1989tabu}, Búsqueda Local Iterada (ILS) \cite{lourencco2003iterated}, Búsqueda de Vecindad Variable (VNS) \cite{mladenovic1997variable},Búsqueda Local Guiada (GLS) \cite{voudouris1998guided}, GRASP \cite{feo1995greedy}, entre otros. De especial importancia está la búsqueda local, la cual juega un papel importante en la mayoría de las metaheurísticas de trayectoria y en algunas metaheurísticas poblacionales:\\ 
 
-\begin{definicion}
-\textbf{Búsqueda Local \cite{talbi2009metaheuristics,aarts2003local}:}
-es la base para la mayoría de las metaheurísticas basadas en una única solución. Dado una solución inicial, en cada iteración el método reemplaza la solución actual por un vecino que mejore el valor de la función objetivo, la búsqueda termina cuando todos los vecinos candidatos a evaluarse son peores que la solución actual, lo cual significa que un óptimo local ha sido alcanzado. Para vecindades muy grandes se puede restringir el conjunto a un porcentaje dado para agilizar las operaciones. Otro de los factores que se debe elegir al momento de implementar búsqueda local es si en cada iteración se elige el mejor elemento de la vecindad, el primer vecino encontrado que mejore la solución actual o inclusive un vecino aleatorio al momento de reemplazar la respuesta actual. El principal problema de este método es que se queda atrapado en un óptimo local y no hay forma de salir del mismo, esto se debe a que la búsqueda local es un método únicamente de intensificación; sin embargo, los métodos que se derivaron de éste utilizan técnicas de diversificación para escapar del óptimo local.
-\end{definicion}
+%\begin{definicion}
+%\textbf{Búsqueda Local \cite{talbi2009metaheuristics,aarts2003local}:}
+%es la base para la mayoría de las metaheurísticas basadas en una única solución. Dado una solución inicial, en cada iteración el método reemplaza la solución actual por un vecino que mejore el valor de la función objetivo, la búsqueda termina cuando todos los vecinos candidatos a evaluarse son peores que la solución actual, lo cual significa que un óptimo local ha sido alcanzado. Para vecindades muy grandes se puede restringir el conjunto a un porcentaje dado para agilizar las operaciones. Otro de los factores que se debe elegir al momento de implementar búsqueda local es si en cada iteración se elige el mejor elemento de la vecindad, el primer vecino encontrado que mejore la solución actual o inclusive un vecino aleatorio al momento de reemplazar la respuesta actual. El principal problema de este método es que se queda atrapado en un óptimo local y no hay forma de salir del mismo, esto se debe a que la búsqueda local es un método únicamente de intensificación; sin embargo, los métodos que se derivaron de éste utilizan técnicas de diversificación para escapar del óptimo local.
+%\end{definicion}
 
 
 %\item \textbf{Recocido Simulado \cite{talbi2009metaheuristics,kirkpatrick1983optimization}:}
@@ -278,24 +284,26 @@ es la base para la mayoría de las metaheurísticas basadas en una única soluci
 
 \subsection{Metaheurísticas basadas en una población}
 
-Estas metaheurísticas empiezan con una población inicial de soluciones, que puede ser elegida de manera aleatoria o con heurísticas que introduzcan ``buenas'' soluciones, e iterativamente generan nuevos elementos que pueden llegar a suplantar los de la población actual según un criterio de selección. El proceso de generación y selección se repite hasta que se cumpla un criterio de parada, el cual puede ser un número de iteraciones fijas o hasta que la población converga a una región sin mejoras pasado un número de iteraciones. Dichos procesos de generación y selección pueden ser sin memoria, es decir, solo dependen de la población actual, como el caso de los algoritmos genéticos tradicionales o pueden ser con memoria y usar información adquirida durante el proceso de búsqueda para dirigir la generación y selección a mejores resultados.\cite{talbi2009metaheuristics}. Un esquema general para los algoritmos basados en una población es el presentado en \ref{pmeta}.
+Estas metaheurísticas empiezan con una población inicial de soluciones, que puede ser elegida de manera aleatoria o con heurísticas que introduzcan ``buenas'' soluciones, e iterativamente generan nuevos elementos que pueden llegar a suplantar los de la población actual según un criterio de selección. El proceso de generación y selección se repite hasta que se cumpla un criterio de parada, el cual puede ser un número de iteraciones fijas o hasta que la población converga a una región sin mejoras pasado un número de iteraciones. Dichos procesos de generación y selección pueden ser sin memoria, es decir, solo dependen de la población actual, como el caso de los algoritmos genéticos tradicionales o pueden ser con memoria y usar información adquirida durante el proceso de búsqueda para dirigir la generación y selección a mejores resultados.\cite{talbi2009metaheuristics}. 
 
-\begin{algorithm}
-\caption{Plantilla para las metaheurísticas basadas en una población}
-\label{pmeta}
-\begin{algorithmic}[1]
+%Un esquema general para los algoritmos basados en una población es el presentado en \ref{pmeta}.
 
-\State $P \gets P_0$ \Comment{se genera la población inicial}
-\State $t=0$
-\Repeat
-	\State Generar($P'_t$) \Comment{se genera una nueva población}
-	\State $P_{t+1}=$ seleccionar nueva población entre $P_t \cup P'_t$
-	\State $t=t+1$
-\Until{Se satisface criterio de parada}
-\State \Return mejor solución encontrada
+%\begin{algorithm}
+%\caption{Plantilla para las metaheurísticas basadas en una población}
+%\label{pmeta}
+%\begin{algorithmic}[1]
 
-\end{algorithmic}
-\end{algorithm}
+%\State $P \gets P_0$ \Comment{se genera la población inicial}
+%\State $t=0$
+%\Repeat
+%	\State Generar($P'_t$) \Comment{se genera una nueva población}
+%	\State $P_{t+1}=$ seleccionar nueva población entre $P_t \cup P'_t$
+%	\State $t=t+1$
+%\Until{Se satisface criterio de parada}
+%\State \Return mejor solución encontrada
+
+%\end{algorithmic}
+%\end{algorithm}
 
 Entre las metaheurísticas basadas en una población se encuentran: \emph{Scatter Search} \cite{talbi2009metaheuristics,glover1977heuristics}, colonia de hormigas \cite{talbi2009metaheuristics,dorigo1992optimization}, optimización de enjambre de partículas \cite{talbi2009metaheuristics,eberhart2001swarm}, algoritmos de estimación de distribución \cite{talbi2009metaheuristics,lozano2006towards}, Evolución Diferencial \cite{talbi2009metaheuristics,price2006differential}, Algoritmos evolutivos \cite{talbi2009metaheuristics}, entre otros.
 
@@ -327,17 +335,17 @@ Entre las metaheurísticas basadas en una población se encuentran: \emph{Scatte
 
 \subsubsection{Algoritmos evolutivos}
 
-Los algoritmos evolutivos están basadas en la competencia entre individuos de una población llamados cromosomas; la población se inicializa con cromosomas elegidos aleatoriamente o a través de heurísticas. Con esto, dado una función objetivo, se evalúa cuán bueno es cada cromosoma y con esta información se decide por medio de un proceso de selección cuáles serán los cromosomas que se van a cruzar, dando como resultado uno o más hijos que comparten características de sus padres. Luego del cruce, viene la mutación de los nuevos individuos con un operador definido que perturba ligeramente al cromosoma. Por último viene un proceso de reemplazo donde se decide si los hijos suplantan algún elemento de la población (esquema estacionario) o si se construye una nueva población con los hijos que va a suplantar totalmente a sus padres (esquema generacional) \cite{talbi2009metaheuristics}. 
+Los algoritmos evolutivos están basados en la competencia entre individuos de una población llamados cromosomas; la población se inicializa con cromosomas elegidos aleatoriamente o a través de heurísticas. Con esto, dado una función objetivo, se evalúa cuán bueno es cada cromosoma y con esta información se decide por medio de un proceso de selección cuáles serán los cromosomas que se van a cruzar, dando como resultado uno o más hijos que comparten características de sus padres. Luego del cruce, viene la mutación de los nuevos cromosomas con un operador definido que perturba ligeramente al cromosoma. Por último viene un proceso de reemplazo donde se decide si los hijos suplantan algún elemento de la población (esquema estacionario) o si se construye una nueva población con los hijos que va a suplantar totalmente a sus padres (esquema generacional) \cite{talbi2009metaheuristics}. 
 
-El diseño de un algoritmo evolutivo viene dado con la toma de decisiones respecto a algunos componentes. Algunos comunes a todas las metaheurísticas como la representación del problema, el cual puede ser un vector de valores binarios, enteros, reales, una permutación, entre otros; la inicialización de la población, que puede ser por medio de heurísticas o aleatoria y la elección de una función objetivo que represente cuán buena es un cromosoma y el criterio de parada. Por otro lado, hay unos componentes que son propios de los algoritmos evolutivos como el criterio de selección para reproducirse, el operador de cruce, el operador de mutación y la estrategia de reemplazo.
+El diseño de un algoritmo evolutivo viene dado con la toma de decisiones respecto a algunos componentes. Algunos comunes a todas las metaheurísticas como la representación del problema, el cual puede ser un vector de valores binarios, enteros, reales, una permutación, entre otros; la inicialización de la población, que puede ser por medio de heurísticas o aleatoria y la elección de una función objetivo que represente cuán buena es un cromosoma y el criterio de parada. Por otro lado, hay unos componentes que son propios de los algoritmos evolutivos como el criterio de selección de cromosomas para reproducirse, el operador de cruce, el operador de mutación y la estrategia de reemplazo.
 
-\emph{Cano, J.} en \cite{de2004reduccion} hace un estudio comparativo de varias algoritmos evolutivos con respecto a las heurísticas tradicionales de PS. En este trabajo compara un algoritmo genético generacional (GGA), un algoritmo genético estacionario (SSGA), CHC y aprendizaje incremental basado en población (PBIL); aquí obtuvo que los algoritmos evolutivos obtiene buenos resultados y CHC en especial supera a los métodos tradicionales cuando se evalúa tanto el nivel de reducción como de precisión del clasificador. Por otra parte, \emph{Cano, J. et al.} en \cite{garcia2008memetic}, plantean un algoritmo memético estacionario que obtiene también muy buenos resultados con respecto a otros algoritmos evolutivos en cuestión de reducción (CHC estando por encima) y con precisión comparable al resto. 
+%\emph{Cano, J.} en \cite{de2004reduccion} hace un estudio comparativo de varias algoritmos evolutivos con respecto a las heurísticas tradicionales de PS. En este trabajo compara un algoritmo genético generacional (GGA), un algoritmo genético estacionario (SSGA), CHC y aprendizaje incremental basado en población (PBIL); aquí obtuvo que los algoritmos evolutivos obtiene buenos resultados y CHC en especial supera a los métodos tradicionales cuando se evalúa tanto el nivel de reducción como de precisión del clasificador. Por otra parte, \emph{Cano, J. et al.} en \cite{garcia2008memetic}, plantean un algoritmo memético estacionario que obtiene también muy buenos resultados con respecto a otros algoritmos evolutivos en cuestión de reducción (CHC estando por encima) y con precisión comparable al resto. 
 
 Los algoritmos evolutivos que fueron implementados en este trabajo fueron:
 
 \paragraph{Algoritmo Genético Generacional (GGA)}
 
- \emph{Generational Genetic Algorithm} (GGA) en inglés, es el esquema tradicional de algoritmos genéticos; los algoritmos genéticos fueron desarrollados por \emph{Holland, H.} en \cite{holland1975adaptation}. La versión generacional usa una estrategia de reemplazo en la cual se genera una población nueva de hijos en cada ciclo del algoritmo y ésta suplanta a la generación anterior. El algoritmo genera una población inicial aleatoria y empieza a crear poblaciones nuevas en cada generación hasta que se cumpla una condición de parada. En medio del proceso está actuando un operador de cruce que mezcla los elementos seleccionados como padres y una operación de mutación que modifica la nueva generación. El algoritmo se presenta en \ref{gga} \cite{flores2014metaheuristics}.
+ \emph{Generational Genetic Algorithm} (GGA) en inglés, es el esquema tradicional de algoritmos genéticos; los algoritmos genéticos fueron desarrollados por \emph{Holland, H.} en \cite{holland1975adaptation}. La versión generacional usa una estrategia de reemplazo en la cual se genera una población nueva de hijos en cada ciclo del algoritmo y ésta suplanta a la generación anterior. El algoritmo comienza con una población inicial aleatoria y va creando poblaciones nuevas en cada generación hasta que se cumpla una condición de parada. En medio del proceso está actuando un operador de cruce que mezcla los cromosomas seleccionados como padres y una operación de mutación que modifica algunos cromosomas de la nueva generación. GGA se presenta en el algoritmo \ref{gga} \cite{flores2014metaheuristics}.
 
 \begin{algorithm}
 \caption{Algoritmo Genético Generacional}
@@ -347,22 +355,22 @@ Los algoritmos evolutivos que fueron implementados en este trabajo fueron:
 \Require{\texttt{pop} tamaño de la población,
 	\texttt{cp} probabilidad de cruce,
 	\texttt{mp} probabilidad de mutación}
-\Ensure{Una solución al problema}
+\Ensure{La solución al problema}
 
-\State $P \gets$ Generar población aleatoria de $\texttt{pop}$ individuos
+\State $P \gets$ Generar población aleatoria de $\texttt{pop}$ cromosomas
 \State $s^* \gets $ el \emph{mejor} individuo en $P$
 \While{$\neg$ Condición de parada}
 	\State $P' \gets \emptyset$
 	\While{$\mid P' \mid < \texttt{pop}$}
-		\State $p_1 \gets$ Seleccionar un individuo en $P$
-		\State $p_2 \gets$ Seleccionar un individuo en $P$
+		\State $p_1 \gets$ Seleccionar un cromosoma en $P$
+		\State $p_2 \gets$ Seleccionar un cromosoma en $P$
 		\State $c_1, c_2 \gets $ recombinar $p_1$ y $p_2$ con probabilidad $\texttt{cp}$
 		\State Mutar $c_1$ y $c_2$ con probabilidad $\texttt{mp}$
 		\State $P' \gets P' \cup \left\lbrace c_1, c_2 \right\rbrace$
 	\EndWhile
 	\State $P \gets P'$
-	\If{El \emph{mejor} individuo en $P$ es \emph{mejor} que $s^*$}
-		\State $s^* \gets$ el \emph{mejor} individuo en $P$
+	\If{El \emph{mejor} cromosoma en $P$ es \emph{mejor} que $s^*$}
+		\State $s^* \gets$ el \emph{mejor} cromosoma en $P$
 	\EndIf
 \EndWhile
 \State \Return $s^*$
@@ -372,7 +380,7 @@ Los algoritmos evolutivos que fueron implementados en este trabajo fueron:
 
 \paragraph{Algoritmo Genético Estacionario (SSGA)}
 
-\emph{Steady State Genetic Algorithm} (SSGA) en inglés, es otra variación de los algoritmos genéticos. En este caso, la estrategia de reemplazo consiste en generar uno o dos hijos por iteración y decidir al momento si va a suplantar algún elemento de la población; puede suplantar a uno de los padres si es mejor que uno de ellos o puede suplantar al peor elemento de la población. Al igual que GGA, se tiene que definir un operador de mutación y cruce. El algoritmo se presenta en \ref{sga} \cite{flores2014metaheuristics}.
+\emph{Steady State Genetic Algorithm} (SSGA) en inglés, es otra variación de los algoritmos genéticos. En este caso, la estrategia de reemplazo consiste en generar uno o dos hijos por iteración y decidir al momento si va a suplantar algún elemento de la población; puede suplantar a uno de los padres si es mejor que uno de ellos o puede suplantar al peor elemento de la población. Al igual que GGA, se tiene que definir un operador de mutación y cruce. SSGA se presenta en el algoritmo \ref{sga} \cite{flores2014metaheuristics}.
 
 \begin{algorithm}
 \caption{Algoritmo Genético Estacionario}
@@ -382,18 +390,18 @@ Los algoritmos evolutivos que fueron implementados en este trabajo fueron:
 \Require{\texttt{pop} tamaño de la población,
 	\texttt{cp} probabilidad de cruce,
 	\texttt{mp} probabilidad de mutación}
-\Ensure{Una solución al problema}
+\Ensure{La solución al problema}
 
-\State $P \gets$ Generar población aleatoria de $\texttt{pop}$ individuos
-\State $s^* \gets $ el \emph{mejor} individuo en $P$
+\State $P \gets$ Generar población aleatoria de $\texttt{pop}$ cromosomas
+\State $s^* \gets $ el \emph{mejor} cromosoma en $P$
 \While{$\neg$ Condición de parada}
-	\State $p_1 \gets$ Seleccionar un individuo en $P$
-	\State $p_2 \gets$ Seleccionar un individuo en $P$
+	\State $p_1 \gets$ Seleccionar un cromosoma en $P$
+	\State $p_2 \gets$ Seleccionar un cromosoma en $P$
 	\State $c_1, c_2 \gets $ recombinar $p_1$ y $p_2$ con probabilidad $\texttt{cp}$
 	\State Mutar $c_1$ y $c_2$ con probabilidad $\texttt{mp}$
-	\State Seguir algún criterio de reemplazo de individuos en $P$ por $c_1$ y $c_2$
-	\If{El \emph{mejor} individuo en $P$ es \emph{mejor} que $s^*$}
-		\State $s^* \gets$ el \emph{mejor} individuo en $P$
+	\State Seguir algún criterio de reemplazo de cromosomas en $P$ por $c_1$ y $c_2$
+	\If{El \emph{mejor} icromosoma en $P$ es \emph{mejor} que $s^*$}
+		\State $s^* \gets$ el \emph{mejor} cromosoma en $P$
 	\EndIf
 \EndWhile
 \State \Return $s^*$
@@ -403,7 +411,7 @@ Los algoritmos evolutivos que fueron implementados en este trabajo fueron:
 
 \paragraph{Algoritmo Memético (MA)}
 
-\emph{Memetic Algorithm} en inglés, es un algoritmo evolutivo basado en los algoritmos genéticos que tiene la peculiaridad de tener un proceso de optimización interno llamado ``meme'', el cual es aplicado a todos o algunos cromosomas de la población en cada iteración; el meme más común es una búsqueda local \cite{neri2012memetic}. El esquema clásico se basa en los GGA y primero genera una población nueva con los cruces y mutaciones propios de un GGA, para luego pasar a una fase de intensificación donde aplica el meme a todas las soluciones y se genera una nueva población optimizada que suplanta la generación anterior. Otro esquema se basa en los SSGA y en cada iteración se cruzan una serie de padres para generar uno o dos hijos que, luego de mutar con cierta probabilidad dada, se decide si pasan a un proceso de optimización con el meme y el resultado se decide si se incorpora a la población.  En \ref{ssma} se presenta el algoritmo para la versión estacionaria de los algoritmos meméticos (SSMA).
+\emph{Memetic Algorithm} en inglés, es un algoritmo evolutivo basado en los algoritmos genéticos que tiene la peculiaridad de tener un proceso de optimización interno llamado ``meme'', el cual es aplicado a todos o algunos cromosomas de la población en cada iteración; el meme más común es una búsqueda local \cite{neri2012memetic}. El esquema clásico se basa en los GGA y primero genera una población nueva con los cruces y mutaciones propios de un GGA, para luego pasar a una fase de intensificación donde aplica el meme a todas las soluciones y se genera una nueva población optimizada que suplanta la generación anterior. Otro esquema se basa en los SSGA y en cada iteración se cruzan una serie de padres para generar uno o dos hijos que, luego de mutar con cierta probabilidad dada, se decide si pasan a un proceso de optimización con el meme y el resultado se decide si se incorpora a la población.  En el algoritmo \ref{ssma} se presenta la versión estacionaria de los algoritmos meméticos (SSMA).
 
 \begin{algorithm}
 \caption{Algoritmo Memético Estacionario}
@@ -414,19 +422,19 @@ Los algoritmos evolutivos que fueron implementados en este trabajo fueron:
 	\texttt{cp} probabilidad de cruce,
 	\texttt{mp} probabilidad de mutación,
 	\texttt{mem} meme usado}
-\Ensure{Una solución al problema}
+\Ensure{La solución al problema}
 
-\State $P \gets$ Generar población de $\texttt{pop}$ individuos
-\State $s^* \gets $ el \emph{mejor} individuo en $P$
+\State $P \gets$ Generar población de $\texttt{pop}$ cromosomas
+\State $s^* \gets $ el \emph{mejor} cromosoma en $P$
 \While{$\neg$ Condición de parada}
-	\State $p_1 \gets$ Seleccionar un individuo en $P$
-	\State $p_2 \gets$ Seleccionar un individuo en $P$
+	\State $p_1 \gets$ Seleccionar un cromosoma en $P$
+	\State $p_2 \gets$ Seleccionar un cromosoma en $P$
 	\State $c_1, c_2 \gets $ recombinar $p_1$ y $p_2$ con probabilidad $\texttt{cp}$
 	\State Mutar $c_1$ y $c_2$ con probabilidad $\texttt{mp}$
 	\State Determinar si $c_1$ y $c_2$ van a ser optimizados con \texttt{mem} y almacenar el resultado en $c'_1$ y $c'_2$
-	\State Seguir algún criterio de reemplazo de individuos en $P$ por $c'_1$ y $c'_2$
-	\If{El \emph{mejor} individuo en $P$ es \emph{mejor} que $s^*$}
-		\State $s^* \gets$ el \emph{mejor} individuo en $P$
+	\State Seguir algún criterio de reemplazo de cromosomas en $P$ por $c'_1$ y $c'_2$
+	\If{El \emph{mejor} cromosoma en $P$ es \emph{mejor} que $s^*$}
+		\State $s^* \gets$ el \emph{mejor} cromosoma en $P$
 	\EndIf
 \EndWhile
 \State \Return $s^*$
@@ -436,7 +444,7 @@ Los algoritmos evolutivos que fueron implementados en este trabajo fueron:
 
 \paragraph{CHC Adaptative Search Algorithm}
 
-Propuesto inicialmente por \emph{Eshelman, L.} en \cite{eshelman1991chc}, es un algoritmo evolutivo generacional con la diferencia de que es totalmente elitista, ya que elige los mejores n elementos de entre la vieja y nueva población para conformar la nueva generación (n es el número de cromosomas en la población). También tiene la particularidad de que implementa un operador de cruce llamado HUX en el cual, dado dos padres, intercambia la mitad de los genes que no coincidan entre ellos de manera aleatoria con el fin de crear hijos lo más distinto posible de los padres. Además CHC tiene un mecanismo de prevención de incesto en el cual se usa la distancia de Hamming entre los dos posibles candidatos a ser padres para determinar si son lo suficientemente distintos para cruzarse, para esto usa un umbral que inicialmente es L/4 donde L es la longitud del cromosoma. Por último, no existe una operación de mutación y en cambio, cuando pasa una generación sin individuos nuevos, se disminuye el umbral de incesto en 1, hasta que llega a 0 y se toma la decisión de reinicializar la población, preservando el mejor cromosoma encontrado hasta el momento y poblando los cromosomas restantes con variaciones del mejor, donde se perturban hasta un 35\% de los genes asociados al cromosoma. El algoritmo se presenta en \ref{chc}, donde t es la generación actual, d es el umbral de incesto, P(t) es la población de la generación t, L es la longitud del cromosoma.
+Propuesto inicialmente por \emph{Eshelman, L.} en \cite{eshelman1991chc}, es un algoritmo evolutivo generacional con la diferencia de que es totalmente elitista, ya que elige los mejores n elementos de entre la vieja y nueva población para conformar la nueva generación (n es el número de cromosomas en la población). También tiene la particularidad de que implementa un operador de cruce llamado HUX en el cual, dado dos padres, intercambia la mitad de los genes que no coincidan entre ellos de manera aleatoria con el fin de crear hijos lo más distinto posible de los padres. Además CHC tiene un mecanismo de prevención de incesto en el cual se usa la distancia de Hamming entre los dos posibles candidatos a ser padres para determinar si son lo suficientemente distintos para cruzarse, para esto usa un umbral que inicialmente es L/4 donde L es la longitud del cromosoma. Por último, no existe una operación de mutación y en cambio, cuando pasa una generación sin cromosomas nuevos, se disminuye el umbral de incesto en 1, hasta que llega a 0 y se toma la decisión de reinicializar la población, preservando el mejor cromosoma encontrado hasta el momento y poblando los cromosomas restantes con variaciones del mejor, donde se perturban hasta un 35\% de los genes asociados al cromosoma. CHC se presenta en el algoritmo \ref{chc}, donde $t$ es la generación actual, $d$ es el umbral de incesto, $P(t)$ es la población de la generación $t$, L es la longitud del cromosoma.
 
 \begin{algorithm}
 \caption{CHC}
@@ -444,12 +452,12 @@ Propuesto inicialmente por \emph{Eshelman, L.} en \cite{eshelman1991chc}, es un 
 \begin{algorithmic}[1]
 
 \Require{\texttt{pop} tamaño de la población}
-\Ensure{Una solución al problema}
+\Ensure{La solución al problema}
 
 \State $t=0$
 \State $d=L/4$
-\State $P(t) \gets$ Generar población de $\texttt{pop}$ individuos
-\State $s^* \gets $ el \emph{mejor} individuo en $P$
+\State $P(t) \gets$ Generar población de $\texttt{pop}$ cromosomas
+\State $s^* \gets $ el \emph{mejor} cromosomas en $P$
 \While{$\neg$ condición de parada}
 	\State $t=t+1$
 	\State $C(t) \gets P(t-1)$
@@ -515,25 +523,3 @@ Propuesto inicialmente por \emph{Eshelman, L.} en \cite{eshelman1991chc}, es un 
 \end{algorithmic}
 \end{algorithm}
 
-\section{Criterios para comparar los métodos de selección de prototipos}
-
-Al momento de comparar los distintos métodos de PS, se usan los siguiente criterios para evaluar las fortalezas y debilidades relativas de cada algoritmo \cite{garcia2016data}:
-
-\begin{itemize}
-\item \textbf{Reducción en el espacio de almacenamiento: }
-se asocia con la cantidad de instancias que permanecen al final de proceso. La reducción de las instancias trae consigo una disminución en los tiempos de cómputo al tener que revisar menos individuos en cada iteración para clasificar una nueva instancia.
-
-\item \textbf{Precisión en la generalización: }
-se espera que aún con el conjunto reducido, se mantenga las tasas de acierto de 1-NN o inclusive, lleguen a mejorar. Un algoritmo de PS debe poder mantener la precisión al momento de ser evaluado con el conjunto de prueba. La precisión se calcula dividiendo el número de clasificaciones hechas correctamente entre el total de clasificaciones.
-
-\item \textbf{Tiempo de cómputo: }
-involucra cuánto tiempo le lleva al algoritmo realizar la reducción de los datos. Un factor importante al momento de escalar los métodos a conjuntos muy grandes, ya que pueden ser poco prácticos si tardan demasiado. En este trabajo el tiempo de cómputo se mide en segundos.
-
-\item \textbf{\emph{Cohen's Kappa}: } 
-es una métrica que originalmente mide el nivel de acuerdo o desacuerdo entre dos clasificadores. Sin embargo se han hecho adaptaciones de esta métrica para ser usada por un sólo clasificador \cite{garcia2012prototype}, ya que es más robusta que la precisión por tomar en cuenta la posibilidad de que una clasificación sea hecha aleatoriamente. \emph{Cohen's kappa} se calcula a partir de la matriz de confusión como se muestra en la ecuación (1.1). Donde $y_{ii}$ es el conteo de las celdas de la diagonal principal, N el número de instancias revisadas, $\Omega$ el el número de clases presentes, $y_i.$ es la suma de las celdas de la fila i y $Y._i$ es la suma de las celdas de la columna i.
-
-\begin{equation} 
-kappa = \frac{N*\sum_{i=1}^{\Omega}y_{ii} - \sum_{i=1}^{\Omega}y_i.*y._i}{N^2 - \sum_{i=1}^{\Omega}y_i.*y._i}
-\end{equation}
-
-\end{itemize}

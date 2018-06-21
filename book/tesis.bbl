@@ -32,11 +32,6 @@ Roberto Battiti.
   net learning.
 \newblock {\em IEEE Transactions on neural networks}, 5(4):537--550, 1994.
 
-\bibitem[Ben75]{bentley1975multidimensional}
-Jon~Louis Bentley.
-\newblock Multidimensional binary search trees used for associative searching.
-\newblock {\em Communications of the ACM}, 18(9):509--517, 1975.
-
 \bibitem[BF99]{brodley1999identifying}
 Carla~E Brodley and Mark~A Friedl.
 \newblock Identifying mislabeled training data.
@@ -48,22 +43,10 @@ Carlo Batini, Maurizio Lenzerini, and Shamkant~B. Navathe.
   integration.
 \newblock {\em ACM computing surveys (CSUR)}, 18(4):323--364, 1986.
 
-\bibitem[BSPV02]{birattari2002racing}
-Mauro Birattari, Thomas St{\"u}tzle, Luis Paquete, and Klaus Varrentrapp.
-\newblock A racing algorithm for configuring metaheuristics.
-\newblock In {\em Proceedings of the 4th Annual Conference on Genetic and
-  Evolutionary Computation}, pages 11--18. Morgan Kaufmann Publishers Inc.,
-  2002.
-
 \bibitem[CAB11]{catal2011class}
 Cagatay Catal, Oral Alan, and Kerime Balkan.
 \newblock Class noise detection based on software metrics and roc curves.
 \newblock {\em Information Sciences}, 181(21):4867--4877, 2011.
-
-\bibitem[CH67]{cover1967nearest}
-Thomas Cover and Peter Hart.
-\newblock Nearest neighbor pattern classification.
-\newblock {\em IEEE transactions on information theory}, 13(1):21--27, 1967.
 
 \bibitem[CHL05]{cano2005stratification}
 Jos{\'e}~Ram{\'o}n Cano, Francisco Herrera, and Manuel Lozano.
@@ -89,16 +72,6 @@ Jos{\'e} Ram{\'o}n~Cano de~Amo.
   Computaci{\'o}n e Inteligencia Artificial, Universidad de Granada, Spain,
   2004.
 
-\bibitem[DBS17]{Dorigo2017}
-Marco Dorigo, Mauro Birattari, and Thomas St{\"u}tzle.
-\newblock {\em Metaheuristic}, pages 817--818.
-\newblock Springer US, Boston, MA, 2017.
-
-\bibitem[DGL13]{devroye2013probabilistic}
-Luc Devroye, L{\'a}szl{\'o} Gy{\"o}rfi, and G{\'a}bor Lugosi.
-\newblock {\em A probabilistic theory of pattern recognition}, volume~31.
-\newblock Springer Science \& Business Media, 2013.
-
 \bibitem[DKT17]{Dua:2017}
 Dua Dheeru and Efi Karra~Taniskidou.
 \newblock {UCI} machine learning repository, 2017.
@@ -113,12 +86,6 @@ Marco Dorigo.
 \newblock Optimization, learning and natural algorithms.
 \newblock {\em PhD Thesis, Politecnico di Milano}, 1992.
 
-\bibitem[ES11]{eiben2011parameter}
-Agoston~E Eiben and Selmar~K Smit.
-\newblock Parameter tuning for configuring and analyzing evolutionary
-  algorithms.
-\newblock {\em Swarm and Evolutionary Computation}, 1(1):19--31, 2011.
-
 \bibitem[Esh91]{eshelman1991chc}
 Larry~J Eshelman.
 \newblock The chc adaptive search algorithm: How to have safe search when
@@ -130,12 +97,6 @@ Larry~J Eshelman.
 Russell~C Eberhart, Yuhui Shi, and James Kennedy.
 \newblock {\em Swarm intelligence}.
 \newblock Elsevier, 2001.
-
-\bibitem[FHJ51]{fix1951discriminatory}
-Evelyn Fix and Joseph~L Hodges~Jr.
-\newblock Discriminatory analysis-nonparametric discrimination: consistency
-  properties.
-\newblock Technical report, California Univ Berkeley, 1951.
 
 \bibitem[FKP07]{farhangfar2007novel}
 Alireza Farhangfar, Lukasz~A Kurgan, and Witold Pedrycz.
@@ -212,11 +173,6 @@ John~H Holland.
 \newblock {\em Ann Arbor, MI: University of Michigan Press}, pages 439--444,
   1975.
 
-\bibitem[Ind04]{indyk2004nearest}
-Piotr Indyk.
-\newblock Nearest neighbors in high-dimensional spaces.
-\newblock 2004.
-
 \bibitem[K{\etalchar{+}}95]{kohavi1995study}
 Ron Kohavi et~al.
 \newblock A study of cross-validation and bootstrap for accuracy estimation and
@@ -232,12 +188,6 @@ Won Kim, Byoung-Ju Choi, Eui-Kyeong Hong, Soo-Kyung Kim, and Doheon Lee.
 Scott Kirkpatrick, C~Daniel Gelatt, and Mario~P Vecchi.
 \newblock Optimization by simulated annealing.
 \newblock {\em science}, 220(4598):671--680, 1983.
-
-\bibitem[KM17]{keogh2017curse}
-Eamonn Keogh and Abdullah Mueen.
-\newblock Curse of dimensionality.
-\newblock In {\em Encyclopedia of Machine Learning and Data Mining}, pages
-  314--315. Springer, 2017.
 
 \bibitem[KS96]{koller1996toward}
 Daphne Koller and Mehran Sahami.
@@ -290,11 +240,6 @@ Ferrante Neri and Carlos Cotta.
   review.
 \newblock {\em Swarm and Evolutionary Computation}, 2:1--14, 2012.
 
-\bibitem[Omo89]{omohundro1989five}
-Stephen~M Omohundro.
-\newblock {\em Five balltree construction algorithms}.
-\newblock International Computer Science Institute Berkeley, 1989.
-
 \bibitem[Pea84]{pearl1984heuristics}
 Judea Pearl.
 \newblock Heuristics: intelligent search strategies for computer problem
@@ -307,17 +252,6 @@ Kenneth Price, Rainer~M Storn, and Jouni~A Lampinen.
   optimization}.
 \newblock Springer Science \& Business Media, 2006.
 
-\bibitem[SDI06]{shakhnarovich2006nearest}
-Gregory Shakhnarovich, Trevor Darrell, and Piotr Indyk.
-\newblock {\em Nearest-neighbor methods in learning and vision: theory and
-  practice (neural information processing)}.
-\newblock The MIT press, 2006.
-
-\bibitem[SSBD14]{shalev2014understanding}
-Shai Shalev-Shwartz and Shai Ben-David.
-\newblock {\em Understanding machine learning: From theory to algorithms}.
-\newblock Cambridge university press, 2014.
-
 \bibitem[Tal09]{talbi2009metaheuristics}
 El-Ghazali Talbi.
 \newblock {\em Metaheuristics: from design to implementation}, volume~74.
@@ -327,11 +261,6 @@ El-Ghazali Talbi.
 Choh-Man Teng.
 \newblock Correcting noisy data.
 \newblock In {\em ICML}, pages 239--248. Citeseer, 1999.
-
-\bibitem[Uhl91]{uhlmann1991satisfying}
-Jeffrey~K Uhlmann.
-\newblock Satisfying general proximity/similarity queries with metric trees.
-\newblock {\em Information processing letters}, 40(4):175--179, 1991.
 
 \bibitem[Vou98]{voudouris1998guided}
 Christos Voudouris.
