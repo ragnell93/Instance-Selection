@@ -3,12 +3,25 @@
 \lhead{\emph{Conclusiones y Recomendaciones}}
 \addcontentsline{toc}{chapter}{Conclusiones y Recomendaciones}
 
-En este trabajo se implementaron tres heurísticas y cuatro metahuerísticas con el fin de evaluar si la utilización de las heurísticas como métodos de inicialización de la población de las metaheurísticas mejora el \emph{accuracy, kappa} y la tasa de reducción de las mismas en comparación con una inicialización aleatoria de la población. Además, se buscó determinar cuales son las mejores combinaciones de heurísticas y metaheurísticas al evaluarse bajo las métricas antes mencionados.
+El presente trabajo de investigación implementó tres heurísticas y cuatro metahuerísticas con el fin de evaluar si la utilización de las heurísticas como métodos de inicialización de la población de las metaheurísticas mejora el \emph{accuracy, kappa} y la tasa de reducción de las mismas en comparación con una inicialización aleatoria de la población. Además, se buscó determinar cuales son las mejores combinaciones de heurísticas y metaheurísticas al evaluarse bajo las métricas antes mencionadas.
 
-Para lograr este cometido, se probó todas las combinaciones posibles sobre conjuntos de datos pequeños, medianos y grandes. Aunado a esto, se usó el proceso de estratificación propuesto por \emph{Cano, J. et al.} en \cite{cano2005stratification} para reducir los tiempos de cómputo de los conjuntos medianos y grandes. Por otra parte se usó una herramienta de entonación conocida como \emph{Irace} para conseguir los mejores parámetros para las distintas metaheurísticas.
+Para lograr este cometido, se probaron todas las combinaciones posibles sobre conjuntos de datos pequeños, medianos y grandes. Es por ello que se usó el proceso de estratificación propuesto por \emph{Cano, J. et al.} en \cite{cano2005stratification} para reducir los tiempos de cómputo de los conjuntos medianos y grandes. Por otra parte, se usó una herramienta de entonación conocida como \emph{Irace} para conseguir los mejores parámetros para las distintas metaheurísticas.
 
-De los resultados obtenidos se observa que la utilización de heurísticas sólo beneficia a GGA Y SSGA, donde  RSS le da a las metaheurísticas la mejor relación entre \emph{accuracy, kappa} y reducción. Por otra parte CHC y MA no se benefician mucho del uso de heurísticas ya que los resultados en \emph{accuracy, kappa} y reducción son similares entre todas las variantes. Con esto se puede concluir que las metaheurísticas menos informadas y con menos recursos para conseguir una solución óptima, son las que más se benefician de elegir una población incial buena, filtrada previamente por una heurística.
+De los resultados obtenidos se observa que la utilización de heurísticas no conllevan en una mejoría significativa. En el caso de GGA, el uso de heurísticas desbalancea la relación entre \emph{accuracy, kappa} y reducción, esto se aprecia cuando cada algoritmo favorece una métrica sobre la otra. En el caso de MA y CHC se observan resultados similares entre todas las variaciones, lo que reafirma el hecho de que ambas metaheurísticas consiguen soluciones parecidas de manera consistente, independientemente de la población inicial. Sólo SSGA se benefició del uso de heurísticas, ya que obtuvo mejores tasas de reducción con RSS, aumentando en promedio 5.65\% sobre lo obtenido por SSGA con población inicial aleatoria
 
- Cuando se comparan todas las metaheurísticas, se tiene que para los conjuntos pequeños y medianos, las variantes de CHC y MA presentan los mejores valores de \emph{accuracy, kappa} y reducción; siendo estadísticamente similares en promedio; por lo tanto, se elige CHC con inicialización aleatoria de la población como la mejor opción, porque es la metaheurística más rápida en devolver un resultado. Por otra parte, para los conjuntos grandes, MA con inicialización aleatoria es la mejor opción porque presenta la tasa de reducción más alta, 3.58\% mayor que CHC, a la vez que mantiene los mejores valores de \emph{accuracy y kappa}.
+Cuando se comparan todas las metaheurísticas, se tiene que las variantes de CHC y MA presentan los mejores valores de \emph{accuracy, kappa} y reducción para los conjuntos de los tres tamaños, además, estas metaheurísticas son estadísticamente similares; por lo tanto, se elige CHC con población inicial aleatoria como la mejor opción para resolver el problema de selección de prototipos para los conjuntos de los tres tamaños, porque es la metaheurística más rápida en devolver un resultado. 
 
-Las recomendaciones que se desprenden de esta investigación incluyen: probar otras heurísticas y metaheurísticas a las utilizadas en este trabajo, utilizar otras funciones de distancia distintas a la euclídea con el fin de incorporar conjuntos de datos categóricos, plantear el problema de selección de prototipos como un problema de optimización multiobjetivo en relación al \emph{accuracy, kappa}, reducción y tiempo par estudiar el comportamiento de los distintos algoritmos y por último se recomienda probar con distintas técnicas de entonación de metaheurísticas para evaluar el desempeño de distintas configuraciones de parámetros. 
+Las recomendaciones que se desprenden de esta investigación incluyen: 
+
+\begin{itemize}
+
+\item Probar otras heurísticas y metaheurísticas a las utilizadas en este trabajo.
+
+\item Utilizar otras funciones de distancia distintas a la euclídea con el fin de incorporar conjuntos de datos categóricos.
+
+\item Plantear el problema de selección de prototipos como un problema de optimización multiobjetivo en relación al \emph{accuracy, kappa}, reducción y tiempo par estudiar el comportamiento de los distintos algoritmos frente a la curva pareto obtenida.
+
+\item Prbar herramientas de entonación distintas a \emph{Irace} para evaluar el impacto de los párametros sobre la obtención de resultados.
+
+\end{itemize}
+

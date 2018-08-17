@@ -1,460 +1,2993 @@
-\chapter{Pruebas estadísticas}
+\chapter{Resultados de todos los conjuntos}
 \label{Apéndices}
 \lhead{Apéndice B. \emph{Apéndice B}}
 
-\begin{table}[h!]
+\extrafloats{100}
+
+\begin{table}[]
 \centering
-\begin{adjustbox}{max width =\textwidth}
-\begin{tabular}{l c c c c c c c c c c}
+\begin{tabular}{l c c c c c c}
 \hline
-\multirow{2}{*}{\textsc{Algoritmo}}
+\multirow{2}{*}{\textsc{Conjunto}}
 	& \multicolumn{2}{c}{\textsc{Accuracy}}
 	& \multicolumn{2}{c}{\textsc{Kappa}}
-	& \multicolumn{2}{c}{\textsc{Reducción}} 
-	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
-	& \multicolumn{2}{c}{\textsc{Kappu + reducción}} \\
- & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
 \hline
 \hline
 
- & & & & & & GGA & & & & \\
-
-CNN-GGA & 8.0 & 3.223e-05 & 8.0 & 3.223e-05 & 23.0 & 1.744e-04 & 82.0 & 3.031e-02 & 48.0 & 2.064e-03 \\ 
-ENN-GGA & 37.0 & 7.333e-04 & 49.0 & 2.258e-03 & 0.0 & 1.229e-05 & 1.0 & 1.390e-05 & 1.0 & 1.390e-05 \\ 
-RSS-GGA & 15.0 & 7.224e-05 & 14.0 & 6.451e-05 & 3.0 & 1.773e-05 & 14.0 & 6.446e-05 & 158.0 & 9.036e-01 \\ 
-CNN-RSS-GGA & 58.0 & 4.927e-03 & 63.0 & 7.423e-03 & 100.0 & 9.263e-02 & 153.5 & 8.086e-01 & 125.0 & 3.130e-01 \\ 
-ENN-RSS-GGA & 39.5 & 1.592e-03 & 41.0 & 1.079e-03 & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 \\
-
-\hline
-
- & & & & & & CNN-GGA & & & & \\
-ENN-GGA & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 & 2.0 & 1.571e-05 & 23.0 & 1.744e-04 & 74.0 & 1.725e-02 \\ 
-RSS-GGA & 51.0 & 2.699e-03 & 70.0 & 1.281e-02 & 140.5 & 5.539e-01 & 6.0 & 3.884e-05 & 45.0 & 1.569e-03 \\ 
-CNN-RSS-GGA & 9.0 & 3.624e-05 & 8.0 & 3.223e-05 & 23.0 & 1.744e-04 & 107.0 & 1.353e-01 & 102.0 & 1.036e-01 \\ 
-ENN-RSS-GGA & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 & 2.0 & 1.571e-05 & 34.0 & 5.451e-04 \\ 
-
-\hline
-
- & & & & & & ENN-GGA & & & & \\
-RSS-GGA & 3.0 & 1.773e-05 & 6.0 & 2.543e-05 & 0.0 & 1.229e-05 & 0.0 & 1.228e-05 & 4.0 & 2.001e-05 \\ 
-CNN-RSS-GGA & 20.0 & 1.260e-04 & 33.0 & 4.932e-04 & 10.0 & 4.073e-05 & 17.0 & 9.042e-05 & 19.0 & 1.128e-04 \\ 
-ENN-RSS-GGA & 104.0 & 4.651e-01 & 131.0 & 5.872e-01 & 0.0 & 1.229e-05 & 8.0 & 3.223e-05 & 20.0 & 1.260e-04 \\
-
-\hline
-
- & & & & & & RSS-GGA & & & & \\
-CNN-RSS-GGA & 38.5 & 8.481e-04 & 21.0 & 1.405e-04 & 5.0 & 2.257e-05 & 53.0 & 3.216e-03 & 136.0 & 4.758e-01 \\ 
-ENN-RSS-GGA & 5.0 & 2.257e-05 & 6.0 & 2.543e-05 & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 & 1.0 & 1.390e-05 \\ 
+iris & 0.9593 & 0.8800 & 0.9389 & 0.8200 & 0.8887 & 0.0134 \\
+cleveland & 0.9181 & 0.5487 & 0.8722 & 0.3055 & 0.5478 & 0.0462 \\
+led7digit & 0.5864 & 0.5200 & 0.5390 & 0.4640 & 0.6088 & 0.0939 \\
+pima & 0.8898 & 0.6570 & 0.7604 & 0.2590 & 0.6728 & 0.1904 \\
+wdbc & 0.9629 & 0.9081 & 0.9212 & 0.8053 & 0.9044 & 0.1447 \\
+monk2 & 0.9277 & 0.8079 & 0.8550 & 0.6140 & 0.7792 & 0.0684 \\
+wisconsin & 0.9642 & 0.9185 & 0.9190 & 0.8137 & 0.9293 & 0.1470 \\
+wine & 0.9662 & 0.9075 & 0.9483 & 0.8563 & 0.8944 & 0.0103 \\
+glass & 0.9497 & 0.7705 & 0.9275 & 0.6626 & 0.6972 & 0.0209 \\
+banknote & 0.9978 & 0.9913 & 0.9956 & 0.9824 & 0.9808 & 0.3733 \\
+appendicitis & 0.9224 & 0.7850 & 0.7345 & 0.2999 & 0.8066 & 0.0050 \\
+balance & 0.9181 & 0.7347 & 0.8584 & 0.5484 & 0.7547 & 0.1245 \\
+bands & 0.8962 & 0.6652 & 0.7811 & 0.3061 & 0.6425 & 0.0734 \\
+contraceptive & 0.8363 & 0.4231 & 0.7477 & 0.1159 & 0.4833 & 0.6498 \\
+dermatology & 0.9758 & 0.9262 & 0.9692 & 0.9063 & 0.8866 & 0.0671 \\
+ecoli & 0.9332 & 0.7769 & 0.9035 & 0.6778 & 0.7292 & 0.0449 \\
+haberman & 0.8882 & 0.6439 & 0.7110 & 0.1313 & 0.6703 & 0.0353 \\
+hayes-roth & 0.8139 & 0.6938 & 0.7066 & 0.5119 & 0.6250 & 0.0151 \\
+heart & 0.8996 & 0.7037 & 0.7961 & 0.3968 & 0.7241 & 0.0275 \\
+hepatitis & 0.9333 & 0.7375 & 0.7451 & 0.0611 & 0.7725 & 0.0011 \\
+mammographic & 0.8470 & 0.7133 & 0.6938 & 0.4256 & 0.7204 & 0.2016 \\
+newthyroid & 0.9788 & 0.9256 & 0.9515 & 0.8312 & 0.9102 & 0.0108 \\
+tae & 0.8749 & 0.6029 & 0.8123 & 0.3993 & 0.5589 & 0.0074 \\
+vehicle & 0.9118 & 0.6670 & 0.8822 & 0.5553 & 0.6681 & 0.2286 \\
+vowel & 0.9881 & 0.9444 & 0.9869 & 0.9389 & 0.8066 & 0.2923 \\
+yeast & 0.9012 & 0.5087 & 0.8718 & 0.3619 & 0.5252 & 0.6199 \\
 
 \hline
-
- & & & & & & CNN-RSS-GGA & & & & \\ 
-ENN-RSS-GGA & 12.5 & 8.538e-05 & 32.0 & 4.458e-04 & 1.0 & 1.390e-05 & 1.0 & 1.390e-05 & 1.0 & 1.390e-05 \\
-
-\hline 
-
 \end{tabular}
-\end{adjustbox}
-\caption[Pruebas de \emph{Wilcoxon} entre GGA y variaciones para conjuntos pequeños]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para GGA sobre conjuntos pequeños}
-\label{wilcox-gga-peq}
+\caption{Resultados de CNN para conjuntos pequeños }
+\label{res-peq-cnn}
 \end{table}
 
 \begin{table}[]
 \centering
-\begin{adjustbox}{max width =\textwidth}
-\begin{tabular}{l c c c c c c c c c c}
+\begin{tabular}{l c c c c c c}
 \hline
-\multirow{2}{*}{\textsc{Algoritmo}}
+\multirow{2}{*}{\textsc{Conjunto}}
 	& \multicolumn{2}{c}{\textsc{Accuracy}}
 	& \multicolumn{2}{c}{\textsc{Kappa}}
-	& \multicolumn{2}{c}{\textsc{Reducción}} 
-	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
-	& \multicolumn{2}{c}{\textsc{Kappu + reducción}} \\
- & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
 \hline
 \hline
 
- & & & & & & GGA & & & & \\
-
-CNN-GGA  & 10.0 & 6.249e-04 & 14.0 & 1.116e-03 & 22.0 & 3.307e-03 & 33.0 & 1.260e-02 & 51.0 & 7.662e-02 \\
-ENN-GGA & 24.0 & 4.274e-03 & 39.0 & 2.422e-02 & 3.0 & 2.137e-04 & 3.0 & 2.137e-04 & 5.0 & 2.926e-04 \\
-RSS-GGA  & 31.0 & 1.001e-02 & 27.0 & 6.210e-03 & 20.0 & 2.543e-03 & 30.0 & 8.903e-03 & 89.0 & 8.092e-01 \\
-CNN-RSS-GGA  & 27.0 & 6.210e-03 & 35.0 & 1.576e-02 & 87.0 & 7.475e-01 & 95.0 & 1.000e+00 & 75.0 & 4.209e-01 \\
-ENN-RSS-GGA & 2.0 & 1.822e-04 & 7.0 & 3.981e-04 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 \\
-
-\hline
-
- & & & & & & CNN-GGA & & & & \\
-ENN-GGA  & 12.0 & 8.375e-04 & 16.0 & 1.477e-03 & 8.0 & 4.634e-04 & 15.0 & 1.285e-03 & 18.0 & 1.944e-03 \\ 
-RSS-GGA  & 31.0 & 1.001e-02 & 61.0 & 1.712e-01 & 36.0 & 1.758e-02 & 75.0 & 4.209e-01 & 62.0 & 1.842e-01 \\ 
-CNN-RSS-GGA & 3.0 & 2.137e-04 & 3.0 & 2.137e-04 & 0.0 & 1.318e-04 & 13.0 & 9.673e-04 & 32.0 & 1.124e-02 \\ 
-ENN-RSS-GGA & 2.0 & 1.822e-04 & 1.0 & 1.551e-04 & 2.0 & 1.822e-04 & 2.0 & 1.822e-04 & 3.0 & 2.137e-04 \\ 
-
-\hline
-
- & & & & & & ENN-GGA & & & & \\
-RSS-GGA & 21.0 & 2.902e-03 & 24.0 & 4.274e-03 & 5.0 & 2.926e-04 & 3.0 & 2.134e-04 & 13.0 & 9.673e-04 \\ 
-CNN-RSS-GGA & 22.0 & 3.307e-03 & 36.0 & 1.758e-02 & 28.0 & 7.013e-03 & 30.0 & 8.903e-03 & 31.0 & 1.001e-02 \\ 
-ENN-RSS-GGA & 84.0 & 6.580e-01 & 60.0 & 1.589e-01 & 1.0 & 1.551e-04 & 1.0 & 1.551e-04 & 18.0 & 1.944e-03 \\
+banana & 0.9048 & 0.8374 & 0.8185 & 0.6723 & 0.8146 & 0.1792 \\
+cardiotocography & 0.9283 & 0.8802 & 0.8275 & 0.6843 & 0.8098 & 0.0438 \\
+eye-state & 0.8835 & 0.7799 & 0.7753 & 0.5563 & 0.6718 & 2.1157 \\
+page-blocks & 0.9556 & 0.9377 & 0.8149 & 0.6798 & 0.9109 & 0.1955 \\
+penbased & 0.9815 & 0.9858 & 0.9806 & 0.9842 & 0.9108 & 0.9328 \\
+satimage & 0.9276 & 0.8696 & 0.9133 & 0.8399 & 0.8043 & 0.4847 \\
+thyroid & 0.9212 & 0.8849 & 0.6208 & 0.3725 & 0.8603 & 0.4934 \\
+segment & 0.8419 & 0.1567 & 0.8172 & 0.0162 & 0.2219 & 0.0927 \\
+coil2000 & 0.8586 & 0.8008 & 0.3599 & 0.0613 & 0.8172 & 1.8300 \\
+magic & 0.8573 & 0.7566 & 0.7066 & 0.4752 & 0.7365 & 3.0852 \\
+marketing & 0.7892 & 0.2641 & 0.7616 & 0.1632 & 0.3017 & 0.6029 \\
+phoneme & 0.9071 & 0.8449 & 0.7927 & 0.6278 & 0.7695 & 0.2589 \\
+ring & 0.9078 & 0.8369 & 0.8255 & 0.6731 & 0.7802 & 0.5239 \\
+spambase & 0.8933 & 0.8360 & 0.7885 & 0.6588 & 0.7774 & 0.3424 \\
+texture & 0.9807 & 0.9791 & 0.9797 & 0.9770 & 0.8454 & 0.3805 \\
+titanic & 0.7511 & 0.7587 & 0.3155 & 0.3187 & 0.7301 & 0.0284 \\
+twonorm & 0.9156 & 0.8905 & 0.8411 & 0.7811 & 0.8803 & 0.4941 \\
 
 \hline
-
- & & & & & & RSS-GGA & & & & \\
-CNN-RSS-GGA & 26.0 & 5.491e-03 & 11.0 & 7.231e-04 & 0.0 & 1.318e-04 & 3.0 & 2.137e-04 & 62.0 & 1.842e-01 \\ 
-ENN-RSS-GGA & 16.0 & 1.477e-03 & 16.0 & 1.477e-03 & 0.0 & 1.318e-04 & 0.0 & 1.316e-04 & 1.0 & 1.551e-04 \\ 
-
-\hline
-
- & & & & & & CNN-RSS-GGA & & & & \\ 
-ENN-RSS-GGA & 19.0 & 2.225e-03 & 22.0 & 3.307e-03 & 3.0 & 2.137e-04 & 3.0 & 2.137e-04 & 3.0 & 2.137e-04 \\ 
-
-\hline
-
 \end{tabular}
-\end{adjustbox}
-\caption[Pruebas de \emph{Wilcoxon} entre GGA y variaciones para conjuntos medianos]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para GGA sobre conjuntos medianos}
-\label{wilcox-gga-peq}
+\caption{Resultados de CNN para conjuntos medianos }
+\label{res-med-cnn}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7843 & 0.6334 & 0.4839 & 0.1226 & 0.6591 & 1.9767 \\
+shuttle & 0.9793 & 0.9982 & 0.9954 & 0.9948 & 0.9775 & 4.5940 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN para conjuntos grandes }
+\label{res-large-cnn}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9541 & 0.9533 & 0.9311 & 0.9300 & 0.1420 & 0.0150 \\
+cleveland & 0.6712 & 0.5784 & 0.4599 & 0.2935 & 0.4542 & 0.0532 \\
+led7digit & 0.7427 & 0.6820 & 0.7129 & 0.6448 & 0.3712 & 0.1037 \\
+pima & 0.8080 & 0.7324 & 0.5599 & 0.3828 & 0.3195 & 0.2318 \\
+wdbc & 0.9678 & 0.9576 & 0.9297 & 0.9069 & 0.1366 & 0.2143 \\
+monk2 & 0.8403 & 0.7193 & 0.6776 & 0.4348 & 0.2690 & 0.0998 \\
+wisconsin & 0.9766 & 0.9636 & 0.9481 & 0.9185 & 0.1327 & 0.2239 \\
+wine & 0.9538 & 0.9588 & 0.9301 & 0.9381 & 0.1416 & 0.0226 \\
+glass & 0.8230 & 0.7236 & 0.7475 & 0.6014 & 0.2715 & 0.0365 \\
+banknote & 0.9979 & 0.9978 & 0.9957 & 0.9956 & 0.1019 & 0.7042 \\
+appendicitis & 0.9507 & 0.9538 & 0.7422 & 0.7140 & 0.1764 & 0.0062 \\
+balance & 0.9141 & 0.8738 & 0.8395 & 0.7642 & 0.2370 & 0.1610 \\
+bands & 0.7787 & 0.6975 & 0.5033 & 0.3168 & 0.3247 & 0.0989 \\
+contraceptive & 0.6286 & 0.4679 & 0.4260 & 0.1802 & 0.5192 & 0.6643 \\
+dermatology & 0.9631 & 0.9434 & 0.9530 & 0.9281 & 0.1374 & 0.1330 \\
+ecoli & 0.8823 & 0.8270 & 0.8298 & 0.7476 & 0.2464 & 0.0721 \\
+haberman & 0.8046 & 0.7050 & 0.4219 & 0.0917 & 0.3203 & 0.0411 \\
+hayes-roth & 0.8076 & 0.6500 & 0.6932 & 0.4333 & 0.3188 & 0.0137 \\
+heart & 0.8617 & 0.8074 & 0.7197 & 0.6093 & 0.2681 & 0.0499 \\
+hepatitis & 0.9111 & 0.9125 & 0.4840 & 0.3857 & 0.2188 & 0.0035 \\
+mammographic & 0.8470 & 0.7783 & 0.6941 & 0.5564 & 0.2835 & 0.2779 \\
+newthyroid & 0.9633 & 0.9456 & 0.9109 & 0.8603 & 0.1330 & 0.0302 \\
+tae & 0.7572 & 0.5304 & 0.6328 & 0.2794 & 0.3331 & 0.0094 \\
+vehicle & 0.7851 & 0.6927 & 0.7135 & 0.5902 & 0.3241 & 0.3354 \\
+vowel & 0.9892 & 0.9758 & 0.9881 & 0.9733 & 0.1097 & 0.4254 \\
+yeast & 0.6849 & 0.5736 & 0.5837 & 0.4364 & 0.4463 & 0.6923 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN para conjuntos pequeños }
+\label{res-peq-ENN}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.9326 & 0.8872 & 0.8743 & 0.7725 & 0.1990 & 0.2991 \\
+cardiotocography & 0.9370 & 0.9001 & 0.8389 & 0.7138 & 0.2230 & 0.0746 \\
+eye-state & 0.9090 & 0.8286 & 0.8273 & 0.6555 & 0.2969 & 3.2362 \\
+page-blocks & 0.9689 & 0.9660 & 0.8697 & 0.8064 & 0.1403 & 0.4002 \\
+penbased & 0.9844 & 0.9924 & 0.9837 & 0.9915 & 0.1165 & 1.9932 \\
+satimage & 0.9240 & 0.8957 & 0.9084 & 0.8712 & 0.2155 & 0.9814 \\
+thyroid & 0.9438 & 0.9454 & 0.5127 & 0.4180 & 0.1494 & 0.9467 \\
+segment & 0.2884 & 0.1424 & 0.1715 & -0.0005 & 0.8134 & 0.0565 \\
+coil2000 & 0.9375 & 0.9314 & 0.2698 & 0.0648 & 0.1964 & 4.5221 \\
+magic & 0.8916 & 0.8304 & 0.7672 & 0.6109 & 0.2749 & 4.9207 \\
+marketing & 0.4367 & 0.3002 & 0.3540 & 0.1954 & 0.7031 & 0.4916 \\
+phoneme & 0.9303 & 0.8860 & 0.8470 & 0.7267 & 0.2434 & 0.3277 \\
+ring & 0.6748 & 0.6045 & 0.3553 & 0.2022 & 0.4272 & 0.7776 \\
+spambase & 0.9377 & 0.9067 & 0.8800 & 0.8025 & 0.2294 & 0.6905 \\
+texture & 0.9771 & 0.9825 & 0.9758 & 0.9808 & 0.1461 & 0.8034 \\
+titanic & 0.6370 & 0.6461 & 0.2409 & 0.2508 & 0.3445 & 0.0323 \\
+twonorm & 0.9723 & 0.9526 & 0.9545 & 0.9051 & 0.1454 & 0.9818 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN para conjuntos medianos }
+\label{res-med-ENN}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8725 & 0.7804 & 0.5911 & 0.2965 & 0.2756 & 2.8839 \\
+shuttle & 0.9985 & 0.9986 & 0.9964 & 0.9961 & 0.0234 & 9.4477 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN para conjuntos grandes }
+\label{res-large-ENN}
 \end{table}
 
 
 \begin{table}[]
 \centering
-\begin{adjustbox}{max width =\textwidth}
-\begin{tabular}{l c c c c c c c c c c}
+\begin{tabular}{l c c c c c c}
 \hline
-\multirow{2}{*}{\textsc{Algoritmo}}
+\multirow{2}{*}{\textsc{Conjunto}}
 	& \multicolumn{2}{c}{\textsc{Accuracy}}
 	& \multicolumn{2}{c}{\textsc{Kappa}}
-	& \multicolumn{2}{c}{\textsc{Reducción}} 
-	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
-	& \multicolumn{2}{c}{\textsc{Kappu + reducción}} \\
- & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
 \hline
 \hline
 
- & & & & & & SSGA & & & & \\
+iris & 0.9496 & 0.9400 & 0.9244 & 0.9100 & 0.8127 & 0.0074 \\
+cleveland & 0.7550 & 0.5943 & 0.6066 & 0.3414 & 0.5936 & 0.0332 \\
+led7digit & 0.6871 & 0.6500 & 0.6511 & 0.6093 & 0.7522 & 0.0586 \\
+pima & 0.8291 & 0.6808 & 0.6142 & 0.2740 & 0.6229 & 0.1369 \\
+wdbc & 0.9260 & 0.9234 & 0.8363 & 0.8297 & 0.8798 & 0.1131 \\
+monk2 & 0.8153 & 0.7848 & 0.6301 & 0.5693 & 0.7972 & 0.0507 \\
+wisconsin & 0.9545 & 0.9343 & 0.8970 & 0.8506 & 0.8772 & 0.2640 \\
+wine & 0.9457 & 0.9174 & 0.9176 & 0.8758 & 0.8298 & 0.0130 \\
+glass & 0.8053 & 0.7021 & 0.7126 & 0.5569 & 0.6636 & 0.0158 \\
+banknote & 0.9871 & 0.9825 & 0.9739 & 0.9645 & 0.9160 & 0.5805 \\
+appendicitis & 0.9299 & 0.9175 & 0.6883 & 0.5848 & 0.7660 & 0.0032 \\
+balance & 0.7562 & 0.7359 & 0.5849 & 0.5519 & 0.9219 & 0.0962 \\
+bands & 0.8137 & 0.6446 & 0.6086 & 0.2608 & 0.5814 & 0.0485 \\
+contraceptive & 0.7128 & 0.4589 & 0.5543 & 0.1619 & 0.5452 & 0.4976 \\
+dermatology & 0.9476 & 0.9294 & 0.9327 & 0.9095 & 0.8377 & 0.0566 \\
+ecoli & 0.8409 & 0.7627 & 0.7669 & 0.6495 & 0.7074 & 0.0361 \\
+haberman & 0.7985 & 0.7144 & 0.4423 & 0.1849 & 0.6742 & 0.0281 \\
+hayes-roth & 0.7201 & 0.5375 & 0.5582 & 0.2597 & 0.6538 & 0.0071 \\
+heart & 0.8342 & 0.7704 & 0.6618 & 0.5321 & 0.6889 & 0.0322 \\
+hepatitis & 0.8528 & 0.7625 & 0.4282 & 0.1196 & 0.7725 & 0.0016 \\
+mammographic & 0.8086 & 0.7289 & 0.6161 & 0.4567 & 0.7412 & 0.1620 \\
+newthyroid & 0.8927 & 0.8703 & 0.6855 & 0.6091 & 0.8716 & 0.0266 \\
+tae & 0.7476 & 0.5438 & 0.6206 & 0.3105 & 0.5669 & 0.0050 \\
+vehicle & 0.8030 & 0.6763 & 0.7372 & 0.5679 & 0.6489 & 0.2051 \\
+vowel & 0.8783 & 0.8242 & 0.8662 & 0.8067 & 0.7148 & 0.2364 \\
+yeast & 0.7523 & 0.5103 & 0.6762 & 0.3603 & 0.5646 & 0.4852 \\
 
-CNN-SSGA  & 150.0 & 7.366e-01 & 140.0 & 5.449e-01 & 147.0 & 9.317e-01 & 162.0 & 9.893e-01 & 154.0 & 8.191e-01 \\ 
-ENN-SSGA & 55.0 & 1.158e-02 & 106.0 & 1.285e-01 & 3.0 & 2.669e-05 & 49.0 & 3.905e-03 & 56.0 & 4.162e-03 \\ 
-RSS-SSGA  & 147.5 & 6.865e-01 & 159.0 & 9.250e-01 & 3.0 & 1.772e-05 & 24.0 & 1.941e-04 & 56.0 & 4.162e-03 \\ 
-CNN-RSS-SSGA  & 151.0 & 7.570e-01 & 144.5 & 6.281e-01 & 148.0 & 6.964e-01 & 159.0 & 9.250e-01 & 150.0 & 7.366e-01 \\ 
-ENN-RSS-SSGA & 63.0 & 3.925e-02 & 84.0 & 1.005e-01 & 0.0 & 1.228e-05 & 15.0 & 7.224e-05 & 36.0 & 6.647e-04 \\
 
 \hline
-
- & & & & & & CNN-SSGA & & & & \\
-ENN-SSGA & 73.0 & 1.603e-02 & 88.0 & 4.501e-02 & 55.0 & 3.822e-03 & 100.5 & 9.526e-02 & 120.0 & 2.528e-01 \\ 
-RSS-SSGA & 130.5 & 5.774e-01 & 143.0 & 5.998e-01 & 6.5 & 2.692e-05 & 42.0 & 1.186e-03 & 44.0 & 1.430e-03 \\ 
-CNN-RSS-SSGA & 119.0 & 2.418e-01 & 89.0 & 4.797e-02 & 84.0 & 5.933e-02 & 160.0 & 9.464e-01 & 111.0 & 1.658e-01 \\ 
-ENN-RSS-SSGA& 80.0 & 4.550e-02 & 70.0 & 2.227e-02 & 11.0 & 4.574e-05 & 43.0 & 1.303e-03 & 76.0 & 1.994e-02 \\  
-
-\hline
-
- & & & & & & ENN-SSGA & & & & \\
-RSS-SSGA & 88.0 & 4.501e-02 & 104.0 & 1.155e-01 & 3.0 & 1.773e-05 & 21.0 & 1.405e-04 & 40.0 & 9.804e-04 \\ 
-CNN-RSS-SSGA & 74.0 & 1.725e-02 & 116.0 & 2.109e-01 & 51.0 & 4.676e-03 & 96.0 & 7.356e-02 & 101.0 & 9.797e-02 \\ 
-ENN-RSS-SSGA& 112.5 & 2.840e-01 & 143.0 & 5.998e-01 & 11.0 & 4.559e-05 & 64.0 & 8.038e-03 & 93.0 & 6.148e-02 \\ 
-
-\hline
-
- & & & & & & RSS-SSGA & & & & \\
-CNN-RSS-SSGA & 134.0 & 6.476e-01 & 121.0 & 4.073e-01 & 0.0 & 1.229e-05 & 16.0 & 8.085e-05 & 51.0 & 2.699e-03 \\ 
-ENN-RSS-SSGA & 80.0 & 4.548e-02 & 89.0 & 4.797e-02 & 0.0 & 1.229e-05 & 3.0 & 1.773e-05 & 17.0 & 9.042e-05 \\  
-
-\hline
-
- & & & & & & CNN-RSS-SSGA & & & & \\ 
-ENN-RSS-SSGA & 91.0 & 5.437e-02 & 105.0 & 1.218e-01 & 8.0 & 3.223e-05 & 25.0 & 2.159e-04 & 37.0 & 7.329e-04 \\
-
-\hline 
-
 \end{tabular}
-\end{adjustbox}
-\caption[Pruebas de \emph{Wilcoxon} entre SSGA y variaciones para conjuntos pequeños]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para SSGA sobre conjuntos pequeños}
-\label{wilcox-SSGA-peq}
+\caption{Resultados de RSS para conjuntos pequeños }
+\label{res-peq-RSS}
 \end{table}
 
 \begin{table}[]
 \centering
-\begin{adjustbox}{max width =\textwidth}
-\begin{tabular}{l c c c c c c c c c c}
+\begin{tabular}{l c c c c c c}
 \hline
-\multirow{2}{*}{\textsc{Algoritmo}}
+\multirow{2}{*}{\textsc{Conjunto}}
 	& \multicolumn{2}{c}{\textsc{Accuracy}}
 	& \multicolumn{2}{c}{\textsc{Kappa}}
-	& \multicolumn{2}{c}{\textsc{Reducción}} 
-	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
-	& \multicolumn{2}{c}{\textsc{Kappu + reducción}} \\
- & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
 \hline
 \hline
 
- & & & & & & SSGA & & & & \\
-
-CNN-SSGA  & 45.0 & 4.421e-02 & 64.5 & 2.196e-01 & 46.0 & 4.862e-02 & 61.0 & 1.712e-01 & 61.0 & 1.712e-01 \\ 
-ENN-SSGA & 43.0 & 3.637e-02 & 70.0 & 3.144e-01 & 16.0 & 1.477e-03 & 15.0 & 1.285e-03 & 17.0 & 1.696e-03 \\ 
-RSS-SSGA  & 75.5 & 4.326e-01 & 53.0 & 9.100e-02 & 24.0 & 4.274e-03 & 28.0 & 7.013e-03 & 48.0 & 5.857e-02 \\ 
-CNN-RSS-SSGA  & 71.0 & 3.341e-01 & 88.0 & 7.782e-01 & 62.5 & 1.909e-01 & 63.0 & 1.978e-01 & 67.0 & 2.598e-01 \\ 
-ENN-RSS-SSGA & 35.0 & 1.573e-02 & 43.0 & 3.639e-02 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 \\
-
-\hline
-
- & & & & & & CNN-SSGA & & & & \\
-ENN-SSGA  & 31.0 & 1.001e-02 & 49.0 & 6.415e-02 & 34.0 & 1.410e-02 & 34.0 & 1.410e-02 & 34.0 & 1.410e-02 \\ 
-RSS-SSGA   & 74.5 & 4.093e-01 & 81.0 & 5.732e-01 & 73.0 & 3.760e-01 & 68.0 & 2.772e-01 & 85.0 & 6.874e-01 \\ 
-CNN-RSS-SSGA  & 12.0 & 2.263e-03 & 38.0 & 3.858e-02 & 3.0 & 2.137e-04 & 8.0 & 4.634e-04 & 17.0 & 1.696e-03 \\ 
-ENN-RSS-SSGA & 25.0 & 4.844e-03 & 39.0 & 2.422e-02 & 7.0 & 3.981e-04 & 8.0 & 4.634e-04 & 10.0 & 6.249e-04 \\ 
-
-\hline
-
- & & & & & & ENN-SSGA & & & & \\
-RSS-SSGA  & 39.0 & 2.422e-02 & 40.0 & 2.688e-02 & 14.0 & 1.116e-03 & 15.0 & 1.285e-03 & 17.0 & 1.696e-03 \\ 
-CNN-RSS-SSGA  & 43.0 & 3.639e-02 & 60.0 & 1.589e-01 & 35.0 & 1.576e-02 & 37.0 & 1.959e-02 & 39.0 & 2.422e-02 \\ 
-ENN-RSS-SSGA & 79.5 & 5.327e-01 & 63.0 & 1.978e-01 & 15.0 & 1.285e-03 & 15.0 & 1.285e-03 & 57.0 & 1.262e-01 \\
+banana & 0.8832 & 0.8677 & 0.7700 & 0.7277 & 0.6826 & 0.2696 \\
+cardiotocography & 0.8837 & 0.8804 & 0.6574 & 0.6236 & 0.7527 & 0.0583 \\
+eye-state & 0.8573 & 0.7865 & 0.7162 & 0.5585 & 0.5803 & 2.3796 \\
+page-blocks & 0.9458 & 0.9487 & 0.7605 & 0.7310 & 0.8753 & 0.5875 \\
+penbased & 0.9808 & 0.9870 & 0.9798 & 0.9855 & 0.5199 & 1.6799 \\
+satimage & 0.8946 & 0.8699 & 0.8727 & 0.8402 & 0.5017 & 0.7375 \\
+thyroid & 0.9102 & 0.8786 & 0.5998 & 0.3867 & 0.7890 & 0.6370 \\
+segment & 0.6277 & 0.1558 & 0.5674 & 0.0152 & 0.4549 & 0.0819 \\
+coil2000 & 0.9150 & 0.8985 & 0.2946 & 0.0651 & 0.7542 & 2.1691 \\
+magic & 0.8403 & 0.7997 & 0.6373 & 0.5237 & 0.6706 & 3.4522 \\
+marketing & 0.6410 & 0.2679 & 0.5927 & 0.1662 & 0.4565 & 0.5593 \\
+phoneme & 0.8302 & 0.8139 & 0.5365 & 0.4669 & 0.6358 & 0.3402 \\
+ring & 0.9631 & 0.8603 & 0.9362 & 0.7199 & 0.5577 & 0.9070 \\
+spambase & 0.9137 & 0.8860 & 0.8266 & 0.7550 & 0.6110 & 0.3883 \\
+texture & 0.9641 & 0.9645 & 0.9615 & 0.9610 & 0.5837 & 0.5338 \\
+titanic & 0.6761 & 0.6820 & 0.0249 & 0.0230 & 0.8892 & 0.1321 \\
+twonorm & 0.9263 & 0.9207 & 0.8625 & 0.8413 & 0.6952 & 0.7287 \\
 
 \hline
-
- & & & & & & RSS-SSGA & & & & \\
-CNN-RSS-SSGA & 92.0 & 9.039e-01 & 59.0 & 1.474e-01 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 & 10.0 & 6.249e-04 \\ 
-ENN-RSS-SSGA & 51.0 & 7.662e-02 & 41.0 & 2.977e-02 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 \\  
-
-\hline
-
- & & & & & & CNN-RSS-SSGA & & & & \\ 
-ENN-RSS-SSGA & 30.0 & 8.903e-03 & 47.0 & 5.341e-02 & 12.0 & 8.375e-04 & 14.0 & 1.116e-03 & 15.0 & 1.285e-03 \\ 
-
-\hline
-
 \end{tabular}
-\end{adjustbox}
-\caption[Pruebas de \emph{Wilcoxon} entre SSGA y variaciones para conjuntos medianos]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para SSGA sobre conjuntos medianos}
-\label{wilcox-SSGA-peq}
+\caption{Resultados de RSS para conjuntos medianos }
+\label{res-med-RSS}
 \end{table}
 
 \begin{table}[]
 \centering
-\begin{adjustbox}{max width =\textwidth}
-\begin{tabular}{l c c c c c c c c c c}
+\begin{tabular}{l c c c c c c}
 \hline
-\multirow{2}{*}{\textsc{Algoritmo}}
+\multirow{2}{*}{\textsc{Conjunto}}
 	& \multicolumn{2}{c}{\textsc{Accuracy}}
 	& \multicolumn{2}{c}{\textsc{Kappa}}
-	& \multicolumn{2}{c}{\textsc{Reducción}} 
-	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
-	& \multicolumn{2}{c}{\textsc{Kappu + reducción}} \\
- & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
 \hline
 \hline
 
- & & & & & & MA & & & & \\
-
-CNN-MA   & 135.0 & 6.682e-01 & 136.0 & 6.892e-01 & 44.0 & 1.430e-03 & 146.5 & 6.668e-01 & 3.0 & 1.773e-05 \\ 
-ENN-MA & 161.0 & 9.678e-01 & 158.0 & 9.036e-01 & 110.5 & 1.617e-01 & 141.0 & 5.629e-01 & 158.0 & 9.036e-01 \\ 
-RSS-MA  & 102.0 & 1.035e-01 & 103.0 & 1.094e-01 & 50.0 & 2.469e-03 & 134.0 & 4.432e-01 & 119.0 & 2.418e-01 \\ 
-CNN-RSS-MA  & 107.0 & 1.353e-01 & 95.0 & 6.934e-02 & 95.0 & 6.932e-02 & 87.0 & 4.215e-02 & 85.0 & 3.704e-02 \\ 
-ENN-RSS-MA & 110.5 & 6.034e-01 & 131.0 & 3.967e-01 & 47.5 & 3.404e-03 & 124.0 & 3.002e-01 & 147.0 & 6.766e-01 \\
+credit-card & 0.8367 & 0.7475 & 0.4858 & 0.2049 & 0.5967 & 2.1960 \\
+shuttle & 0.9985 & 0.9987 & 0.9964 & 0.9964 & 0.8505 & 19.2569 \\
 
 \hline
-
- & & & & & & CNN-MA & & & & \\
-ENN-MA  & 114.0 & 1.918e-01 & 132.0 & 4.118e-01 & 96.5 & 1.261e-01 & 140.0 & 7.751e-01 & 4.0 & 2.001e-05 \\ 
-RSS-MA  & 70.0 & 2.227e-02 & 65.0 & 1.516e-02 & 10.0 & 4.073e-05 & 140.0 & 5.449e-01 & 0.0 & 1.229e-05 \\ 
-CNN-RSS-MA  & 58.0 & 8.571e-03 & 78.0 & 2.299e-02 & 123.0 & 2.879e-01 & 83.0 & 3.243e-02 & 0.0 & 1.229e-05 \\ 
-ENN-RSS-MA & 130.0 & 3.819e-01 & 141.0 & 5.629e-01 & 125.0 & 3.129e-01 & 125.5 & 3.194e-01 & 2.0 & 1.571e-05 \\
-
-\hline
-
- & & & & & & ENN-MA & & & & \\
-RSS-MA  & 117.0 & 2.209e-01 & 114.0 & 1.919e-01 & 28.0 & 2.956e-04 & 158.0 & 9.036e-01 & 140.0 & 5.449e-01 \\ 
-CNN-RSS-MA  & 112.0 & 1.742e-01 & 125.0 & 3.129e-01 & 122.0 & 6.265e-01 & 75.0 & 1.855e-02 & 104.0 & 1.155e-01 \\ 
-ENN-RSS-MA & 160.0 & 9.464e-01 & 148.0 & 6.964e-01 & 33.5 & 1.479e-03 & 121.0 & 2.641e-01 & 155.0 & 8.401e-01 \\
-
-\hline
-
- & & & & & & RSS-MA & & & & \\
-CNN-RSS-MA  & 124.0 & 4.576e-01 & 100.0 & 2.478e-01 & 0.0 & 1.822e-05 & 117.0 & 3.458e-01 & 143.0 & 8.415e-01 \\ 
-ENN-RSS-MA & 86.0 & 6.746e-02 & 86.0 & 3.955e-02 & 8.0 & 3.220e-05 & 153.0 & 7.982e-01 & 129.0 & 3.674e-01 \\  
-
-\hline
-
- & & & & & & CNN-RSS-MA & & & & \\ 
-ENN-RSS-MA & 124.0 & 3.002e-01 & 113.0 & 1.829e-01 & 103.0 & 1.793e-01 & 159.0 & 9.250e-01 & 129.0 & 3.674e-01 \\ 
-
-\hline 
-
 \end{tabular}
-\end{adjustbox}
-\caption[Pruebas de \emph{Wilcoxon} entre MA y variaciones para conjuntos pequeños]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para MA sobre conjuntos pequeños}
-\label{wilcox-MA-peq}
+\caption{Resultados de RSS para conjuntos grandes }
+\label{res-large-RSS}
+\end{table}
+
+\clearpage
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9578 & 0.9333 & 0.9367 & 0.9000 & 0.4860 & 1.6052 \\
+cleveland & 0.7383 & 0.5825 & 0.5962 & 0.3419 & 0.5485 & 6.5904 \\
+led7digit & 0.6893 & 0.6480 & 0.6540 & 0.6072 & 0.5488 & 9.0854 \\
+pima & 0.8317 & 0.6768 & 0.6240 & 0.2754 & 0.5402 & 17.3229 \\
+wdbc & 0.9733 & 0.9492 & 0.9420 & 0.8889 & 0.5409 & 23.3391 \\
+monk2 & 0.8673 & 0.7822 & 0.7336 & 0.5629 & 0.5329 & 8.2115 \\
+wisconsin & 0.9730 & 0.9504 & 0.9394 & 0.8886 & 0.5313 & 15.1765 \\
+wine & 0.9632 & 0.9353 & 0.9445 & 0.9030 & 0.5129 & 2.5872 \\
+glass & 0.7006 & 0.6131 & 0.5633 & 0.4205 & 0.6154 & 3.4891 \\
+banknote & 0.9984 & 0.9957 & 0.9967 & 0.9912 & 0.5497 & 29.7193 \\
+appendicitis & 0.8901 & 0.8738 & 0.6201 & 0.5506 & 0.5321 & 1.0743 \\
+balance & 0.8964 & 0.8034 & 0.8158 & 0.6503 & 0.5368 & 12.4007 \\
+bands & 0.7987 & 0.6696 & 0.5676 & 0.3031 & 0.5471 & 10.1985 \\ 
+contraceptive & 0.6950 & 0.4366 & 0.5287 & 0.1354 & 0.5538 & 38.9566 \\
+dermatology & 0.9709 & 0.9496 & 0.9631 & 0.9364 & 0.5212 & 15.6820 \\
+ecoli & 0.8591 & 0.8110 & 0.7956 & 0.7203 & 0.5548 & 6.6674 \\
+haberman & 0.8072 & 0.6772 & 0.4823 & 0.1404 & 0.5516 & 4.6479 \\
+hayes-roth & 0.5444 & 0.5125 & 0.2700 & 0.2143 & 0.6838 & 1.8741 \\
+heart & 0.8407 & 0.7593 & 0.6745 & 0.5086 & 0.5300 & 5.5938 \\
+hepatitis & 0.8611 & 0.8250 & 0.4622 & 0.2541 & 0.5100 & 1.0918 \\
+mammographic & 0.8450 & 0.7373 & 0.6895 & 0.4739 & 0.5405 & 17.2283 \\
+newthyroid & 0.9618 & 0.9504 & 0.9073 & 0.8607 & 0.5135 & 2.7401 \\
+tae & 0.4696 & 0.4042 & 0.2095 & 0.0909 & 0.7205 & 1.8484 \\
+vehicle & 0.8158 & 0.6925 & 0.7541 & 0.5897 & 0.5595 & 26.8813 \\
+vowel & 0.9247 & 0.8697 & 0.9172 & 0.8567 & 0.5658 & 28.9557 \\
+yeast & 0.7370 & 0.5263 & 0.6575 & 0.3821 & 0.5566 & 40.4827 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de GGA para conjuntos pequeños }
+\label{res-peq-gga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.9336 & 0.8670 & 0.8660 & 0.7317 & 0.5339 & 50.4962 \\
+cardiotocography & 0.9359 & 0.8954 & 0.8168 & 0.6954 & 0.5731 & 19.7200 \\
+eye-state & 0.9002 & 0.8108 & 0.7984 & 0.6177 & 0.5512 & 209.4679 \\
+page-blocks & 0.9760 & 0.9573 & 0.8652 & 0.7563 & 0.5420 & 60.4759 \\
+penbased & 0.9950 & 0.9913 & 0.9944 & 0.9904 & 0.5456 & 155.4689 \\
+satimage & 0.9440 & 0.8931 & 0.9310 & 0.8684 & 0.5439 & 114.2495 \\
+thyroid & 0.9697 & 0.9384 & 0.7598 & 0.4854 & 0.5408 & 99.9336 \\
+segment & 0.4049 & 0.1468 & 0.3057 & 0.0045 & 0.7051 & 23.9123 \\
+coil2000 & 0.9448 & 0.9002 & 0.4752 & 0.0612 & 0.5412 & 320.5003 \\
+magic & 0.9008 & 0.8061 & 0.7793 & 0.5617 & 0.5466 & 257.4847 \\
+marketing & 0.5472 & 0.2673 & 0.4840 & 0.1647 & 0.6214 & 93.4540 \\
+phoneme & 0.9310 & 0.8701 & 0.8307 & 0.6803 & 0.5455 & 53.9916 \\
+ring & 0.7438 & 0.6525 & 0.4848 & 0.2999 & 0.6361 & 98.3467 \\
+spambase & 0.9463 & 0.8900 & 0.8873 & 0.7689 & 0.5521 & 98.5384 \\
+texture & 0.9880 & 0.9781 & 0.9868 & 0.9759 & 0.5505 & 104.2189 \\
+titanic & 0.7621 & 0.7624 & 0.3333 & 0.3332 & 0.5249 & 10.2480 \\
+twonorm & 0.9698 & 0.9426 & 0.9395 & 0.8852 & 0.5358 & 100.8737 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de GGA para conjuntos medianos }
+\label{res-med-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8641 & 0.7299 & 0.6008 & 0.2059 & 0.5073 & 505.3758 \\
+shuttle & 0.9990 & 0.9990 & 0.9979 & 0.9969 & 0.5026 & 838.6788 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de GGA para conjuntos grandes }
+\label{res-grande-gga}
 \end{table}
 
 \begin{table}[]
 \centering
-\begin{adjustbox}{max width =\textwidth}
-\begin{tabular}{l c c c c c c c c c c}
+\begin{tabular}{l c c c c c c}
 \hline
-\multirow{2}{*}{\textsc{Algoritmo}}
+\multirow{2}{*}{\textsc{Conjunto}}
 	& \multicolumn{2}{c}{\textsc{Accuracy}}
 	& \multicolumn{2}{c}{\textsc{Kappa}}
-	& \multicolumn{2}{c}{\textsc{Reducción}} 
-	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
-	& \multicolumn{2}{c}{\textsc{Kappu + reducción}} \\
- & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
 \hline
 \hline
 
- & & & & & & MA & & & & \\
-
-CNN-MA   & 73.0 & 3.760e-01 & 83.0 & 6.292e-01 & 77.0 & 4.688e-01 & 95.0 & 1.000e+00 & 5.0 & 2.926e-04 \\ 
-ENN-MA & 78.5 & 5.066e-01 & 74.0 & 3.981e-01 & 66.0 & 3.958e-01 & 73.5 & 3.869e-01 & 63.0 & 3.271e-01 \\ 
-RSS-MA   & 46.5 & 5.094e-02 & 46.0 & 4.862e-02 & 70.5 & 3.241e-01 & 77.0 & 4.688e-01 & 65.0 & 2.273e-01 \\ 
-CNN-RSS-MA   & 82.0 & 6.009e-01 & 75.0 & 4.209e-01 & 91.0 & 8.721e-01 & 85.0 & 6.874e-01 & 85.0 & 6.874e-01 \\ 
-ENN-RSS-MA & 81.0 & 8.446e-01 & 82.0 & 8.789e-01 & 94.0 & 9.679e-01 & 86.0 & 7.172e-01 & 93.0 & 9.359e-01 \\ 
-
-\hline
-
- & & & & & & CNN-MA & & & & \\
-ENN-MA  & 82.0 & 8.789e-01 & 85.0 & 9.826e-01 & 69.0 & 2.954e-01 & 76.0 & 4.445e-01 & 9.0 & 5.385e-04 \\ 
-RSS-MA    & 47.0 & 5.341e-02 & 55.0 & 1.075e-01 & 76.0 & 4.445e-01 & 78.0 & 4.939e-01 & 2.0 & 1.822e-04 \\ 
-CNN-RSS-MA & 94.0 & 9.679e-01 & 86.0 & 7.172e-01 & 88.0 & 7.782e-01 & 82.0 & 6.009e-01 & 3.0 & 2.137e-04 \\ 
-ENN-RSS-MA & 64.0 & 2.122e-01 & 76.0 & 4.445e-01 & 56.0 & 1.989e-01 & 92.0 & 9.039e-01 & 8.0 & 4.634e-04 \\
-
-\hline
-
- & & & & & & ENN-MA & & & & \\
-RSS-MA  & 55.0 & 1.075e-01 & 61.0 & 1.712e-01 & 75.0 & 6.475e-01 & 69.0 & 2.954e-01 & 59.5 & 1.531e-01 \\ 
-CNN-RSS-MA & 72.0 & 3.547e-01 & 74.0 & 3.981e-01 & 74.0 & 3.981e-01 & 75.0 & 4.209e-01 & 84.0 & 6.580e-01 \\ 
-ENN-RSS-MA & 93.5 & 9.519e-01 & 89.0 & 8.092e-01 & 91.0 & 8.721e-01 & 91.0 & 8.721e-01 & 81.0 & 5.732e-01 \\ 
-
-\hline
-
- & & & & & & RSS-MA & & & & \\
-CNN-RSS-MA & 29.0 & 7.908e-03 & 36.0 & 1.758e-02 & 62.0 & 1.842e-01 & 66.0 & 2.432e-01 & 51.0 & 7.662e-02 \\  
-ENN-RSS-MA & 51.0 & 7.662e-02 & 47.0 & 5.341e-02 & 78.0 & 4.939e-01 & 91.0 & 8.721e-01 & 80.0 & 5.461e-01 \\ 
+iris & 0.3030 & 0.3200 & -0.0456 & -0.0200 & 0.9240 & 6.3656 \\
+cleveland & 0.5293 & 0.3679 & 0.3537 & 0.1336 & 0.6963 & 5.9664 \\
+led7digit & 0.6047 & 0.5360 & 0.5591 & 0.4826 & 0.4976 &  7.5702 \\
+pima & 0.7962 & 0.6137 & 0.5746 & 0.1733 & 0.6272 &  15.2452 \\
+wdbc & 0.6694 & 0.6784 & 0.3348 & 0.3413 & 0.9313 &  43.9950 \\
+monk2 & 0.7477 & 0.7167 & 0.4912 & 0.4271 & 0.7556 &  8.0582 \\
+wisconsin & 0.3132 & 0.3147 & -0.1204 & -0.1146 & 0.9529 & 272.6415 \\
+wine & 0.3945 & 0.3988 & 0.0050 & 0.0191 & 0.9202 & 7.4435 \\
+glass & 0.4090 & 0.3240 & 0.1886 & 0.0510 & 0.8065 & 4.2692 \\
+banknote & 0.5184 & 0.5102 & 0.0812 & 0.0678 & 0.9848 & 280.3950 \\
+appendicitis & 0.1747 & 0.1563 & -0.0476 & -0.0932 & 0.9358 & 3.0004 \\
+balance & 0.9204 & 0.7651 & 0.8647 & 0.5975 & 0.6248 &  14.6300 \\
+bands & 0.7986 & 0.6423 & 0.5860 & 0.2476 & 0.5633 & 7.3417 \\
+contraceptive & 0.9028 & 0.4222 & 0.8500 & 0.1121 & 0.3169 &  28.9513 \\
+dermatology & 0.4545 & 0.4624 & 0.3400 & 0.3427 & 0.9212 &  23.5747 \\
+ecoli & 0.5530 & 0.5303 & 0.4009 & 0.3704 & 0.8086 &  8.2870 \\
+haberman & 0.6193 & 0.5517 & 0.2413 & 0.0795 & 0.7000 & 4.7037 \\
+hayes-roth & 0.5792 & 0.5875 & 0.3234 & 0.3317 & 0.6288 & 1.3488 \\
+heart & 0.6284 & 0.5444 & 0.2698 & 0.1018 & 0.7552 & 5.2345 \\
+hepatitis & 0.2208 & 0.1750 & 0.0044 & -0.0382 & 0.8950 & 2.3698 \\
+mammographic & 0.7618 & 0.6639 & 0.5233 & 0.3270 & 0.6719 &  18.7637 \\
+newthyroid & 0.3228 & 0.3650 & 0.1216 & 0.1462 & 0.9470 &  17.0849 \\
+tae & 0.4702 & 0.3988 & 0.2035 & 0.1067 & 0.6715 & 1.2970 \\
+vehicle & 0.7324 & 0.6024 & 0.6424 & 0.4689 & 0.6746 &  22.3047 \\
+vowel & 0.5860 & 0.6020 & 0.5446 & 0.5622 & 0.8578 &  29.2790 \\
+yeast & 0.9031 & 0.5188 & 0.8737 & 0.3691 & 0.4065 &  30.0230 \\
 
 \hline
-
- & & & & & & CNN-RSS-MA & & & & \\ 
-ENN-RSS-MA & 58.0 & 1.365e-01 & 64.0 & 2.122e-01 & 81.0 & 5.732e-01 & 62.0 & 1.842e-01 & 73.0 & 3.760e-01 \\ 
-
-\hline
-
 \end{tabular}
-\end{adjustbox}
-\caption[Pruebas de \emph{Wilcoxon} entre MA y variaciones para conjuntos medianos]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para MA sobre conjuntos medianos}
-\label{wilcox-MA-peq}
+\caption{Resultados de CNN-GGA para conjuntos pequeños }
+\label{res-peq-cnn-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8370 & 0.7930 & 0.6838 & 0.5855 & 0.8698 & 143.1180 \\
+cardiotocography & 0.7095 & 0.6793 & 0.4598 & 0.3887 & 0.8567 & 60.1878 \\
+eye-state & 0.8868 & 0.7900 & 0.7828 & 0.5787 & 0.6282 & 231.2230 \\
+page-blocks & 0.7852 & 0.7752 & 0.3919 & 0.3442 & 0.9472 & 694.1560 \\
+penbased & 0.9485 & 0.9540 & 0.9438 & 0.9488 & 0.9346 & 515.6620 \\
+satimage & 0.8691 & 0.8292 & 0.8420 & 0.7911 & 0.8576 & 238.5030 \\
+thyroid & 0.8393 & 0.8158 & 0.4006 & 0.2771 & 0.8964 & 280.0980 \\
+segment & 0.7321 & 0.1606 & 0.6891 & 0.0207 & 0.3306 & 21.6793 \\
+coil2000 & 0.7481 & 0.7008 & 0.2124 & 0.0491 & 0.8571 & 339.5150 \\
+magic & 0.8244 & 0.7278 & 0.6557 & 0.4453 & 0.7179 & 426.6730 \\
+marketing & 0.7031 & 0.2532 & 0.6639 & 0.1514 & 0.3992 & 87.8192 \\
+phoneme & 0.7686 & 0.7270 & 0.5190 & 0.4164 & 0.8306 & 243.0430 \\
+ring & 0.8275 & 0.7330 & 0.6640 & 0.4633 & 0.7424 & 197.2490 \\
+spambase & 0.8256 & 0.7844 & 0.6574 & 0.5640 & 0.8252 & 93.0783 \\
+texture & 0.8071 & 0.8042 & 0.7888 & 0.7846 & 0.8905 & 151.4730 \\
+titanic & 0.5624 & 0.5702 & -0.0657 & -0.0621 & 0.7318 & 31.2225 \\
+twonorm & 0.9095 & 0.8884 & 0.8291 & 0.7768 & 0.8511 & 203.4820 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-GGA para conjuntos medianos }
+\label{res-med-cnn-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7000 & 0.5640 & 0.3824 & 0.1055 & 0.6966 & 563.6650 \\
+shuttle & 0.7212 & 0.7222 & 0.5131 & 0.5134 & 0.9852 & 2574.1175 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-GGA para conjuntos grandes }
+\label{res-grande-cnn-gga}
 \end{table}
 
 \begin{table}[]
 \centering
-\begin{adjustbox}{max width =\textwidth}
-\begin{tabular}{l c c c c c c c c c c}
+\begin{tabular}{l c c c c c c}
 \hline
-\multirow{2}{*}{\textsc{Algoritmo}}
+\multirow{2}{*}{\textsc{Conjunto}}
 	& \multicolumn{2}{c}{\textsc{Accuracy}}
 	& \multicolumn{2}{c}{\textsc{Kappa}}
-	& \multicolumn{2}{c}{\textsc{Reducción}} 
-	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
-	& \multicolumn{2}{c}{\textsc{Kappu + reducción}} \\
- & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
 \hline
 \hline
 
- & & & & & & CHC & & & & \\
-
-CNN-CHC    & 131.0 & 3.967e-01 & 134.0 & 4.432e-01 & 69.0 & 1.188e-02 & 111.0 & 1.658e-01 & 112.0 & 1.742e-01 \\ 
-ENN-CHC  & 157.0 & 8.823e-01 & 155.5 & 8.506e-01 & 64.0 & 4.245e-02 & 129.0 & 3.674e-01 & 135.0 & 4.593e-01 \\ 
-RSS-CHC   & 141.0 & 5.629e-01 & 128.0 & 3.533e-01 & 55.0 & 6.642e-03 & 153.0 & 7.982e-01 & 146.0 & 6.571e-01 \\ 
-CNN-RSS-CHC  & 129.0 & 3.674e-01 & 106.0 & 1.284e-01 & 121.5 & 2.699e-01 & 135.0 & 4.593e-01 & 120.0 & 2.528e-01 \\ 
-ENN-RSS-CHC & 144.0 & 8.639e-01 & 160.0 & 9.464e-01 & 31.0 & 6.739e-04 & 101.0 & 9.797e-02 & 116.0 & 2.109e-01 \\ 
-
-\hline
-
- & & & & & & CNN-CHC & & & & \\
-ENN-CHC  & 119.0 & 2.418e-01 & 127.0 & 3.395e-01 & 157.0 & 8.823e-01 & 146.0 & 6.571e-01 & 142.0 & 5.812e-01 \\ 
-RSS-CHC   & 136.0 & 9.515e-01 & 132.0 & 4.118e-01 & 13.0 & 9.067e-05 & 111.0 & 1.658e-01 & 162.0 & 9.893e-01 \\ 
-CNN-RSS-CHC & 149.5 & 9.886e-01 & 118.0 & 3.606e-01 & 119.0 & 2.418e-01 & 149.0 & 7.164e-01 & 154.0 & 8.191e-01 \\ 
-ENN-RSS-CHC & 108.0 & 3.615e-01 & 119.0 & 5.633e-01 & 120.0 & 2.528e-01 & 158.0 & 9.036e-01 & 153.0 & 7.982e-01 \\
-
-\hline
-
- & & & & & & ENN-CHC & & & & \\
-RSS-CHC   & 134.0 & 4.432e-01 & 126.0 & 3.260e-01 & 44.5 & 1.498e-03 & 133.0 & 4.273e-01 & 160.0 & 9.464e-01 \\ 
-CNN-RSS-CHC  & 138.0 & 5.098e-01 & 124.0 & 3.002e-01 & 147.0 & 6.766e-01 & 162.0 & 9.893e-01 & 140.0 & 5.449e-01 \\ 
-ENN-RSS-CHC & 135.0 & 6.682e-01 & 130.0 & 3.819e-01 & 78.5 & 2.380e-02 & 116.0 & 2.109e-01 & 106.0 & 1.285e-01 \\ 
-
-\hline
-
- & & & & & & RSS-CHC & & & & \\
-CNN-RSS-CHC & 151.5 & 7.672e-01 & 144.0 & 6.186e-01 & 40.5 & 1.756e-03 & 143.5 & 6.092e-01 & 160.0 & 9.464e-01 \\   
-ENN-RSS-CHC & 123.0 & 4.405e-01 & 130.0 & 3.819e-01 & 19.0 & 1.127e-04 & 119.0 & 2.418e-01 & 150.0 & 7.366e-01 \\  
+iris & 0.9541 & 0.9533 & 0.9311 & 0.9300 & 0.1413 & 1.4803 \\
+cleveland & 0.6738 & 0.5659 & 0.4545 & 0.2666 & 0.4650 & 7.4858 \\
+led7digit & 0.7144 & 0.6660 & 0.6819 & 0.6276 & 0.3834 & 10.2158 \\
+pima & 0.8063 & 0.7271 & 0.5610 & 0.3728 & 0.3194 & 17.8755 \\
+wdbc & 0.9670 & 0.9576 & 0.9275 & 0.9062 & 0.1381 & 38.7962 \\
+monk2 & 0.8400 & 0.7310 & 0.6777 & 0.4589 & 0.2706 & 8.2817 \\
+wisconsin & 0.9761 & 0.9651 & 0.9469 & 0.9223 & 0.1329 & 17.8421 \\
+wine & 0.9494 & 0.9471 & 0.9237 & 0.9203 & 0.1455 & 4.4621 \\
+glass & 0.8043 & 0.7164 & 0.7185 & 0.5900 & 0.2916 & 3.5409 \\
+banknote & 0.9979 & 0.9978 & 0.9957 & 0.9956 & 0.1019 & 26.7934 \\
+appendicitis & 0.9581 & 0.9438 & 0.7735 & 0.6611 & 0.1613 & 1.1819 \\
+balance & 0.9092 & 0.8688 & 0.8337 & 0.7590 & 0.2474 & 11.3776 \\
+bands & 0.7811 & 0.6753 & 0.5171 & 0.2805 & 0.3200 & 13.0032 \\
+contraceptive & 0.6226 & 0.4706 & 0.4174 & 0.1848 & 0.5267 & 41.4551 \\
+dermatology & 0.9640 & 0.9462 & 0.9541 & 0.9313 & 0.1369 & 25.6686 \\
+ecoli & 0.8810 & 0.8522 & 0.8270 & 0.7833 & 0.2595 & 6.8828 \\
+haberman & 0.8010 & 0.7122 & 0.4381 & 0.1458 & 0.3216 & 3.8786 \\
+hayes-roth & 0.8153 & 0.6250 & 0.7060 & 0.3870 & 0.2931 & 1.6927 \\
+heart & 0.8617 & 0.8000 & 0.7196 & 0.5942 & 0.2667 & 7.2303 \\
+hepatitis & 0.8931 & 0.8875 & 0.5329 & 0.4000 & 0.2188 & 1.6808 \\
+mammographic & 0.8454 & 0.7711 & 0.6909 & 0.5418 & 0.2852 & 17.0408 \\
+newthyroid & 0.9623 & 0.9456 & 0.9118 & 0.8662 & 0.1340 & 2.6122 \\
+tae & 0.7579 & 0.5571 & 0.6337 & 0.3278 & 0.3450 & 1.6246 \\
+vehicle & 0.7817 & 0.6847 & 0.7089 & 0.5792 & 0.3258 & 30.7541 \\
+vowel & 0.9892 & 0.9758 & 0.9881 & 0.9733 & 0.1097 & 35.4269 \\
+yeast & 0.6795 & 0.5729 & 0.5786 & 0.4377 & 0.4485 & 41.3776 \\
 
 \hline
-
- & & & & & & CNN-RSS-CHC & & & & \\ 
-ENN-RSS-CHC  & 138.0 & 7.317e-01 & 132.0 & 6.071e-01 & 68.0 & 1.913e-02 & 144.0 & 6.186e-01 & 147.0 & 6.766e-01 \\
-
-\hline 
-
 \end{tabular}
-\end{adjustbox}
-\caption[Pruebas de \emph{Wilcoxon} entre CHC y variaciones para conjuntos pequeños]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para CHC sobre conjuntos pequeños}
-\label{wilcox-CHC-peq}
+\caption{Resultados de ENN-GGA para conjuntos pequeños }
+\label{res-peq-enn-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.9326 & 0.8866 & 0.8743 & 0.7714 & 0.2005 & 40.9813 \\
+cardiotocography & 0.9373 & 0.9015 & 0.8397 & 0.7162 & 0.2209 & 20.6367 \\
+eye-state & 0.9088 & 0.8282 & 0.8270 & 0.6547 & 0.3007 & 207.7310 \\
+page-blocks & 0.9690 & 0.9656 & 0.8694 & 0.8018 & 0.1413 & 57.1816 \\
+penbased & 0.9844 & 0.9924 & 0.9837 & 0.9915 & 0.1169 & 169.9620 \\
+satimage & 0.9241 & 0.8960 & 0.9086 & 0.8715 & 0.2172 & 144.5530 \\
+thyroid & 0.9431 & 0.9451 & 0.5049 & 0.4152 & 0.1509 & 114.0900 \\
+segment & 0.2854 & 0.1437 & 0.1679 & 0.0010 & 0.8145 & 25.7382 \\
+coil2000 & 0.9377 & 0.9314 & 0.2758 & 0.0670 & 0.1968 & 465.3530 \\
+magic & 0.8914 & 0.8303 & 0.7665 & 0.6106 & 0.2775 & 250.8440 \\
+marketing & 0.4381 & 0.2958 & 0.3566 & 0.1914 & 0.6979 & 102.7230 \\
+phoneme & 0.9308 & 0.8858 & 0.8481 & 0.7263 & 0.2446 & 45.7861 \\
+ring & 0.6693 & 0.6020 & 0.3447 & 0.1980 & 0.4323 & 95.1795 \\
+spambase & 0.9383 & 0.9067 & 0.8814 & 0.8027 & 0.2322 & 134.9760 \\
+texture & 0.9771 & 0.9827 & 0.9758 & 0.9810 & 0.1475 & 140.3440 \\
+titanic & 0.7680 & 0.7746 & 0.4346 & 0.4355 & 0.3282 & 9.3024 \\
+twonorm & 0.9723 & 0.9526 & 0.9545 & 0.9051 & 0.1461 & 114.0080 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-GGA para conjuntos medianos }
+\label{res-med-enn-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8728 & 0.7793 & 0.5922 & 0.2944 & 0.2770 & 541.2280 \\
+shuttle & 0.9985 & 0.9987 & 0.9965 & 0.9962 & 0.0233 & 894.8520 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-GGA para conjuntos grandes }
+\label{res-grande-enn-gga}
 \end{table}
 
 \begin{table}[]
 \centering
-\begin{adjustbox}{max width =\textwidth}
-\begin{tabular}{l c c c c c c c c c c}
+\begin{tabular}{l c c c c c c}
 \hline
-\multirow{2}{*}{\textsc{Algoritmo}}
+\multirow{2}{*}{\textsc{Conjunto}}
 	& \multicolumn{2}{c}{\textsc{Accuracy}}
 	& \multicolumn{2}{c}{\textsc{Kappa}}
-	& \multicolumn{2}{c}{\textsc{Reducción}} 
-	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
-	& \multicolumn{2}{c}{\textsc{Kappu + reducción}} \\
- & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
 \hline
 \hline
 
- & & & & & & CHC & & & & \\
-
-CNN-CHC    & 42.0 & 5.817e-02 & 46.5 & 5.094e-02 & 89.5 & 8.248e-01 & 72.5 & 3.652e-01 & 57.0 & 1.262e-01 \\ 
-ENN-CHC  & 82.0 & 6.009e-01 & 89.0 & 8.092e-01 & 46.0 & 4.862e-02 & 41.0 & 2.977e-02 & 52.0 & 8.356e-02 \\ 
-RSS-CHC   & 38.0 & 2.179e-02 & 32.0 & 1.124e-02 & 41.0 & 2.977e-02 & 94.0 & 9.679e-01 & 68.0 & 2.772e-01 \\ 
-CNN-RSS-CHC   & 41.0 & 2.977e-02 & 41.0 & 2.977e-02 & 39.0 & 2.422e-02 & 29.0 & 7.901e-03 & 31.0 & 1.000e-02 \\ 
-ENN-RSS-CHC & 65.5 & 2.351e-01 & 95.0 & 1.000e+00 & 3.0 & 2.134e-04 & 2.0 & 1.819e-04 & 12.0 & 8.375e-04 \\  
-
-\hline
-
- & & & & & & CNN-CHC & & & & \\
-ENN-CHC & 69.0 & 7.226e-01 & 59.0 & 4.074e-01 & 49.0 & 1.119e-01 & 60.0 & 1.590e-01 & 79.0 & 5.197e-01 \\ 
-RSS-CHC     & 84.0 & 6.579e-01 & 79.0 & 5.197e-01 & 28.0 & 1.227e-02 & 65.0 & 2.273e-01 & 66.0 & 2.432e-01 \\ 
-CNN-RSS-CHC  & 86.0 & 7.172e-01 & 78.5 & 5.066e-01 & 54.0 & 9.896e-02 & 49.5 & 6.707e-02 & 64.0 & 2.122e-01 \\ 
-ENN-RSS-CHC & 83.0 & 6.292e-01 & 61.0 & 1.712e-01 & 41.0 & 2.977e-02 & 43.5 & 3.820e-02 & 46.0 & 4.860e-02 \\
-
-\hline
-
- & & & & & & ENN-CHC & & & & \\
-RSS-CHC   & 52.0 & 8.353e-02 & 40.0 & 2.688e-02 & 48.0 & 5.857e-02 & 42.0 & 3.292e-02 & 72.0 & 3.547e-01 \\ 
-CNN-RSS-CHC  & 61.0 & 2.860e-01 & 48.0 & 5.857e-02 & 76.0 & 4.445e-01 & 75.0 & 4.209e-01 & 82.0 & 6.009e-01 \\ 
-ENN-RSS-CHC  & 83.5 & 9.306e-01 & 83.0 & 9.133e-01 & 16.0 & 1.476e-03 & 35.0 & 1.576e-02 & 60.0 & 1.590e-01 \\
-
-\hline
-
- & & & & & & RSS-CHC & & & & \\
-CNN-RSS-CHC & 87.0 & 7.475e-01 & 90.0 & 8.405e-01 & 6.0 & 3.411e-04 & 8.0 & 4.634e-04 & 40.0 & 2.688e-02 \\   
-ENN-RSS-CHC & 76.5 & 4.565e-01 & 55.0 & 1.075e-01 & 0.0 & 1.316e-04 & 6.0 & 3.416e-04 & 36.0 & 1.758e-02 \\
+iris & 0.5400 & 0.5467 & 0.3100 & 0.3200 & 0.8833 & 5.5023 \\
+cleveland & 0.6995 & 0.5729 & 0.5127 & 0.2824 & 0.6000 & 6.3971 \\
+led7digit & 0.5527 & 0.5160 & 0.5020 & 0.4613 & 0.8240 & 11.9904 \\
+pima & 0.8002 & 0.6972 & 0.5542 & 0.3114 & 0.6133 & 18.1228 \\
+wdbc & 0.8521 & 0.8519 & 0.6553 & 0.6578 & 0.8538 & 23.9792 \\
+monk2 & 0.6772 & 0.6479 & 0.3484 & 0.2897 & 0.8639 & 12.4095 \\
+wisconsin & 0.7849 & 0.7956 & 0.4227 & 0.4501 & 0.9149 & 39.3925 \\
+wine & 0.5652 & 0.5539 & 0.3467 & 0.3296 & 0.8933 & 8.3321 \\
+glass & 0.5492 & 0.5655 & 0.3256 & 0.3274 & 0.7813 & 4.4381 \\
+banknote & 0.7390 & 0.7355 & 0.4367 & 0.4300 & 0.9587 & 157.4090 \\
+appendicitis & 0.6647 & 0.6575 & 0.0856 & 0.0546 & 0.7925 & 1.7964 \\
+balance & 0.4461 & 0.4325 & 0.1961 & 0.1813 & 0.9686 & 48.2580 \\
+bands & 0.7586 & 0.6377 & 0.4917 & 0.2357 & 0.5882 & 9.8358 \\
+contraceptive & 0.6986 & 0.4528 & 0.5339 & 0.1546 & 0.5468 & 37.5165 \\
+dermatology & 0.6459 & 0.6480 & 0.5522 & 0.5552 & 0.9059 & 16.5175 \\
+ecoli & 0.7478 & 0.7249 & 0.6330 & 0.5976 & 0.7229 & 6.8582 \\
+haberman & 0.7321 & 0.6872 & 0.3222 & 0.1714 & 0.6794 & 5.1684 \\
+hayes-roth & 0.4563 & 0.4500 & 0.1113 & 0.1064 & 0.7663 & 2.1052 \\
+heart & 0.7185 & 0.7148 & 0.4190 & 0.4175 & 0.7233 & 5.4765 \\
+hepatitis & 0.5903 & 0.5875 & 0.1514 & 0.1471 & 0.7925 & 1.3769 \\
+mammographic & 0.7645 & 0.6952 & 0.5278 & 0.3888 & 0.7325 & 21.4182 \\
+newthyroid & 0.7107 & 0.7255 & 0.0031 & 0.0395 & 0.8977 & 6.3003 \\
+tae & 0.4747 & 0.3958 & 0.2144 & 0.0949 & 0.6967 & 1.7932 \\
+vehicle & 0.7788 & 0.6904 & 0.7048 & 0.5867 & 0.6264 & 25.0300 \\
+vowel & 0.5505 & 0.5333 & 0.5056 & 0.4867 & 0.8702 & 42.3341 \\
+yeast & 0.7308 & 0.5445 & 0.6486 & 0.4052 & 0.5676 & 40.2190 \\
 
 \hline
-
- & & & & & & CNN-RSS-CHC & & & & \\ 
-ENN-RSS-CHC & 55.0 & 1.841e-01 & 49.0 & 6.415e-02 & 32.0 & 1.981e-02 & 48.0 & 5.857e-02 & 74.0 & 3.981e-01 \\
-
-\hline
-
 \end{tabular}
-\end{adjustbox}
-\caption[Pruebas de \emph{Wilcoxon} entre CHC y variaciones para conjuntos medianos]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para CHC sobre conjuntos medianos}
-\label{wilcox-CHC-peq}
+\caption{Resultados de RSS-GGA para conjuntos pequeños }
+\label{res-peq-rss-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8050 & 0.8013 & 0.6016 & 0.5828 & 0.7280 & 84.1568 \\
+cardiotocography & 0.8283 & 0.8282 & 0.4189 & 0.3822 & 0.7138 & 22.3631 \\
+eye-state & 0.7666 & 0.7295 & 0.5189 & 0.4281 & 0.6508 & 233.4130 \\
+page-blocks & 0.9259 & 0.9258 & 0.5842 & 0.5230 & 0.8192 & 108.7890 \\
+penbased & 0.9352 & 0.9390 & 0.9291 & 0.9323 & 0.5503 & 199.4800 \\
+satimage & 0.8348 & 0.8182 & 0.8007 & 0.7783 & 0.5464 & 189.0800 \\
+thyroid & 0.8317 & 0.8125 & 0.4056 & 0.2997 & 0.8765 & 168.3580 \\
+segment & 0.4871 & 0.1623 & 0.4032 & 0.0227 & 0.5987 & 21.4625 \\
+coil2000 & 0.9171 & 0.8938 & 0.3499 & 0.0775 & 0.6987 & 266.3050 \\
+magic & 0.8032 & 0.7798 & 0.5325 & 0.4562 & 0.6845 & 319.2850 \\
+marketing & 0.5438 & 0.2746 & 0.4821 & 0.1740 & 0.5708 & 94.6385 \\
+phoneme & 0.7567 & 0.7530 & 0.2580 & 0.2201 & 0.6511 & 58.1494 \\
+ring & 0.9608 & 0.8303 & 0.9315 & 0.6595 & 0.5230 & 150.5110 \\
+spambase & 0.8336 & 0.8186 & 0.6403 & 0.5936 & 0.6711 & 90.7451 \\
+texture & 0.8847 & 0.8831 & 0.8742 & 0.8714 & 0.6330 & 117.4850 \\
+titanic & 0.6750 & 0.6820 & 0.0236 & 0.0245 & 0.7902 & 20.4498 \\
+twonorm & 0.8566 & 0.8520 & 0.7232 & 0.7039 & 0.7399 & 184.9760 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-GGA para conjuntos medianos }
+\label{res-med-rss-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8316 & 0.7452 & 0.4495 & 0.1684 & 0.5853 & 490.8110 \\
+shuttle & 0.9983 & 0.9985 & 0.9959 & 0.9958 & 0.8312 & 1903.2900 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-GGA para conjuntos grandes }
+\label{res-grande-rss-gga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.6281 & 0.6667 & 0.4422 & 0.5000 & 0.8380 & 9.1441 \\
+cleveland & 0.8638 & 0.5521 & 0.7875 & 0.3042 & 0.3933 & 17.9343 \\
+led7digit & 0.6580 & 0.6000 & 0.6187 & 0.5526 & 0.5338 & 24.3794 \\
+pima & 0.9100 & 0.6925 & 0.8002 & 0.3161 & 0.4408 &  43.5050 \\
+wdbc & 0.9307 & 0.9275 & 0.8474 & 0.8418 & 0.7239 &  51.2243 \\
+monk2 & 0.8403 & 0.7683 & 0.6786 & 0.5332 & 0.6391 & 22.0426 \\
+wisconsin & 0.9308 & 0.9190 & 0.8324 & 0.8039 & 0.7564 &  50.4188 \\
+wine & 0.6436 & 0.7031 & 0.4442 & 0.5351 & 0.8416 & 14.6128 \\
+glass & 0.6767 & 0.5648 & 0.5309 & 0.3691 & 0.6570 & 9.2663 \\
+banknote & 0.8327 & 0.8440 & 0.6475 & 0.6723 & 0.9466 & 290.2950 \\
+appendicitis & 0.4336 & 0.4575 & -0.0203 & -0.0329 & 0.8519 & 4.3040 \\
+balance & 0.7175 & 0.6850 & 0.5520 & 0.4907 & 0.8419 &  60.3778 \\
+bands & 0.8965 & 0.6867 & 0.7794 & 0.3293 & 0.4145 &  29.2568 \\
+contraceptive & 0.8889 & 0.4386 & 0.8283 & 0.1333 & 0.2884 &  96.0340 \\
+dermatology & 0.7799 & 0.7905 & 0.7184 & 0.7307 & 0.8101 &  33.7780 \\
+ecoli & 0.9068 & 0.7804 & 0.8654 & 0.6772 & 0.5366 & 15.6847 \\
+haberman & 0.8447 & 0.7222 & 0.6102 & 0.2778 & 0.4918 & 10.5201 \\
+hayes-roth & 0.7438 & 0.6500 & 0.5903 & 0.4316 & 0.4844 & 4.1884 \\
+heart & 0.8687 & 0.7222 & 0.7330 & 0.4367 & 0.5144 & 13.2776 \\
+hepatitis & 0.6750 & 0.6500 & 0.2622 & 0.1001 & 0.7163 & 3.6349 \\
+mammographic & 0.8582 & 0.7289 & 0.7161 & 0.4570 & 0.5357 &  44.3800 \\
+newthyroid & 0.7647 & 0.7434 & 0.2932 & 0.2836 & 0.8488 & 13.8422 \\
+tae & 0.6836 & 0.5096 & 0.5249 & 0.2564 & 0.4914 & 3.9989 \\
+vehicle & 0.9108 & 0.6951 & 0.8810 & 0.5931 & 0.4475 &  69.7710 \\
+vowel & 0.6726 & 0.6646 & 0.6399 & 0.6311 & 0.7999 &  88.2295 \\
+yeast & 0.9344 & 0.5412 & 0.9148 & 0.4037 & 0.3317 &  96.5058 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-GGA para conjuntos pequeños }
+\label{res-peq-cnn-rss-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8739 & 0.8308 & 0.7500 & 0.6505 & 0.6487 & 192.4880  \\
+cardiotocography & 0.9095 & 0.8802 & 0.7463 & 0.6270 & 0.6335 & 50.4685  \\
+eye-state & 0.8796 & 0.7870 & 0.7624 & 0.5597 & 0.5011 &  535.3850  \\
+page-blocks & 0.9520 & 0.9430 & 0.7694 & 0.6651 & 0.7332 & 205.2115  \\
+penbased & 0.9808 & 0.9852 & 0.9797 & 0.9835 & 0.5059 &  459.5600  \\
+satimage & 0.9151 & 0.8732 & 0.8981 & 0.8443 & 0.4645 &  418.5175  \\
+thyroid & 0.9475 & 0.9071 & 0.7441 & 0.4328 & 0.7163 &  318.7000  \\
+segment & 0.7420 & 0.1506 & 0.7007 & 0.0091 & 0.3236 & 54.1318  \\
+coil2000 & 0.9282 & 0.8717 & 0.5406 & 0.0891 & 0.6014 &  721.2475  \\
+magic & 0.9017 & 0.8006 & 0.7898 & 0.5419 & 0.5272 &  668.4100  \\
+marketing & 0.7786 & 0.2765 & 0.7492 & 0.1750 & 0.2644 & 216.0485  \\
+phoneme & 0.8723 & 0.8347 & 0.6715 & 0.5446 & 0.5467 & 133.0128  \\
+ring & 0.9709 & 0.8181 & 0.9518 & 0.6350 & 0.4729 &  320.8075  \\
+spambase & 0.9388 & 0.8771 & 0.8811 & 0.7381 & 0.5176 &  258.4575  \\
+texture & 0.9712 & 0.9698 & 0.9694 & 0.9668 & 0.5565 &  297.4400  \\
+titanic & 0.6843 & 0.6910 & 0.0796 & 0.0818 & 0.7211 & 75.1360  \\
+twonorm & 0.9382 & 0.9164 & 0.8864 & 0.8327 & 0.6395 &  335.8025  \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-GGA para conjuntos medianos }
+\label{res-med-cnn-rss-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8922 & 0.7187 & 0.6845 & 0.1801 & 0.4155 & 1268.6125 \\
+shuttle & 0.9988 & 0.9989 & 0.9974 & 0.9968 & 0.8023 & 4024.6750 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-GGA para conjuntos grandes }
+\label{res-grande-cnn-rss-gga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9630 & 0.9467 & 0.9444 & 0.9200 & 0.1340 & 3.7309 \\
+cleveland & 0.8096 & 0.5459 & 0.6995 & 0.2790 & 0.2906 & 20.1712 \\
+led7digit & 0.7038 & 0.6360 & 0.6693 & 0.5930 & 0.3022 &  25.5188 \\
+pima & 0.8747 & 0.7025 & 0.7175 & 0.3308 & 0.2320 &  45.1518 \\
+wdbc & 0.9701 & 0.9576 & 0.9348 & 0.9068 & 0.1351 &  97.8315 \\
+monk2 & 0.8843 & 0.7333 & 0.7665 & 0.4622 & 0.2285 & 21.2641 \\
+wisconsin & 0.9774 & 0.9593 & 0.9500 & 0.9095 & 0.1291 &  44.2328 \\
+wine & 0.9619 & 0.9471 & 0.9422 & 0.9205 & 0.1348 & 11.6699 \\
+glass & 0.8577 & 0.7657 & 0.7982 & 0.6660 & 0.2369 & 10.0634 \\
+banknote & 0.9980 & 0.9978 & 0.9959 & 0.9956 & 0.1018 &  67.1385 \\
+appendicitis & 0.9602 & 0.9238 & 0.8214 & 0.6144 & 0.1481 & 3.0538 \\
+balance & 0.9193 & 0.8466 & 0.8508 & 0.7211 & 0.2227 &  28.2728 \\
+bands & 0.8959 & 0.7068 & 0.7714 & 0.3534 & 0.2093 &  35.9293 \\
+contraceptive & 0.7880 & 0.4583 & 0.6708 & 0.1612 & 0.3020 &  96.3725 \\
+dermatology & 0.9637 & 0.9548 & 0.9538 & 0.9423 & 0.1355 &  64.8818 \\
+ecoli & 0.9111 & 0.8205 & 0.8712 & 0.7389 & 0.2012 & 17.4796 \\
+haberman & 0.8627 & 0.7128 & 0.6145 & 0.1416 & 0.2448 & 10.0612 \\
+hayes-roth & 0.8472 & 0.6500 & 0.7582 & 0.4311 & 0.2231 & 3.9015 \\
+heart & 0.9058 & 0.8074 & 0.8091 & 0.6068 & 0.2044 & 18.4351 \\
+hepatitis & 0.9431 & 0.8750 & 0.7678 & 0.3314 & 0.1613 & 4.8569 \\
+mammographic & 0.8665 & 0.7554 & 0.7329 & 0.5107 & 0.2234 &  41.0910 \\
+newthyroid & 0.9737 & 0.9504 & 0.9379 & 0.8781 & 0.1242 & 6.2042 \\
+tae & 0.8021 & 0.5567 & 0.6999 & 0.3246 & 0.2417 & 4.1103 \\
+vehicle & 0.8735 & 0.7045 & 0.8313 & 0.6058 & 0.2326 &  82.0315 \\
+vowel & 0.9921 & 0.9798 & 0.9914 & 0.9778 & 0.1078 &  88.4353 \\
+yeast & 0.8246 & 0.5715 & 0.7714 & 0.4405 & 0.2779 &  98.2530 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-GGA para conjuntos pequeños }
+\label{res-peq-enn-rss-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.9534 & 0.8830 & 0.9159 & 0.7632 & 0.1627 & 98.5610 \\
+cardiotocography & 0.9491 & 0.9085 & 0.8736 & 0.7388 & 0.1989 & 52.2130 \\
+eye-state & 0.9507 & 0.8331 & 0.9105 & 0.6622 & 0.2012 &  512.1025 \\
+page-blocks & 0.9725 & 0.9655 & 0.8916 & 0.8053 & 0.1363 & 142.6913 \\
+penbased & 0.9883 & 0.9941 & 0.9881 & 0.9934 & 0.1079 &  423.7225 \\
+satimage & 0.9493 & 0.8982 & 0.9397 & 0.8744 & 0.1695 &  370.8175 \\
+thyroid & 0.9850 & 0.9457 & 0.9524 & 0.5330 & 0.1088 &  290.8975 \\
+segment & 0.6367 & 0.1515 & 0.5778 & 0.0101 & 0.4432 & 51.3460 \\
+coil2000 & 0.9461 & 0.9223 & 0.4612 & 0.0722 & 0.1737 &  1166.3825 \\
+magic & 0.9156 & 0.8274 & 0.8216 & 0.6036 & 0.2259 &  597.8900 \\
+marketing & 0.7100 & 0.2909 & 0.6706 & 0.1907 & 0.3459 & 216.2983 \\
+phoneme & 0.9505 & 0.8967 & 0.8929 & 0.7445 & 0.1946 & 111.3275 \\
+ring & 0.9572 & 0.7403 & 0.9243 & 0.4778 & 0.1505 &  281.3275 \\
+spambase & 0.9611 & 0.9086 & 0.9291 & 0.8071 & 0.1779 &  356.0225 \\
+texture & 0.9843 & 0.9867 & 0.9837 & 0.9854 & 0.1262 &  358.0500 \\
+titanic & 0.7520 & 0.7596 & 0.3175 & 0.3208 & 0.3143  23.3339 \\
+twonorm & 0.9785 & 0.9514 & 0.9670 & 0.9027 & 0.1296 &  290.0625 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-GGA para conjuntos medianos }
+\label{res-med-enn-rss-gga}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.9158 & 0.7605 & 0.7359 & 0.2502 & 0.1812 & 1409.3950  \\
+shuttle & 0.9990 & 0.9991 & 0.9978 & 0.9974 & 0.0239 & 1997.4575 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-GGA para conjuntos grandes }
+\label{res-grande-enn-rss-gga}
+\end{table}
+
+\clearpage
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9719 & 0.9467 & 0.9578 & 0.9200 & 0.9167 & 0.1425 \\
+cleveland & 0.7433 & 0.5907 & 0.5781 & 0.3256 & 0.8357 & 0.2904 \\
+led7digit & 0.7111 & 0.6220 & 0.6783 & 0.5789 & 0.8304 & 0.3914 \\
+pima & 0.8255 & 0.7143 & 0.6052 & 0.3413 & 0.8090 & 0.9706 \\
+wdbc & 0.9744 & 0.9472 & 0.9445 & 0.8847 & 0.8499 & 0.8070 \\
+monk2 & 0.9069 & 0.7849 & 0.8135 & 0.5688 & 0.8164 & 0.4609 \\
+wisconsin & 0.9777 & 0.9593 & 0.9508 & 0.9099 & 0.8466 & 0.8056 \\
+wine & 0.9862 & 0.9471 & 0.9788 & 0.9187 & 0.9112 & 0.1887 \\
+glass & 0.8510 & 0.7061 & 0.7855 & 0.5725 & 0.8374 & 0.2000 \\
+banknote & 0.9995 & 0.9978 & 0.9990 & 0.9956 & 0.8233 & 1.9947 \\
+appendicitis & 0.9707 & 0.9338 & 0.8649 & 0.6594 & 0.9519 & 0.1038 \\
+balance & 0.8780 & 0.8420 & 0.7765 & 0.7118 & 0.8299 & 0.6654 \\
+bands & 0.8143 & 0.6714 & 0.5932 & 0.2956 & 0.8222 & 0.3919 \\
+contraceptive & 0.6222 & 0.4354 & 0.4154 & 0.1299 & 0.7909 & 2.3099 \\
+dermatology & 0.9737 & 0.9427 & 0.9667 & 0.9272 & 0.8665 & 0.4319 \\
+ecoli & 0.8783 & 0.7956 & 0.8234 & 0.7013 & 0.8503 & 0.3654 \\
+haberman & 0.8297 & 0.7556 & 0.4794 & 0.2531 & 0.8471 & 0.2898 \\
+hayes-roth & 0.7875 & 0.5813 & 0.6665 & 0.3331 & 0.8156 & 0.1207 \\
+heart & 0.8914 & 0.8111 & 0.7794 & 0.6165 & 0.8556 & 0.2568 \\
+hepatitis & 0.9153 & 0.7625 & 0.6882 & 0.2213 & 0.9300 & 0.0680 \\
+mammographic & 0.8491 & 0.7855 & 0.6979 & 0.5704 & 0.8157 & 1.0376 \\
+newthyroid & 0.9721 & 0.9628 & 0.9328 & 0.9065 & 0.8981 & 0.1924 \\
+tae & 0.7520 & 0.5046 & 0.6276 & 0.2569 & 0.8278 & 0.1282 \\
+vehicle & 0.7992 & 0.6505 & 0.7322 & 0.5338 & 0.7987 & 1.1757 \\
+vowel & 0.9398 & 0.8838 & 0.9338 & 0.8722 & 0.7589 & 1.2075 \\
+yeast & 0.6798 & 0.5276 & 0.5812 & 0.3804 & 0.7868 & 2.3061 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de SSGA para conjuntos pequeños }
+\label{res-peq-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.9009 & 0.8797 & 0.7996 & 0.7566 & 0.8460 & 2.0155 \\
+cardiotocography & 0.9010 & 0.8794 & 0.7177 & 0.6550 & 0.8952 & 0.8157 \\
+eye-state & 0.8318 & 0.7782 & 0.6597 & 0.5512 & 0.7998 & 8.1422 \\
+page-blocks & 0.9607 & 0.9511 & 0.7809 & 0.7240 & 0.8591 & 2.3354 \\
+penbased & 0.9910 & 0.9868 & 0.9900 & 0.9853 & 0.8266 & 4.9590 \\
+satimage & 0.9130 & 0.8916 & 0.8924 & 0.8659 & 0.8399 & 2.9289 \\
+thyroid & 0.9471 & 0.9370 & 0.5434 & 0.4430 & 0.8547 & 3.4614 \\
+segment & 0.3352 & 0.1377 & 0.2244 & -0.0061 & 0.8025 & 0.8695 \\
+coil2000 & 0.9291 & 0.9155 & 0.2023 & 0.0364 & 0.8408 & 7.0551 \\
+magic & 0.8479 & 0.8044 & 0.6583 & 0.5567 & 0.8081 & 11.0371 \\ 
+marketing & 0.4385 & 0.2958 & 0.3576 & 0.1942 & 0.8008 & 3.1245 \\
+phoneme & 0.8770 & 0.8431 & 0.7047 & 0.6212 & 0.8438 & 2.1808 \\
+ring & 0.8423 & 0.7698 & 0.6837 & 0.5376 & 0.8069 & 3.3822 \\
+spambase & 0.9028 & 0.8821 & 0.7962 & 0.7531 & 0.8468 & 2.1174 \\
+texture & 0.9719 & 0.9648 & 0.9691 & 0.9613 & 0.8382 & 2.3282 \\
+titanic & 0.7844 & 0.7838 & 0.4532 & 0.4497 & 0.9170 & 0.4438 \\
+twonorm & 0.9581 & 0.9480 & 0.9162 & 0.8960 & 0.8395 & 3.3044 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de SSGA para conjuntos medianos }
+\label{res-med-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7834 & 0.7498 & 0.3935 & 0.2439 & 0.8070 & 17.8910 \\
+shuttle & 0.9988 & 0.9987 & 0.9971 & 0.9963 & 0.8041 & 37.4363 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de SSGA para conjuntos grandes }
+\label{res-grande-ssga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9741 & 0.9400 & 0.9611 & 0.9100 & 0.9407 & 0.1854 \\
+cleveland & 0.8058 & 0.5818 & 0.6817 & 0.3238 & 0.7593 & 0.3769 \\
+led7digit & 0.6373 & 0.5680 & 0.5959 & 0.5179 & 0.7878 & 0.5826 \\
+pima & 0.8325 & 0.6664 & 0.6258 & 0.2451 & 0.7874 & 1.1970 \\
+wdbc & 0.9691 & 0.9362 & 0.9333 & 0.8622 & 0.9364 & 1.5751 \\
+monk2 & 0.9059 & 0.8447 & 0.8116 & 0.6898 & 0.8435 & 0.5582 \\
+wisconsin & 0.9764 & 0.9579 & 0.9481 & 0.9075 & 0.9621 & 5.2854 \\
+wine & 0.9813 & 0.9548 & 0.9716 & 0.9310 & 0.9438 & 0.2875 \\
+glass & 0.9081 & 0.7267 & 0.8674 & 0.6058 & 0.7790 & 0.2505 \\
+banknote & 0.9973 & 0.9905 & 0.9946 & 0.9808 & 0.9780 & 6.2513 \\
+appendicitis & 0.9759 & 0.9600 & 0.8770 & 0.6889 & 0.9585 & 0.1973 \\
+balance & 0.8669 & 0.7695 & 0.7620 & 0.5936 & 0.8496 & 1.1170 \\
+bands & 0.8499 & 0.6426 & 0.6746 & 0.2241 & 0.7751 & 0.5191 \\
+contraceptive & 0.6974 & 0.4489 & 0.5335 & 0.1527 & 0.6686 & 2.8633 \\
+dermatology & 0.9659 & 0.9278 & 0.9571 & 0.9089 & 0.9254 & 0.8536 \\
+ecoli & 0.9025 & 0.8114 & 0.8576 & 0.7221 & 0.8435 & 0.4702 \\
+haberman & 0.8453 & 0.6850 & 0.5383 & 0.0956 & 0.8183 & 0.3448 \\
+hayes-roth & 0.7889 & 0.6313 & 0.6684 & 0.4175 & 0.7813 & 0.1321 \\
+heart & 0.8934 & 0.7667 & 0.7839 & 0.5287 & 0.8581 & 0.3429 \\
+hepatitis & 0.9167 & 0.8500 & 0.5894 & 0.3057 & 0.9550 & 0.0871 \\
+mammographic & 0.8481 & 0.7422 & 0.6960 & 0.4842 & 0.8157 & 1.4781 \\
+newthyroid & 0.9840 & 0.9361 & 0.9624 & 0.8492 & 0.9442 & 0.4025 \\
+tae & 0.7991 & 0.5700 & 0.6965 & 0.3420 & 0.7722 & 0.1270 \\
+vehicle & 0.8318 & 0.6569 & 0.7755 & 0.5421 & 0.7615 & 1.6007 \\
+vowel & 0.9608 & 0.9202 & 0.9569 & 0.9122 & 0.7652 & 1.6396 \\
+yeast & 0.7415 & 0.5222 & 0.6636 & 0.3770 & 0.6951 & 2.9597 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-SSGA para conjuntos pequeños }
+\label{res-peq-cnn-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8885 & 0.8645 & 0.7846 & 0.7259 & 0.8845 & 3.2397 \\
+cardiotocography & 0.8965 & 0.8788 & 0.7236 & 0.6507 & 0.9112 & 1.2179 \\
+eye-state & 0.8339 & 0.7759 & 0.6746 & 0.5472 & 0.7736 & 11.8877 \\
+page-blocks & 0.9549 & 0.9532 & 0.7970 & 0.7406 & 0.9531 & 10.7988 \\
+penbased & 0.9773 & 0.9826 & 0.9759 & 0.9807 & 0.9243 & 10.0667 \\
+satimage & 0.9108 & 0.8825 & 0.8922 & 0.8551 & 0.8776 & 5.3487 \\
+thyroid & 0.9257 & 0.9158 & 0.5344 & 0.4023 & 0.9175 & 6.8629 \\
+segment & 0.4875 & 0.1455 & 0.4037 & 0.0030 & 0.6338 & 0.8590 \\
+coil2000 & 0.8935 & 0.8766 & 0.2694 & 0.0713 & 0.8878 & 11.5184 \\
+magic & 0.8408 & 0.7857 & 0.6621 & 0.5253 & 0.8168 & 19.2789 \\
+marketing & 0.5485 & 0.2730 & 0.4871 & 0.1712 & 0.6361 & 3.6459 \\
+phoneme & 0.8794 & 0.8488 & 0.7219 & 0.6320 & 0.8583 & 4.4701 \\
+ring & 0.9086 & 0.8707 & 0.8270 & 0.7409 & 0.8571 & 7.7641 \\
+spambase & 0.9001 & 0.8819 & 0.8018 & 0.7521 & 0.8753 & 2.7725 \\
+texture & 0.9668 & 0.9667 & 0.9645 & 0.9634 & 0.8820 & 3.4171 \\
+titanic & 0.7687 & 0.7755 & 0.4367 & 0.4387 & 0.9235 & 0.6296 \\
+twonorm & 0.9368 & 0.9339 & 0.8836 & 0.8678 & 0.9175 & 5.7192 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-SSGA para conjuntos medianos }
+\label{res-med-cnn-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7810 & 0.7039 & 0.4041 & 0.1919 & 0.7816 & 21.0698 \\
+shuttle & 0.9984 & 0.9986 & 0.9963 & 0.9960 & 0.9797 & 159.1310 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-SSGA para conjuntos grandes }
+\label{res-grande-cnn-ssga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9674 & 0.9600 & 0.9511 & 0.9400 & 0.8693 & 0.1472 \\
+cleveland & 0.7258 & 0.6011 & 0.5452 & 0.3391 & 0.8253 & 0.4247 \\
+led7digit & 0.7618 & 0.6880 & 0.7346 & 0.6516 & 0.7902 & 0.6063 \\
+pima & 0.8420 & 0.7403 & 0.6424 & 0.4055 & 0.7372 & 1.1757 \\
+wdbc & 0.9799 & 0.9597 & 0.9564 & 0.9119 & 0.7274 & 0.9593 \\
+monk2 & 0.8987 & 0.7587 & 0.7964 & 0.5142 & 0.7498 & 0.5481 \\
+wisconsin & 0.9793 & 0.9593 & 0.9543 & 0.9087 & 0.7158 & 0.9413 \\
+wine & 0.9776 & 0.9588 & 0.9658 & 0.9375 & 0.8472 & 0.2131 \\
+glass & 0.8588 & 0.6863 & 0.7976 & 0.5411 & 0.7921 & 0.2460 \\
+banknote & 0.9997 & 0.9986 & 0.9993 & 0.9971 & 0.6555 & 2.5586 \\
+appendicitis & 0.9476 & 0.9238 & 0.7417 & 0.5986 & 0.9245 & 0.0900 \\
+balance & 0.8924 & 0.8675 & 0.8001 & 0.7526 & 0.7298 & 0.7682 \\
+bands & 0.8313 & 0.6850 & 0.6312 & 0.3014 & 0.7701 & 0.4592 \\
+contraceptive & 0.6334 & 0.4609 & 0.4340 & 0.1708 & 0.7903 & 3.2616 \\
+dermatology & 0.9702 & 0.9387 & 0.9624 & 0.9226 & 0.7684 & 0.5990 \\
+ecoli & 0.8939 & 0.8422 & 0.8460 & 0.7688 & 0.7890 & 0.4199 \\
+haberman & 0.8279 & 0.7311 & 0.4790 & 0.1877 & 0.8108 & 0.3237 \\
+hayes-roth & 0.8167 & 0.7063 & 0.7128 & 0.5367 & 0.7875 & 0.1310 \\
+heart & 0.9008 & 0.8185 & 0.7980 & 0.6307 & 0.8019 & 0.3099 \\
+hepatitis & 0.9236 & 0.8375 & 0.6029 & 0.1971 & 0.9425 & 0.0762 \\
+mammographic & 0.8625 & 0.7855 & 0.7249 & 0.5703 & 0.7265 & 1.2844 \\
+newthyroid & 0.9783 & 0.9399 & 0.9487 & 0.8453 & 0.8260 & 0.2164 \\
+tae & 0.7550 & 0.5438 & 0.6298 & 0.3072 & 0.8278 & 0.1260 \\
+vehicle & 0.8144 & 0.6929 & 0.7526 & 0.5905 & 0.7273 & 1.4909 \\
+vowel & 0.9787 & 0.9343 & 0.9765 & 0.9278 & 0.6441 & 1.7673 \\
+yeast & 0.6890 & 0.5701 & 0.5911 & 0.4355 & 0.7624 & 3.2192 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-SSGA para conjuntos pequeños }
+\label{res-peq-enn-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8991 & 0.8864 & 0.8065 & 0.7708 & 0.7288 & 2.1969 \\
+cardiotocography & 0.8910 & 0.8766 & 0.7018 & 0.6409 & 0.8060 & 0.8030 \\
+eye-state & 0.8455 & 0.8005 & 0.6997 & 0.5990 & 0.7017 & 13.5620 \\
+page-blocks & 0.9597 & 0.9620 & 0.8156 & 0.7792 & 0.7061 & 2.5222 \\
+penbased & 0.9824 & 0.9908 & 0.9816 & 0.9898 & 0.6497 & 8.3334 \\
+satimage & 0.9037 & 0.8884 & 0.8833 & 0.8620 & 0.7211 & 4.5211 \\
+thyroid & 0.9397 & 0.9456 & 0.4656 & 0.4177 & 0.6880 & 4.4753 \\
+segment & 0.2051 & 0.1325 & 0.0742 & -0.0121 & 0.9342 & 1.2889 \\
+coil2000 & 0.9307 & 0.9321 & 0.1334 & 0.0155 & 0.6953 & 16.2075 \\
+magic & 0.8506 & 0.8219 & 0.6713 & 0.5890 & 0.6946 & 19.2229 \\
+marketing & 0.3668 & 0.2908 & 0.2718 & 0.1827 & 0.8889 & 4.5905 \\
+phoneme & 0.8783 & 0.8540 & 0.7228 & 0.6493 & 0.7404 & 2.3454 \\
+ring & 0.6895 & 0.6382 & 0.3855 & 0.2716 & 0.7558 & 4.1515 \\
+spambase & 0.8997 & 0.8862 & 0.7988 & 0.7587 & 0.7447 & 3.3582 \\
+texture & 0.9684 & 0.9733 & 0.9662 & 0.9706 & 0.6984 & 3.7807 \\
+titanic & 0.7742 & 0.7819 & 0.4504 & 0.4549 & 0.8467 & 0.5041 \\
+twonorm & 0.9562 & 0.9545 & 0.9225 & 0.9089 & 0.6800 & 4.5633 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-SSGA para conjuntos medianos }
+\label{res-med-enn-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8205 & 0.7796 & 0.4251 & 0.2915 & 0.7354 & 21.8477 \\
+shuttle & 0.9989 & 0.9988 & 0.9975 & 0.9966 & 0.6292 & 47.9571 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-SSGA para conjuntos grandes }
+\label{res-grande-enn-ssga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9763 & 0.9667 & 0.9644 & 0.9500 & 0.9527 & 0.2457 \\
+cleveland & 0.7247 & 0.5631 & 0.5525 & 0.3053 & 0.8508 & 0.3319 \\
+led7digit & 0.7180 & 0.6620 & 0.6859 & 0.6230 & 0.9114 & 0.6265 \\
+pima & 0.8157 & 0.7164 & 0.5872 & 0.3737 & 0.8465 & 1.2026 \\
+wdbc & 0.9643 & 0.9413 & 0.9217 & 0.8718 & 0.9545 & 1.3163 \\
+monk2 & 0.8809 & 0.8167 & 0.7623 & 0.6332 & 0.9153 & 0.6187 \\
+wisconsin & 0.9745 & 0.9651 & 0.9436 & 0.9237 & 0.9630 & 1.9268 \\
+wine & 0.9862 & 0.9725 & 0.9792 & 0.9582 & 0.9573 & 0.2952 \\
+glass & 0.8308 & 0.7267 & 0.7611 & 0.6090 & 0.8710 & 0.2159 \\
+banknote & 0.9960 & 0.9956 & 0.9920 & 0.9911 & 0.9622 & 4.4683 \\
+appendicitis & 0.9623 & 0.9138 & 0.8455 & 0.6281 & 0.9623 & 0.1313 \\
+balance & 0.8597 & 0.8335 & 0.7399 & 0.6901 & 0.9483 & 1.3446 \\
+bands & 0.8149 & 0.6245 & 0.5968 & 0.1818 & 0.8323 & 0.4596 \\
+contraceptive & 0.6243 & 0.4583 & 0.4174 & 0.1633 & 0.7886 & 2.9997 \\
+dermatology & 0.9659 & 0.9364 & 0.9566 & 0.9194 & 0.9453 & 0.6027 \\
+ecoli & 0.8641 & 0.7814 & 0.8034 & 0.6854 & 0.8979 & 0.4327 \\
+haberman & 0.8094 & 0.7189 & 0.3919 & 0.0827 & 0.9007 & 0.3774 \\
+hayes-roth & 0.7903 & 0.5938 & 0.6735 & 0.3597 & 0.8531 & 0.1580 \\
+heart & 0.8774 & 0.7963 & 0.7516 & 0.5891 & 0.9052 & 0.3431 \\
+hepatitis & 0.9222 & 0.8875 & 0.6251 & 0.4514 & 0.9638 & 0.0922 \\
+mammographic & 0.8380 & 0.7916 & 0.6758 & 0.5825 & 0.8937 & 1.4353 \\
+newthyroid & 0.9716 & 0.9485 & 0.9274 & 0.8601 & 0.9600 & 0.3301 \\
+tae & 0.7586 & 0.4708 & 0.6371 & 0.1988 & 0.8238 & 0.1111 \\
+vehicle & 0.7849 & 0.6482 & 0.7130 & 0.5304 & 0.8395 & 1.4432 \\
+vowel & 0.9210 & 0.8384 & 0.9131 & 0.8222 & 0.7868 & 1.6671 \\
+yeast & 0.6775 & 0.5197 & 0.5787 & 0.3699 & 0.8041 & 3.1249 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-SSGA para conjuntos pequeños }
+\label{res-peq-RSS-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8901 & 0.8908 & 0.7860 & 0.7769 & 0.8852 & 2.8499 \\
+cardiotocography & 0.8781 & 0.8771 & 0.6600 & 0.6389 & 0.9514 & 1.1030 \\
+eye-state & 0.8008 & 0.7667 & 0.6007 & 0.5196 & 0.8122 & 13.0538 \\
+page-blocks & 0.9450 & 0.9512 & 0.7343 & 0.7219 & 0.9671 & 5.5642 \\
+penbased & 0.9805 & 0.9885 & 0.9795 & 0.9873 & 0.8067 & 8.6334 \\
+satimage & 0.8792 & 0.8716 & 0.8536 & 0.8420 & 0.8119 & 5.1614 \\
+thyroid & 0.9050 & 0.8997 & 0.4760 & 0.3767 & 0.9155 & 5.7662 \\
+segment & 0.3390 & 0.1498 & 0.2305 & 0.0081 & 0.7916 & 0.9479 \\
+coil2000 & 0.9204 & 0.9246 & 0.1088 & 0.0262 & 0.9177 & 12.1242 \\
+magic & 0.8165 & 0.8027 & 0.5834 & 0.5351 & 0.8615 & 19.2977 \\
+marketing & 0.4480 & 0.2737 & 0.3721 & 0.1717 & 0.7637 & 3.9325 \\
+phoneme & 0.8366 & 0.8301 & 0.5915 & 0.5566 & 0.8713 & 2.8382 \\
+ring & 0.9224 & 0.8915 & 0.8547 & 0.7827 & 0.8250 & 7.4582 \\
+spambase & 0.8903 & 0.8849 & 0.7799 & 0.7573 & 0.8722 & 2.9937 \\
+texture & 0.9568 & 0.9602 & 0.9534 & 0.9562 & 0.8459 & 3.3894 \\
+titanic & 0.7629 & 0.7696 & 0.4047 & 0.4065 & 0.9804 & 1.2767 \\
+twonorm & 0.9410 & 0.9441 & 0.8920 & 0.8881 & 0.8932 & 5.5177 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-SSGA para conjuntos medianos }
+\label{res-med-RSS-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7956 & 0.7669 & 0.3534 & 0.2589 & 0.8467 & 22.9713 \\
+shuttle & 0.9980 & 0.9983 & 0.9951 & 0.9953 & 0.9387 & 92.6277 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-SSGA para conjuntos grandes }
+\label{res-grande-RSS-ssga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9719 & 0.9067 & 0.9578 & 0.8600 & 0.9440 & 0.3540 \\
+cleveland & 0.7897 & 0.5900 & 0.6680 & 0.3612 & 0.7660 & 0.7094 \\
+led7digit & 0.6960 & 0.6360 & 0.6611 & 0.5938 & 0.7896 & 1.0877 \\
+pima & 0.8491 & 0.6987 & 0.6628 & 0.3313 & 0.7544 & 2.3401 \\
+wdbc & 0.9690 & 0.9436 & 0.9326 & 0.8779 & 0.9295 & 2.5540 \\
+monk2 & 0.9051 & 0.8259 & 0.8102 & 0.6525 & 0.8477 & 1.1195 \\
+wisconsin & 0.9749 & 0.9678 & 0.9448 & 0.9287 & 0.9416 & 3.2933 \\
+wine & 0.9813 & 0.9529 & 0.9716 & 0.9287 & 0.9388 & 0.5113 \\
+glass & 0.8988 & 0.7577 & 0.8527 & 0.6446 & 0.7921 & 0.4308 \\
+banknote & 0.9988 & 0.9956 & 0.9975 & 0.9911 & 0.9557 & 8.4500 \\
+appendicitis & 0.9769 & 0.9538 & 0.8837 & 0.6995 & 0.9528 & 0.3099 \\
+balance & 0.8661 & 0.8038 & 0.7580 & 0.6512 & 0.8680 & 2.2282 \\
+bands & 0.8429 & 0.6627 & 0.6643 & 0.2748 & 0.7595 & 0.9569 \\
+contraceptive & 0.6965 & 0.4299 & 0.5307 & 0.1265 & 0.6687 & 5.8234 \\
+dermatology & 0.9733 & 0.9398 & 0.9658 & 0.9223 & 0.9176 & 1.3022 \\
+ecoli & 0.8972 & 0.8068 & 0.8509 & 0.7170 & 0.8262 & 0.8184 \\
+haberman & 0.8490 & 0.6972 & 0.5479 & 0.1525 & 0.8183 & 0.6672 \\
+hayes-roth & 0.8132 & 0.6625 & 0.7068 & 0.4650 & 0.7725 & 0.2630 \\
+heart & 0.8951 & 0.7889 & 0.7874 & 0.5744 & 0.8378 & 0.6360 \\
+hepatitis & 0.9208 & 0.8125 & 0.6281 & 0.3032 & 0.9475 & 0.1503 \\
+mammographic & 0.8518 & 0.7675 & 0.7032 & 0.5344 & 0.8037 & 2.5998 \\
+newthyroid & 0.9850 & 0.9571 & 0.9637 & 0.8975 & 0.9447 & 0.6348 \\
+tae & 0.7918 & 0.5304 & 0.6832 & 0.2761 & 0.7755 & 0.2657 \\
+vehicle & 0.8264 & 0.6728 & 0.7684 & 0.5635 & 0.7580 & 2.9250 \\
+vowel & 0.9357 & 0.8566 & 0.9293 & 0.8422 & 0.7768 & 3.3522 \\
+yeast & 0.7448 & 0.5117 & 0.6676 & 0.3623 & 0.6821 & 5.8997 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-SSGA para conjuntos pequeños }
+\label{res-peq-CNN-RSS-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.9000 & 0.8734 & 0.8081 & 0.7442 & 0.8382 & 5.0634 \\
+cardiotocography & 0.8969 & 0.8868 & 0.7267 & 0.6805 & 0.9040 & 1.8768 \\
+eye-state & 0.8451 & 0.7846 & 0.6955 & 0.5618 & 0.7367 &  23.3502 \\
+page-blocks & 0.9573 & 0.9565 & 0.8093 & 0.7561 & 0.9377 & 9.8009 \\
+penbased & 0.9825 & 0.9902 & 0.9817 & 0.9891 & 0.7955 & 15.1759 \\
+satimage & 0.9093 & 0.8825 & 0.8905 & 0.8551 & 0.7698 & 8.7042 \\
+thyroid & 0.9283 & 0.9178 & 0.5506 & 0.4085 & 0.8944 & 10.3729 \\
+segment & 0.4875 & 0.1494 & 0.4038 & 0.0076 & 0.6400 & 1.6935 \\
+coil2000 & 0.9012 & 0.8839 & 0.2681 & 0.0486 & 0.8554 &  21.8598 \\
+magic & 0.8494 & 0.7970 & 0.6760 & 0.5430 & 0.7777 &  34.0916 \\
+marketing & 0.5589 & 0.2727 & 0.4990 & 0.1714 & 0.6266 & 7.1618 \\
+phoneme & 0.8828 & 0.8472 & 0.7270 & 0.6239 & 0.8041 & 4.8972 \\
+ring & 0.9165 & 0.8703 & 0.8428 & 0.7400 & 0.7973 & 12.8932 \\
+spambase & 0.9046 & 0.8869 & 0.8102 & 0.7617 & 0.8179 & 5.3826 \\
+texture & 0.9709 & 0.9716 & 0.9689 & 0.9688 & 0.8216 & 6.3915 \\
+titanic & 0.7669 & 0.7760 & 0.4271 & 0.4354 & 0.9272 & 1.5767 \\
+twonorm & 0.9387 & 0.9326 & 0.8875 & 0.8651 & 0.8609 & 9.6835 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-SSGA para conjuntos medianos }
+\label{res-med-CNN-RSS-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8019 & 0.7282 & 0.4316 & 0.2178 & 0.7528 & 40.7734 \\
+shuttle & 0.9985 & 0.9986 & 0.9964 & 0.9959 & 0.9341 & 157.5524 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-SSGA para conjuntos grandes }
+\label{res-grande-CNN-RSS-ssga}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9719 & 0.9400 & 0.9578 & 0.9100 & 0.8660 & 0.2756 \\
+cleveland & 0.7714 & 0.5521 & 0.6285 & 0.2937 & 0.7741 & 0.7355 \\
+led7digit & 0.7518 & 0.7080 & 0.7235 & 0.6742 & 0.7688 & 1.1967 \\
+pima & 0.8511 & 0.7071 & 0.6623 & 0.3430 & 0.7053 & 2.1534 \\
+wdbc & 0.9814 & 0.9650 & 0.9600 & 0.9244 & 0.7286 & 1.8697 \\
+monk2 & 0.9108 & 0.8679 & 0.8213 & 0.7356 & 0.7308 & 0.9656 \\
+wisconsin & 0.9834 & 0.9593 & 0.9632 & 0.9099 & 0.7044 & 2.2695 \\
+wine & 0.9812 & 0.9332 & 0.9714 & 0.8985 & 0.8534 & 0.4101 \\
+glass & 0.8858 & 0.7394 & 0.8314 & 0.6143 & 0.7715 & 0.4329 \\
+banknote & 0.9998 & 0.9978 & 0.9995 & 0.9956 & 0.6522 & 5.3130 \\
+appendicitis & 0.9581 & 0.9338 & 0.7988 & 0.6732 & 0.9255 & 0.1857 \\
+balance & 0.8928 & 0.8572 & 0.8017 & 0.7367 & 0.7210 & 1.5537 \\
+bands & 0.8444 & 0.6999 & 0.6599 & 0.3276 & 0.7326 & 0.9935 \\
+contraceptive & 0.6781 & 0.4434 & 0.5010 & 0.1394 & 0.6894 & 5.8073 \\
+dermatology & 0.9811 & 0.9553 & 0.9758 & 0.9429 & 0.7623 & 1.1132 \\
+ecoli & 0.9018 & 0.7977 & 0.8564 & 0.7027 & 0.7619 & 0.7794 \\
+haberman & 0.8464 & 0.7283 & 0.5532 & 0.2168 & 0.7784 & 0.5724 \\
+hayes-roth & 0.8229 & 0.6938 & 0.7211 & 0.5151 & 0.7706 & 0.2846 \\
+heart & 0.8979 & 0.7963 & 0.7930 & 0.5848 & 0.7889 & 0.6413 \\
+hepatitis & 0.9097 & 0.8000 & 0.6258 & 0.1505 & 0.9188 & 0.1395 \\
+mammographic & 0.8581 & 0.7904 & 0.7159 & 0.5801 & 0.7120 & 2.3182 \\
+newthyroid & 0.9788 & 0.9533 & 0.9491 & 0.8851 & 0.8228 & 0.4134 \\
+tae & 0.7741 & 0.5163 & 0.6589 & 0.2699 & 0.7742 & 0.2531 \\
+vehicle & 0.8415 & 0.6824 & 0.7886 & 0.5763 & 0.6903 & 2.9208 \\
+vowel & 0.9786 & 0.9384 & 0.9764 & 0.9322 & 0.6408 & 3.4563 \\
+yeast & 0.7376 & 0.5568 & 0.6558 & 0.4158 & 0.6778 & 6.0095 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-SSGA para conjuntos pequeños }
+\label{res-peq-ENN-RSS-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.9097 & 0.8842 & 0.8273 & 0.7651 & 0.7089 & 4.1720 \\
+cardiotocography & 0.9044 & 0.8889 & 0.7396 & 0.6723 & 0.7899 & 1.5734 \\
+eye-state & 0.8605 & 0.8037 & 0.7280 & 0.6027 & 0.6566 &  24.8708 \\
+page-blocks & 0.9618 & 0.9644 & 0.8329 & 0.7988 & 0.7063 & 5.4408 \\
+penbased & 0.9840 & 0.9904 & 0.9833 & 0.9893 & 0.6511 & 16.0600 \\
+satimage & 0.9152 & 0.8953 & 0.8976 & 0.8707 & 0.6979 & 8.5619 \\
+thyroid & 0.9529 & 0.9424 & 0.6829 & 0.4985 & 0.6739 & 8.4669 \\
+segment & 0.3945 & 0.1390 & 0.2952 & -0.0045 & 0.7362 & 1.7743 \\
+coil2000 & 0.9282 & 0.9192 & 0.2377 & 0.0296 & 0.6844 &  27.9752 \\
+magic & 0.8613 & 0.8201 & 0.6963 & 0.5853 & 0.6673 &  34.5252 \\
+marketing & 0.4879 & 0.2724 & 0.4171 & 0.1692 & 0.7186 & 7.3495 \\
+phoneme & 0.8945 & 0.8664 & 0.7535 & 0.6678 & 0.7110 & 4.5721 \\
+ring & 0.8581 & 0.7457 & 0.7256 & 0.4890 & 0.6467 & 8.9013 \\
+spambase & 0.9139 & 0.8884 & 0.8297 & 0.7645 & 0.7159 & 6.1743 \\
+texture & 0.9740 & 0.9758 & 0.9724 & 0.9734 & 0.6861 & 7.0997 \\
+titanic & 0.7798 & 0.7883 & 0.4323 & 0.4388 & 0.8499 & 1.1059 \\
+twonorm & 0.9547 & 0.9481 & 0.9194 & 0.8962 & 0.6822 & 8.6751 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-SSGA para conjuntos medianos }
+\label{res-med-ENN-RSS-ssga}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8234 & 0.7621 & 0.4512 & 0.2574 & 0.7019 & 40.8990 \\
+shuttle & 0.9990 & 0.9989 & 0.9979 & 0.9969 & 0.6318 & 116.2944  \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-SSGA para conjuntos grandes }
+\label{res-grande-ENN-RSS-ssga}
+\end{table}
+
+\clearpage
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9770 & 0.9067 & 0.9656 & 0.8600 & 0.9740 & 0.2593 \\
+cleveland & 0.7171 & 0.5838 & 0.5237 & 0.3102 & 0.9306 & 0.9515 \\
+led7digit & 0.7644 & 0.7420 & 0.7376 & 0.7122 & 0.9696 & 1.2289 \\
+pima & 0.8131 & 0.7659 & 0.5680 & 0.4569 & 0.9674 & 6.3130 \\
+wdbc & 0.9734 & 0.9505 & 0.9423 & 0.8921 & 0.9830 & 3.5505 \\
+monk2 & 0.9532 & 0.9328 & 0.9062 & 0.8653 & 0.9757 & 2.4957 \\
+wisconsin & 0.9766 & 0.9578 & 0.9486 & 0.9073 & 0.9927 & 7.3022 \\
+wine & 0.9831 & 0.9292 & 0.9744 & 0.8933 & 0.9680 & 0.3459 \\
+glass & 0.7996 & 0.6545 & 0.7033 & 0.4836 & 0.9145 & 0.5640 \\
+banknote & 0.9982 & 0.9978 & 0.9964 & 0.9956 & 0.9892 & 12.6341 \\
+appendicitis & 0.9644 & 0.9600 & 0.8391 & 0.7352 & 0.9745 & 0.3151 \\
+balance & 0.8843 & 0.8627 & 0.7835 & 0.7431 & 0.9738 & 3.8908 \\
+bands & 0.7885 & 0.6582 & 0.5250 & 0.2308 & 0.9449 & 1.2039 \\
+contraceptive & 0.6194 & 0.4819 & 0.4061 & 0.1940 & 0.9452 & 18.6463 \\
+dermatology & 0.9746 & 0.9559 & 0.9677 & 0.9438 & 0.9645 & 1.2560 \\
+ecoli & 0.8608 & 0.8012 & 0.7961 & 0.7062 & 0.9625 & 1.3572 \\
+haberman & 0.8018 & 0.7089 & 0.3817 & 0.1279 & 0.9768 & 1.6556 \\
+hayes-roth & 0.7688 & 0.6688 & 0.6381 & 0.4826 & 0.9088 & 0.2636 \\
+heart & 0.8811 & 0.8296 & 0.7572 & 0.6524 & 0.9696 & 0.8221 \\
+hepatitis & 0.9222 & 0.8750 & 0.6535 & 0.3771 & 0.9638 & 0.1015 \\
+mammographic & 0.8459 & 0.8265 & 0.6914 & 0.6529 & 0.9854 & 9.7776 \\
+newthyroid & 0.9747 & 0.9313 & 0.9417 & 0.8320 & 0.9735 & 0.7552 \\
+tae & 0.6799 & 0.5567 & 0.5189 & 0.3293 & 0.9106 & 0.2531 \\
+vehicle & 0.7965 & 0.6621 & 0.7286 & 0.5490 & 0.9221 & 5.1786 \\
+vowel & 0.8875 & 0.8253 & 0.8763 & 0.8078 & 0.8701 & 5.6765 \\
+yeast & 0.6766 & 0.5623 & 0.5732 & 0.4211 & 0.9472 & 19.9237 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de MA para conjuntos pequeños }
+\label{res-peq-ma}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8886 & 0.8846 & 0.7740 & 0.7658 & 0.9484 & 27.6695 \\
+cardiotocography & 0.8783 & 0.8682 & 0.6553 & 0.6240 & 0.9869 & 3.1308 \\
+eye-state & 0.7385 & 0.7190 & 0.4705 & 0.4308 & 0.9717 & 143.5858 \\
+page-blocks & 0.9423 & 0.9394 & 0.6565 & 0.6373 & 0.9959 & 16.9769 \\
+penbased & 0.9826 & 0.9809 & 0.9807 & 0.9788 & 0.9032 & 448.9862 \\
+satimage & 0.8715 & 0.8628 & 0.8410 & 0.8303 & 0.9672 & 35.6554 \\
+thyroid & 0.9447 & 0.9437 & 0.4543 & 0.4416 & 0.9954 & 25.3644 \\
+segment & 0.2546 & 0.1546 & 0.1304 & 0.0136 & 0.8941 & 3.3403 \\
+coil2000 & 0.9358 & 0.9340 & 0.0739 & 0.0454 & 0.9975 & 81.9335 \\
+magic & 0.8206 & 0.8078 & 0.6008 & 0.5718 & 0.9699 & 237.1728 \\
+marketing & 0.3404 & 0.2877 & 0.2414 & 0.1808 & 0.9419 & 25.6661 \\
+phoneme & 0.8127 & 0.8007 & 0.5439 & 0.5128 & 0.9817 & 16.7353 \\
+ring & 0.7169 & 0.7041 & 0.4306 & 0.4047 & 0.9704 & 32.5529 \\
+spambase & 0.8696 & 0.8617 & 0.7279 & 0.7113 & 0.9854 & 9.3396 \\
+texture & 0.9623 & 0.9586 & 0.9586 & 0.9545 & 0.8660 & 110.9760 \\
+titanic & 0.7839 & 0.7828 & 0.4563 & 0.4506 & 0.9902 & 3.0523 \\
+twonorm & 0.9534 & 0.9523 & 0.9067 & 0.9046 & 0.9954 & 24.7465 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de MA para conjuntos medianos }
+\label{res-med-ma}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8043 & 0.8035 & 0.3163 & 0.3128 & 0.9970 & 97.4400 \\
+shuttle & 0.9764 & 0.9962 & 0.9835 & 0.9892 & 0.9976 & 414.8464 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de MA para conjuntos grandes }
+\label{res-grande-ma}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9593 & 0.9533 & 0.9389 & 0.9300 & 0.9713 & 0.2560 \\
+cleveland & 0.7340 & 0.5976 & 0.5674 & 0.3410 & 0.9178 & 1.1617 \\
+led7digit & 0.7636 & 0.7640 & 0.7369 & 0.7370 & 0.9688 & 1.7061 \\
+pima & 0.8181 & 0.7408 & 0.5853 & 0.4129 & 0.9616 & 6.3759 \\
+wdbc & 0.9692 & 0.9517 & 0.9332 & 0.8968 & 0.9835 & 4.3126 \\
+monk2 & 0.9601 & 0.9513 & 0.9201 & 0.9022 & 0.9722 & 2.2859 \\
+wisconsin & 0.9749 & 0.9666 & 0.9449 & 0.9272 & 0.9918 & 10.8397 \\
+wine & 0.9670 & 0.9235 & 0.9497 & 0.8824 & 0.9674 & 0.4105 \\
+glass & 0.8380 & 0.7259 & 0.7628 & 0.5999 & 0.9005 & 0.5582 \\
+banknote & 0.9960 & 0.9949 & 0.9918 & 0.9897 & 0.9897 & 19.3378 \\
+appendicitis & 0.9622 & 0.9338 & 0.8197 & 0.6226 & 0.9726 & 0.3812 \\
+balance & 0.8704 & 0.8306 & 0.7579 & 0.6843 & 0.9618 & 4.4479 \\
+bands & 0.7952 & 0.6745 & 0.5346 & 0.2540 & 0.9318 & 1.4442 \\
+contraceptive & 0.6397 & 0.4874 & 0.4369 & 0.1983 & 0.9238 & 34.5453 \\
+dermatology & 0.9711 & 0.9359 & 0.9635 & 0.9185 & 0.9620 & 1.6582 \\
+ecoli & 0.8770 & 0.8189 & 0.8208 & 0.7371 & 0.9438 & 1.6602 \\
+haberman & 0.7988 & 0.7850 & 0.3414 & 0.3042 & 0.9830 & 1.6235 \\
+hayes-roth & 0.7951 & 0.6625 & 0.6817 & 0.4761 & 0.9063 & 0.3040 \\
+heart & 0.8695 & 0.8074 & 0.7336 & 0.6065 & 0.9748 & 0.9108 \\
+hepatitis & 0.9250 & 0.8750 & 0.6103 & 0.3771 & 0.9625 & 0.1547 \\
+mammographic & 0.8473 & 0.8205 & 0.6945 & 0.6408 & 0.9807 & 10.7792 \\
+newthyroid & 0.9731 & 0.9408 & 0.9343 & 0.8521 & 0.9767 & 0.9724 \\
+tae & 0.7277 & 0.5238 & 0.5888 & 0.2769 & 0.8795 & 0.2448 \\
+vehicle & 0.8039 & 0.6320 & 0.7386 & 0.5085 & 0.9063 & 6.7557 \\
+vowel & 0.9759 & 0.9141 & 0.9735 & 0.9056 & 0.8363 & 10.6054 \\
+yeast & 0.6867 & 0.5546 & 0.5887 & 0.4161 & 0.9371 & 31.3284 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-MA para conjuntos pequeños }
+\label{res-peq-CNN-MA}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8740 & 0.8594 & 0.7565 & 0.7170 & 0.9243 & 23.6071 \\
+cardiotocography & 0.8781 & 0.8798 & 0.6685 & 0.6528 & 0.9776 & 3.6315 \\
+eye-state & 0.7818 & 0.7592 & 0.5695 & 0.5136 & 0.9208 & 184.2650 \\
+page-blocks & 0.9395 & 0.9461 & 0.6854 & 0.6734 & 0.9905 & 29.4964 \\
+penbased & 0.9802 & 0.9871 & 0.9791 & 0.9856 & 0.9392 & 109.8440 \\
+satimage & 0.8773 & 0.8664 & 0.8510 & 0.8352 & 0.9362 & 36.4186 \\
+thyroid & 0.9321 & 0.9408 & 0.4125 & 0.4144 & 0.9969 & 30.0824 \\
+segment & 0.1780 & 0.1489 & 0.0427 & 0.0071 & 0.9731 & 3.7275 \\
+coil2000 & 0.9033 & 0.9409 & 0.0000 & 0.0000 & 0.9991 & 74.6177 \\
+magic & 0.7938 & 0.7951 & 0.5462 & 0.5362 & 0.9934 & 263.4050 \\
+marketing & 0.4412 & 0.2817 & 0.3632 & 0.1794 & 0.8123 & 57.3855 \\
+phoneme & 0.8260 & 0.8223 & 0.5917 & 0.5671 & 0.9715 & 21.4618 \\
+ring & 0.8409 & 0.8426 & 0.6912 & 0.6844 & 0.9867 & 49.4540 \\
+spambase & 0.8803 & 0.8743 & 0.7595 & 0.7359 & 0.9675 & 11.3417 \\
+texture & 0.9570 & 0.9625 & 0.9537 & 0.9588 & 0.9030 & 48.3416 \\
+titanic & 0.7763 & 0.7842 & 0.4455 & 0.4498 & 0.9869 & 3.5772 \\
+twonorm & 0.9366 & 0.9449 & 0.8832 & 0.8897 & 0.9942 & 25.0392 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-MA para conjuntos medianos }
+\label{res-med-CNN-MA}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7874 & 0.7867 & 0.2759 & 0.2721 & 0.9969 & 98.1104 \\
+shuttle & 0.9976 & 0.9986 & 0.9962 & 0.9961 & 0.9800 & 1127.4700 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-MA para conjuntos grandes }
+\label{res-grande-CNN-MA}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9741 & 0.9267 & 0.9611 & 0.8900 & 0.9707 & 0.2700 \\
+cleveland & 0.7042 & 0.5521 & 0.5089 & 0.2664 & 0.9461 & 0.8643 \\
+led7digit & 0.7660 & 0.7300 & 0.7393 & 0.6991 & 0.9708 & 1.4853 \\
+pima & 0.8289 & 0.7174 & 0.6114 & 0.3523 & 0.9574 & 7.0557 \\
+wdbc & 0.9766 & 0.9416 & 0.9493 & 0.8743 & 0.9821 & 3.9045 \\
+monk2 & 0.9072 & 0.8562 & 0.8146 & 0.7135 & 0.9743 & 2.2931 \\
+wisconsin & 0.9776 & 0.9608 & 0.9504 & 0.9131 & 0.9918 & 9.4304 \\
+wine & 0.9832 & 0.9666 & 0.9745 & 0.9492 & 0.9708 & 0.3391 \\
+glass & 0.8084 & 0.7291 & 0.7159 & 0.5946 & 0.9318 & 0.4199 \\
+banknote & 0.9989 & 0.9964 & 0.9977 & 0.9926 & 0.9894 & 12.2694 \\
+appendicitis & 0.9665 & 0.9375 & 0.8231 & 0.6294 & 0.9811 & 0.3498 \\
+balance & 0.8905 & 0.8769 & 0.7944 & 0.7688 & 0.9733 & 3.8255 \\
+bands & 0.8162 & 0.6680 & 0.5940 & 0.2643 & 0.9332 & 1.3530 \\
+contraceptive & 0.6406 & 0.4773 & 0.4409 & 0.1889 & 0.9330 & 16.9860 \\
+dermatology & 0.9789 & 0.9289 & 0.9733 & 0.9098 & 0.9690 & 1.5115 \\
+ecoli & 0.8926 & 0.8254 & 0.8429 & 0.7448 & 0.9417 & 1.2752 \\
+haberman & 0.8134 & 0.7578 & 0.3781 & 0.1659 & 0.9745 & 1.6995 \\
+hayes-roth & 0.7847 & 0.6813 & 0.6616 & 0.4987 & 0.9038 & 0.2399 \\
+heart & 0.8840 & 0.8037 & 0.7630 & 0.5949 & 0.9607 & 0.8990 \\
+hepatitis & 0.9208 & 0.8625 & 0.6728 & 0.4790 & 0.9588 & 0.1211 \\
+mammographic & 0.8535 & 0.8145 & 0.7067 & 0.6281 & 0.9793 & 8.4882 \\
+newthyroid & 0.9736 & 0.9551 & 0.9396 & 0.8972 & 0.9753 & 0.8561 \\
+tae & 0.7182 & 0.5104 & 0.5728 & 0.2575 & 0.9139 & 0.2509 \\
+vehicle & 0.8080 & 0.6633 & 0.7440 & 0.5511 & 0.9204 & 6.3843 \\
+vowel & 0.9774 & 0.9111 & 0.9752 & 0.9022 & 0.8437 & 9.8755 \\
+yeast & 0.6891 & 0.5681 & 0.5917 & 0.4336 & 0.9423 & 18.0281 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-MA para conjuntos pequeños }
+\label{res-peq-ENN-MA}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8633 & 0.8692 & 0.7302 & 0.7319 & 0.9896 & 17.1335 \\
+cardiotocography & 0.8858 & 0.8889 & 0.6940 & 0.6839 & 0.9746 & 3.0763 \\
+eye-state & 0.7977 & 0.7742 & 0.6026 & 0.5449 & 0.9110 & 270.1560 \\
+page-blocks & 0.9342 & 0.9408 & 0.6493 & 0.6349 & 0.9959 & 16.5685 \\
+penbased & 0.9723 & 0.9798 & 0.9703 & 0.9776 & 0.9655 & 109.4700 \\
+satimage & 0.8632 & 0.8615 & 0.8334 & 0.8289 & 0.9789 & 32.1135 \\
+thyroid & 0.9365 & 0.9440 & 0.4528 & 0.4337 & 0.9964 & 30.7640 \\
+segment & 0.1909 & 0.1489 & 0.0577 & 0.0071 & 0.9684 & 3.8059 \\
+coil2000 & 0.9099 & 0.9146 & 0.0526 & 0.0135 & 0.9952 & 91.0547 \\
+magic & 0.8211 & 0.8115 & 0.6112 & 0.5762 & 0.9630 & 316.5210 \\
+marketing & 0.2945 & 0.2837 & 0.1790 & 0.1649 & 0.9923 & 34.3821 \\
+phoneme & 0.7932 & 0.7953 & 0.5156 & 0.5060 & 0.9915 & 17.3694 \\
+ring & 0.6782 & 0.6812 & 0.3626 & 0.3585 & 0.9962 & 37.9116 \\
+spambase & 0.8732 & 0.8777 & 0.7438 & 0.7424 & 0.9873 & 12.6539 \\
+texture & 0.9563 & 0.9616 & 0.9529 & 0.9578 & 0.8216 & 113.3510 \\
+titanic & 0.7730 & 0.7814 & 0.4506 & 0.4552 & 0.9894 & 3.5486 \\
+twonorm & 0.9509 & 0.9577 & 0.9119 & 0.9154 & 0.9846 & 38.1463 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-MA para conjuntos medianos }
+\label{res-med-ENN-MA}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7956 & 0.7950 & 0.2746 & 0.2715 & 0.9971 & 103.3980 \\
+shuttle & 0.9658 & 0.9854 & 0.9398 & 0.9575 & 0.9982 & 473.9070 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-MA para conjuntos grandes }
+\label{res-grande-ENN-MA}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9726 & 0.9400 & 0.9589 & 0.9100 & 0.9727 & 0.2681 \\
+cleveland & 0.6992 & 0.6059 & 0.4858 & 0.3448 & 0.9556 & 1.0823 \\
+led7digit & 0.7669 & 0.7280 & 0.7407 & 0.6967 & 0.9742 & 1.4398 \\
+pima & 0.8080 & 0.7400 & 0.5662 & 0.4072 & 0.9727 & 6.1474 \\
+wdbc & 0.9670 & 0.9398 & 0.9286 & 0.8712 & 0.9919 & 3.9374 \\
+monk2 & 0.9264 & 0.8863 & 0.8527 & 0.7721 & 0.9782 & 2.3380 \\
+wisconsin & 0.9769 & 0.9665 & 0.9492 & 0.9264 & 0.9937 & 8.1878 \\
+wine & 0.9737 & 0.9294 & 0.9600 & 0.8931 & 0.9787 & 0.3840 \\
+glass & 0.7976 & 0.6688 & 0.7010 & 0.5058 & 0.9322 & 0.4620 \\
+banknote & 0.9945 & 0.9934 & 0.9888 & 0.9867 & 0.9914 & 16.3687 \\
+appendicitis & 0.9434 & 0.8938 & 0.7176 & 0.4961 & 0.9717 & 0.2145 \\
+balance & 0.8823 & 0.8770 & 0.7797 & 0.7696 & 0.9891 & 4.7406 \\
+bands & 0.7808 & 0.6224 & 0.5058 & 0.1368 & 0.9496 & 1.3912 \\
+contraceptive & 0.6280 & 0.4801 & 0.4201 & 0.1944 & 0.9347 & 20.4189 \\
+dermatology & 0.9450 & 0.9146 & 0.9297 & 0.8913 & 0.9768 & 1.4266 \\
+ecoli & 0.8568 & 0.8189 & 0.7914 & 0.7371 & 0.9560 & 1.2293 \\
+haberman & 0.8101 & 0.7300 & 0.4011 & 0.1513 & 0.9752 & 1.7327 \\
+hayes-roth & 0.6833 & 0.5875 & 0.5102 & 0.3519 & 0.9406 & 0.3744 \\
+heart & 0.8691 & 0.8333 & 0.7328 & 0.6602 & 0.9778 & 0.8880 \\
+hepatitis & 0.8958 & 0.8500 & 0.4275 & 0.1914 & 0.9750 & 0.0999 \\
+mammographic & 0.8463 & 0.8313 & 0.6924 & 0.6623 & 0.9878 & 8.7594 \\
+newthyroid & 0.9498 & 0.9275 & 0.8730 & 0.8136 & 0.9847 & 0.7880 \\
+tae & 0.7042 & 0.5300 & 0.5526 & 0.2789 & 0.9026 & 0.2229 \\
+vehicle & 0.7782 & 0.6560 & 0.7043 & 0.5415 & 0.9349 & 6.7902 \\
+vowel & 0.8299 & 0.7475 & 0.8128 & 0.7222 & 0.8881 & 11.5964 \\
+yeast & 0.6746 & 0.5689 & 0.5729 & 0.4341 & 0.9510 & 19.3274 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-MA para conjuntos pequeños }
+\label{res-peq-RSS-MA}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8694 & 0.8760 & 0.7437 & 0.7468 & 0.9740 & 23.4139 \\
+cardiotocography & 0.8226 & 0.8371 & 0.4657 & 0.4626 & 0.9920 & 2.9228 \\
+eye-state & 0.7464 & 0.7364 & 0.4971 & 0.4665 & 0.9637 & 152.6790 \\
+page-blocks & 0.9288 & 0.9360 & 0.6430 & 0.6366 & 0.9949 & 25.5404 \\
+penbased & 0.9665 & 0.9728 & 0.9639 & 0.9698 & 0.8778 & 422.8700 \\
+satimage & 0.8535 & 0.8552 & 0.8214 & 0.8211 & 0.9694 & 42.2098 \\
+thyroid & 0.9333 & 0.9421 & 0.4113 & 0.4047 & 0.9964 & 32.8508 \\
+segment & 0.2506 & 0.1372 & 0.1274 & -0.0066 & 0.8956 & 3.6726 \\
+coil2000 & 0.9089 & 0.9131 & 0.0702 & 0.0289 & 0.9938 & 75.3100 \\
+magic & 0.8068 & 0.8080 & 0.5762 & 0.5662 & 0.9845 & 221.9630 \\
+marketing & 0.2934 & 0.2611 & 0.1928 & 0.1544 & 0.9611 & 27.8332 \\
+phoneme & 0.7951 & 0.8005 & 0.5122 & 0.5107 & 0.9918 & 19.1806 \\
+ring & 0.8637 & 0.8573 & 0.7370 & 0.7140 & 0.9596 & 42.5625 \\
+spambase & 0.8600 & 0.8681 & 0.7192 & 0.7258 & 0.9902 & 10.0464 \\
+texture & 0.9277 & 0.9316 & 0.9215 & 0.9248 & 0.9064 & 50.5114 \\
+titanic & 0.6995 & 0.7342 & 0.2370 & 0.2324 & 0.9951 & 3.0863 \\
+twonorm & 0.9444 & 0.9520 & 0.8987 & 0.9041 & 0.9946 & 26.4229 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-MA para conjuntos medianos }
+\label{res-med-RSS-MA}
+\end{table}
+
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8022 & 0.8023 & 0.2749 & 0.2739 & 0.9979 & 100.2660 \\
+shuttle & 0.9978 & 0.9982 & 0.9945 & 0.9948 & 0.9513 & 955.5570 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-MA para conjuntos grandes }
+\label{res-grande-RSS-MA}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9726 & 0.9333 & 0.9589 & 0.9000 & 0.9707 & 0.4569 \\
+cleveland & 0.7303 & 0.5741 & 0.5455 & 0.3040 & 0.9205 & 1.7327 \\
+led7digit & 0.7738 & 0.7460 & 0.7482 & 0.7170 & 0.9698 & 2.6460 \\
+pima & 0.8281 & 0.7213 & 0.6135 & 0.3763 & 0.9512 & 9.9424 \\
+wdbc & 0.9664 & 0.9469 & 0.9273 & 0.8852 & 0.9880 & 6.4664 \\
+monk2 & 0.9535 & 0.9465 & 0.9067 & 0.8928 & 0.9706 & 3.8355 \\
+wisconsin & 0.9779 & 0.9577 & 0.9513 & 0.9072 & 0.9933 & 12.3154 \\
+wine & 0.9819 & 0.9409 & 0.9725 & 0.9107 & 0.9685 & 0.5770 \\
+glass & 0.8364 & 0.7236 & 0.7614 & 0.5906 & 0.9107 & 0.8341 \\
+banknote & 0.9969 & 0.9934 & 0.9938 & 0.9867 & 0.9914 &  28.1222 \\
+appendicitis & 0.9528 & 0.9338 & 0.7774 & 0.6732 & 0.9708 & 0.4840 \\
+balance & 0.8683 & 0.8387 & 0.7533 & 0.6981 & 0.9723 & 6.0806 \\
+bands & 0.7912 & 0.6412 & 0.5318 & 0.1805 & 0.9419 & 2.2547 \\
+contraceptive & 0.6450 & 0.4889 & 0.4451 & 0.2005 & 0.9210 &  59.3072 \\
+dermatology & 0.9684 & 0.9318 & 0.9600 & 0.9132 & 0.9626 & 2.1529 \\
+ecoli & 0.8879 & 0.8172 & 0.8378 & 0.7320 & 0.9494 & 2.1302 \\
+haberman & 0.8119 & 0.7183 & 0.4173 & 0.1254 & 0.9703 & 2.1519 \\
+hayes-roth & 0.7681 & 0.6438 & 0.6383 & 0.4330 & 0.9225 & 0.4233 \\
+heart & 0.8778 & 0.8222 & 0.7511 & 0.6378 & 0.9719 & 1.1734 \\
+hepatitis & 0.9125 & 0.8125 & 0.6414 & 0.3098 & 0.9688 & 0.1865 \\
+mammographic & 0.8430 & 0.8060 & 0.6857 & 0.6117 & 0.9861 &  15.4283 \\
+newthyroid & 0.9742 & 0.9381 & 0.9410 & 0.8504 & 0.9753 & 1.2759 \\
+tae & 0.7425 & 0.5158 & 0.6071 & 0.2551 & 0.8682 & 0.3527 \\
+vehicle & 0.8167 & 0.6563 & 0.7556 & 0.5415 & 0.9046 & 11.1661 \\
+vowel & 0.8846 & 0.8000 & 0.8731 & 0.7800 & 0.8721 & 8.9446 \\
+yeast & 0.6983 & 0.5573 & 0.6035 & 0.4204 & 0.9259 &  53.2580 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-MA para conjuntos pequeños }
+\label{res-peq-CNN-RSS-MA}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8774 & 0.8792 & 0.7629 & 0.7564 & 0.9715 & 24.6509 \\
+cardiotocography & 0.8714 & 0.8728 & 0.6403 & 0.6243 & 0.9831 & 4.7265 \\
+eye-state & 0.6811 & 0.6801 & 0.3634 & 0.3510 & 0.9900 &  251.3580 \\
+page-blocks & 0.9316 & 0.9397 & 0.6278 & 0.6243 & 0.9961 & 29.2761 \\
+penbased & 0.9784 & 0.9854 & 0.9771 & 0.9838 & 0.8672 &  694.8735 \\
+satimage & 0.8731 & 0.8696 & 0.8451 & 0.8384 & 0.9782 & 48.7587 \\
+thyroid & 0.9372 & 0.9458 & 0.4726 & 0.4685 & 0.9973 & 42.8546 \\
+segment & 0.2104 & 0.1511 & 0.0805 & 0.0096 & 0.9353  6.0053 \\
+coil2000 & 0.9116 & 0.9158 & 0.0981 & 0.0429 & 0.9927 &  201.4395 \\
+magic & 0.8169 & 0.8191 & 0.6003 & 0.5924 & 0.9819 &  423.7635 \\
+marketing & 0.3113 & 0.2670 & 0.2147 & 0.1628 & 0.9541 & 45.1995 \\
+phoneme & 0.8108 & 0.8101 & 0.5538 & 0.5364 & 0.9805 & 27.6275 \\
+ring & 0.9140 & 0.9130 & 0.8378 & 0.8258 & 0.9623 & 74.1207 \\
+spambase & 0.8712 & 0.8705 & 0.7397 & 0.7274 & 0.9822 & 16.1604 \\
+texture & 0.9648 & 0.9658 & 0.9622 & 0.9624 & 0.8575 & 126.0213 \\
+titanic & 0.7756 & 0.7823 & 0.4509 & 0.4514 & 0.9906 & 4.9272 \\
+twonorm & 0.9493 & 0.9574 & 0.9085 & 0.9149 & 0.9923 & 39.0111 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-MA para conjuntos medianos }
+\label{res-med-CNN-RSS-MA}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7923 & 0.7917 & 0.2394 & 0.2364 & 0.9974 & 142.4352 \\
+shuttle & 0.9791 & 0.9985 & 0.9958 & 0.9956 & 0.9440 & 1778.3550 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-MA para conjuntos grandes }
+\label{res-grande-CNN-RSS-MA}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9741 & 0.9200 & 0.9611 & 0.8800 & 0.9673 & 0.3921 \\
+cleveland & 0.7426 & 0.5886 & 0.5728 & 0.3320 & 0.9189 & 1.4480 \\
+led7digit & 0.7782 & 0.7480 & 0.7530 & 0.7191 & 0.9708 & 2.1737 \\
+pima & 0.8345 & 0.7023 & 0.6241 & 0.3260 & 0.9490 & 10.4837 \\
+wdbc & 0.9793 & 0.9546 & 0.9552 & 0.9030 & 0.9821 & 5.7885 \\
+monk2 & 0.9558 & 0.9233 & 0.9114 & 0.8463 & 0.9718 & 4.1140 \\
+wisconsin & 0.9785 & 0.9665 & 0.9528 & 0.9262 & 0.9927 & 12.8946 \\
+wine & 0.9876 & 0.9489 & 0.9811 & 0.9221 & 0.9657 & 0.5748 \\
+glass & 0.8256 & 0.6903 & 0.7478 & 0.5461 & 0.9164 & 0.6182 \\
+banknote & 0.9981 & 0.9927 & 0.9961 & 0.9852 & 0.9885 &  18.1902 \\
+appendicitis & 0.9665 & 0.9175 & 0.8359 & 0.5183 & 0.9802 & 0.5248 \\
+balance & 0.8932 & 0.8627 & 0.7995 & 0.7423 & 0.9723 & 5.6966 \\
+bands & 0.8143 & 0.6457 & 0.5849 & 0.2262 & 0.9271 & 2.3531 \\
+contraceptive & 0.6525 & 0.4936 & 0.4589 & 0.2119 & 0.9182 &  44.9582 \\
+dermatology & 0.9767 & 0.9260 & 0.9702 & 0.9054 & 0.9670 & 2.3290 \\
+ecoli & 0.8856 & 0.8072 & 0.8347 & 0.7188 & 0.9342 & 1.7891 \\
+haberman & 0.8032 & 0.7283 & 0.3933 & 0.2118 & 0.9742 & 2.2746 \\
+hayes-roth & 0.8069 & 0.6688 & 0.6974 & 0.4788 & 0.8844 & 0.3543 \\
+heart & 0.8798 & 0.8259 & 0.7551 & 0.6425 & 0.9656 & 1.2251 \\
+hepatitis & 0.9153 & 0.8875 & 0.6817 & 0.5556 & 0.9738 & 0.1910 \\
+mammographic & 0.8499 & 0.8012 & 0.6996 & 0.6020 & 0.9782 &  15.8397 \\
+newthyroid & 0.9773 & 0.9628 & 0.9471 & 0.9100 & 0.9744 & 1.4227 \\
+tae & 0.7395 & 0.5567 & 0.6065 & 0.3210 & 0.8788 & 0.3991 \\
+vehicle & 0.8216 & 0.6482 & 0.7622 & 0.5308 & 0.9051 & 12.4426 \\
+vowel & 0.9851 & 0.9242 & 0.9836 & 0.9167 & 0.8381 & 13.7513 \\
+yeast & 0.6930 & 0.5576 & 0.5964 & 0.4175 & 0.9369 &  56.0210 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-MA para conjuntos pequeños }
+\label{res-peq-ENN-RSS-MA}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8828 & 0.8751 & 0.7728 & 0.7470 & 0.9516 & 27.5738 \\
+cardiotocography & 0.8543 & 0.8578 & 0.5909 & 0.5811 & 0.9899 &4.4298 \\
+eye-state & 0.7765 & 0.7584 & 0.5581 & 0.5113 & 0.9334 & 471.9360 \\
+page-blocks & 0.9353 & 0.9424 & 0.6634 & 0.6540 & 0.9962 & 30.1905 \\
+penbased & 0.9687 & 0.9751 & 0.9663 & 0.9723 & 0.9754 & 155.7405 \\
+satimage & 0.8637 & 0.8628 & 0.8339 & 0.8303 & 0.9808 & 49.9541 \\
+thyroid & 0.9329 & 0.9419 & 0.3756 & 0.3770 & 0.9969 & 44.3003 \\
+segment & 0.2306 & 0.1437 & 0.1041 & 0.0010 & 0.9178 &5.6872 \\
+coil2000 & 0.9212 & 0.9281 & 0.0616 & 0.0345 & 0.9977 & 122.0585 \\
+magic & 0.8246 & 0.8172 & 0.6176 & 0.5883 & 0.9633 & 613.1190 \\
+marketing & 0.3801 & 0.2915 & 0.2915 & 0.1881 & 0.8971 & 55.3629 \\
+phoneme & 0.7936 & 0.7868 & 0.5115 & 0.4801 & 0.9845 & 30.0998 \\
+ring & 0.7960 & 0.7976 & 0.6011 & 0.5941 & 0.9922 & 78.4577 \\
+spambase & 0.8730 & 0.8718 & 0.7446 & 0.7316 & 0.9679 & 26.3904 \\
+texture & 0.9634 & 0.9642 & 0.9607 & 0.9606 & 0.8504 & 130.5968 \\
+titanic & 0.7758 & 0.7837 & 0.4488 & 0.4537 & 0.9898 &5.0069 \\
+twonorm & 0.9468 & 0.9527 & 0.9036 & 0.9054 & 0.9906 & 53.6210 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-MA para conjuntos medianos }
+\label{res-med-ENN-RSS-MA}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7724 & 0.7857 & 0.2868 & 0.2864 & 0.9964 & 154.4925 \\
+shuttle & 0.9769 & 0.9968 & 0.9716 & 0.9908 & 0.9974 & 731.5080 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-MA para conjuntos grandes }
+\label{res-grande-ENN-RSS-MA}
+\end{table}
+
+\clearpage
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9585 & 0.9000 & 0.9378 & 0.8500 & 0.9700 & 0.1097 \\
+cleveland & 0.7003 & 0.5659 & 0.5024 & 0.2849 & 0.9465 & 0.2684 \\
+led7digit & 0.7476 & 0.7300 & 0.7193 & 0.6992 & 0.9682 & 0.3557 \\
+pima & 0.8132 & 0.7283 & 0.5688 & 0.3752 & 0.9405 & 0.7985 \\
+wdbc & 0.9631 & 0.9354 & 0.9199 & 0.8599 & 0.9865 & 0.6287 \\
+monk2 & 0.9100 & 0.8797 & 0.8196 & 0.7588 & 0.9611 & 0.4123 \\
+wisconsin & 0.9730 & 0.9651 & 0.9405 & 0.9233 & 0.9914 & 0.7332 \\
+wine & 0.9606 & 0.9527 & 0.9398 & 0.9272 & 0.9798 & 0.1367 \\
+glass & 0.7784 & 0.6482 & 0.6734 & 0.4813 & 0.9266 & 0.1676 \\
+banknote & 0.9981 & 0.9993 & 0.9961 & 0.9985 & 0.9527 & 1.3379 \\
+appendicitis & 0.9288 & 0.9338 & 0.6988 & 0.6424 & 0.9792 & 0.1030 \\
+balance & 0.8690 & 0.8462 & 0.7555 & 0.7145 & 0.9626 & 0.6150 \\
+bands & 0.7591 & 0.6825 & 0.4559 & 0.2739 & 0.9537 & 0.3133 \\
+contraceptive & 0.6411 & 0.4746 & 0.4423 & 0.1849 & 0.8444 & 1.5983 \\
+dermatology & 0.9532 & 0.9118 & 0.9412 & 0.8891 & 0.9718 & 0.3737 \\
+ecoli & 0.8648 & 0.8228 & 0.8007 & 0.7366 & 0.9610 & 0.3069 \\
+haberman & 0.7956 & 0.7683 & 0.3214 & 0.2651 & 0.9820 & 0.2920 \\
+hayes-roth & 0.7111 & 0.6375 & 0.5504 & 0.4333 & 0.9388 & 0.1336 \\
+heart & 0.8646 & 0.8111 & 0.7232 & 0.6142 & 0.9756 & 0.2325 \\
+hepatitis & 0.9194 & 0.8625 & 0.6624 & 0.3505 & 0.9663 & 0.0733 \\
+mammographic & 0.8333 & 0.8048 & 0.6667 & 0.6097 & 0.9665 & 0.9039 \\
+newthyroid & 0.9633 & 0.9628 & 0.9126 & 0.9129 & 0.9814 & 0.1926 \\
+tae & 0.6409 & 0.5154 & 0.4583 & 0.2499 & 0.9404 & 0.1154 \\
+vehicle & 0.7888 & 0.6587 & 0.7185 & 0.5450 & 0.9007 & 0.9109 \\
+vowel & 0.9327 & 0.8535 & 0.9259 & 0.8389 & 0.8156 & 0.9711 \\
+yeast & 0.6909 & 0.5398 & 0.5953 & 0.3979 & 0.8494 & 1.6069 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CHC para conjuntos pequeños }
+\label{res-peq-chc}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8986 & 0.8916 & 0.7941 & 0.7799 & 0.9654 & 1.8342 \\
+cardiotocography & 0.8928 & 0.8855 & 0.6854 & 0.6626 & 0.9747 & 0.8028 \\
+eye-state & 0.8250 & 0.7829 & 0.6460 & 0.5609 & 0.8324 & 5.6788 \\
+page-blocks & 0.9585 & 0.9542 & 0.7596 & 0.7342 & 0.9861 & 2.5129 \\
+penbased & 0.9848 & 0.9829 & 0.9831 & 0.9809 & 0.9332 & 3.5643 \\
+satimage & 0.8970 & 0.8844 & 0.8726 & 0.8571 & 0.9501 & 2.3742 \\
+thyroid & 0.9431 & 0.9412 & 0.4272 & 0.4032 & 0.9882 & 3.0773 \\
+segment & 0.2311 & 0.1515 & 0.1029 & 0.0101 & 0.9260 & 0.8781 \\
+coil2000 & 0.9377 & 0.9359 & 0.0584 & 0.0255 & 0.9819 & 5.4810 \\
+magic & 0.8440 & 0.8106 & 0.6482 & 0.5707 & 0.8601 & 8.2651 \\
+marketing & 0.3807 & 0.2867 & 0.2882 & 0.1797 & 0.8911 & 2.4493 \\
+phoneme & 0.8373 & 0.8168 & 0.6045 & 0.5535 & 0.9586 & 2.0545 \\
+ring & 0.9091 & 0.8983 & 0.8180 & 0.7963 & 0.9530 & 3.7638 \\
+spambase & 0.8875 & 0.8775 & 0.7643 & 0.7436 & 0.9719 & 1.5940 \\
+texture & 0.9635 & 0.9584 & 0.9599 & 0.9543 & 0.9285 & 1.7402 \\
+titanic & 0.7829 & 0.7810 & 0.4586 & 0.4515 & 0.9911 & 0.5162 \\
+twonorm & 0.9593 & 0.9559 & 0.9186 & 0.9117 & 0.9808 & 2.4462 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CHC para conjuntos medianos }
+\label{res-med-chc}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7944 & 0.7888 & 0.3286 & 0.3070 & 0.9740 & 12.2479 \\
+shuttle & 0.9977 & 0.9980 & 0.9942 & 0.9941 & 0.9490 & 21.4851 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CHC para conjuntos grandes }
+\label{res-grande-chc}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9452 & 0.9400 & 0.9178 & 0.9100 & 0.9667 & 0.1280 \\
+cleveland & 0.6824 & 0.5735 & 0.4687 & 0.2898 & 0.9508 & 0.3327 \\
+led7digit & 0.7407 & 0.7180 & 0.7114 & 0.6863 & 0.9576 & 0.4912 \\
+pima & 0.8177 & 0.7273 & 0.5885 & 0.3820 & 0.9167 & 1.0538 \\
+wdbc & 0.9567 & 0.9311 & 0.9051 & 0.8525 & 0.9851 & 0.9464 \\
+monk2 & 0.9295 & 0.9075 & 0.8589 & 0.8153 & 0.9671 & 0.5052 \\
+wisconsin & 0.9723 & 0.9593 & 0.9389 & 0.9093 & 0.9924 & 2.3531 \\
+wine & 0.9631 & 0.9706 & 0.9439 & 0.9551 & 0.9702 & 0.1832 \\
+glass & 0.8172 & 0.6815 & 0.7366 & 0.5386 & 0.9150 & 0.1969 \\
+banknote & 0.9938 & 0.9869 & 0.9875 & 0.9734 & 0.9827 & 2.1826 \\
+appendicitis & 0.9602 & 0.9175 & 0.8315 & 0.5920 & 0.9755 & 0.1196 \\
+balance & 0.8535 & 0.8053 & 0.7281 & 0.6410 & 0.9581 & 0.8653 \\
+bands & 0.7610 & 0.6755 & 0.4572 & 0.2639 & 0.9438 & 0.4083 \\
+contraceptive & 0.6360 & 0.4610 & 0.4381 & 0.1721 & 0.8007 & 2.3267 \\
+dermatology & 0.9526 & 0.9050 & 0.9396 & 0.8789 & 0.9707 & 0.5386 \\
+ecoli & 0.8526 & 0.7865 & 0.7871 & 0.6893 & 0.9530 & 0.4642 \\
+haberman & 0.7894 & 0.7389 & 0.3108 & 0.1839 & 0.9856 & 0.3480 \\
+hayes-roth & 0.7292 & 0.6250 & 0.5779 & 0.4102 & 0.9344 & 0.1447 \\
+heart & 0.8580 & 0.7963 & 0.7123 & 0.5873 & 0.9759 & 0.2957 \\
+hepatitis & 0.9181 & 0.8500 & 0.6438 & 0.3686 & 0.9650 & 0.0828 \\
+mammographic & 0.8276 & 0.8120 & 0.6552 & 0.6242 & 0.9696 & 1.2071 \\
+newthyroid & 0.9716 & 0.9608 & 0.9311 & 0.9058 & 0.9767 & 0.3146 \\
+tae & 0.6542 & 0.4646 & 0.4782 & 0.1843 & 0.9272 & 0.1390 \\
+vehicle & 0.7987 & 0.6744 & 0.7315 & 0.5656 & 0.8805 & 1.2140 \\
+vowel & 0.9621 & 0.9030 & 0.9583 & 0.8933 & 0.8136 & 1.2354 \\
+yeast & 0.7427 & 0.5392 & 0.6628 & 0.3971 & 0.7664 & 2.4397 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-CHC para conjuntos pequeños }
+\label{res-peq-CNN-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8872 & 0.8851 & 0.7817 & 0.7671 & 0.9564 & 2.4352 \\
+cardiotocography & 0.8710 & 0.8752 & 0.6482 & 0.6389 & 0.9755 & 0.9279 \\
+eye-state & 0.8377 & 0.7796 & 0.6823 & 0.5550 & 0.7871 & 9.4798 \\
+page-blocks & 0.9485 & 0.9538 & 0.7531 & 0.7341 & 0.9829 & 5.0899 \\
+penbased & 0.9786 & 0.9867 & 0.9774 & 0.9852 & 0.9360 & 5.5268 \\
+satimage & 0.8871 & 0.8811 & 0.8626 & 0.8528 & 0.9473 & 3.8257 \\
+thyroid & 0.9355 & 0.9443 & 0.4300 & 0.4248 & 0.9930 & 4.8042 \\
+segment & 0.2910 & 0.1506 & 0.1744 & 0.0091 & 0.8691 & 0.8686 \\
+coil2000 & 0.9302 & 0.9389 & 0.0163 & 0.0049 & 0.9874 & 9.2518 \\
+magic & 0.8239 & 0.7935 & 0.6211 & 0.5393 & 0.8866 & 15.0822 \\
+marketing & 0.4467 & 0.2704 & 0.3690 & 0.1658 & 0.7859 & 3.2887 \\
+phoneme & 0.8315 & 0.8249 & 0.6065 & 0.5757 & 0.9627 & 3.3927 \\
+ring & 0.9092 & 0.9034 & 0.8283 & 0.8066 & 0.9561 & 6.2863 \\
+spambase & 0.8681 & 0.8658 & 0.7342 & 0.7184 & 0.9771 & 2.1910 \\
+texture & 0.9547 & 0.9575 & 0.9511 & 0.9532 & 0.9215 & 2.4389 \\
+titanic & 0.7753 & 0.7810 & 0.4491 & 0.4481 & 0.9898 & 0.5828 \\
+twonorm & 0.9391 & 0.9464 & 0.8882 & 0.8927 & 0.9841 & 3.7002 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-CHC para conjuntos medianos }
+\label{res-med-CNN-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7829 & 0.7763 & 0.3168 & 0.2937 & 0.9700 & 15.7268 \\
+shuttle & 0.9976 & 0.9978 & 0.9940 & 0.9937 & 0.9841 & 60.9359 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-CHC para conjuntos grandes }
+\label{res-grande-CNN-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9526 & 0.9200 & 0.9289 & 0.8800 & 0.9720 & 0.1291 \\
+cleveland & 0.6704 & 0.5825 & 0.4417 & 0.3001 & 0.9630 & 0.3670 \\
+led7digit & 0.7624 & 0.7440 & 0.7357 & 0.7146 & 0.9682 & 0.5451 \\
+pima & 0.8141 & 0.7239 & 0.5739 & 0.3599 & 0.9289 & 1.0341 \\
+wdbc & 0.9615 & 0.9523 & 0.9166 & 0.8956 & 0.9761 & 0.9131 \\
+monk2 & 0.8855 & 0.8515 & 0.7710 & 0.7034 & 0.9637 & 0.4827 \\
+wisconsin & 0.9732 & 0.9592 & 0.9410 & 0.9110 & 0.9717 & 0.9064 \\
+wine & 0.9652 & 0.9294 & 0.9470 & 0.8937 & 0.9758 & 0.1929 \\
+glass & 0.7674 & 0.6870 & 0.6668 & 0.5421 & 0.9318 & 0.2286 \\
+banknote & 0.9979 & 0.9971 & 0.9957 & 0.9941 & 0.8972 & 2.1298 \\
+appendicitis & 0.9623 & 0.9438 & 0.7982 & 0.6792 & 0.9717 & 0.1422 \\
+balance & 0.8855 & 0.8657 & 0.7851 & 0.7476 & 0.9522 & 0.7496 \\
+bands & 0.7729 & 0.6596 & 0.4840 & 0.2229 & 0.9408 & 0.4344 \\
+contraceptive & 0.5895 & 0.4678 & 0.3628 & 0.1731 & 0.9041 & 2.5653 \\
+dermatology & 0.9634 & 0.9445 & 0.9531 & 0.9287 & 0.9721 & 0.5299 \\
+ecoli & 0.8505 & 0.7960 & 0.7829 & 0.7055 & 0.9589 & 0.3897 \\
+haberman & 0.7905 & 0.7611 & 0.3168 & 0.2320 & 0.9863 & 0.3135 \\
+hayes-roth & 0.7361 & 0.6125 & 0.5920 & 0.3955 & 0.9219 & 0.1379 \\
+heart & 0.8646 & 0.8148 & 0.7237 & 0.6222 & 0.9756 & 0.2903 \\
+hepatitis & 0.9125 & 0.8750 & 0.6779 & 0.4848 & 0.9663 & 0.0864 \\
+mammographic & 0.8454 & 0.8060 & 0.6904 & 0.6117 & 0.9370 & 1.0858 \\
+newthyroid & 0.9612 & 0.9399 & 0.9068 & 0.8557 & 0.9819 & 0.2263 \\
+tae & 0.6689 & 0.4892 & 0.5023 & 0.2263 & 0.9285 & 0.1184 \\
+vehicle & 0.7833 & 0.6747 & 0.7111 & 0.5660 & 0.8928 & 1.2502 \\
+vowel & 0.9364 & 0.8828 & 0.9300 & 0.8711 & 0.7685 & 1.5126 \\
+yeast & 0.6426 & 0.5642 & 0.5311 & 0.4273 & 0.8965 & 2.5965 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-CHC para conjuntos pequeños }
+\label{res-peq-ENN-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8875 & 0.8851 & 0.7821 & 0.7671 & 0.9598 & 2.2316 \\
+cardiotocography & 0.8724 & 0.8672 & 0.6601 & 0.6284 & 0.9721 & 0.8639 \\
+eye-state & 0.7984 & 0.7754 & 0.6033 & 0.5467 & 0.8776 & 11.5479 \\
+page-blocks & 0.9490 & 0.9560 & 0.7510 & 0.7428 & 0.9809 & 2.8736 \\
+penbased & 0.9773 & 0.9850 & 0.9758 & 0.9833 & 0.8884 & 7.0029 \\
+satimage & 0.8864 & 0.8855 & 0.8618 & 0.8583 & 0.9375 & 4.0794 \\
+thyroid & 0.9358 & 0.9442 & 0.4030 & 0.3912 & 0.9758 & 4.4285 \\
+segment & 0.1882 & 0.1407 & 0.0545 & -0.0025 & 0.9614 & 1.0229 \\
+coil2000 & 0.9228 & 0.9289 & 0.0935 & 0.0487 & 0.9579 & 14.3025 \\
+magic & 0.8528 & 0.8260 & 0.6778 & 0.6012 & 0.7430 & 16.7927 \\
+marketing & 0.3476 & 0.2971 & 0.2503 & 0.1907 & 0.9427 & 3.5624 \\
+phoneme & 0.8321 & 0.8242 & 0.6084 & 0.5759 & 0.9494 & 2.3561 \\
+ring & 0.7809 & 0.7707 & 0.5702 & 0.5393 & 0.9521 & 4.4712 \\
+spambase & 0.8729 & 0.8732 & 0.7418 & 0.7311 & 0.9653 & 2.9880 \\
+texture & 0.9503 & 0.9540 & 0.9464 & 0.9494 & 0.9139 & 3.2882 \\
+titanic & 0.7763 & 0.7833 & 0.4493 & 0.4514 & 0.9898 & 0.5746 \\
+twonorm & 0.9520 & 0.9573 & 0.9140 & 0.9146 & 0.9383 & 4.2723 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-CHC para conjuntos medianos }
+\label{res-med-ENN-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.8010 & 0.7950 & 0.3551 & 0.3325 & 0.9622 & 17.9675 \\
+shuttle & 0.9976 & 0.9978 & 0.9940 & 0.9937 & 0.8843 & 36.7365 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-CHC para conjuntos grandes }
+\label{res-grande-ENN-CHC}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9689 & 0.9467 & 0.9533 & 0.9200 & 0.9753 & 0.1232 \\
+cleveland & 0.6603 & 0.5582 & 0.4330 & 0.2698 & 0.9623 & 0.2902 \\
+led7digit & 0.7684 & 0.7500 & 0.7422 & 0.7214 & 0.9746 & 0.4270 \\
+pima & 0.8060 & 0.7304 & 0.5625 & 0.3914 & 0.9478 & 0.9977 \\
+wdbc & 0.9557 & 0.9347 & 0.9031 & 0.8573 & 0.9886 & 0.8044 \\
+monk2 & 0.9035 & 0.8818 & 0.8066 & 0.7638 & 0.9799 & 0.4537 \\
+wisconsin & 0.9740 & 0.9636 & 0.9427 & 0.9200 & 0.9928 & 1.2788 \\
+wine & 0.9700 & 0.9353 & 0.9541 & 0.9001 & 0.9730 & 0.1844 \\
+glass & 0.7596 & 0.6808 & 0.6439 & 0.5252 & 0.9509 & 0.2138 \\
+banknote & 0.9930 & 0.9898 & 0.9859 & 0.9793 & 0.9821 & 2.4199 \\
+appendicitis & 0.9422 & 0.9038 & 0.7179 & 0.4875 & 0.9755 & 0.1132 \\
+balance & 0.8688 & 0.8709 & 0.7541 & 0.7582 & 0.9848 & 0.8330 \\
+bands & 0.7455 & 0.7061 & 0.4134 & 0.3239 & 0.9636 & 0.3674 \\
+contraceptive & 0.6579 & 0.4773 & 0.4676 & 0.1875 & 0.8264 & 2.3649 \\
+dermatology & 0.9473 & 0.9369 & 0.9333 & 0.9196 & 0.9749 & 0.3946 \\
+ecoli & 0.8466 & 0.8089 & 0.7733 & 0.7152 & 0.9649 & 0.3800 \\
+haberman & 0.7908 & 0.7317 & 0.3173 & 0.1412 & 0.9853 & 0.2903 \\
+hayes-roth & 0.7035 & 0.5188 & 0.5274 & 0.2341 & 0.9400 & 0.1418 \\
+heart & 0.8527 & 0.7963 & 0.7000 & 0.5835 & 0.9807 & 0.2551 \\
+hepatitis & 0.9000 & 0.8500 & 0.3634 & 0.1257 & 0.9775 & 0.0793 \\
+mammographic & 0.8340 & 0.8133 & 0.6680 & 0.6262 & 0.9753 & 1.1150 \\
+newthyroid & 0.9669 & 0.9438 & 0.9199 & 0.8531 & 0.9814 & 0.2253 \\
+tae & 0.6748 & 0.5238 & 0.5093 & 0.2817 & 0.9219 & 0.1172 \\
+vehicle & 0.7819 & 0.6408 & 0.7091 & 0.5206 & 0.9058 & 1.0728 \\
+vowel & 0.8688 & 0.7899 & 0.8557 & 0.7689 & 0.8494 & 1.2532 \\
+yeast & 0.6538 & 0.5411 & 0.5463 & 0.3986 & 0.8846 & 2.3610 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-CHC para conjuntos pequeños }
+\label{res-peq-RSS-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8809 & 0.8832 & 0.7687 & 0.7631 & 0.9713 & 2.4651 \\
+cardiotocography & 0.8730 & 0.8765 & 0.6594 & 0.6501 & 0.9763 & 0.8185 \\
+eye-state & 0.7984 & 0.7672 & 0.5977 & 0.5229 & 0.8514 & 10.3898 \\
+page-blocks & 0.9387 & 0.9466 & 0.6831 & 0.6805 & 0.9928 & 3.6991 \\
+penbased & 0.9728 & 0.9798 & 0.9709 & 0.9776 & 0.9293 & 6.9140 \\
+satimage & 0.8643 & 0.8622 & 0.8349 & 0.8299 & 0.9627 & 3.9961 \\
+thyroid & 0.9340 & 0.9421 & 0.3929 & 0.3818 & 0.9919 & 4.2709 \\
+segment & 0.2340 & 0.1528 & 0.1080 & 0.0116 & 0.9190 & 0.9589 \\
+coil2000 & 0.9246 & 0.9320 & 0.0466 & 0.0223 & 0.9901 & 9.2795 \\
+magic & 0.8127 & 0.8075 & 0.5797 & 0.5532 & 0.9313 & 15.2582 \\
+marketing & 0.3830 & 0.2894 & 0.2947 & 0.1862 & 0.8809 & 3.3203 \\
+phoneme & 0.8035 & 0.8066 & 0.5439 & 0.5374 & 0.9815 & 2.7217 \\
+ring & 0.9204 & 0.9134 & 0.8507 & 0.8266 & 0.9381 & 6.3558 \\
+spambase & 0.8635 & 0.8660 & 0.7260 & 0.7205 & 0.9794 & 2.4941 \\
+texture & 0.9387 & 0.9442 & 0.9335 & 0.9386 & 0.9372 & 2.7477 \\
+titanic & 0.7672 & 0.7751 & 0.4304 & 0.4353 & 0.9918 & 0.7916 \\
+twonorm & 0.9478 & 0.9546 & 0.9055 & 0.9092 & 0.9841 & 4.1837 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-CHC para conjuntos medianos }
+\label{res-med-RSS-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7973 & 0.7948 & 0.3250 & 0.3120 & 0.9836 & 18.1931 \\
+shuttle & 0.9970 & 0.9976 & 0.9933 & 0.9932 & 0.9801 & 64.0352 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de RSS-CHC para conjuntos grandes }
+\label{res-grande-RSS-CHC}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9644 & 0.9400 & 0.9467 & 0.9100 & 0.9727 & 0.1984 \\
+cleveland & 0.6924 & 0.5969 & 0.4606 & 0.2823 & 0.9535 & 0.4987 \\
+led7digit & 0.7267 & 0.7000 & 0.6959 & 0.6659 & 0.9640 & 0.7427 \\
+pima & 0.8095 & 0.7296 & 0.5673 & 0.3839 & 0.9271 & 1.4884 \\
+wdbc & 0.9566 & 0.9303 & 0.9055 & 0.8497 & 0.9905 & 1.3146 \\
+monk2 & 0.9252 & 0.9049 & 0.8501 & 0.8100 & 0.9653 & 0.8357 \\
+wisconsin & 0.9730 & 0.9679 & 0.9404 & 0.9287 & 0.9931 & 1.9354 \\
+wine & 0.9719 & 0.9471 & 0.9569 & 0.9182 & 0.9725 & 0.2697 \\
+glass & 0.7954 & 0.7109 & 0.7021 & 0.5814 & 0.9215 & 0.3134 \\
+banknote & 0.9958 & 0.9942 & 0.9915 & 0.9881 & 0.9802 & 3.5226 \\
+appendicitis & 0.9498 & 0.9138 & 0.7707 & 0.5601 & 0.9708 & 0.1846 \\
+balance & 0.8514 & 0.8099 & 0.7218 & 0.6446 & 0.9603 & 1.2547 \\
+bands & 0.7756 & 0.6735 & 0.4974 & 0.2610 & 0.9381 & 0.6660 \\
+contraceptive & 0.5845 & 0.4671 & 0.3566 & 0.1746 & 0.8599 & 3.4468 \\
+dermatology & 0.9528 & 0.9198 & 0.9398 & 0.8978 & 0.9684 & 0.7480 \\
+ecoli & 0.8519 & 0.7839 & 0.7869 & 0.6901 & 0.9580 & 0.6480 \\
+haberman & 0.7850 & 0.7622 & 0.2966 & 0.2072 & 0.9876 & 0.5423 \\
+hayes-roth & 0.7278 & 0.5625 & 0.5742 & 0.3116 & 0.9269 & 0.2216 \\
+heart & 0.8617 & 0.8000 & 0.7184 & 0.5894 & 0.9807 & 0.4144 \\
+hepatitis & 0.9000 & 0.7875 & 0.4285 & 0.0026 & 0.9700 & 0.1070 \\
+mammographic & 0.8335 & 0.7928 & 0.6667 & 0.5849 & 0.9600 & 1.6868 \\
+newthyroid & 0.9659 & 0.9447 & 0.9213 & 0.8775 & 0.9786 & 0.4077 \\
+tae & 0.6674 & 0.5571 & 0.4990 & 0.3363 & 0.9278 & 0.1822 \\
+vehicle & 0.8088 & 0.6459 & 0.7450 & 0.5272 & 0.8680 & 1.7682 \\
+vowel & 0.9519 & 0.9051 & 0.9470 & 0.8956 & 0.8132 & 1.9504 \\
+yeast & 0.6715 & 0.5163 & 0.5697 & 0.3669 & 0.8268 & 3.6261 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-CHC para conjuntos pequeños }
+\label{res-peq-CNN-RSS-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8792 & 0.8785 & 0.7654 & 0.7538 & 0.9557 & 3.3310 \\
+cardiotocography & 0.8781 & 0.8766 & 0.6643 & 0.6402 & 0.9725 & 1.3603 \\
+eye-state & 0.8138 & 0.7754 & 0.6328 & 0.5445 & 0.8348 & 14.3698 \\
+page-blocks & 0.9441 & 0.9512 & 0.7199 & 0.7132 & 0.9873 & 6.2237 \\
+penbased & 0.9785 & 0.9860 & 0.9773 & 0.9844 & 0.9193 & 9.0444 \\
+satimage & 0.8847 & 0.8768 & 0.8596 & 0.8474 & 0.9368 & 5.3913 \\
+thyroid & 0.9303 & 0.9392 & 0.3410 & 0.3393 & 0.9924 & 7.2426 \\
+segment & 0.2703 & 0.1416 & 0.1503 & -0.0015 & 0.8742 & 1.3484 \\
+coil2000 & 0.9257 & 0.9327 & 0.0725 & 0.0277 & 0.9833 & 13.9504 \\
+magic & 0.8329 & 0.7904 & 0.6400 & 0.5303 & 0.8337 &  21.4493 \\
+marketing & 0.4297 & 0.2765 & 0.3504 & 0.1737 & 0.8099 & 4.9986 \\
+phoneme & 0.8373 & 0.8227 & 0.6201 & 0.5707 & 0.9532 & 3.7557 \\
+ring & 0.9208 & 0.9159 & 0.8515 & 0.8318 & 0.9416 & 8.7030 \\
+spambase & 0.8743 & 0.8734 & 0.7503 & 0.7380 & 0.9593 & 3.4641 \\
+texture & 0.9611 & 0.9656 & 0.9582 & 0.9622 & 0.9154 & 3.9357 \\
+titanic & 0.7675 & 0.7746 & 0.4285 & 0.4301 & 0.9906 & 1.0707 \\
+twonorm & 0.9416 & 0.9477 & 0.8933 & 0.8954 & 0.9829 & 5.7217 \\	
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-CHC para conjuntos medianos }
+\label{res-med-CNN-RSS-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7912 & 0.7839 & 0.3192 & 0.2925 & 0.9655 & 23.9880 \\
+shuttle & 0.9979 & 0.9981 & 0.9947 & 0.9945 & 0.9784 & 77.1720 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de CNN-RSS-CHC para conjuntos grandes }
+\label{res-grande-CNN-RSS-CHC}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+iris & 0.9674 & 0.9400 & 0.9511 & 0.9100 & 0.9700 & 0.1910 \\
+cleveland & 0.6887 & 0.5646 & 0.4708 & 0.2789 & 0.9492 & 0.4973 \\
+led7digit & 0.7700 & 0.7500 & 0.7440 & 0.7213 & 0.9650 & 0.7768 \\
+pima & 0.8145 & 0.7104 & 0.5781 & 0.3404 & 0.9069 & 1.4055 \\
+wdbc & 0.9652 & 0.9454 & 0.9246 & 0.8819 & 0.9740 & 1.2396 \\
+monk2 & 0.8819 & 0.8244 & 0.7642 & 0.6501 & 0.9477 & 0.6825 \\
+wisconsin & 0.9763 & 0.9607 & 0.9478 & 0.9150 & 0.9659 & 1.5583 \\
+wine & 0.9650 & 0.9294 & 0.9465 & 0.8910 & 0.9725 & 0.2891 \\
+glass & 0.8033 & 0.7046 & 0.7063 & 0.5670 & 0.9327 & 0.3123 \\
+banknote & 0.9985 & 0.9964 & 0.9969 & 0.9926 & 0.8961 & 3.2309 \\
+appendicitis & 0.9560 & 0.9075 & 0.8038 & 0.4920 & 0.9736 & 0.1773 \\
+balance & 0.8695 & 0.8549 & 0.7554 & 0.7281 & 0.9526 & 1.0740 \\
+bands & 0.7678 & 0.6398 & 0.4652 & 0.1757 & 0.9496 & 0.6864 \\
+contraceptive & 0.6172 & 0.4582 & 0.4071 & 0.1685 & 0.8392 & 3.6247 \\
+dermatology & 0.9553 & 0.9346 & 0.9433 & 0.9168 & 0.9704 & 0.7982 \\
+ecoli & 0.8605 & 0.8275 & 0.7988 & 0.7507 & 0.9604 & 0.5703 \\
+haberman & 0.7938 & 0.7506 & 0.3261 & 0.2283 & 0.9843 & 0.4800 \\
+hayes-roth & 0.7431 & 0.6500 & 0.6008 & 0.4526 & 0.9244 & 0.2057 \\
+heart & 0.8601 & 0.8222 & 0.7153 & 0.6362 & 0.9767 & 0.3964 \\
+hepatitis & 0.9083 & 0.8875 & 0.5886 & 0.4257 & 0.9638 & 0.1256 \\
+mammographic & 0.8446 & 0.7976 & 0.6891 & 0.5953 & 0.9237 & 1.4707 \\
+newthyroid & 0.9633 & 0.9628 & 0.9088 & 0.9072 & 0.9842 & 0.3664 \\
+tae & 0.6799 & 0.4963 & 0.5171 & 0.2344 & 0.9238 & 0.2055 \\
+vehicle & 0.7766 & 0.6744 & 0.7021 & 0.5656 & 0.8819 & 1.6821 \\
+vowel & 0.9300 & 0.8737 & 0.9230 & 0.8611 & 0.7779 & 2.1629 \\
+yeast & 0.7014 & 0.5367 & 0.6082 & 0.3927 & 0.8005 & 3.6700 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-CHC para conjuntos pequeños }
+\label{res-peq-ENN-RSS-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+banana & 0.8825 & 0.8779 & 0.7720 & 0.7525 & 0.9508 & 3.2142 \\
+cardiotocography & 0.8731 & 0.8734 & 0.6457 & 0.6284 & 0.9742 & 1.2996 \\
+eye-state & 0.8119 & 0.7798 & 0.6305 & 0.5553 & 0.8348 &  15.7707 \\
+page-blocks & 0.9459 & 0.9512 & 0.7476 & 0.7303 & 0.9752 & 4.4175 \\
+penbased & 0.9807 & 0.9886 & 0.9797 & 0.9874 & 0.8829 & 10.1493 \\
+satimage & 0.8899 & 0.8873 & 0.8663 & 0.8608 & 0.9385 & 5.7040 \\
+thyroid & 0.9368 & 0.9442 & 0.4603 & 0.4439 & 0.9591 & 6.1879 \\
+segment & 0.2481 & 0.1472 & 0.1245 & 0.0051 & 0.9100 & 1.3631 \\
+coil2000 & 0.9235 & 0.9287 & 0.1108 & 0.0501 & 0.9295 &  17.9349 \\
+magic & 0.8575 & 0.8194 & 0.6889 & 0.5860 & 0.7224 &  22.8720 \\
+marketing & 0.4103 & 0.2797 & 0.3281 & 0.1774 & 0.8467 & 4.8414 \\
+phoneme & 0.8372 & 0.8244 & 0.6229 & 0.5780 & 0.9477 & 3.5526 \\
+ring & 0.8877 & 0.8574 & 0.7852 & 0.7143 & 0.8887 & 6.4200 \\
+spambase & 0.8648 & 0.8636 & 0.7258 & 0.7117 & 0.9597 & 4.1330 \\
+texture & 0.9577 & 0.9642 & 0.9545 & 0.9606 & 0.9136 & 4.5437 \\
+titanic & 0.7758 & 0.7837 & 0.4500 & 0.4549 & 0.9902 & 1.0768 \\
+twonorm & 0.9503 & 0.9543 & 0.9105 & 0.9086 & 0.9387 & 6.0015 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-CHC para conjuntos medianos }
+\label{res-med-ENN-RSS-CHC}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{l c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Conjunto}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \textsc{Reducción}
+	& \textsc{Tiempo promedio (seg)} \\
+	& Training & Test
+	& Training & Test \\ 
+\hline
+\hline
+
+credit-card & 0.7967 & 0.7860 & 0.3481 & 0.3110 & 0.9372 & 24.3612 \\
+shuttle & 0.9983 & 0.9984 & 0.9960 & 0.9955 & 0.8826 & 70.4400 \\
+
+\hline
+\end{tabular}
+\caption{Resultados de ENN-RSS-CHC para conjuntos grandes }
+\label{res-grande-ENN-RSS-CHC}
 \end{table}

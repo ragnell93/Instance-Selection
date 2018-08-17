@@ -3,16 +3,42 @@
 \lhead{\emph{Introducción}}
 \addcontentsline{toc}{chapter}{Introducción}
 
-En los últimos años ha crecido la cantidad de información generada con las computadoras, producto de procesos industriales, administrativos, científicos y sociales. Con la gran cantidad de información que se procesa en la actualidad, nace el descubrimiento de conocimiento en bases de datos (KDD por sus siglas en inglés) que busca transformar esa información en conocimiento útil para distintas áreas de aplicación \cite{han2011data}. Entre las tareas de KDD se encuentra el preprocesamiento de datos, el cual busca preparar la información para ser usada por algoritmos de minería de datos. 
+En los últimos años ha crecido la cantidad de información generada con las computadoras, producto de procesos industriales, administrativos, científicos y sociales. Con la gran cantidad de información que se procesa en la actualidad, nace la disciplina conocida como \emph{Descubrimiento de Conocimiento en Bases de Datos} (KDD por sus siglas en inglés) que busca transformar esa información en conocimiento útil para distintas áreas de aplicación \cite{han2011data}. Entre las tareas de KDD se encuentra el preprocesamiento de datos, el cual busca preparar la información para ser usada por algoritmos de minería de datos. 
 
-Entre los métodos de preprocesamiento de datos se encuentra la selección de prototipos, proceso que consta en elegir un subconjunto de las instancias originales que mantenga la capcidad de representación del conjunto original \cite{garcia2016data}. Esta tarea se puede ver como un proceso de optimización, para lo cual se han planteado una serie de heurísticas como \emph{Condensed Nearest Neighbor} (CNN) \cite{hart1968condensed}, \emph{Edited Nearest Neighbor} (ENN) \cite{wilson1972asymptotic} y \emph{Relaxed Selective Subset} (RSS) \cite{floresnearest}; donde cada heurística plantea un esquema de reducción acorde a una idea sobre cuáles son los puntos más importantes a preservar.
+Entre los métodos de preprocesamiento de datos se encuentra la selección de prototipos, proceso que consta en elegir un subconjunto de las instancias originales que mantenga la capacidad de representación del conjunto original \cite{garcia2016data}. Esta tarea se puede ver como un proceso de optimización, para lo cual se han planteado una serie de heurísticas como \emph{Condensed Nearest Neighbor} (CNN) \cite{hart1968condensed}, \emph{Edited Nearest Neighbor} (ENN) \cite{wilson1972asymptotic} y \emph{Relaxed Selective Subset} (RSS) \cite{floresnearest}; en la que cada heurística plantea un esquema de reducción acorde a una idea sobre cuáles son los puntos más importantes a preservar. Por otra parte, se pueden usar metaheurísticas de propósito general para conseguir una solución aproximada a la óptima del problema. 
 
-Por otra parte, se pueden usar metaheurísticas de propósito general para conseguir una solución aproximada a la óptima del problema. En este trabajo se implementaron cuatro metaheurísticas que entran dentro de la clasificación de algoritmos evolutivos: \emph{Generational Genetic Algorithm} (GGA) \cite{holland1975adaptation}, \emph{Steady State Genetic Algorithm} (SSGA) \cite{talbi2009metaheuristics}, \emph{Memetic Algorithm} (MA) \cite{neri2012memetic} y \emph{Adaptative Search Algorithm} (CHC) \cite{eshelman1991chc}.
+En este trabajo se implementaron algunas metaheurísticas que entran dentro de la clasificación de algoritmos evolutivos: \emph{Generational Genetic Algorithm} (GGA) \cite{holland1975adaptation}, \emph{Steady State Genetic Algorithm} (SSGA) \cite{talbi2009metaheuristics}, \emph{Memetic Algorithm} (MA) \cite{neri2012memetic} y \emph{Adaptative Search Algorithm} (CHC) \cite{eshelman1991chc}.
+
+\section{Antecedentes}
 
 El uso de metaheurísticas para resolver el problema de selección de prototipos no es nuevo, ya que trabajos como los realizados por \emph{Czarnowski, I. \& J{\k{e}}drzejowicz, P} en \cite{czarnowski2011application}, donde usan \emph{Simulated Annealing}; \emph{Cerverón, V. \& Ferri, F.} en \cite{cerveron2001another}, los cuales usan una variación de Búsqueda Tabú; \emph{Anwar, I. et al.} en \cite{anwar2015instance,anwar2015adr} quienes utilizan colonia de hormigas; \emph{Ahmad, S. \& Pedrycz, W} en \cite{ahmad2011feature}, quienes adaptan \emph{Particle Swarm Optimization}; \emph{Sierra, B. et al.} en \cite{sierra2001prototype} por su parte, optan por utilizar algoritmos de estimación de distribución o \emph{Wang, J. et al.} en \cite{wang2016differential} que usan \emph{Differential Evolution}. 
 
-Tradicionalmente, las metaheurísticas empiezan con una o varias soluciones aleatorias que se van mejorando paulatinamente con los procesos particulares a cada algoritmo. En algunos casos se usa una heurística para conseguir una buena solución inicial que le permita a la metaheurística conseguir mejores soluciones. En base a lo anterior, el objetivo principal de este trabajo es evaluar si el uso de las heurísticas CNN, ENN y RSS para construir la población inicial de los algoritmos evolutivos GGA, SSGA, MA y CHC  mejoran la relación entre el \emph{accuracy, kappa} y reducción de estos últimos. Para lograr el objetivo principal se procede a combinar cada una de las tres heurísticas con cada una de las cuatro metaheurísticas y se mide el \emph{accuracy, kappa}, reducción y tiempo de cómputo sobre varios conjuntos de datos. 
+%Tradicionalmente, las metaheurísticas empiezan con una o varias soluciones aleatorias que se mejoran paulatinamente con los procesos particulares de cada algoritmo. En algunos casos se usa una heurística para conseguir una buena solución inicial que le permita a la metaheurística conseguir mejores soluciones. 
 
-Este trabajo cobra importancia porque el tiempo de cómputo de los algoritmos de minería de datos se ha vuelto muy grande; por lo tanto, se necesita reducir la cantidad de datos, manteniendo o mejorando la calidad de los mismos de tal manera que se vuelva factible el uso de los distintos algoritmos. Además, este trabajo es novedoso al combinar heurísticas para el problema de selección de prototipos con metaheurísticas de propósito genera, intentando mejorar el desempeño de estas últimas.
+\section{Objetivo general}
 
-El resto del trabajo se divide en tres cápítulos, donde el primero es el marco teórico e introduce toda la información referente a KDD, preprocesamiento de datos, el problema de selección de instancias, las heurísticas y las metaheurísticas utilizadas; el segundo capítulo es el marco metodológico donde se explica las adaptaciones particulares hechas a cada metaheurística, el proceso de validación cruzada, la estratificación, las métricas con las que se evalúan las metaheurísticas, el entonador usado para configar los distintos métodos, la representación del problema y la función objetivo utilizada; el tercer capítulo presenta los detalles del experimento realizado y muestra los resultados obtenidos; finalmente se cierra el trabajo con las conclusiones y recomendaciones.
+Evaluar si el uso de las heurísticas CNN, ENN y RSS para construir la población inicial de los algoritmos evolutivos GGA, SSGA, MA y CHC  mejoran el desempeño de estos últimos. 
+
+\section{Objetivos específicos}
+
+\begin{itemize}
+
+\item Determinar cuál es la mejor combinación entre heurísticas y metaheurísticas para los conjuntos de datos pequeños.
+
+\item Determinar cuál es la mejor combinación entre heurísticas y metaheurísticas para los conjuntos de datos medianos.
+
+\item Determinar cuál es la mejor combinación entre heurísticas y metaheurísticas para los conjuntos de datos grandes.
+
+\end{itemize}
+
+Para lograr el objetivo principal y los objetivos específicos se procede a combinar cada una de las tres heurísticas con cada una de las cuatro metaheurísticas y se comparan a través de parámetros seleccionados para medir su mejoría sobre varios conjuntos de datos. 
+
+\section{Justificación}
+
+El presente trabajo cobra importancia porque el tiempo de cómputo de los algoritmos de minería de datos se ha expandido, producto del crecimiento de la información almacenada en las bases de datos; por lo que, se necesita reducir la cantidad de datos, manteniendo o mejorando la calidad de representación de los mismos, con el fin de mejorar el desempeño de los algoritmos.
+
+Este trabajo es novedoso al combinar heurísticas para el problema de selección de prototipos con metaheurísticas de propósito general, intentando mejorar el desempeño de estas últimas. Se eligen GGA, SSGA, MA y CHC por pertenecer a la familia de algoritmos evolutivos, los cuales han mostrado ser exitosos en la resolución de problemas de distintas índoles \cite{han2011data}. Al usar CNN, ENN y RSS junto a estas metaheurísticas se espera obtener la mejor combinación que permita solucionar el problema de selección de prototipos, tanto para conjuntos pequeños, como para conjuntos medianos y grandes.
+
+\section{Organización del trabajo}
+
+Este trabajo está organizado en tres capítulos, donde el primero es el marco teórico e introduce toda la información referente a KDD, preprocesamiento de datos, el problema de selección de instancias, las heurísticas y las metaheurísticas utilizadas; el segundo capítulo es el marco metodológico donde se explican las adaptaciones particulares hechas a cada metaheurística, el proceso de validación cruzada, la estratificación, las métricas con las que se evalúan las metaheurísticas, el entonador usado para configar los distintos métodos, la representación del problema y la función objetivo utilizada; el tercer capítulo presenta los detalles del experimento realizado y muestra los resultados obtenidos; finalmente se cierra el trabajo con las conclusiones y recomendaciones.

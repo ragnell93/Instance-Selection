@@ -11,6 +11,100 @@ Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor \
 \hline
 \hline
 
+MA           & 5.38  & 5 & CNN-MA       & 5.26  & 4  & CHC          & 1.34 & 20 \\
+ENN-MA       & 5.46  & 2 & ENN-MA       & 5.53  & 0  & SSGA         & 2.57 & 4 \\
+CNN-MA       & 5.57  & 4 & MA           & 5.57  & 5  & RSS-CHC      & 3.26 & 0 \\
+RSS-MA       & 6.07  & 6 & ENN-RSS-MA   & 6.00  & 3  & ENN-CHC      & 4.53 & 0 \\
+ENN-RSS-MA   & 6.30  & 3 & RSS-MA       & 6.76  & 6  & CNN-CHC      & 4.96 & 0 \\
+RSS-CHC      & 6.80  & 1 & CNN-RSS-MA   & 7.07  & 0  & ENN-SSGA     & 5.57 & 1 \\
+CNN-RSS-MA   & 6.96  & 0 & ENN-CHC      & 7.46  & 2  & RSS-SSGA     & 7.23 & 1 \\
+CHC          & 7.07  & 0 & CHC          & 7.50  & 1  & CNN-SSGA     & 7.73 & 0 \\
+ENN-CHC      & 7.53  & 0 & RSS-CHC      & 7.96  & 1  & ENN-RSS-CHC  & 8.88 & 0 \\
+CNN-RSS-CHC  & 7.65  & 2 & CNN-RSS-CHC  & 8.07  & 2  & CNN-RSS-CHC  & 9.26 & 0 \\
+ENN-RSS-CHC  & 7.88  & 2 & ENN-RSS-CHC  & 8.26  & 1  & ENN-RSS-SSGA & 11.80 & 0 \\
+CNN-CHC      & 8.73  & 1 & CNN-CHC      & 8.84  & 1  & CNN-RSS-SSGA & 12.38 & 0 \\
+RSS-SSGA     & 12.07 & 0 & RSS-SSGA     & 11.92 & 0  & MA           & 13.53 & 0 \\
+CNN-SSGA     & 14.53 & 0 & SSGA         & 14.30 & 0  & ENN-MA       & 13.69 & 0 \\
+SSGA         & 14.88 & 0 & CNN-RSS-SSGA & 14.26 & 0  & RSS-MA       & 14.15 & 0 \\
+CNN-RSS-SSGA & 15.07 & 0 & CNN-SSGA     & 14.46 & 0  & CNN-MA       & 15.30 & 0 \\
+ENN-SSGA     & 16.11 & 0 & ENN-SSGA     & 15.26 & 0  & CNN-RSS-MA   & 17.65 & 0 \\
+ENN-RSS-SSGA & 17.26 & 0 & ENN-RSS-SSGA & 16.42 & 0  & ENN-RSS-MA   & 17.80 & 0 \\
+RSS-GGA      & 19.11 & 0 & GGA          & 20.15 & 0  & GGA          & 19.84 & 0 \\
+GGA          & 20.73 & 0 & RSS-GGA      & 20.19 & 0  & ENN-GGA      & 20.38 & 0 \\
+CNN-RSS-GGA  & 20.84 & 0 & CNN-RSS-GGA  & 20.88 & 0  & CNN-GGA      & 20.42 & 0 \\
+CNN-GGA      & 21.30 & 0 & CNN-GGA      & 21.69 & 0  & ENN-RSS-GGA  & 23.26 & 0 \\
+ENN-GGA      & 22.73 & 0 & ENN-GGA      & 22.53 & 0  & RSS-GGA      & 21.00 & 0 \\
+ENN-RSS-GGA  & 23.84 & 0 & ENN-RSS-GGA  & 23.53 & 0  & CNN-RSS-GGA  & 23.34 & 0 \\
+
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy + reducción}, \emph{kappa + reducción} y tiempo para los conjuntos pequeños}
+\label{rank-peq}
+\end{table} 
+
+\begin{table}[h!]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{3}{c|}{\textsc{Kappa + Reducción}}
+	& \multicolumn{3}{c}{\textsc{Tiempo}} \\
+\hline
+Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor \\
+\hline
+\hline
+
+CNN-RSS-MA   & 4.76  & 5 & CHC          & 5.05  & 2  &  CHC          & 1.41 & 13 \\
+ENN-MA       & 5.05  & 4 & ENN-MA       & 5.41  & 4  &  SSGA         & 1.94 & 3 \\
+CHC          & 5.52  & 2 & CNN-RSS-MA   & 5.52  & 5  &  CNN-CHC      & 4.11 & 0 \\
+CNN-MA       & 5.94  & 3 & RSS-CHC      & 6.52  & 0  &  RSS-CHC      & 4.58 & 0 \\
+ENN-RSS-MA   & 5.94  & 1 & CNN-MA       & 6.76  & 2  &  ENN-CHC      & 5.00 & 0 \\
+RSS-CHC      & 5.94  & 0 & ENN-RSS-MA   & 7.05  & 1  &  ENN-SSGA     & 5.52 & 0 \\
+MA           & 6.29  & 0 & MA           & 7.23  & 1  &  RSS-SSGA     & 7.17 & 0 \\
+RSS-MA       & 7.05  & 1 & CNN-CHC      & 7.23  & 0  &  CNN-SSGA     & 7.36 & 1 \\
+CNN-CHC      & 7.35  & 0 & ENN-CHC      & 7.47  & 1  &  ENN-RSS-CHC  & 9.05 & 0 \\
+ENN-CHC      & 8.41  & 0 & CNN-RSS-CHC  & 8.29  & 0  &  CNN-RSS-CHC  & 9.11 & 0 \\
+CNN-RSS-CHC  & 8.70  & 0 & RSS-MA       & 8.41  & 0  &  ENN-RSS-SSGA & 11.23 & 0 \\
+ENN-RSS-CHC  & 10.00 & 1 & ENN-RSS-CHC  & 8.47  & 1  &  CNN-RSS-SSGA & 11.47 & 0 \\
+RSS-SSGA     & 13.47 & 0 & CNN-SSGA     & 12.94 & 0  &  MA           & 14.35 & 0 \\
+CNN-SSGA     & 13.47 & 0 & RSS-SSGA     & 13.05 & 0  &  RSS-MA       & 14.64 & 0 \\
+SSGA         & 14.70 & 0 & SSGA         & 14.23 & 0  &  CNN-MA       & 15.23 & 0 \\
+CNN-RSS-SSGA & 15.82 & 0 & CNN-RSS-SSGA & 15.05 & 0  &  ENN-MA       & 15.23 & 0 \\
+ENN-SSGA     & 16.64 & 0 & ENN-SSGA     & 16.76 & 0  &  CNN-RSS-MA   & 17.88 & 0 \\
+CNN-GGA      & 18.17 & 0 & ENN-RSS-SSGA & 18.00 & 0  &  ENN-RSS-MA   & 18.23 & 0 \\
+ENN-RSS-SSGA & 18.47 & 0 & CNN-GGA      & 18.52 & 0  &  GGA          & 18.88 & 0 \\
+RSS-GGA      & 19.94 & 0 & GGA          & 20.47 & 0  &  ENN-GGA      & 19.52 & 0 \\
+GGA          & 21.00 & 0 & RSS-GGA      & 20.52 & 0  &  RSS-GGA      & 20.05 & 0 \\
+CNN-RSS-GGA  & 21.41 & 0 & CNN-RSS-GGA  & 21.23 & 0  &  CNN-GGA      & 21.76 & 0 \\
+ENN-GGA      & 22.05 & 0 & ENN-GGA      & 22.05 & 0  &  ENN-RSS-GGA  & 22.76 & 0 \\
+ENN-RSS-GGA  & 23.82 & 0 & ENN-RSS-GGA  & 23.64 & 0  &  CNN-RSS-GGA  & 23.41 & 0 \\ 
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy + reducción}, \emph{kappa + reducción} y tiempo para los conjuntos medianos}
+\label{rank-med}
+\end{table}
+
+
+
+\begin{table}[h!]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{3}{c|}{\textsc{Kappa + Reducción}}
+	& \multicolumn{3}{c}{\textsc{Tiempo}} \\
+\hline
+Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor \\
+\hline
+\hline
+
 RSS-GGA     & 1.42 & 18 & GGA         & 2.15 & 7  & GGA         & 2.00 & 9  \\
 GGA         & 2.73 & 1  & RSS-GGA     & 2.19 & 10 & CNN-GGA     & 2.65 & 11 \\
 CNN-RSS-GGA & 3.00 & 6  & CNN-RSS-GGA & 2.88 & 6  & ENN-GGA     & 2.57 & 6  \\

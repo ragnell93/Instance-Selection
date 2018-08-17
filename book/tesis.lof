@@ -1,28 +1,27 @@
 \babel@toc {spanish}{}
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Taxonom\IeC {\'\i }a para los m\IeC {\'e}todos de selecci\IeC {\'o}n de prototipos}}{10}{figure.caption.21}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Taxonom\IeC {\'\i }a para los m\IeC {\'e}todos de selecci\IeC {\'o}n de prototipos}}{11}{figure.caption.26}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Representaci\IeC {\'o}n de un cromosoma y su respectivo conjunto reducido}}{21}{figure.caption.49}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Cruce de un punto}}{22}{figure.caption.53}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Validaci\IeC {\'o}n cruzada}}{28}{figure.caption.64}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Estratificaci\IeC {\'o}n}}{29}{figure.caption.65}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Representaci\IeC {\'o}n de un cromosoma y su respectivo conjunto reducido}}{23}{figure.caption.54}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Cruce de un punto}}{24}{figure.caption.58}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Validaci\IeC {\'o}n cruzada}}{29}{figure.caption.69}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Estratificaci\IeC {\'o}n}}{31}{figure.caption.70}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Selecci\IeC {\'o}n de puntos de las heur\IeC {\'\i }sticas\relax }}{35}{figure.caption.75}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Banana}}}{35}{figure.caption.75}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {CNN}}}{35}{figure.caption.75}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {ENN}}}{35}{figure.caption.75}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {RSS}}}{35}{figure.caption.75}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Boxplots de las metaheur\IeC {\'\i }sticas para los conjuntos peque\IeC {\~n}os\relax }}{37}{figure.caption.85}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Accuracy} + reducci\IeC {\'o}n}}}{37}{figure.caption.85}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {\emph {kappa} + reducci\IeC {\'o}n}}}{37}{figure.caption.85}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Boxplots de las metaheur\IeC {\'\i }sticas para los conjuntos medianos\relax }}{38}{figure.caption.88}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Accuracy} + reducci\IeC {\'o}n}}}{38}{figure.caption.88}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {\emph {kappa} + reducci\IeC {\'o}n}}}{38}{figure.caption.88}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Boxplots de las variaciones de las metaheur\IeC {\'\i }sticas para los conjuntos peque\IeC {\~n}os\relax }}{39}{figure.caption.95}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Accuracy} + reducci\IeC {\'o}n}}}{39}{figure.caption.95}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {\emph {kappa} + reducci\IeC {\'o}n}}}{39}{figure.caption.95}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Boxplots de las variaciones de las metaheur\IeC {\'\i }sticas para los conjuntos medianos\relax }}{45}{figure.caption.106}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Accuracy} + reducci\IeC {\'o}n}}}{45}{figure.caption.106}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {\emph {kappa} + reducci\IeC {\'o}n}}}{45}{figure.caption.106}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Selecci\IeC {\'o}n de instancias de las heur\IeC {\'\i }sticas\relax }}{37}{figure.caption.80}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Banana}}}{37}{figure.caption.80}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {CNN}}}{37}{figure.caption.80}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {ENN}}}{37}{figure.caption.80}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {RSS}}}{37}{figure.caption.80}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Boxplots de las metaheur\IeC {\'\i }sticas para los conjuntos peque\IeC {\~n}os\relax }}{44}{figure.caption.90}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Accuracy} + reducci\IeC {\'o}n}}}{44}{figure.caption.90}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {\emph {kappa} + reducci\IeC {\'o}n}}}{44}{figure.caption.90}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Boxplots de las metaheur\IeC {\'\i }sticas para los conjuntos medianos\relax }}{44}{figure.caption.93}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Accuracy} + reducci\IeC {\'o}n}}}{44}{figure.caption.93}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {\emph {kappa} + reducci\IeC {\'o}n}}}{44}{figure.caption.93}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces \emph {Accuracy} + reducci\IeC {\'o}n de las variaciones de las metaheur\IeC {\'\i }sticas para los conjuntos peque\IeC {\~n}os\relax }}{49}{figure.caption.99}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces \emph {Kappa} + reducci\IeC {\'o}n de las variaciones de las metaheur\IeC {\'\i }sticas para los conjuntos peque\IeC {\~n}os\relax }}{50}{figure.caption.100}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces \emph {Accuracy} + reducci\IeC {\'o}n de las variaciones de las metaheur\IeC {\'\i }sticas para los conjuntos medianos\relax }}{54}{figure.caption.103}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces \emph {Kappa} + reducci\IeC {\'o}n de las variaciones de las metaheur\IeC {\'\i }sticas para los conjuntos medianos\relax }}{55}{figure.caption.104}
+\addvspace {10\p@ }
 \addvspace {10\p@ }
