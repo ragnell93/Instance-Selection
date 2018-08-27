@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.17)  17 AUG 2018 13:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.17)  20 AUG 2018 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1949,12 +1949,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <img/acc_small.png, id=1026, 462.528pt x 346.896pt>
 File: img/acc_small.png Graphic file (type png)
 <use img/acc_small.png>
-Package pdftex.def Info: img/acc_small.png  used on input line 296.
+Package pdftex.def Info: img/acc_small.png  used on input line 308.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
 <img/kappa_small.png, id=1027, 462.528pt x 346.896pt>
 File: img/kappa_small.png Graphic file (type png)
 <use img/kappa_small.png>
-Package pdftex.def Info: img/kappa_small.png  used on input line 297.
+Package pdftex.def Info: img/kappa_small.png  used on input line 309.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
 
 
@@ -1963,12 +1963,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <img/acc_medium.png, id=1028, 462.528pt x 346.896pt>
 File: img/acc_medium.png Graphic file (type png)
 <use img/acc_medium.png>
-Package pdftex.def Info: img/acc_medium.png  used on input line 306.
+Package pdftex.def Info: img/acc_medium.png  used on input line 318.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
 <img/kappa_medium.png, id=1029, 462.528pt x 346.896pt>
 File: img/kappa_medium.png Graphic file (type png)
 <use img/kappa_medium.png>
-Package pdftex.def Info: img/kappa_medium.png  used on input line 307.
+Package pdftex.def Info: img/kappa_medium.png  used on input line 319.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1979,7 +1979,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [45] [46] [47] [48]
-Overfull \hbox (22.57858pt too wide) in paragraph at lines 446--447
+Overfull \hbox (22.57858pt too wide) in paragraph at lines 458--459
 \T1/cmr/m/n/12 '15':ENN-MA, '16':RSS-MA, '17':CNN-RSS-MA, '18':ENN-RSS-MA, '19'
 :CHC, '20':CNN-
  []
@@ -1987,18 +1987,18 @@ Overfull \hbox (22.57858pt too wide) in paragraph at lines 446--447
 <img/acc_small_all.png, id=1074, 462.528pt x 346.896pt>
 File: img/acc_small_all.png Graphic file (type png)
 <use img/acc_small_all.png>
-Package pdftex.def Info: img/acc_small_all.png  used on input line 451.
+Package pdftex.def Info: img/acc_small_all.png  used on input line 463.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 <img/kappa_small_all.png, id=1075, 462.528pt x 346.896pt>
 File: img/kappa_small_all.png Graphic file (type png)
 <use img/kappa_small_all.png>
-Package pdftex.def Info: img/kappa_small_all.png  used on input line 461.
+Package pdftex.def Info: img/kappa_small_all.png  used on input line 473.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [49 <./img/acc_small_all.png>] [50 <./img/kappa_small_all.png>] [51] [52]
-Overfull \hbox (22.57858pt too wide) in paragraph at lines 595--596
+Overfull \hbox (22.57858pt too wide) in paragraph at lines 607--608
 \T1/cmr/m/n/12 '15':ENN-MA, '16':RSS-MA, '17':CNN-RSS-MA, '18':ENN-RSS-MA, '19'
 :CHC, '20':CNN-
  []
@@ -2007,12 +2007,12 @@ Overfull \hbox (22.57858pt too wide) in paragraph at lines 595--596
 <img/acc_medium_all.png, id=1109, 462.528pt x 346.896pt>
 File: img/acc_medium_all.png Graphic file (type png)
 <use img/acc_medium_all.png>
-Package pdftex.def Info: img/acc_medium_all.png  used on input line 600.
+Package pdftex.def Info: img/acc_medium_all.png  used on input line 612.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 <img/kappa_medium_all.png, id=1110, 462.528pt x 346.896pt>
 File: img/kappa_medium_all.png Graphic file (type png)
 <use img/kappa_medium_all.png>
-Package pdftex.def Info: img/kappa_medium_all.png  used on input line 610.
+Package pdftex.def Info: img/kappa_medium_all.png  used on input line 622.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
 
@@ -2727,7 +2727,7 @@ fb></usr/share/texmf/fonts/type1/public/cm-super/sfti0800.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/
 cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pf
 b></usr/share/texmf/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on tesis.pdf (137 pages, 1195673 bytes).
+Output written on tesis.pdf (137 pages, 1195859 bytes).
 PDF statistics:
  1620 PDF objects out of 1728 (max. 8388607)
  1402 compressed objects within 15 object streams
