@@ -4,52 +4,50 @@
 \vspace {1em}
 \contentsline {chapter}{\IeC {\'I}ndice de Figuras}{\es@scroman {iv}}{dummy.3}
 \contentsline {chapter}{Lista de Tablas}{\es@scroman {v}}{dummy.5}
-\contentsline {chapter}{\IeC {\'I}ndice de algoritmos}{\es@scroman {viii}}{chapter*.7}
-\contentsline {chapter}{Acr\IeC {\'o}nimos y S\IeC {\'\i }mbolos}{\es@scroman {ix}}{dummy.8}
+\contentsline {chapter}{\IeC {\'I}ndice de algoritmos}{\es@scroman {ix}}{chapter*.7}
+\contentsline {chapter}{Acr\IeC {\'o}nimos y S\IeC {\'\i }mbolos}{\es@scroman {x}}{dummy.8}
 \contentsline {chapter}{Introducci\IeC {\'o}n}{1}{chapter*.11}
-\contentsline {section}{\numberline {0.1}Antecedentes}{2}{section.12}
-\contentsline {section}{\numberline {0.2}Objetivo general}{2}{section.13}
-\contentsline {section}{\numberline {0.3}Objetivos espec\IeC {\'\i }ficos}{2}{section.14}
-\contentsline {section}{\numberline {0.4}Justificaci\IeC {\'o}n}{3}{section.15}
-\contentsline {section}{\numberline {0.5}Organizaci\IeC {\'o}n del trabajo}{3}{section.16}
-\contentsline {chapter}{\numberline {1}Marco te\IeC {\'o}rico}{4}{chapter.17}
-\contentsline {section}{\numberline {1.1}Descubrimiento de Conocimiento y preprocesamiento de datos}{4}{section.18}
-\contentsline {section}{\numberline {1.2}Selecci\IeC {\'o}n de Instancias y Selecci\IeC {\'o}n de Prototipos}{8}{section.19}
-\contentsline {subsection}{\numberline {1.2.1}Taxonom\IeC {\'\i }a del problema de selecci\IeC {\'o}n de prototipos}{9}{subsection.22}
-\contentsline {subsubsection}{\numberline {1.2.1.1}Direcci\IeC {\'o}n de b\IeC {\'u}squeda}{9}{subsubsection.23}
-\contentsline {subsubsection}{\numberline {1.2.1.2}Tipo de selecci\IeC {\'o}n}{10}{subsubsection.24}
-\contentsline {subsubsection}{\numberline {1.2.1.3}Evaluaci\IeC {\'o}n de la b\IeC {\'u}squeda}{10}{subsubsection.25}
-\contentsline {subsection}{\numberline {1.2.2}Heur\IeC {\'\i }sticas}{11}{subsection.27}
-\contentsline {subsubsection}{\numberline {1.2.2.1}Condensed Nearest Neighbor (CNN)}{11}{subsubsection.28}
-\contentsline {subsubsection}{\numberline {1.2.2.2}Edited Nearest Neighbor (ENN)}{12}{subsubsection.30}
-\contentsline {subsubsection}{\numberline {1.2.2.3}Relaxed Selective Subset (RSS)}{12}{subsubsection.32}
-\contentsline {section}{\numberline {1.3}Meteheur\IeC {\'\i }sticas}{13}{section.34}
-\contentsline {subsection}{\numberline {1.3.1}Metaheur\IeC {\'\i }sticas basadas en una \IeC {\'u}nica soluci\IeC {\'o}n}{14}{subsection.38}
-\contentsline {subsection}{\numberline {1.3.2}Metaheur\IeC {\'\i }sticas basadas en una poblaci\IeC {\'o}n}{14}{subsection.39}
-\contentsline {subsubsection}{\numberline {1.3.2.1}Algoritmos evolutivos}{15}{subsubsection.40}
-\contentsline {paragraph}{\numberline {1.3.2.1.1}Algoritmo Gen\IeC {\'e}tico Generacional (GGA)}{16}{paragraph.41}
-\contentsline {paragraph}{\numberline {1.3.2.1.2}Algoritmo Gen\IeC {\'e}tico Estacionario (SSGA)}{17}{paragraph.43}
-\contentsline {paragraph}{\numberline {1.3.2.1.3}Algoritmo Mem\IeC {\'e}tico (MA)}{17}{paragraph.45}
-\contentsline {paragraph}{\numberline {1.3.2.1.4}CHC Adaptative Search Algorithm}{19}{paragraph.47}
-\contentsline {chapter}{\numberline {2}Marco metodol\IeC {\'o}gico}{22}{chapter.51}
-\contentsline {section}{\numberline {2.1}Representaci\IeC {\'o}n del cromosoma}{22}{section.52}
-\contentsline {section}{\numberline {2.2}Funci\IeC {\'o}n objetivo}{23}{section.55}
-\contentsline {section}{\numberline {2.3}Adaptaciones de los algoritmos evolutivos}{24}{section.57}
-\contentsline {section}{\numberline {2.4}Criterios para comparar los algoritmos de selecci\IeC {\'o}n de prototipos}{26}{section.62}
-\contentsline {section}{\numberline {2.5}Conjunto de datos}{28}{section.64}
-\contentsline {section}{\numberline {2.6}Validaci\IeC {\'o}n cruzada y estratificaci\IeC {\'o}n}{28}{section.68}
-\contentsline {section}{\numberline {2.7}Entonaci\IeC {\'o}n de las metaheur\IeC {\'\i }sticas}{31}{section.71}
-\contentsline {chapter}{\numberline {3}Evaluaci\IeC {\'o}n experimental}{34}{chapter.73}
-\contentsline {section}{\numberline {3.1}Dise\IeC {\~n}o experimental}{34}{section.74}
-\contentsline {section}{\numberline {3.2}Resultados}{37}{section.85}
-\contentsline {subsection}{\numberline {3.2.1}Heur\IeC {\'\i }sticas}{37}{subsection.86}
-\contentsline {subsection}{\numberline {3.2.2}Metaheur\IeC {\'\i }sticas}{40}{subsection.88}
-\contentsline {subsection}{\numberline {3.2.3}Variaciones de las metaheur\IeC {\'\i }sticas}{45}{subsection.96}
-\contentsline {subsubsection}{\numberline {3.2.3.1}Conjuntos peque\IeC {\~n}os}{45}{subsubsection.97}
-\contentsline {subsubsection}{\numberline {3.2.3.2}Conjuntos medianos}{51}{subsubsection.101}
-\contentsline {subsubsection}{\numberline {3.2.3.3}Conjuntos Grandes}{55}{subsubsection.105}
-\contentsline {chapter}{Conclusiones y Recomendaciones}{59}{chapter*.107}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{61}{section*.108}
+\contentsline {chapter}{\numberline {1}Marco te\IeC {\'o}rico}{4}{chapter.12}
+\contentsline {section}{\numberline {1.1}Descubrimiento de Conocimiento y preprocesamiento de datos}{4}{section.13}
+\contentsline {section}{\numberline {1.2}Selecci\IeC {\'o}n de Instancias y Selecci\IeC {\'o}n de Prototipos}{8}{section.14}
+\contentsline {subsection}{\numberline {1.2.1}Regla de K vecinos m\IeC {\'a}s cercanos}{9}{subsection.17}
+\contentsline {subsection}{\numberline {1.2.2}Taxonom\IeC {\'\i }a del problema de selecci\IeC {\'o}n de prototipos}{10}{subsection.19}
+\contentsline {subsubsection}{\numberline {1.2.2.1}Direcci\IeC {\'o}n de b\IeC {\'u}squeda}{10}{subsubsection.20}
+\contentsline {subsubsection}{\numberline {1.2.2.2}Tipo de selecci\IeC {\'o}n}{11}{subsubsection.21}
+\contentsline {subsubsection}{\numberline {1.2.2.3}Evaluaci\IeC {\'o}n de la b\IeC {\'u}squeda}{11}{subsubsection.22}
+\contentsline {subsection}{\numberline {1.2.3}Heur\IeC {\'\i }sticas}{12}{subsection.24}
+\contentsline {subsubsection}{\numberline {1.2.3.1}Condensed Nearest Neighbor (CNN)}{12}{subsubsection.25}
+\contentsline {subsubsection}{\numberline {1.2.3.2}Edited Nearest Neighbor (ENN)}{13}{subsubsection.27}
+\contentsline {subsubsection}{\numberline {1.2.3.3}Relaxed Selective Subset (RSS)}{14}{subsubsection.29}
+\contentsline {section}{\numberline {1.3}Metaheur\IeC {\'\i }sticas}{15}{section.36}
+\contentsline {subsection}{\numberline {1.3.1}Metaheur\IeC {\'\i }sticas basadas en una \IeC {\'u}nica soluci\IeC {\'o}n}{16}{subsection.40}
+\contentsline {subsection}{\numberline {1.3.2}Metaheur\IeC {\'\i }sticas basadas en una poblaci\IeC {\'o}n}{17}{subsection.41}
+\contentsline {subsubsection}{\numberline {1.3.2.1}Algoritmos evolutivos}{17}{subsubsection.42}
+\contentsline {paragraph}{\numberline {1.3.2.1.1}Algoritmo Gen\IeC {\'e}tico Generacional (GGA)}{18}{paragraph.43}
+\contentsline {paragraph}{\numberline {1.3.2.1.2}Algoritmo Gen\IeC {\'e}tico Estacionario (SSGA)}{18}{paragraph.45}
+\contentsline {paragraph}{\numberline {1.3.2.1.3}Algoritmo Mem\IeC {\'e}tico (MA)}{20}{paragraph.47}
+\contentsline {paragraph}{\numberline {1.3.2.1.4}CHC Adaptative Search Algorithm}{20}{paragraph.49}
+\contentsline {chapter}{\numberline {2}Marco metodol\IeC {\'o}gico}{23}{chapter.53}
+\contentsline {section}{\numberline {2.1}Representaci\IeC {\'o}n del cromosoma}{23}{section.54}
+\contentsline {section}{\numberline {2.2}Funci\IeC {\'o}n objetivo}{24}{section.57}
+\contentsline {section}{\numberline {2.3}Adaptaciones de los algoritmos evolutivos}{25}{section.59}
+\contentsline {section}{\numberline {2.4}Criterios para comparar los algoritmos de selecci\IeC {\'o}n de prototipos}{28}{section.64}
+\contentsline {section}{\numberline {2.5}Conjunto de datos}{29}{section.66}
+\contentsline {section}{\numberline {2.6}Validaci\IeC {\'o}n cruzada y estratificaci\IeC {\'o}n}{30}{section.70}
+\contentsline {subsection}{\numberline {2.6.1}Validaci\IeC {\'o}n cruzada}{30}{subsection.71}
+\contentsline {subsection}{\numberline {2.6.2}Estratificaci\IeC {\'o}n}{32}{subsection.73}
+\contentsline {section}{\numberline {2.7}Entonaci\IeC {\'o}n de las metaheur\IeC {\'\i }sticas}{33}{section.75}
+\contentsline {chapter}{\numberline {3}Evaluaci\IeC {\'o}n experimental}{35}{chapter.77}
+\contentsline {section}{\numberline {3.1}Dise\IeC {\~n}o experimental}{35}{section.78}
+\contentsline {section}{\numberline {3.2}Resultados}{38}{section.84}
+\contentsline {subsection}{\numberline {3.2.1}Heur\IeC {\'\i }sticas}{38}{subsection.85}
+\contentsline {subsection}{\numberline {3.2.2}Metaheur\IeC {\'\i }sticas}{40}{subsection.87}
+\contentsline {subsection}{\numberline {3.2.3}Combinaciones de las metaheur\IeC {\'\i }sticas}{43}{subsection.95}
+\contentsline {subsubsection}{\numberline {3.2.3.1}Conjuntos peque\IeC {\~n}os}{44}{subsubsection.96}
+\contentsline {subsubsection}{\numberline {3.2.3.2}Conjuntos medianos}{51}{subsubsection.102}
+\contentsline {subsubsection}{\numberline {3.2.3.3}Conjuntos Grandes}{57}{subsubsection.108}
+\contentsline {chapter}{Conclusiones y Recomendaciones}{61}{chapter*.112}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{63}{section*.113}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Pruebas por pares \emph {Wilcoxon}}{68}{appendix.110}
-\contentsline {chapter}{\numberline {B}Resultados de todos los conjuntos}{74}{appendix.123}
+\contentsline {chapter}{\numberline {A}Pruebas por pares \emph {Wilcoxon}}{70}{appendix.115}
+\contentsline {chapter}{\numberline {B}Resultados de todos los conjuntos}{76}{appendix.128}

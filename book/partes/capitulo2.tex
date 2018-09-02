@@ -6,10 +6,10 @@ En este capítulo se detalla la representación utilizada para los cromosomas, l
 
 \section{Representación del cromosoma}
 
-Sea T el conjunto de instancias a reducir de tamaño \texttt{n}, la representación usada para modelar el problema de selección de prototipos es el de un mapa de bits de tamaño \texttt{n}, donde cada bit representa una instancia $t_i \in T$; si el valor del bit i es 1, entonces la instancia $t_i \in S$, donde S es el conjunto reducido; si el bit i es 0, $t_i \notin S$. En este sentido, el conjunto S representado por el mapa de bits M se define como en la ecuación (2.1). Un ejemplo puede verse en la figura \ref{representacion}. Cabe destacar que en los algoritmos evolutivos, los mapas de bits se conocen como cromosomas y cada bit como gen.
+La representación usada para modelar el problema de selección de prototipos es el de un mapa de bits de tamaño $n$ igual al número de instancias pertenecientes al conjunto original, donde cada bit representa una instancia $t_i$; si el valor del bit i es 1, entonces la instancia $t_i \in S$, donde S es el conjunto reducido; si el bit i es 0, $t_i \notin S$. En este sentido, el conjunto S representado por el mapa de bits M se define como en la ecuación (2.1). Un ejemplo puede verse en la figura \ref{representacion}. Cabe destacar que en los algoritmos evolutivos, los mapas de bits se conocen como cromosomas y cada bit como gen.
 
 \begin{equation}
-S = \left\{ t_i \in T \mid i = 1 \dots n \land m_i = 1 \land m_i \in M \right\}
+S = \left\{ i \mid i = 1 \dots n \land m_i = 1 \land m_i \in M \right\}
 \end{equation} 
 
 \begin{figure}[]
@@ -21,15 +21,15 @@ S = \left\{ t_i \in T \mid i = 1 \dots n \land m_i = 1 \land m_i \in M \right\}
 
 \section{Función objetivo}
 
-Se necesita una función con la cual se pueda evaluar cuán buena es una solución, además la función debe permitir establecer una relación de orden entre las soluciones con el fin de decidir cuál solución es mejor. Como se explicó anteriormente, los algoritmos evolutivos buscan aproximarse al óptimo global, que en este caso es el conjunto reducido S con menor cardinalidad y mayor precisión en la clasificación de instancias nuevas. Es por eso que se adopta una función objetivo derivada del trabajo de \emph{Cano, J.} en \cite{de2004reduccion}, la cual se presenta a continuación:
+Se necesita una función con la cual se pueda evaluar cuán buena es una solución, además la función debe permitir establecer una relación de orden entre las soluciones con el fin de decidir cuál solución es mejor. Como se explicó en la sección 1.3.2.1, los algoritmos evolutivos buscan aproximarse al óptimo global, que en este caso es el conjunto reducido S con menor cardinalidad y mayor precisión en la clasificación de instancias nuevas. Es por eso que se adopta una función objetivo derivada del trabajo de \emph{Cano, J.} en \cite{de2004reduccion}, la cual se presenta a continuación:
 
 \begin{equation}
 \mathcal{F}(S) = \alpha * error(S) + (1 - \alpha) * reduction(S)
 \end{equation} 
 
-Donde $\mathcal{F}: S \rightarrow \mathbb{R}$ es la función objetivo, S es el conjunto reducido, $\alpha$ es un parámetro que controla cuánta importancia se le da al error asociado a S con respecto a la tasa de reducción del segundo término de la ecuación (2.2), TR es el conjunto de entrenamiento original del cual se realizó la reducción, \emph{error(S)} es el porcentaje de error al clasificar un conjunto de prueba TS al usar 1-NN con S como conjunto de entrenamiento y \emph{reduction(S)} es el porcentaje de instancias restantes en S en relación al conjunto original TR. El $\alpha$ usado es 0.5 como lo establecen en \cite{de2004reduccion} para darle la misma importancia a la reducción de datos como a mantener bajo los porcentajes de error en la clasificación.
+Donde $\mathcal{F}: S \rightarrow \mathbb{R}$ es la función objetivo, S es el conjunto reducido, $\alpha$ es un parámetro que controla cuánta importancia se le da al error asociado a S con respecto a la tasa de reducción del segundo término de la ecuación (2.2), \emph{error(S)} es el número de instancias clasificadas erróneamente usando el conjunto S como conjunto de entrenamiento de un clasificador 1-NN y \emph{reduction(S)} es el número de instancias en S dividido entre el número de instancias del conjunto original. El $\alpha$ usado es 0.5 como lo establecen en \cite{de2004reduccion} para darle la misma importancia a la reducción de datos como a mantener bajo los porcentajes de error en la clasificación.
 
-Dado esta función objetivo, la meta de todas las metaheurísticas implementadas se vuelve minimizar $\mathcal{F}(S)$, lo cual quiere decir que se busca tanto reducir la cardinalidad de $S$, como reducir error(S). Un conjunto $S_i$ es mejor que un conjunto $S_j$ si $\mathcal{F}(S_i) < \mathcal{F}(S_j)$.  
+Dado esta función objetivo, la meta de todas las metaheurísticas implementadas se vuelve minimizar $\mathcal{F}(S)$, lo que quiere decir que se busca tanto reducir la cardinalidad de $S$, como reducir error(S). Un conjunto $S_i$ es mejor que un conjunto $S_j$ si $\mathcal{F}(S_i) < \mathcal{F}(S_j)$.  
 
 \section{Adaptaciones de los algoritmos evolutivos}
 
@@ -37,20 +37,20 @@ Para aplicar los distintos algoritmos evolutivos implementados para este trabajo
 
 Para el caso del algoritmo genético estacionario y el algoritmo memético, se eligió como método de selección de cromosomas a cruzarse un \emph{Proceso de Torneo} \cite{talbi2009metaheuristics}, el cual consiste en seleccionar $k$ cromosomas de manera aleatoria y elegir el mejor de los $k$. CHC por su parte elige dos cromosomas aleatorios y utiliza su mecanismo de prevención de incesto para elegir a los padres. El algoritmo genético generacional simplemente elige dos elementos aleatorios para realizar el cruce.
 
-El operador de cruce utilizado en GGA, SSGA y MA es el cruce de un punto \cite{talbi2009metaheuristics}, el cual consiste en definir un punto $\mu$ en el cual se va dividir los dos cromosomas seleccionados como padres y luego se forman dos hijos a partir de la mezcla de las partes de los padres. CHC en cambio usa el operador HUX explicado anteriormente. En la figura \ref{cruce} se muestra un ejemplo del cruce de un punto. 
+El operador de cruce utilizado en GGA, SSGA y MA es el cruce de un punto \cite{talbi2009metaheuristics}, el cual consiste en definir un punto $\mu$ en el cual se va dividir los dos cromosomas seleccionados como padres y luego se forman dos hijos a partir de la mezcla de las partes de los padres. CHC en cambio usa el operador HUX. En la figura \ref{cruce} se muestra un ejemplo del cruce de un punto. 
 
-\begin{figure}[]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{cruce.png}
 \caption[Cruce de un punto]{Cruce de un punto}
 \label{cruce}
 \end{figure}
 
-El operador de mutación para GGA, SSGA y MA consta de cambiar 5\% de los genes del cromosoma de manera aleatoria. Se elige 5\%  basado en \cite{flores2014metaheuristics} para que la mutación represente una variación en S, ya que si sólo se cambia un gen, el conjunto mutado sería para los efectos de la optimización casi idéntico al original. Sin embargo, la probabilidad de que un cromosoma dado mute es baja, basado principalmente en los resultados de \emph{Cano, J.} en \cite{de2004reduccion} donde obtienen mejores resultados experimentales con bajas probabilidades de mutación (menor al 1\% por cromosoma), justificándose en que con mayores valores, la búsqueda podría degenerar en una búsqueda aleatoria. CHC por su parte no tiene mutación.
+El operador de mutación para GGA, SSGA y MA consiste en cambiar 5\% de los genes del cromosoma de manera aleatoria. Se elige 5\%  basado en \cite{flores2014metaheuristics} para que la mutación represente una variación en S, ya que si sólo se cambia un gen, el conjunto mutado sería para los efectos de la optimización casi idéntico al original. Sin embargo, la probabilidad de que un cromosoma mute es baja, basado principalmente en los resultados de \emph{Cano, J.} en \cite{de2004reduccion} donde obtienen mejores resultados experimentales con bajas probabilidades de mutación (menor al 1\% por cromosoma), justificándose en que con mayores valores, la búsqueda podría degenerar en una búsqueda aleatoria. CHC por su parte no tiene mutación.
 
-El criterio de reemplazo para GGA es generar una población nueva de hijos $P_i$ que va a suplantar la generación anterior $P_{i-1}$ excepto el mejor cromosoma en $P_{i-1}$. Por su parte, el criterio de reemplazo de SSGA es que dado dos padres y los dos hijos producidos por el operador de cruce, se eligen los 2 mejores cromosomas para permanecer dentro de la población. MA, en cambio usa un criterio de reemplazo en el cual los 2 hijos suplantan a los 2 peores elementos de la población y CHC se queda con los \texttt{n} mejores cromosomas entre $P_i$ y $P_{i-1}$, ambos casos son totalmente elitistas.
+El criterio de reemplazo para GGA es generar una población nueva de hijos $P_i$ que va a suplantar la generación anterior $P_{i-1}$ excepto el mejor cromosoma en $P_{i-1}$. Por su parte, el criterio de reemplazo de SSGA es que dado dos padres y los dos hijos producidos por el operador de cruce, se eligen los 2 mejores cromosomas entre los padres e hijos para permanecer dentro de la población. MA, en cambio usa un criterio de reemplazo en el cual los 2 hijos suplantan a los 2 peores elementos de la población y CHC se queda con los \texttt{n} mejores cromosomas entre $P_i$ y $P_{i-1}$. Tanto MA como CHC son totalmente elitistas.
 
-El algoritmo memético es el que más adaptaciones tiene para adecuarse a PS, se usa una adaptación realizado por \emph{Cano, J. et al.} en \cite{garcia2008memetic}. Se basa en el algoritmo memético estacionario presentado en la sección 1.3.2.1.3, con la peculiariadad de que para decidir si los hijos producidos en una iteración van a ser optimizados, se usa el parámetro $P_{LS}$ que viene dado por la siguiente ecuación:
+El algoritmo memético es el que más adaptaciones tiene para adecuarse a PS, se usa una adaptación realizada por \emph{Cano, J. et al.} en \cite{garcia2008memetic}. Se basa en el algoritmo memético estacionario presentado en la sección 1.3.2.1.3, con la peculiariadad de que para decidir si los hijos producidos en una iteración van a ser optimizados, se usa el parámetro $P_{LS}$ que viene dado por la siguiente ecuación:
 
 \begin{equation}
 P_{LS}=
@@ -62,13 +62,13 @@ P_{LS}=
 
 Donde $\mathcal{F}$ es la función objetivo, $S_{nuevo}$ es el conjunto de uno de los cromosomas hijos y $S_{peor}$ es el conjunto del peor cromosoma de la población. Es así como $P_{LS}$ representa la probabilidad con la cual se va a decidir si se optimiza el cromosoma hijo; $P_{LS}$ debe ser calculado para cada hijo creado en el cruce. La idea es que si el hijo es mejor que el peor cromosoma de la población, entonces vale la pena optimizarlo; en cambio, si es peor, se le da una probabilidad de optimización de 6,25\%.
 
-El meme usado en MA es el que se presenta en el algoritmo \ref{meme}. El procedimiento consiste en reducir progresivamente las instancias que se encuentran en el conjunto S, representado por el cromosoma M, sin que se pierda la precisión asociada a S. Para esto, se usa una lista U del primer vecino más cercano de cada gen en M, una lista R que contiene los genes que ya han sido puestos en 0 y que no generan una ganancia mayor al umbral de aceptación \texttt{t}, clase(i) es la clase asociada a la instancia representada por el gen i del cromosoma M, \texttt{ganancia} representa cuánto mejora (en caso de que sea positiva) o cuánto empeora (en caso de ser negativa) la solución dada por el cromosoma M luego de cambiar un gen, $fitness_M$ es el valor de evaluar la función objetivo con el cromosoma M y $fitness_{ganancia}$ se define como en la ecuación (2.4), donde L es el largo del cromosoma:
+El meme usado en MA es el que se presenta en el algoritmo \ref{meme}. El procedimiento consiste en reducir progresivamente las instancias que se encuentran en el conjunto S, representado por el cromosoma M, sin que se pierda la precisión asociada a S. Para esto, se usa una lista U del primer vecino más cercano de cada gen en M, una lista R que contiene los genes que ya han sido colocados en 0 y que no generan una ganancia mayor al umbral de aceptación \texttt{t}, clase(i) es la clase asociada a la instancia representada por el gen i del cromosoma M, \texttt{ganancia} representa cuánto mejora (en caso de que sea positiva) o cuánto empeora (en caso de ser negativa) la solución dada por el cromosoma M luego de cambiar un gen, $fitness_M$ es el valor de evaluar la función objetivo con el cromosoma M y $fitness_{ganancia}$ se define como en la ecuación (2.4), donde L es el largo del cromosoma:
 
 \begin{equation}
 fitness_{ganancia} = \frac{\frac{ganancia}{L}*100 + \frac{100}{L}}{2}
 \end{equation}  
 
-El meme intenta remover una instancia de S en cada iteración pra ver si la precisión mejora, se mantiene igual o empeora. Si la ganancia mejora, es decir que sea positiva, y está por encima del umbral de aceptación entonces se preservan los cambios; en cambio, si la ganancia está por debajo del umbral, entonces se vuelve a incluir la instancia eliminada y se etiqueta su respectivo gen como revisado.
+El meme intenta remover una instancia de S en cada iteración para evaluar si la precisión mejora, se mantiene igual o empeora. Si la ganancia mejora, es decir que sea positiva, y está por encima del umbral de aceptación entonces se preservan los cambios; en cambio, si la ganancia está por debajo del umbral, entonces se vuelve a incluir la instancia eliminada y se etiqueta su respectivo gen como revisado.
  
 \begin{algorithm}
 \caption{Meme}
@@ -109,24 +109,26 @@ El meme intenta remover una instancia de S en cada iteración pra ver si la prec
 \end{algorithmic}
 \end{algorithm}
 
+\newpage
+
 \section{Criterios para comparar los algoritmos de selección de prototipos}
 
 Al momento de comparar los distintos algoritmos de PS, se usan los siguiente criterios para evaluar las fortalezas y debilidades relativas de cada algoritmo \cite{garcia2016data}:
 
 \begin{itemize}
 \item \textbf{Reducción: }
-ésta se mide como la proporción existente entre la cardinalidad del conjunto reducido $S$ entre la cardinalidad del conjunto de entrenamiento $TR$. 
+ésta se mide como la relación entre la cardinalidad de S dividida por la cardinalidad del conjunto de entrenamiento. Por lo general se expresa en porcentaje. 
 
 %La reducción de las instancias trae consigo una disminución en los tiempos de cómputo al tener que revisar menos cromosomas en cada iteración para clasificar una nueva instancia. 
 
-\item \textbf{Precisión de la clasificación: }
-se espera que aún con el conjunto reducido, se mantenga las tasas de acierto del clasificador o inclusive, mejoren. Un algoritmo de PS debe poder mantener la precisión al momento de ser evaluado con el conjunto de prueba. La precisión se calcula al dividir el número de clasificaciones hechas correctamente entre el total de clasificaciones.
+\item \textbf{Precisión de la clasificación (\emph{Accuracy}): }
+se calcula al dividir el número de clasificaciones hechas correctamente entre el total de clasificaciones. Se espera que, aún cuando se reduce el número de instancias del conjunto original, se mantenga la tasa de acierto del clasificador o inclusive, mejore.
 
 \item \textbf{Tiempo de cómputo: }
-involucra cuánto tiempo le lleva al algoritmo realizar la reducción de los datos, un factor importante al momento de escalar los algoritmos a conjuntos muy grandes. En este trabajo el tiempo de cómputo se mide en segundos.
+involucra cuánto tiempo le lleva al algoritmo realizar la selección de prototipos, un factor importante al momento de escalar los algoritmos a conjuntos muy grandes. En este trabajo el tiempo de cómputo se mide en segundos.
 
 \item \textbf{\emph{Cohen's Kappa}: } 
-es una métrica que originalmente mide el nivel de acuerdo o desacuerdo entre dos clasificadores. Sin embargo se han hecho adaptaciones de esta métrica para ser usada por un sólo clasificador \cite{garcia2012prototype}, ya que es más robusta que la precisión, puesto que toma en cuenta la posibilidad de que una clasificación sea hecha aleatoriamente. Esta métrica sirve para verificar si el clasificador etiqueta las instancias correctamente de manera consistente o con muchas decisiones aleatorias. \emph{Cohen's kappa} se calcula a partir de la matriz de confusión como se muestra en la ecuación (2.5). Donde $y_{ii}$ es el conteo de las celdas de la diagonal principal, N el número de instancias revisadas, $\Omega$ el el número de clases presentes, $y_i.$ es la suma de las celdas de la fila i y $Y._i$ es la suma de las celdas de la columna i.
+esta métrica sirve para verificar si el clasificador etiqueta las instancias correctamente de manera consistente o con muchas decisiones aleatorias. \emph{Cohen's kappa} se calcula a partir de la matriz de confusión como se muestra en la ecuación (2.5). Donde $y_{ii}$ es el conteo de las celdas de la diagonal principal, N el número de instancias revisadas, $\Omega$ el el número de clases presentes, $y_i.$ es la suma de las celdas de la fila i y $Y._i$ es la suma de las celdas de la columna i.
 
 \begin{equation} 
 kappa = \frac{N*\sum_{i=1}^{\Omega}y_{ii} - \sum_{i=1}^{\Omega}y_i.*y._i}{N^2 - \sum_{i=1}^{\Omega}y_i.*y._i}
@@ -137,13 +139,15 @@ kappa = \frac{N*\sum_{i=1}^{\Omega}y_{ii} - \sum_{i=1}^{\Omega}y_i.*y._i}{N^2 - 
 
 \section{Conjunto de datos}
 
-Los conjuntos de datos utilizados para validar el experimento provienen de \emph{UCI Machine Learning Repository} \cite{Dua:2017} y \emph{KEEL Data-Mining Software Tool} \cite{alcala2011keel}. Se hace una separación como la establecida en \cite{de2004reduccion} donde se considera como conjunto de datos pequeños aquellos con menos de 2000 instancias, los conjuntos medianos los que poseen entre 2000 y 20000 instancias y los conjuntos grandes aquellos con más de 20000 instancias. En la tabla \ref{pequenios} se detallan los conjuntos pequeños, en \ref{medianos} los medianos y en \ref{grandes} los grandes. Solo se eligió conjunto de datos numéricos para poder utilizar la distancia euclídea con 1-NN sin tener problemas en la preservación de información al convertir datos categóricos a numéricos.
+Los conjuntos de datos utilizados para validar el experimento provienen de \emph{UCI Machine Learning Repository} \cite{Dua:2017} y \emph{KEEL Data-Mining Software Tool} \cite{alcala2011keel}. Se hace una separación como la establecida en \cite{de2004reduccion} donde se considera como conjunto de datos pequeños aquellos con menos de 2000 instancias, los conjuntos medianos los que poseen entre 2000 y 20000 instancias y los conjuntos grandes aquellos con más de 20000 instancias. En las tablas \ref{pequenios}, \ref{medianos} y \ref{grandes} se detallan los conjuntos pequeños, medianos y grandes respectivamente. Solo se eligió conjunto de datos numéricos para poder utilizar la distancia euclídea con 1-NN sin tener problemas en la preservación de información al convertir datos categóricos a numéricos.
+
+\newpage
 
 \begin{table}[]
 \centering
 \begin{tabular}{l c c c}
 \hline
-\textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clases} \\
+\textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clase} \\
 \hline
 \hline
 
@@ -184,7 +188,27 @@ Yeast         & 1484 & 8  & 10 \\
 \centering
 \begin{tabular}{l c c c}
 \hline
-\textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clases} \\
+\textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clase} \\
+\hline
+\hline
+
+Credit-card      & 30000 & 24 & 2 \\
+Shuttle          & 58000 & 9  & 7 \\
+
+\hline
+\end{tabular}
+\caption{Conjuntos de datos grandes}
+\label{grandes}
+\end{table}
+
+
+\newpage
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{l c c c}
+\hline
+\textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clase} \\
 \hline
 \hline
 
@@ -212,39 +236,30 @@ Twonorm          &  7400 & 20 & 2 \\
 \label{medianos}
 \end{table}
 
-\begin{table}[]
-\centering
-\begin{tabular}{l c c c}
-\hline
-\textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clases} \\
-\hline
-\hline
 
-Credit-card      & 30000 & 24 & 2 \\
-Shuttle          & 58000 & 9  & 7 \\
 
-\hline
-\end{tabular}
-\caption{Conjuntos de datos grandes}
-\label{grandes}
-\end{table}
+\newpage
 
 \section{Validación cruzada y estratificación}
 
-Dado un conjunto de datos T, el proceso de validación cruzada \cite{kohavi1995study} consta de dividir T en k subconjuntos disjuntos $T_1,T_2,\dots,T_k$ de aproximadamente el mismo tamaño, donde cada subconjunto mantiene la distribución de las clases presente en T. Luego se procede a probar el clasificador M, que en este caso es 1-NN, k veces, donde en cada prueba $t \in \left\{1,2,\dots,k\right\}$ se utiliza como conjunto de entrenamiento $TR=T \setminus T_t$, se aplica el algoritmo de selección de prototipos a TR y el conjunto resultante S se valida al usar $TS=T_t$ como conjunto de prueba. El porcentaje de aciertos del clasificador se calcula como el promedio de las k pruebas realizadas.  En la figura \ref{crossval} se muestra un esquema de cómo se aplica la validación cruzada para el problema de selección de prototipos dado que la partición k es seleccionada como conjunto de prueba.
+\subsection{Validación cruzada}
 
-\begin{figure}[]
+Dado un conjunto de datos T, el proceso de validación cruzada \cite{kohavi1995study} consta de dividir T en k subconjuntos disjuntos $T_1,T_2,\dots,T_k$ de aproximadamente el mismo tamaño, donde cada subconjunto mantiene la distribución de las clases presente en T. El conjunto de entrenamiento $TR = T \setminus T_i$ con $i \in \left\{1,2,\dots,k\right\}$ es usado por las metaheurísticas para devolver la mejor solución, la cual será usada para evaluar las instancias del conjunto de validación $ TS = T_i $. En la figura \ref{crossval} se muestra un esquema de cómo se aplica la validación cruzada para el problema de selección de prototipos dado que la partición k es seleccionada como conjunto de prueba.
+
+\begin{figure}[h!]
 \centering
-\includegraphics[scale=0.3]{classicCV.png}
+\includegraphics[scale=0.5]{classicCV.png}
 \caption[Validación cruzada]{Validación cruzada}
 \label{crossval}
 \end{figure}
 
-Por otra parte está la estratificación, la cual es una técnica propuesta por \emph{Cano, J. et al.} en \cite{cano2005stratification} para solventar el problema de aplicación de los algoritmos de PS a conjunto de datos muy grandes. Dicho problema viene dado porque la mayoría de los algoritmos de PS y metaheurísticas utilizadas son $O(n^2)$, $n$ es la cantidad de instancias del conjunto a procesar, y por lo tanto, para grandes volúmenes de datos estos algoritmos empiezan a tardar mucho en calcular una solución, que los vuelve poco útiles al momento de hacer preprocesamiento de datos. Es así que la estratificación se adopta como una técnica que lleva a tiempos aceptables el cómputo con conjuntos de muchas instancias. 
+\subsection{Estratificación}
+
+La estratificación es una técnica propuesta por \emph{Cano, J. et al.} en \cite{cano2005stratification} para solventar el problema de aplicación de los algoritmos de PS a conjunto de datos muy grandes. Dicho problema viene dado porque la mayoría de los algoritmos de PS y metaheurísticas utilizadas son $O(n^2)$, donde $n$ es la cantidad de instancias del conjunto a procesar, y por lo tanto, tienen un problema de escalamiento cuando se utilizan con conjuntos de datos grandes.
 
 Dado un conjunto de datos TR producto de la división hecha por un proceso de validación cruzada, la estratificación comienza con la división de TR en $k$ subconjuntos disjuntos, llamados estratos, $TR_1,TR_2,\dots,TR_k$ de aproximadamente el mismo tamaño. Luego, se aplica el algoritmo de PS directamente a cada uno de los $k$ subconjuntos seleccionados $TR_i$ para el entrenamiento, que más adelante forma subconjuntos reducidos $TRS_1,TRS_2,\dots,TRS_k$; acto seguido, se juntan todos los $TRS_i$ para formar el conjunto reducido S que va a ser usado por 1-NN para clasificar $TS$. La estratificación prueba ser un método efectivo, como lo demuestran en \cite{cano2005stratification}, ya que reduce la cantidad de instancias que debe tratar el algoritmo de PS a $TR/k$, por lo que la elección del número de estratos k se vuelve de especial importancia. En la figura \ref{strat} se muestra un esquema de cómo se aplica la estratificación, donde el estrato k es seleccionado como conjunto de prueba.
 
-\begin{figure}[]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{stratCV.png}
 \caption[Estratificación]{Estratificación}
@@ -254,9 +269,9 @@ Dado un conjunto de datos TR producto de la división hecha por un proceso de va
 \section{Entonación de las metaheurísticas}
 
 Para la entonación de las metaheurísticas se usó \emph{irace} \cite{lopez2016irace}, el cual es un paquete de R que implementa el método de entonación automática conocido como \emph{iterated F-race}. La esencia de \emph{iterated F-race}
-es hacer varias carreras, las cuales son procesos internos del algoritmo que ponen a competir un conjunto de vectores de parámetros (tambien conocidos como configuraciones) con un repertorio de problemas, con el fin de recopilar datos referentes al desempeño de cada configuración, para poder hacer pruebas estadísticas que determinarán las configuraciones que van a ser elegidas como las mejores y además descartar las peores en una etapa temprana de la carrera. 
+es hacer varias carreras, las cuales son procesos internos del algoritmo que ponen a competir un conjunto de vectores de parámetros (también conocidos como configuraciones) con un repertorio de problemas, con el fin de recopilar datos referentes al desempeño de cada configuración para hacer pruebas estadísticas que determinan cuáles son las mejores y además, descartar las peores en una etapa temprana de la carrera. 
 
-\emph{Iterated F-race} en específico trata de un método que consiste en tres pasos: (1) elegir varias configuraciones posibles de acuerdo a una distribución en particular y así formar una población, (2) elegir una población de configuraciones (3) actualizar la distribución de la población de tal manera que sea sesgado a favor de las mejores configuraciones. Estos tres pasos son repetidos hasta que pase un número de iteraciones dadas por el usuario. El algoritmo de \emph{iterated F-race} se presenta en \ref{irace}.
+\emph{Iterated F-race} trata de un método que consiste en tres pasos: (1) elegir varias configuraciones posibles de acuerdo a una distribución en particular y así formar una población, (2) elegir una población de configuraciones (3) actualizar la distribución de la población de tal manera que sea sesgada a favor de las mejores configuraciones. Estos tres pasos son repetidos hasta que pase un número de iteraciones dadas por el usuario. El algoritmo de \emph{iterated F-race} se presenta en \ref{irace}.
 
 \begin{algorithm}
 \caption{IRACE}
@@ -273,7 +288,7 @@ es hacer varias carreras, las cuales son procesos internos del algoritmo que pon
 	\State $j \gets j + 1$
 	\State $\theta^{nueva} \gets$ muestra sesgada hacia $\theta^{elite}$ de X 
 	\State $\theta_j \gets \theta^{nueva} \cup \theta^{elite}$
-	\State $\theta^{elite} \gets$ resultado de una \textbf{carrera} al usar $\theta_j$ como población y con presupuesto $B_j$
+	\State $\theta^{elite} \gets$ resultado de una \textbf{carrera} al usar $\theta_j$ como población y con número de iteraciones $B_j$
 \EndWhile
 \State \Return $\theta^{elite}$
 
@@ -298,6 +313,6 @@ Cabe acotar que \emph{irace} asume que el problema sobre el cual se va a entonar
 
 %El proceso de carrera (\emph{racing} en inglés) para la entonación de metaheurísticas con el cual se realiza el paso (2) (líneas 2 y 8), fue propuesto por \emph{Birattari, M. et al.} en \cite{birattari2002racing}. La carrera empieza usando una población con configuraciones; luego, a cada iteración de la carrera, las configuraciones son evaluadas en una sola instancia $I_j$. Después de un número iteraciones dadas por un parámetro T, aquellas configuraciones que estadísticamente tienen un desempeño inferior al resto son descartadas. \emph{Irace} establece  $T = 1$; además, puede usar una prueba Friedman no paramétrica o una prueba t-test como prueba estadística para hacer las comparaciones entre las configuraciones. Por recomendación de los autores, se usa una prueba t-test con un valor de significancia de 0.05 ya que, según sus criterios, es la más adecuada para la entonación de parámetros de valores continuos.
 
-La prueba estadística utilizada por la carrera para reemplazar las peores configuraciones y preservar las élites es la prueba Friedman no paramétrica o la prueba \emph{t-test}. Por recomendación de los autores se usa una prueba t-test con un valor significativo de 0.05 ya que, según sus criterios, es la más adecuada para la entonación de parámetros de valores continuos.
+La prueba estadística utilizada por la carrera para reemplazar las peores configuraciones y preservar las élites es la prueba \emph{Friedman} no paramétrica o la prueba \emph{t-test}. Por recomendación de los autores se usa una prueba \emph{t-test} con un valor de significancia de 0.05 ya que, según sus criterios, es la más adecuada para la entonación de parámetros de valores continuos.
 
-\emph{Irace}, además, implementa un método de reinicialización cuando la población de configuraciones converge prematuramente. En este proceso se mantienen las configuraciones élites de la última carrera y empieza de nuevo segun ciertas consideraciones. Aunado a esto, \emph{irace} también implementa un sistema de carrera elitista, el cual evita que las mejores configuraciones encontradas hasta el momento se pierdan en una carrera producto de una serie desfavorable de evaluaciones en un momento dado. En este trabajo se usa ambas funciones como configuración por defecto que tiene \emph{irace}. Para más información de todas las funciones y utilidades que presenta esta herramemienta, se recomienda leer \cite{lopez2016irace}.
+\emph{Irace}, además, implementa un método de reinicialización cuando la población de configuraciones converge prematuramente. En este proceso se mantienen las configuraciones élites de la última carrera y empieza de nuevo segun ciertas consideraciones. Aunado a esto, \emph{irace} también implementa un sistema de carrera elitista, el cual evita que las mejores configuraciones encontradas hasta el momento se pierdan en una carrera producto de una serie desfavorable de evaluaciones en un momento dado. En este trabajo se usa tanto el método de reinicialización como el sistema de carrera elitista. Para más información de todas las funciones y utilidades que presenta esta herramemienta, se recomienda leer \cite{lopez2016irace}.

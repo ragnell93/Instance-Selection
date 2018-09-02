@@ -60,6 +60,11 @@ Carlo Batini, Maurizio Lenzerini, and Shamkant~B. Navathe.
   integration.
 \newblock {\em ACM computing surveys (CSUR)}, 18(4):323--364, 1986.
 
+\bibitem[BT11]{box2011bayesian}
+George~EP Box and George~C Tiao.
+\newblock {\em Bayesian inference in statistical analysis}, volume~40.
+\newblock John Wiley \& Sons, 2011.
+
 \bibitem[CAB11]{catal2011class}
 Cagatay Catal, Oral Alan, and Kerime Balkan.
 \newblock Class noise detection based on software metrics and roc curves.
@@ -71,6 +76,11 @@ Vicente Cerveron and Francesc~J Ferri.
   approach to the condensed nearest neighbor rule.
 \newblock {\em IEEE Transactions on Systems, Man, and Cybernetics, Part B
   (Cybernetics)}, 31(3):408--413, 2001.
+
+\bibitem[CH67]{cover1967nearest}
+Thomas Cover and Peter Hart.
+\newblock Nearest neighbor pattern classification.
+\newblock {\em IEEE transactions on information theory}, 13(1):21--27, 1967.
 
 \bibitem[CHL05]{cano2005stratification}
 Jos{\'e}~Ram{\'o}n Cano, Francisco Herrera, and Manuel Lozano.
@@ -103,6 +113,11 @@ Jos{\'e} Ram{\'o}n~Cano de~Amo.
   Computaci{\'o}n e Inteligencia Artificial, Universidad de Granada, Spain,
   2004.
 
+\bibitem[DGL13]{devroye2013probabilistic}
+Luc Devroye, L{\'a}szl{\'o} Gy{\"o}rfi, and G{\'a}bor Lugosi.
+\newblock {\em A probabilistic theory of pattern recognition}, volume~31.
+\newblock Springer Science \& Business Media, 2013.
+
 \bibitem[DKT17]{Dua:2017}
 Dua Dheeru and Efi Karra~Taniskidou.
 \newblock {UCI} machine learning repository, 2017.
@@ -128,6 +143,12 @@ Larry~J Eshelman.
 Russell~C Eberhart, Yuhui Shi, and James Kennedy.
 \newblock {\em Swarm intelligence}.
 \newblock Elsevier, 2001.
+
+\bibitem[FHJ51]{fix1951discriminatory}
+Evelyn Fix and Joseph~L Hodges~Jr.
+\newblock Discriminatory analysis-nonparametric discrimination: consistency
+  properties.
+\newblock Technical report, California Univ Berkeley, 1951.
 
 \bibitem[FKP07]{farhangfar2007novel}
 Alireza Farhangfar, Lukasz~A Kurgan, and Witold Pedrycz.
@@ -191,6 +212,11 @@ Salvador Garcia, Julian Luengo, Jos{\'e}~Antonio S{\'a}ez, Victoria Lopez, and
   analysis in supervised learning.
 \newblock {\em IEEE Transactions on Knowledge and Data Engineering},
   25(4):734--750, 2013.
+
+\bibitem[Han07]{hand2007principles}
+David~J Hand.
+\newblock Principles of data mining.
+\newblock {\em Drug safety}, 30(7):621--622, 2007.
 
 \bibitem[Har68]{hart1968condensed}
 Peter Hart.
@@ -288,6 +314,12 @@ Kenneth Price, Rainer~M Storn, and Jouni~A Lampinen.
   optimization}.
 \newblock Springer Science \& Business Media, 2006.
 
+\bibitem[SL91]{safavian1991survey}
+S~Rasoul Safavian and David Landgrebe.
+\newblock A survey of decision tree classifier methodology.
+\newblock {\em IEEE transactions on systems, man, and cybernetics},
+  21(3):660--674, 1991.
+
 \bibitem[SLI{\etalchar{+}}01]{sierra2001prototype}
 Basilio Sierra, Elena Lazkano, I{\~n}aki Inza, Marisa Merino, Pedro
   Larra{\~n}aga, and Jorge Quiroga.
@@ -296,6 +328,11 @@ Basilio Sierra, Elena Lazkano, I{\~n}aki Inza, Marisa Merino, Pedro
   treated with tips.
 \newblock In {\em Conference on Artificial Intelligence in Medicine in Europe},
   pages 20--29. Springer, 2001.
+
+\bibitem[SSBD14]{shalev2014understanding}
+Shai Shalev-Shwartz and Shai Ben-David.
+\newblock {\em Understanding machine learning: From theory to algorithms}.
+\newblock Cambridge university press, 2014.
 
 \bibitem[Tal09]{talbi2009metaheuristics}
 El-Ghazali Talbi.
@@ -306,6 +343,12 @@ El-Ghazali Talbi.
 Choh-Man Teng.
 \newblock Correcting noisy data.
 \newblock In {\em ICML}, pages 239--248. Citeseer, 1999.
+
+\bibitem[TM87]{tallarida1987chi}
+Ronald~J Tallarida and Rodney~B Murray.
+\newblock Chi-square test.
+\newblock In {\em Manual of Pharmacologic Calculations}, pages 140--142.
+  Springer, 1987.
 
 \bibitem[Vou98]{voudouris1998guided}
 Christos Voudouris.
