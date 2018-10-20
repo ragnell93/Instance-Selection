@@ -63,6 +63,7 @@ void calcNoStrat(Heuristic heu,Heuristic2 heu2,Meta metaheu, Instance initial, I
 
     auto start = chrono::high_resolution_clock::now();
 
+    
     pair<double,Instance> pairAux2  = heu.find(initial,knearest); 
     pair<double,Instance> pairAux3  = heu2.find(initial2,knearest);
 

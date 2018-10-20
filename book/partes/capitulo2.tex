@@ -27,7 +27,7 @@ Se necesita una función con la cual se pueda evaluar cuán buena es una soluci�
 \mathcal{F}(S) = \alpha * error(S) + (1 - \alpha) * reduction(S)
 \end{equation} 
 
-Donde $\mathcal{F}: S \rightarrow \mathbb{R}$ es la función objetivo, S es el conjunto reducido, $\alpha$ es un parámetro que controla cuánta importancia se le da al error asociado a S con respecto a la tasa de reducción del segundo término de la ecuación (2.2), \emph{error(S)} es el número de instancias clasificadas erróneamente usando el conjunto S como conjunto de entrenamiento de un clasificador 1-NN y \emph{reduction(S)} es el número de instancias en S dividido entre el número de instancias del conjunto original. El $\alpha$ usado es 0.5 como lo establecen en \cite{de2004reduccion} para darle la misma importancia a la reducción de datos como a mantener bajo los porcentajes de error en la clasificación.
+Donde $\mathcal{F}: S \rightarrow \mathbb{R}$ es la función objetivo, S es el conjunto reducido, $\alpha$ es un parámetro que controla cuánta importancia se le da al error asociado a S con respecto a la tasa de reducción del segundo término de la ecuación (2.2). \emph{Error(S)} es el número de instancias clasificadas erróneamente cuando se usa el conjunto S como conjunto de entrenamiento de un clasificador 1-NN y \emph{reduction(S)} es el número de instancias en S dividido entre el número de instancias del conjunto original. El $\alpha$ usado es 0.5 como lo establecen en \cite{de2004reduccion} para darle la misma importancia a la reducción de datos como a mantener bajo los porcentajes de error en la clasificación.
 
 Dado esta función objetivo, la meta de todas las metaheurísticas implementadas se vuelve minimizar $\mathcal{F}(S)$, lo que quiere decir que se busca tanto reducir la cardinalidad de $S$, como reducir error(S). Un conjunto $S_i$ es mejor que un conjunto $S_j$ si $\mathcal{F}(S_i) < \mathcal{F}(S_j)$.  
 
@@ -145,46 +145,66 @@ Los conjuntos de datos utilizados para validar el experimento provienen de \emph
 
 \begin{table}[]
 \centering
-\begin{tabular}{l c c c}
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c c|l c c c}
 \hline
-\textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clase} \\
+\textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clase} & \textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clase} \\
 \hline
 \hline
 
-Iris          & 150  &  4 &  3 \\
-Cleveland     & 297  & 13 &  5 \\
-Led7Digit     & 500  &  7 & 10 \\
-Pima          & 768  &  8 &  2 \\
-WDBC          & 569  & 30 &  2 \\
-Monk-2        & 432  &  6 &  2 \\
-Wisconsin     & 683  &  9 &  2 \\
-Wine          & 178  & 13 &  3 \\
-Glass         & 214  &  9 &  7 \\
-Banknote      & 1372 &  5 &  2 \\
-Appendicitis  & 106  &  7 &  2 \\
-Balance       & 625  &  4 &  3 \\
-Bands         & 539  & 19 &  2 \\
-Contraceptive & 1473 & 9  &  3 \\
-Dermatology   &  366 & 34 &  6 \\
-Ecoli         &  336 &  7 &  8 \\
-Haberman      &  306 & 3  &  2 \\
-Hayes-roth    &  160 & 4  &  3 \\
-Heart         &  270 & 13 &  2 \\
-Hepatitis     &  155 & 19 &  2 \\
-Mammographic  &  961 & 5  &  2 \\
-Newthyroid    &  215 & 5  &  3 \\
-Tae           &  151 & 5  &  3 \\
-Vehicle       &  846 & 18 &  4 \\
-Vowel         &  990 & 13 & 11 \\
-Yeast         & 1484 & 8  & 10 \\
+Iris          & 150  &  4 &  3 & Contraceptive & 1473 & 9  &  3 \\
+Cleveland     & 297  & 13 &  5 & Dermatology   &  366 & 34 &  6 \\
+Led7Digit     & 500  &  7 & 10 & Ecoli         &  336 &  7 &  8 \\
+Pima          & 768  &  8 &  2 & Haberman      &  306 & 3  &  2 \\
+WDBC          & 569  & 30 &  2 & Hayes-roth    &  160 & 4  &  3 \\
+Monk-2        & 432  &  6 &  2 & Heart         &  270 & 13 &  2 \\
+Wisconsin     & 683  &  9 &  2 & Hepatitis     &  155 & 19 &  2 \\
+Wine          & 178  & 13 &  3 & Mammographic  &  961 & 5  &  2 \\
+Glass         & 214  &  9 &  7 & Newthyroid    &  215 & 5  &  3 \\
+Banknote      & 1372 &  5 &  2 & Tae           &  151 & 5  &  3 \\
+Appendicitis  & 106  &  7 &  2 & Vehicle       &  846 & 18 &  4 \\
+Balance       & 625  &  4 &  3 & Vowel         &  990 & 13 & 11 \\
+Bands         & 539  & 19 &  2 & Yeast         & 1484 & 8  & 10 \\
+
+
  
 \hline
 \end{tabular}
+\end{adjustbox}
 \caption{Conjuntos de datos pequeños}
 \label{pequenios}
 \end{table}
 
-\begin{table}[]
+
+\begin{table}[h!]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c c|l c c c}
+\hline
+\textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clase} & \textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clase} \\
+\hline
+\hline
+
+Banana           &  5300 &  2 & 2 & Magic            & 19020 & 10 & 2 \\
+Cardiotocography &  2126 & 23 & 3 & Marketing        &  8993 & 13 & 9 \\
+Eye-state        & 14980 & 15 & 2 & Phoneme          &  5404 & 5  & 5 \\
+Page-blocks      &  5473 & 10 & 5 & Ring             &  7400 & 20 & 2 \\
+Penbased         & 10992 & 16 & 10 & Spambase         &  4597 & 57 & 2 \\
+Satimage         &  6435 & 36 & 7 & Texture          &  5500 & 40 & 11 \\
+Thyroid          &  7200 & 21 & 3 & Titanic          &  2201 &  3 & 2  \\
+Segment          &  2310 & 19 & 7 & Twonorm          &  7400 & 20 & 2 \\
+Coil2000         &  9822 & 85 & 2 & & & & \\
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Conjuntos de datos medianos}
+\label{medianos}
+\end{table}
+
+
+\begin{table}[h!]
 \centering
 \begin{tabular}{l c c c}
 \hline
@@ -201,44 +221,6 @@ Shuttle          & 58000 & 9  & 7 \\
 \label{grandes}
 \end{table}
 
-
-\newpage
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{l c c c}
-\hline
-\textsc{Conjunto} & \textsc{Instancias} & \textsc{Atributos} & \textsc{Clase} \\
-\hline
-\hline
-
-Banana           &  5300 &  2 & 2 \\
-Cardiotocography &  2126 & 23 & 3 \\
-Eye-state        & 14980 & 15 & 2 \\
-Page-blocks      &  5473 & 10 & 5 \\
-Penbased         & 10992 & 16 & 10 \\
-Satimage         &  6435 & 36 & 7 \\
-Thyroid          &  7200 & 21 & 3 \\
-Segment          &  2310 & 19 & 7 \\
-Coil2000         &  9822 & 85 & 2 \\
-Magic            & 19020 & 10 & 2 \\
-Marketing        &  8993 & 13 & 9 \\
-Phoneme          &  5404 & 5  & 5 \\
-Ring             &  7400 & 20 & 2 \\
-Spambase         &  4597 & 57 & 2 \\
-Texture          &  5500 & 40 & 11 \\
-Titanic          &  2201 &  3 & 2  \\
-Twonorm          &  7400 & 20 & 2 \\
-
-\hline
-\end{tabular}
-\caption{Conjuntos de datos medianos}
-\label{medianos}
-\end{table}
-
-
-
-\newpage
 
 \section{Validación cruzada y estratificación}
 
