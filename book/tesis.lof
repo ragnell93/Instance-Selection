@@ -10,8 +10,15 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Representaci\IeC {\'o}n de un cromosoma y su respectivo conjunto reducido}}{24}{figure.caption.57}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Cruce de un punto}}{25}{figure.caption.61}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Validaci\IeC {\'o}n cruzada}}{31}{figure.caption.73}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Estratificaci\IeC {\'o}n}}{32}{figure.caption.75}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Validaci\IeC {\'o}n cruzada y estratificaci\IeC {\'o}n\relax }}{31}{figure.caption.74}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Validaci\IeC {\'o}n cruzada}}}{31}{figure.caption.74}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Estratificaci\IeC {\'o}n}}}{31}{figure.caption.74}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Boxplots de las metaheur\IeC {\'\i }sticas en relaci\IeC {\'o}n a \emph {accuracy} + reducci\IeC {\'o}n para los conjuntos peque\IeC {\~n}os y medianos\relax }}{38}{figure.caption.89}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Conjuntos peque\IeC {\~n}os}}}{38}{figure.caption.89}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Conjuntos medianos}}}{38}{figure.caption.89}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \emph {Accuracy} + reducci\IeC {\'o}n de las combinaciones de las metaheur\IeC {\'\i }sticas para los conjuntos peque\IeC {\~n}os\relax }}{43}{figure.caption.97}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces \emph {Accuracy} + reducci\IeC {\'o}n de las combinaciones de las metaheur\IeC {\'\i }sticas para los conjuntos medianos\relax }}{47}{figure.caption.102}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

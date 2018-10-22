@@ -2,118 +2,119 @@
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Conjuntos de datos peque\IeC {\~n}os\relax }}{30}{table.caption.68}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Conjuntos de datos peque\IeC {\~n}os\relax }}{29}{table.caption.68}
 \contentsline {table}{\numberline {2.2}{\ignorespaces Conjuntos de datos medianos\relax }}{30}{table.caption.69}
 \contentsline {table}{\numberline {2.3}{\ignorespaces Conjuntos de datos grandes\relax }}{30}{table.caption.70}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Par\IeC {\'a}metros usados para \emph {irace}\relax }}{35}{table.caption.80}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Rangos usados para los par\IeC {\'a}metros en la entonaci\IeC {\'o}n\relax }}{36}{table.caption.81}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Par\IeC {\'a}metros de la entonaci\IeC {\'o}n para los conjuntos peque\IeC {\~n}os\relax }}{36}{table.caption.82}
-\contentsline {table}{\numberline {3.4}{\ignorespaces Par\IeC {\'a}metros de la entonaci\IeC {\'o}n para los conjuntos medianos\relax }}{36}{table.caption.83}
-\contentsline {table}{\numberline {3.5}{\ignorespaces Par\IeC {\'a}metros de la entonaci\IeC {\'o}n para los conjuntos grandes\relax }}{36}{table.caption.84}
-\contentsline {table}{\numberline {3.6}{\ignorespaces Promedios de las distintas m\IeC {\'e}tricas para cada heur\IeC {\'\i }stica\relax }}{38}{table.caption.87}
-\contentsline {table}{\numberline {3.7}{\ignorespaces Promedios de las m\IeC {\'e}tricas para cada metaheur\IeC {\'\i }stica\relax }}{40}{table.caption.89}
-\contentsline {table}{\numberline {3.8}{\ignorespaces Promedios de las m\IeC {\'e}tricas para las distintas combinaciones para cada metaheur\IeC {\'\i }stica sobre los conjuntos peque\IeC {\~n}os\relax }}{43}{table.caption.92}
-\contentsline {table}{\numberline {3.9}{\ignorespaces Comparaci\IeC {\'o}n entre las m\IeC {\'e}tricas obtenidas por la metaheur\IeC {\'\i }stica original y la mejor combinaci\IeC {\'o}n para los conjuntos peque\IeC {\~n}os\relax }}{44}{table.caption.93}
-\contentsline {table}{\numberline {3.10}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy + reducci\IeC {\'o}n} para los conjuntos peque\IeC {\~n}os\relax }}{45}{table.caption.94}
-\contentsline {table}{\numberline {3.11}{\ignorespaces Promedios de las m\IeC {\'e}tricas para las distintas combinaciones para cada metaheur\IeC {\'\i }stica sobre los conjuntos peque\IeC {\~n}os\relax }}{46}{table.caption.96}
-\contentsline {table}{\numberline {3.12}{\ignorespaces Comparaci\IeC {\'o}n entre las m\IeC {\'e}tricas obtenidas por la metaheur\IeC {\'\i }stica original y la mejor combinaci\IeC {\'o}n para los conjuntos medianos\relax }}{47}{table.caption.97}
-\contentsline {table}{\numberline {3.13}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy + reducci\IeC {\'o}n} para los conjuntos medianos\relax }}{48}{table.caption.98}
-\contentsline {table}{\numberline {3.14}{\ignorespaces Promedios de las m\IeC {\'e}tricas para las distintas combinaciones para cada metaheur\IeC {\'\i }stica sobre los conjuntos grandes\relax }}{49}{table.caption.100}
-\contentsline {table}{\numberline {3.15}{\ignorespaces Comparaci\IeC {\'o}n entre las m\IeC {\'e}tricas obtenidas por la metaheur\IeC {\'\i }stica original y la mejor combinaci\IeC {\'o}n para los conjuntos grandes\relax }}{50}{table.caption.101}
-\contentsline {table}{\numberline {3.16}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy + reducci\IeC {\'o}n} para los conjuntos grandes\relax }}{51}{table.caption.102}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Par\IeC {\'a}metros usados para \emph {irace}\relax }}{32}{table.caption.79}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Rangos usados para los par\IeC {\'a}metros en la entonaci\IeC {\'o}n\relax }}{33}{table.caption.80}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Par\IeC {\'a}metros de la entonaci\IeC {\'o}n para los conjuntos peque\IeC {\~n}os\relax }}{33}{table.caption.81}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Par\IeC {\'a}metros de la entonaci\IeC {\'o}n para los conjuntos medianos\relax }}{33}{table.caption.82}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Par\IeC {\'a}metros de la entonaci\IeC {\'o}n para los conjuntos grandes\relax }}{33}{table.caption.83}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Promedios de las distintas m\IeC {\'e}tricas para cada heur\IeC {\'\i }stica\relax }}{35}{table.caption.86}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Promedios de las m\IeC {\'e}tricas para cada metaheur\IeC {\'\i }stica\relax }}{37}{table.caption.88}
+\contentsline {table}{\numberline {3.8}{\ignorespaces Promedios de las m\IeC {\'e}tricas para las distintas combinaciones para cada metaheur\IeC {\'\i }stica sobre los conjuntos peque\IeC {\~n}os\relax }}{40}{table.caption.94}
+\contentsline {table}{\numberline {3.9}{\ignorespaces Comparaci\IeC {\'o}n entre las m\IeC {\'e}tricas obtenidas por la metaheur\IeC {\'\i }stica original y la mejor combinaci\IeC {\'o}n para los conjuntos peque\IeC {\~n}os\relax }}{41}{table.caption.95}
+\contentsline {table}{\numberline {3.10}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy + reducci\IeC {\'o}n} para los conjuntos peque\IeC {\~n}os\relax }}{42}{table.caption.96}
+\contentsline {table}{\numberline {3.11}{\ignorespaces Promedios de las m\IeC {\'e}tricas para las distintas combinaciones para cada metaheur\IeC {\'\i }stica sobre los conjuntos peque\IeC {\~n}os\relax }}{44}{table.caption.99}
+\contentsline {table}{\numberline {3.12}{\ignorespaces Comparaci\IeC {\'o}n entre las m\IeC {\'e}tricas obtenidas por la metaheur\IeC {\'\i }stica original y la mejor combinaci\IeC {\'o}n para los conjuntos medianos\relax }}{45}{table.caption.100}
+\contentsline {table}{\numberline {3.13}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy + reducci\IeC {\'o}n} para los conjuntos medianos\relax }}{46}{table.caption.101}
+\contentsline {table}{\numberline {3.14}{\ignorespaces Promedios de las m\IeC {\'e}tricas para las distintas combinaciones para cada metaheur\IeC {\'\i }stica sobre los conjuntos grandes\relax }}{48}{table.caption.104}
+\contentsline {table}{\numberline {3.15}{\ignorespaces Comparaci\IeC {\'o}n entre las m\IeC {\'e}tricas obtenidas por la metaheur\IeC {\'\i }stica original y la mejor combinaci\IeC {\'o}n para los conjuntos grandes\relax }}{49}{table.caption.105}
+\contentsline {table}{\numberline {3.16}{\ignorespaces Rangos de las metaheur\IeC {\'\i }sticas en \emph {accuracy + reducci\IeC {\'o}n} para los conjuntos grandes\relax }}{50}{table.caption.106}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Pruebas de \emph {Wilcoxon} entre las metaheur\IeC {\'\i }sticas para conjuntos peque\IeC {\~n}os}}{62}{table.caption.108}
-\contentsline {table}{\numberline {A.2}{\ignorespaces Pruebas de \emph {Wilcoxon} entre las metaheur\IeC {\'\i }sticas para conjuntos peque\IeC {\~n}os}}{62}{table.caption.109}
-\contentsline {table}{\numberline {A.3}{\ignorespaces Pruebas de \emph {Wilcoxon} entre GGA y variaciones para conjuntos peque\IeC {\~n}os}}{63}{table.caption.110}
-\contentsline {table}{\numberline {A.4}{\ignorespaces Pruebas de \emph {Wilcoxon} entre SSGA y variaciones para conjuntos peque\IeC {\~n}os}}{63}{table.caption.111}
-\contentsline {table}{\numberline {A.5}{\ignorespaces Pruebas de \emph {Wilcoxon} entre MA y variaciones para conjuntos peque\IeC {\~n}os}}{64}{table.caption.112}
-\contentsline {table}{\numberline {A.6}{\ignorespaces Pruebas de \emph {Wilcoxon} entre CHC y variaciones para conjuntos peque\IeC {\~n}os}}{64}{table.caption.113}
-\contentsline {table}{\numberline {A.7}{\ignorespaces Pruebas de \emph {Wilcoxon} entre las mejores variaciones de cada metaheur\IeC {\'\i }stica para conjuntos peque\IeC {\~n}os}}{65}{table.caption.114}
-\contentsline {table}{\numberline {A.8}{\ignorespaces Pruebas de \emph {Wilcoxon} entre GGA y variaciones para conjuntos medianos}}{65}{table.caption.115}
-\contentsline {table}{\numberline {A.9}{\ignorespaces Pruebas de \emph {Wilcoxon} entre SSGA y variaciones para conjuntos medianos}}{66}{table.caption.116}
-\contentsline {table}{\numberline {A.10}{\ignorespaces Pruebas de \emph {Wilcoxon} entre MA y variaciones para conjuntos medianos}}{66}{table.caption.117}
-\contentsline {table}{\numberline {A.11}{\ignorespaces Pruebas de \emph {Wilcoxon} entre CHC y variaciones para conjuntos medianos}}{67}{table.caption.118}
-\contentsline {table}{\numberline {A.12}{\ignorespaces Pruebas de \emph {Wilcoxon} entre las mejores variaciones de cada metaheur\IeC {\'\i }stica para conjuntos medianos}}{67}{table.caption.119}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {B.1}{\ignorespaces Resultados de CNN para conjuntos peque\IeC {\~n}os \relax }}{68}{table.caption.121}
-\contentsline {table}{\numberline {B.2}{\ignorespaces Resultados de CNN para conjuntos medianos \relax }}{69}{table.caption.122}
-\contentsline {table}{\numberline {B.3}{\ignorespaces Resultados de CNN para conjuntos grandes \relax }}{69}{table.caption.123}
-\contentsline {table}{\numberline {B.4}{\ignorespaces Resultados de ENN para conjuntos peque\IeC {\~n}os \relax }}{70}{table.caption.124}
-\contentsline {table}{\numberline {B.5}{\ignorespaces Resultados de ENN para conjuntos medianos \relax }}{71}{table.caption.125}
-\contentsline {table}{\numberline {B.6}{\ignorespaces Resultados de ENN para conjuntos grandes \relax }}{71}{table.caption.126}
-\contentsline {table}{\numberline {B.7}{\ignorespaces Resultados de RSS para conjuntos peque\IeC {\~n}os \relax }}{72}{table.caption.127}
-\contentsline {table}{\numberline {B.8}{\ignorespaces Resultados de RSS para conjuntos medianos \relax }}{73}{table.caption.128}
-\contentsline {table}{\numberline {B.9}{\ignorespaces Resultados de RSS para conjuntos grandes \relax }}{73}{table.caption.129}
-\contentsline {table}{\numberline {B.10}{\ignorespaces Resultados de GGA para conjuntos peque\IeC {\~n}os \relax }}{74}{table.caption.130}
-\contentsline {table}{\numberline {B.11}{\ignorespaces Resultados de GGA para conjuntos medianos \relax }}{75}{table.caption.131}
-\contentsline {table}{\numberline {B.12}{\ignorespaces Resultados de GGA para conjuntos grandes \relax }}{75}{table.caption.132}
-\contentsline {table}{\numberline {B.13}{\ignorespaces Resultados de CNN-GGA para conjuntos peque\IeC {\~n}os \relax }}{76}{table.caption.133}
-\contentsline {table}{\numberline {B.14}{\ignorespaces Resultados de CNN-GGA para conjuntos medianos \relax }}{77}{table.caption.134}
-\contentsline {table}{\numberline {B.15}{\ignorespaces Resultados de CNN-GGA para conjuntos grandes \relax }}{77}{table.caption.135}
-\contentsline {table}{\numberline {B.16}{\ignorespaces Resultados de ENN-GGA para conjuntos peque\IeC {\~n}os \relax }}{78}{table.caption.136}
-\contentsline {table}{\numberline {B.17}{\ignorespaces Resultados de ENN-GGA para conjuntos medianos \relax }}{79}{table.caption.137}
-\contentsline {table}{\numberline {B.18}{\ignorespaces Resultados de ENN-GGA para conjuntos grandes \relax }}{79}{table.caption.138}
-\contentsline {table}{\numberline {B.19}{\ignorespaces Resultados de RSS-GGA para conjuntos peque\IeC {\~n}os \relax }}{80}{table.caption.139}
-\contentsline {table}{\numberline {B.20}{\ignorespaces Resultados de RSS-GGA para conjuntos medianos \relax }}{81}{table.caption.140}
-\contentsline {table}{\numberline {B.21}{\ignorespaces Resultados de RSS-GGA para conjuntos grandes \relax }}{81}{table.caption.141}
-\contentsline {table}{\numberline {B.22}{\ignorespaces Resultados de CNN-RSS-GGA para conjuntos peque\IeC {\~n}os \relax }}{82}{table.caption.142}
-\contentsline {table}{\numberline {B.23}{\ignorespaces Resultados de CNN-RSS-GGA para conjuntos medianos \relax }}{83}{table.caption.143}
-\contentsline {table}{\numberline {B.24}{\ignorespaces Resultados de CNN-RSS-GGA para conjuntos grandes \relax }}{83}{table.caption.144}
-\contentsline {table}{\numberline {B.25}{\ignorespaces Resultados de ENN-RSS-GGA para conjuntos peque\IeC {\~n}os \relax }}{84}{table.caption.145}
-\contentsline {table}{\numberline {B.26}{\ignorespaces Resultados de ENN-RSS-GGA para conjuntos medianos \relax }}{85}{table.caption.146}
-\contentsline {table}{\numberline {B.27}{\ignorespaces Resultados de ENN-RSS-GGA para conjuntos grandes \relax }}{85}{table.caption.147}
-\contentsline {table}{\numberline {B.28}{\ignorespaces Resultados de SSGA para conjuntos peque\IeC {\~n}os \relax }}{86}{table.caption.148}
-\contentsline {table}{\numberline {B.29}{\ignorespaces Resultados de SSGA para conjuntos medianos \relax }}{87}{table.caption.149}
-\contentsline {table}{\numberline {B.30}{\ignorespaces Resultados de SSGA para conjuntos grandes \relax }}{87}{table.caption.150}
-\contentsline {table}{\numberline {B.31}{\ignorespaces Resultados de CNN-SSGA para conjuntos peque\IeC {\~n}os \relax }}{88}{table.caption.151}
-\contentsline {table}{\numberline {B.32}{\ignorespaces Resultados de CNN-SSGA para conjuntos medianos \relax }}{89}{table.caption.152}
-\contentsline {table}{\numberline {B.33}{\ignorespaces Resultados de CNN-SSGA para conjuntos grandes \relax }}{89}{table.caption.153}
-\contentsline {table}{\numberline {B.34}{\ignorespaces Resultados de ENN-SSGA para conjuntos peque\IeC {\~n}os \relax }}{90}{table.caption.154}
-\contentsline {table}{\numberline {B.35}{\ignorespaces Resultados de ENN-SSGA para conjuntos medianos \relax }}{91}{table.caption.155}
-\contentsline {table}{\numberline {B.36}{\ignorespaces Resultados de ENN-SSGA para conjuntos grandes \relax }}{91}{table.caption.156}
-\contentsline {table}{\numberline {B.37}{\ignorespaces Resultados de RSS-SSGA para conjuntos peque\IeC {\~n}os \relax }}{92}{table.caption.157}
-\contentsline {table}{\numberline {B.38}{\ignorespaces Resultados de RSS-SSGA para conjuntos medianos \relax }}{93}{table.caption.158}
-\contentsline {table}{\numberline {B.39}{\ignorespaces Resultados de RSS-SSGA para conjuntos grandes \relax }}{93}{table.caption.159}
-\contentsline {table}{\numberline {B.40}{\ignorespaces Resultados de CNN-RSS-SSGA para conjuntos peque\IeC {\~n}os \relax }}{94}{table.caption.160}
-\contentsline {table}{\numberline {B.41}{\ignorespaces Resultados de CNN-RSS-SSGA para conjuntos medianos \relax }}{95}{table.caption.161}
-\contentsline {table}{\numberline {B.42}{\ignorespaces Resultados de CNN-RSS-SSGA para conjuntos grandes \relax }}{95}{table.caption.162}
-\contentsline {table}{\numberline {B.43}{\ignorespaces Resultados de ENN-RSS-SSGA para conjuntos peque\IeC {\~n}os \relax }}{96}{table.caption.163}
-\contentsline {table}{\numberline {B.44}{\ignorespaces Resultados de ENN-RSS-SSGA para conjuntos medianos \relax }}{97}{table.caption.164}
-\contentsline {table}{\numberline {B.45}{\ignorespaces Resultados de ENN-RSS-SSGA para conjuntos grandes \relax }}{97}{table.caption.165}
-\contentsline {table}{\numberline {B.46}{\ignorespaces Resultados de MA para conjuntos peque\IeC {\~n}os \relax }}{98}{table.caption.166}
-\contentsline {table}{\numberline {B.47}{\ignorespaces Resultados de MA para conjuntos medianos \relax }}{99}{table.caption.167}
-\contentsline {table}{\numberline {B.48}{\ignorespaces Resultados de MA para conjuntos grandes \relax }}{99}{table.caption.168}
-\contentsline {table}{\numberline {B.49}{\ignorespaces Resultados de CNN-MA para conjuntos peque\IeC {\~n}os \relax }}{100}{table.caption.169}
-\contentsline {table}{\numberline {B.50}{\ignorespaces Resultados de CNN-MA para conjuntos medianos \relax }}{101}{table.caption.170}
-\contentsline {table}{\numberline {B.51}{\ignorespaces Resultados de CNN-MA para conjuntos grandes \relax }}{101}{table.caption.171}
-\contentsline {table}{\numberline {B.52}{\ignorespaces Resultados de ENN-MA para conjuntos peque\IeC {\~n}os \relax }}{102}{table.caption.172}
-\contentsline {table}{\numberline {B.53}{\ignorespaces Resultados de ENN-MA para conjuntos medianos \relax }}{103}{table.caption.173}
-\contentsline {table}{\numberline {B.54}{\ignorespaces Resultados de ENN-MA para conjuntos grandes \relax }}{103}{table.caption.174}
-\contentsline {table}{\numberline {B.55}{\ignorespaces Resultados de RSS-MA para conjuntos peque\IeC {\~n}os \relax }}{104}{table.caption.175}
-\contentsline {table}{\numberline {B.56}{\ignorespaces Resultados de RSS-MA para conjuntos medianos \relax }}{105}{table.caption.176}
-\contentsline {table}{\numberline {B.57}{\ignorespaces Resultados de RSS-MA para conjuntos grandes \relax }}{105}{table.caption.177}
-\contentsline {table}{\numberline {B.58}{\ignorespaces Resultados de CNN-RSS-MA para conjuntos peque\IeC {\~n}os \relax }}{106}{table.caption.178}
-\contentsline {table}{\numberline {B.59}{\ignorespaces Resultados de CNN-RSS-MA para conjuntos medianos \relax }}{107}{table.caption.179}
-\contentsline {table}{\numberline {B.60}{\ignorespaces Resultados de CNN-RSS-MA para conjuntos grandes \relax }}{107}{table.caption.180}
-\contentsline {table}{\numberline {B.61}{\ignorespaces Resultados de ENN-RSS-MA para conjuntos peque\IeC {\~n}os \relax }}{108}{table.caption.181}
-\contentsline {table}{\numberline {B.62}{\ignorespaces Resultados de ENN-RSS-MA para conjuntos medianos \relax }}{109}{table.caption.182}
-\contentsline {table}{\numberline {B.63}{\ignorespaces Resultados de ENN-RSS-MA para conjuntos grandes \relax }}{109}{table.caption.183}
-\contentsline {table}{\numberline {B.64}{\ignorespaces Resultados de CHC para conjuntos peque\IeC {\~n}os \relax }}{110}{table.caption.184}
-\contentsline {table}{\numberline {B.65}{\ignorespaces Resultados de CHC para conjuntos medianos \relax }}{111}{table.caption.185}
-\contentsline {table}{\numberline {B.66}{\ignorespaces Resultados de CHC para conjuntos grandes \relax }}{111}{table.caption.186}
-\contentsline {table}{\numberline {B.67}{\ignorespaces Resultados de CNN-CHC para conjuntos peque\IeC {\~n}os \relax }}{112}{table.caption.187}
-\contentsline {table}{\numberline {B.68}{\ignorespaces Resultados de CNN-CHC para conjuntos medianos \relax }}{113}{table.caption.188}
-\contentsline {table}{\numberline {B.69}{\ignorespaces Resultados de CNN-CHC para conjuntos grandes \relax }}{113}{table.caption.189}
-\contentsline {table}{\numberline {B.70}{\ignorespaces Resultados de ENN-CHC para conjuntos peque\IeC {\~n}os \relax }}{114}{table.caption.190}
-\contentsline {table}{\numberline {B.71}{\ignorespaces Resultados de ENN-CHC para conjuntos medianos \relax }}{115}{table.caption.191}
-\contentsline {table}{\numberline {B.72}{\ignorespaces Resultados de ENN-CHC para conjuntos grandes \relax }}{115}{table.caption.192}
-\contentsline {table}{\numberline {B.73}{\ignorespaces Resultados de RSS-CHC para conjuntos peque\IeC {\~n}os \relax }}{116}{table.caption.193}
-\contentsline {table}{\numberline {B.74}{\ignorespaces Resultados de RSS-CHC para conjuntos medianos \relax }}{117}{table.caption.194}
-\contentsline {table}{\numberline {B.75}{\ignorespaces Resultados de RSS-CHC para conjuntos grandes \relax }}{117}{table.caption.195}
-\contentsline {table}{\numberline {B.76}{\ignorespaces Resultados de CNN-RSS-CHC para conjuntos peque\IeC {\~n}os \relax }}{118}{table.caption.196}
-\contentsline {table}{\numberline {B.77}{\ignorespaces Resultados de CNN-RSS-CHC para conjuntos medianos \relax }}{119}{table.caption.197}
-\contentsline {table}{\numberline {B.78}{\ignorespaces Resultados de CNN-RSS-CHC para conjuntos grandes \relax }}{119}{table.caption.198}
-\contentsline {table}{\numberline {B.79}{\ignorespaces Resultados de ENN-RSS-CHC para conjuntos peque\IeC {\~n}os \relax }}{120}{table.caption.199}
-\contentsline {table}{\numberline {B.80}{\ignorespaces Resultados de ENN-RSS-CHC para conjuntos medianos \relax }}{121}{table.caption.200}
-\contentsline {table}{\numberline {B.81}{\ignorespaces Resultados de ENN-RSS-CHC para conjuntos grandes \relax }}{121}{table.caption.201}
+\contentsline {table}{\numberline {B.1}{\ignorespaces Pruebas de \emph {Wilcoxon} entre las metaheur\IeC {\'\i }sticas para conjuntos peque\IeC {\~n}os}}{63}{table.caption.114}
+\contentsline {table}{\numberline {B.2}{\ignorespaces Pruebas de \emph {Wilcoxon} entre las metaheur\IeC {\'\i }sticas para conjuntos peque\IeC {\~n}os}}{63}{table.caption.115}
+\contentsline {table}{\numberline {B.3}{\ignorespaces Pruebas de \emph {Wilcoxon} entre GGA y variaciones para conjuntos peque\IeC {\~n}os}}{64}{table.caption.116}
+\contentsline {table}{\numberline {B.4}{\ignorespaces Pruebas de \emph {Wilcoxon} entre SSGA y variaciones para conjuntos peque\IeC {\~n}os}}{64}{table.caption.117}
+\contentsline {table}{\numberline {B.5}{\ignorespaces Pruebas de \emph {Wilcoxon} entre MA y variaciones para conjuntos peque\IeC {\~n}os}}{65}{table.caption.118}
+\contentsline {table}{\numberline {B.6}{\ignorespaces Pruebas de \emph {Wilcoxon} entre CHC y variaciones para conjuntos peque\IeC {\~n}os}}{65}{table.caption.119}
+\contentsline {table}{\numberline {B.7}{\ignorespaces Pruebas de \emph {Wilcoxon} entre las mejores variaciones de cada metaheur\IeC {\'\i }stica para conjuntos peque\IeC {\~n}os}}{66}{table.caption.120}
+\contentsline {table}{\numberline {B.8}{\ignorespaces Pruebas de \emph {Wilcoxon} entre GGA y variaciones para conjuntos medianos}}{66}{table.caption.121}
+\contentsline {table}{\numberline {B.9}{\ignorespaces Pruebas de \emph {Wilcoxon} entre SSGA y variaciones para conjuntos medianos}}{67}{table.caption.122}
+\contentsline {table}{\numberline {B.10}{\ignorespaces Pruebas de \emph {Wilcoxon} entre MA y variaciones para conjuntos medianos}}{67}{table.caption.123}
+\contentsline {table}{\numberline {B.11}{\ignorespaces Pruebas de \emph {Wilcoxon} entre CHC y variaciones para conjuntos medianos}}{68}{table.caption.124}
+\contentsline {table}{\numberline {B.12}{\ignorespaces Pruebas de \emph {Wilcoxon} entre las mejores variaciones de cada metaheur\IeC {\'\i }stica para conjuntos medianos}}{68}{table.caption.125}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces Resultados de CNN para conjuntos peque\IeC {\~n}os \relax }}{69}{table.caption.127}
+\contentsline {table}{\numberline {C.2}{\ignorespaces Resultados de CNN para conjuntos medianos \relax }}{70}{table.caption.128}
+\contentsline {table}{\numberline {C.3}{\ignorespaces Resultados de CNN para conjuntos grandes \relax }}{70}{table.caption.129}
+\contentsline {table}{\numberline {C.4}{\ignorespaces Resultados de ENN para conjuntos peque\IeC {\~n}os \relax }}{71}{table.caption.130}
+\contentsline {table}{\numberline {C.5}{\ignorespaces Resultados de ENN para conjuntos medianos \relax }}{72}{table.caption.131}
+\contentsline {table}{\numberline {C.6}{\ignorespaces Resultados de ENN para conjuntos grandes \relax }}{72}{table.caption.132}
+\contentsline {table}{\numberline {C.7}{\ignorespaces Resultados de RSS para conjuntos peque\IeC {\~n}os \relax }}{73}{table.caption.133}
+\contentsline {table}{\numberline {C.8}{\ignorespaces Resultados de RSS para conjuntos medianos \relax }}{74}{table.caption.134}
+\contentsline {table}{\numberline {C.9}{\ignorespaces Resultados de RSS para conjuntos grandes \relax }}{74}{table.caption.135}
+\contentsline {table}{\numberline {C.10}{\ignorespaces Resultados de GGA para conjuntos peque\IeC {\~n}os \relax }}{75}{table.caption.136}
+\contentsline {table}{\numberline {C.11}{\ignorespaces Resultados de GGA para conjuntos medianos \relax }}{76}{table.caption.137}
+\contentsline {table}{\numberline {C.12}{\ignorespaces Resultados de GGA para conjuntos grandes \relax }}{76}{table.caption.138}
+\contentsline {table}{\numberline {C.13}{\ignorespaces Resultados de CNN-GGA para conjuntos peque\IeC {\~n}os \relax }}{77}{table.caption.139}
+\contentsline {table}{\numberline {C.14}{\ignorespaces Resultados de CNN-GGA para conjuntos medianos \relax }}{78}{table.caption.140}
+\contentsline {table}{\numberline {C.15}{\ignorespaces Resultados de CNN-GGA para conjuntos grandes \relax }}{78}{table.caption.141}
+\contentsline {table}{\numberline {C.16}{\ignorespaces Resultados de ENN-GGA para conjuntos peque\IeC {\~n}os \relax }}{79}{table.caption.142}
+\contentsline {table}{\numberline {C.17}{\ignorespaces Resultados de ENN-GGA para conjuntos medianos \relax }}{80}{table.caption.143}
+\contentsline {table}{\numberline {C.18}{\ignorespaces Resultados de ENN-GGA para conjuntos grandes \relax }}{80}{table.caption.144}
+\contentsline {table}{\numberline {C.19}{\ignorespaces Resultados de RSS-GGA para conjuntos peque\IeC {\~n}os \relax }}{81}{table.caption.145}
+\contentsline {table}{\numberline {C.20}{\ignorespaces Resultados de RSS-GGA para conjuntos medianos \relax }}{82}{table.caption.146}
+\contentsline {table}{\numberline {C.21}{\ignorespaces Resultados de RSS-GGA para conjuntos grandes \relax }}{82}{table.caption.147}
+\contentsline {table}{\numberline {C.22}{\ignorespaces Resultados de CNN-RSS-GGA para conjuntos peque\IeC {\~n}os \relax }}{83}{table.caption.148}
+\contentsline {table}{\numberline {C.23}{\ignorespaces Resultados de CNN-RSS-GGA para conjuntos medianos \relax }}{84}{table.caption.149}
+\contentsline {table}{\numberline {C.24}{\ignorespaces Resultados de CNN-RSS-GGA para conjuntos grandes \relax }}{84}{table.caption.150}
+\contentsline {table}{\numberline {C.25}{\ignorespaces Resultados de ENN-RSS-GGA para conjuntos peque\IeC {\~n}os \relax }}{85}{table.caption.151}
+\contentsline {table}{\numberline {C.26}{\ignorespaces Resultados de ENN-RSS-GGA para conjuntos medianos \relax }}{86}{table.caption.152}
+\contentsline {table}{\numberline {C.27}{\ignorespaces Resultados de ENN-RSS-GGA para conjuntos grandes \relax }}{86}{table.caption.153}
+\contentsline {table}{\numberline {C.28}{\ignorespaces Resultados de SSGA para conjuntos peque\IeC {\~n}os \relax }}{87}{table.caption.154}
+\contentsline {table}{\numberline {C.29}{\ignorespaces Resultados de SSGA para conjuntos medianos \relax }}{88}{table.caption.155}
+\contentsline {table}{\numberline {C.30}{\ignorespaces Resultados de SSGA para conjuntos grandes \relax }}{88}{table.caption.156}
+\contentsline {table}{\numberline {C.31}{\ignorespaces Resultados de CNN-SSGA para conjuntos peque\IeC {\~n}os \relax }}{89}{table.caption.157}
+\contentsline {table}{\numberline {C.32}{\ignorespaces Resultados de CNN-SSGA para conjuntos medianos \relax }}{90}{table.caption.158}
+\contentsline {table}{\numberline {C.33}{\ignorespaces Resultados de CNN-SSGA para conjuntos grandes \relax }}{90}{table.caption.159}
+\contentsline {table}{\numberline {C.34}{\ignorespaces Resultados de ENN-SSGA para conjuntos peque\IeC {\~n}os \relax }}{91}{table.caption.160}
+\contentsline {table}{\numberline {C.35}{\ignorespaces Resultados de ENN-SSGA para conjuntos medianos \relax }}{92}{table.caption.161}
+\contentsline {table}{\numberline {C.36}{\ignorespaces Resultados de ENN-SSGA para conjuntos grandes \relax }}{92}{table.caption.162}
+\contentsline {table}{\numberline {C.37}{\ignorespaces Resultados de RSS-SSGA para conjuntos peque\IeC {\~n}os \relax }}{93}{table.caption.163}
+\contentsline {table}{\numberline {C.38}{\ignorespaces Resultados de RSS-SSGA para conjuntos medianos \relax }}{94}{table.caption.164}
+\contentsline {table}{\numberline {C.39}{\ignorespaces Resultados de RSS-SSGA para conjuntos grandes \relax }}{94}{table.caption.165}
+\contentsline {table}{\numberline {C.40}{\ignorespaces Resultados de CNN-RSS-SSGA para conjuntos peque\IeC {\~n}os \relax }}{95}{table.caption.166}
+\contentsline {table}{\numberline {C.41}{\ignorespaces Resultados de CNN-RSS-SSGA para conjuntos medianos \relax }}{96}{table.caption.167}
+\contentsline {table}{\numberline {C.42}{\ignorespaces Resultados de CNN-RSS-SSGA para conjuntos grandes \relax }}{96}{table.caption.168}
+\contentsline {table}{\numberline {C.43}{\ignorespaces Resultados de ENN-RSS-SSGA para conjuntos peque\IeC {\~n}os \relax }}{97}{table.caption.169}
+\contentsline {table}{\numberline {C.44}{\ignorespaces Resultados de ENN-RSS-SSGA para conjuntos medianos \relax }}{98}{table.caption.170}
+\contentsline {table}{\numberline {C.45}{\ignorespaces Resultados de ENN-RSS-SSGA para conjuntos grandes \relax }}{98}{table.caption.171}
+\contentsline {table}{\numberline {C.46}{\ignorespaces Resultados de MA para conjuntos peque\IeC {\~n}os \relax }}{99}{table.caption.172}
+\contentsline {table}{\numberline {C.47}{\ignorespaces Resultados de MA para conjuntos medianos \relax }}{100}{table.caption.173}
+\contentsline {table}{\numberline {C.48}{\ignorespaces Resultados de MA para conjuntos grandes \relax }}{100}{table.caption.174}
+\contentsline {table}{\numberline {C.49}{\ignorespaces Resultados de CNN-MA para conjuntos peque\IeC {\~n}os \relax }}{101}{table.caption.175}
+\contentsline {table}{\numberline {C.50}{\ignorespaces Resultados de CNN-MA para conjuntos medianos \relax }}{102}{table.caption.176}
+\contentsline {table}{\numberline {C.51}{\ignorespaces Resultados de CNN-MA para conjuntos grandes \relax }}{102}{table.caption.177}
+\contentsline {table}{\numberline {C.52}{\ignorespaces Resultados de ENN-MA para conjuntos peque\IeC {\~n}os \relax }}{103}{table.caption.178}
+\contentsline {table}{\numberline {C.53}{\ignorespaces Resultados de ENN-MA para conjuntos medianos \relax }}{104}{table.caption.179}
+\contentsline {table}{\numberline {C.54}{\ignorespaces Resultados de ENN-MA para conjuntos grandes \relax }}{104}{table.caption.180}
+\contentsline {table}{\numberline {C.55}{\ignorespaces Resultados de RSS-MA para conjuntos peque\IeC {\~n}os \relax }}{105}{table.caption.181}
+\contentsline {table}{\numberline {C.56}{\ignorespaces Resultados de RSS-MA para conjuntos medianos \relax }}{106}{table.caption.182}
+\contentsline {table}{\numberline {C.57}{\ignorespaces Resultados de RSS-MA para conjuntos grandes \relax }}{106}{table.caption.183}
+\contentsline {table}{\numberline {C.58}{\ignorespaces Resultados de CNN-RSS-MA para conjuntos peque\IeC {\~n}os \relax }}{107}{table.caption.184}
+\contentsline {table}{\numberline {C.59}{\ignorespaces Resultados de CNN-RSS-MA para conjuntos medianos \relax }}{108}{table.caption.185}
+\contentsline {table}{\numberline {C.60}{\ignorespaces Resultados de CNN-RSS-MA para conjuntos grandes \relax }}{108}{table.caption.186}
+\contentsline {table}{\numberline {C.61}{\ignorespaces Resultados de ENN-RSS-MA para conjuntos peque\IeC {\~n}os \relax }}{109}{table.caption.187}
+\contentsline {table}{\numberline {C.62}{\ignorespaces Resultados de ENN-RSS-MA para conjuntos medianos \relax }}{110}{table.caption.188}
+\contentsline {table}{\numberline {C.63}{\ignorespaces Resultados de ENN-RSS-MA para conjuntos grandes \relax }}{110}{table.caption.189}
+\contentsline {table}{\numberline {C.64}{\ignorespaces Resultados de CHC para conjuntos peque\IeC {\~n}os \relax }}{111}{table.caption.190}
+\contentsline {table}{\numberline {C.65}{\ignorespaces Resultados de CHC para conjuntos medianos \relax }}{112}{table.caption.191}
+\contentsline {table}{\numberline {C.66}{\ignorespaces Resultados de CHC para conjuntos grandes \relax }}{112}{table.caption.192}
+\contentsline {table}{\numberline {C.67}{\ignorespaces Resultados de CNN-CHC para conjuntos peque\IeC {\~n}os \relax }}{113}{table.caption.193}
+\contentsline {table}{\numberline {C.68}{\ignorespaces Resultados de CNN-CHC para conjuntos medianos \relax }}{114}{table.caption.194}
+\contentsline {table}{\numberline {C.69}{\ignorespaces Resultados de CNN-CHC para conjuntos grandes \relax }}{114}{table.caption.195}
+\contentsline {table}{\numberline {C.70}{\ignorespaces Resultados de ENN-CHC para conjuntos peque\IeC {\~n}os \relax }}{115}{table.caption.196}
+\contentsline {table}{\numberline {C.71}{\ignorespaces Resultados de ENN-CHC para conjuntos medianos \relax }}{116}{table.caption.197}
+\contentsline {table}{\numberline {C.72}{\ignorespaces Resultados de ENN-CHC para conjuntos grandes \relax }}{116}{table.caption.198}
+\contentsline {table}{\numberline {C.73}{\ignorespaces Resultados de RSS-CHC para conjuntos peque\IeC {\~n}os \relax }}{117}{table.caption.199}
+\contentsline {table}{\numberline {C.74}{\ignorespaces Resultados de RSS-CHC para conjuntos medianos \relax }}{118}{table.caption.200}
+\contentsline {table}{\numberline {C.75}{\ignorespaces Resultados de RSS-CHC para conjuntos grandes \relax }}{118}{table.caption.201}
+\contentsline {table}{\numberline {C.76}{\ignorespaces Resultados de CNN-RSS-CHC para conjuntos peque\IeC {\~n}os \relax }}{119}{table.caption.202}
+\contentsline {table}{\numberline {C.77}{\ignorespaces Resultados de CNN-RSS-CHC para conjuntos medianos \relax }}{120}{table.caption.203}
+\contentsline {table}{\numberline {C.78}{\ignorespaces Resultados de CNN-RSS-CHC para conjuntos grandes \relax }}{120}{table.caption.204}
+\contentsline {table}{\numberline {C.79}{\ignorespaces Resultados de ENN-RSS-CHC para conjuntos peque\IeC {\~n}os \relax }}{121}{table.caption.205}
+\contentsline {table}{\numberline {C.80}{\ignorespaces Resultados de ENN-RSS-CHC para conjuntos medianos \relax }}{122}{table.caption.206}
+\contentsline {table}{\numberline {C.81}{\ignorespaces Resultados de ENN-RSS-CHC para conjuntos grandes \relax }}{122}{table.caption.207}

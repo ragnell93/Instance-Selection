@@ -53,7 +53,7 @@ La Selección de Instancias \cite{garcia2016data} (IS por sus siglas en inglés)
 Un algoritmo de clasificación \cite{hand2007principles} es aquel que etiqueta las instancias de un conjunto de datos según un número finito y discreto de clases; por ejemplo, etiquetar flores del \emph{genus} Iris según su especie. Por otra parte, un algoritmo de regresión \cite{hand2007principles} es aquel que asigna un valor continuo a las instancias de un conjunto de datos; por ejemplo, asignar el precio de venta de unas acciones en la bolsa de valores. En este trabajo, se trabaja únicamente con algoritmos de clasificación. \\
 
 \begin{definicion}
-Dado un conjunto de datos X, se tiene que una instancia $X_i = (X_i^1,X_i^2,\dots,X_i^p)$ donde $X_i^j$ es el atributo $j$ para la instancia $X_i$ con $X_i\in X$ y $p$ es el número de atributos. La instancia $X_i$ es de clase $Y_j$ donde $Y_j\in Y$, donde Y es el conjunto de todas las clases $j\in (1\dots q)$ y $q$ es el número de clases totales. El problema de \textbf{Selección de Instancias} consiste en conseguir un conjunto reducido $S\subseteq X$ con el cual se mantenga o mejore la capacidad de representación del conjunto original \cite{garcia2016data}.\\
+Dado un conjunto de datos X, se tiene que una instancia $X_i = (X_i^1,X_i^2,\dots,X_i^p)$ donde $X_i^j$ es el atributo $j$ para la instancia $X_i$ con $X_i\in X$ y $p$ es el número de atributos. La instancia $X_i$ es de clase $Y_j$ donde $Y_j\in Y$, Y es el conjunto de todas las clases $j\in (1\dots q)$ y $q$ es el número de clases totales. El problema de \textbf{Selección de Instancias} consiste en conseguir un conjunto reducido $S\subseteq X$ con el cual se mantenga o mejore la capacidad de representación del conjunto original \cite{garcia2016data}.\\
 \end{definicion}
 
 
@@ -67,7 +67,7 @@ El problema de selección de instancias se puede enfocar como un problema de sel
 
 \subsection{Regla de K vecinos más cercanos}
 
-Inicialmente propuesta por \emph{Fix, E. \& Hodges, J.} en \cite{fix1951discriminatory}. La regla KNN clasifica instancias a partir de los datos adyacentes; esto viene dado bajo el razonamiento de que una instancia probablemente comparta la misma clase que sus vecinos. Formalmente, el algoritmo de clasificación al usar KNN se puede definir como:\\  
+Inicialmente propuesta por \emph{Fix, E. \& Hodges, J.} en \cite{fix1951discriminatory}. La regla KNN clasifica instancias a partir de los datos adyacentes; esto viene bajo el razonamiento de que una instancia probablemente comparta la misma clase que sus vecinos. Formalmente, el algoritmo de clasificación al usar KNN se puede definir como:\\  
 
 \begin{definicion}
 Sea X un conjunto de datos con $X_i\in X$ una instancia del conjunto, con clase $Y_{X_i}\in Y$ la clase a la cual pertenece, donde Y es el conjunto de las clases presentes en los datos. Sea $\pi_1(X_i)\dots \pi_n(X_i)$ un reordenamiento de las $n$ instancias que conforman el conjunto X de acuerdo a la distancia a la que se encuentren de la instancia $X_i$, donde se usa una métrica de distancia  $\rho:\chi$ \texttt{X} $\chi \rightarrow \mathbb{R}$, donde $\chi$ es el dominio de las instancias en X, tal que $\rho(X_i,\pi_k(X_i)) \leq \rho(X_i,\pi_{k+1}(X_i))$. Para clasificar una instancia $X_j$ se usa la clase de la mayoría perteneciente al conjunto $\left\{Y_{\pi_i(X_j)} \mid i \leq k\right\}$, donde $k$ es el número de vecinos que se toma en consideración. \cite{shalev2014understanding}
@@ -345,7 +345,7 @@ Entre las metaheurísticas basadas en una población se encuentran: \emph{Scatte
 
 \subsubsection{Algoritmos evolutivos}
 
-Los algoritmos evolutivos \cite{talbi2009metaheuristics} están basados en los postulados de la evolución biológica. En ellos se mantiene un conjunto de entidades que representan posibles soluciones, las cuales se mezclan y compiten entre sí, de tal manera que las más aptas son capaces de prevalecer a lo largo del tiempo y evolucionan hacia mejores soluciones cada vez.
+Los algoritmos evolutivos \cite{talbi2009metaheuristics} están basados en los postulados de la evolución biológica. En ellos se mantiene un conjunto de entidades que representan posibles soluciones, las cuales se mezclan y compiten entre sí, de tal manera que las más aptas son capaces de prevalecer a lo largo del tiempo y evolucionan hacia mejores soluciones.
 
 El diseño de un algoritmo evolutivo viene dado con la toma de decisiones respecto a algunos componentes. Algunos comunes a todas las metaheurísticas como la representación del problema, el cual puede ser un vector de valores binarios, enteros, reales, una permutación, entre otros; la elección de una función objetivo que evalúe cuán buena es un cromosoma y el criterio de parada. Por otro lado, hay unos componentes que son propios de los algoritmos evolutivos como: el criterio de selección de cromosomas para reproducirse, el operador de cruce, el operador de mutación y la estrategia de reemplazo.
 
@@ -390,7 +390,7 @@ El Algoritmo Genético Generacional (\emph{Generational Genetic Algorithm} en in
 
 \paragraph{Algoritmo Genético Estacionario (SSGA)}
 
-El Algoritmo Genético Estacionario (\emph{Steady State Genetic Algorithm} en inglés), es otra variación de los algoritmos genéticos. En este caso, la estrategia de reemplazo consiste en generar uno o dos hijos por iteración y decidir al momento si van a suplantar algunos de los elementos de la población; un hijo puede suplantar a uno de los padres si es mejor que uno de ellos o puede suplantar al peor elemento de la población. Al igual que GGA, se tiene que definir un operador de mutación y cruce. SSGA se presenta en el algoritmo \ref{sga} \cite{flores2014metaheuristics}.
+El Algoritmo Genético Estacionario (\emph{Steady State Genetic Algorithm} en inglés), es otra variación de los algoritmos genéticos. En este caso, la estrategia de reemplazo consiste en generar los hijos y decidir al momento si van a suplantar algunos de los elementos de la población; un hijo puede suplantar a uno de los padres si es mejor que uno de ellos o puede suplantar al peor elemento de la población. Al igual que GGA, se tiene que definir un operador de mutación y cruce. SSGA se presenta en el algoritmo \ref{sga} \cite{flores2014metaheuristics}.
 
 \begin{algorithm}
 \caption{Algoritmo Genético Estacionario}
@@ -421,7 +421,7 @@ El Algoritmo Genético Estacionario (\emph{Steady State Genetic Algorithm} en in
 
 \paragraph{Algoritmo Memético (MA)}
 
-El Algoritmo Memético (\emph{Memetic Algorithm} en inglés), es un algoritmo evolutivo basado en los algoritmos genéticos que tiene la peculiaridad de poseer un proceso de optimización interno llamado ``meme'', el cual es aplicado a todos o algunos cromosomas de la población en cada iteración; el meme más común es una búsqueda local \cite{neri2012memetic}. El esquema clásico de MA se basa en  GGA, ya que genera una población nueva con los cruces y mutaciones propios de GGA, para luego pasar a una fase de intensificación donde aplica el meme a todas las soluciones y así generar una nueva población optimizada que suplanta la generación anterior. Otro esquema se basa en SSGA, donde en cada iteración se cruzan una serie de padres para generar uno o dos hijos que, luego de mutar con cierta probabilidad, se decide si pasan a un proceso de optimización con el meme y el resultado se decide si se incorpora a la población.  En el algoritmo \ref{ssma} se presenta la versión estacionaria del Algoritmos Memético.
+El Algoritmo Memético (\emph{Memetic Algorithm} en inglés), es un algoritmo evolutivo basado en los algoritmos genéticos que tiene la peculiaridad de poseer un proceso de optimización interno llamado ``meme'', el cual es aplicado a todos o algunos cromosomas de la población en cada iteración; el meme más común es una búsqueda local \cite{neri2012memetic}. El esquema clásico de MA se basa en  GGA, ya que genera una población nueva con los cruces y mutaciones propios de GGA, para luego pasar a una fase de intensificación donde aplica el meme a todas las soluciones y así generar una nueva población optimizada que suplanta la generación anterior. Otro esquema se basa en SSGA, donde en cada iteración se cruzan una serie de padres para generar los hijos que, luego de mutar con cierta probabilidad, se decide si pasan a un proceso de optimización con el meme y el resultado se decide si se incorpora a la población.  En el algoritmo \ref{ssma} se presenta la versión estacionaria del Algoritmos Memético.
 
 \begin{algorithm}
 \caption{Algoritmo Memético Estacionario}

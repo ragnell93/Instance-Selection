@@ -6,7 +6,7 @@
 
 En este capítulo se describen todas las decisiones tomadas con respecto a la experimentación; esto incluye los parámetros usados para la entonación, las particiones hechas en la validación cruzada y la estratificación, el diseño de los experimentos donde se combinan las heurísticas con las metaheurísticas y finalmente se presentan los resultados de cada prueba realizada. 
 
-Lo primero que se hace es entonar los algoritmos evolutivos para que devuelvan el mejor valor posible al probarse con los conjuntos de datos presentados en la sección 2.4. Para lograr la entonación, se usa \emph{irace}, presentado en la sección 2.6, con los parámetros de la tabla \ref{irace-param}. Se busca una configuración de parámetros para los problemas pequeños, medianos y grandes respectivamente.
+Lo primero que se hace es entonar los algoritmos evolutivos para que devuelvan el mejor valor posible al probarse con los conjuntos de datos presentados en la sección 2.4. Para lograr la entonación, se usa \emph{irace}, presentado en el apéndice A, con los parámetros de la tabla \ref{irace-param}. Se busca una configuración de parámetros para los problemas pequeños, medianos y grandes respectivamente.
 
 \begin{table}[]
 \centering
@@ -173,22 +173,22 @@ RSS & 91.76 & 87.31 & 74.11 & 60.07 & 72.36 & 159.67 & 10.7264 \\
 \label{heu}
 \end{table}
 
-Al estudiar los resultados presentes en la tabla \ref{heu}, se puede destacar que CNN es la heurística que tiene los mejores niveles de \emph{accuracy} + reducción. Esto sucede porque CNN elige sólo las instancias limítrofes entre clases para construir el conjunto $S$, donde se eliminan la mayoría de las instancias que se concentran en la parte interna del espacio.
+Al estudiar los resultados presentes en la tabla \ref{heu}, se puede destacar que CNN es la heurística que tiene los mejores niveles de \emph{accuracy} + reducción. Esto sucede porque CNN elige sólo las instancias limítrofes entre clases para construir el conjunto $S$, donde se eliminan la mayoría de las instancias que se concentran en la parte interna del espacio, lo que aumenta la tasa de reducción considerablemente.
 
 Al evaluar los tiempos de cómputo presentes en la tabla \ref{heu} se pueden observar los siguientes detalles:
 
 \begin{itemize}
 
 
-\item CNN es la heurística más rápida. Esto sucede porque el algoritmo empieza con un conjunto vacío y agrega instancias conforme a los errores de clasificación que encuentra en cada iteración, deteniéndose cuando logra pasar una iteración sin errores, este esquema le permite a CNN terminar rápidamente en la mayoría de los casos, independientemente del tamaño del conjunto a reducir. El tiempo esperado es $O(n*log(n))$.
+\item CNN es la heurística más rápida. Esto sucede porque el algoritmo empieza con un conjunto vacío y agrega instancias conforme a los errores de clasificación que encuentra en cada iteración, deteniéndose cuando logra pasar una iteración sin errores, este esquema le permite a CNN terminar rápidamente en la mayoría de los casos, independientemente del tamaño del conjunto a reducir. El tiempo esperado con la implementación utilizada es $O(n*log(n))$.
 
 %Se debe acotar que CNN, siendo un algoritmo con componentes estocásticos, puede tardar más del tiempo esperado en dar una solución, porque, dependiendo del orden de presentación de las instancias, CNN puede llegar a necesitar varios iteraciones sobre el conjunto original para terminar; para casos patológicos, CNN puede llegar a tener una complejidad de $O(n^2*log(n))$, cuando el tiempo esperado normalmente es de $O(n*log(n))$.
 
 %\item ENN presenta los tiempos más largos en dar una respuesta para los conjuntos pequeños y medianos. El tiempo adicional que le toma a ENN devolver una solución en comparación a CNN se debe a que ENN empieza con el conjunto original en su totalidad y en cada iteración elimina una instancia que no concuerda con la clase de su vecino más cercano.
 
-\item ENN sólo tiene que revisar cada instancia una sola vez para decidir si es de la misma clase que su vecino más cercano, por lo que puede terminar en un buen tiempo inclusive con los conjuntos grandes. ENN tiene una complejidad de $O(n*log(n))$.  
+\item ENN sólo tiene que revisar cada instancia una sola vez para decidir si es de la misma clase que su vecino más cercano, por lo que puede terminar en un buen tiempo inclusive con los conjuntos grandes. ENN el tiempo esperado con la implementación utilizada es $O(2*n*log(n))$.  
 
-\item RSS es la heurística que más tiempo tarda en dar un resultado para los conjuntos grandes. Este detalle se debe a que RSS primero debe ordenar todas las instancias según la distancia a sus enemigos más cercanos, lo que domina el tiempo del algoritmo, luego debe revisar una vez cada instancia para decidir si se incluye al conjunto final. Asintóticamente RSS es $O(n*log(n) + n)$. 
+\item RSS es la heurística que más tiempo tarda en dar un resultado para los conjuntos grandes. Este detalle se debe a que RSS primero debe ordenar todas las instancias según la distancia a sus enemigos más cercanos, lo que domina el tiempo del algoritmo, luego debe revisar una vez cada instancia para decidir si se incluye al conjunto final. El tiempo esperado con la implementación utilizada es  $O(2*n*log(n) + n)$. 
 
 \end{itemize}
 
@@ -277,15 +277,15 @@ En relación a los tiempos de cómputo se puede destacar:
 \end{itemize}
 
 
-%\begin{figure}[h!]
-%
-%	\centering
-%	\subfigure[\emph{Accuracy} + reducción]{\label{fig:a}\includegraphics[scale=0.45]{acc_small.png}}
-%	\subfigure[\emph{kappa} + reducción]{\label{fig:b}\includegraphics[scale=0.45]{kappa_small.png}}
-%
-%\caption{Boxplots de las metaheurísticas para los conjuntos pequeños}
-%\label{small-heuristics}
-%\end{figure}
+\begin{figure}[h!]
+
+	\centering
+	\subfigure[Conjuntos pequeños]{\label{fig:a}\includegraphics[scale=0.45]{acc_small.png}}
+	\subfigure[Conjuntos medianos]{\label{fig:b}\includegraphics[scale=0.45]{acc_medium.png}}
+
+\caption{Boxplots de las metaheurísticas en relación a \emph{accuracy} + reducción para los conjuntos pequeños y medianos}
+\label{small-medium-heuristics}
+\end{figure}
 
 
 %\begin{figure}[h!]
@@ -300,7 +300,7 @@ En relación a los tiempos de cómputo se puede destacar:
 
 %Las figuras \ref{small-heuristics} y \ref{medium-heuristics} muestran que cuando se toma en cuenta la combinación lineal de \emph{accuracy} + reducción y \emph{kappa} + reducción, 
 
-MA y CHC presentan los niveles más elevados de \emph{accuracy} + reducción. Las tablas \ref{wilcox-meta-peq} y \ref{wilcox-meta-med} del Apéndice A, donde se hace la comparación estadística entre MA y CHC, muestran los siguientes p-valores en \emph{accuracy} + reducción: 6.934e-02 para los conjuntos pequeños y 6.009e-01 para los conjuntos medianos, lo que implica que MA y CHC son estadísticamente similares. 
+En la figura \ref{small-medium-heuristics}, se aprecia que MA y CHC presentan las medianas mas altas en \emph{accuracy} + reducción. Las tablas \ref{wilcox-meta-peq} y \ref{wilcox-meta-med} del apéndice B, donde se hace la comparación estadística entre MA y CHC, muestran los siguientes p-valores en \emph{accuracy} + reducción: 6.934e-02 para los conjuntos pequeños y 6.009e-01 para los conjuntos medianos, lo que implica que MA y CHC son estadísticamente similares. 
  
 De acuerdo a la información presentada anteriormente, se puede concluir que CHC es la mejor metaheurística para resolver el problema de selección de prototipos para los conjuntos pequeños, medianos y grandes. Ya que, junto a MA presenta los valores más elevados de \emph{accuracy, kappa} y reducción, con la peculiaridad de que es la metaheurística que menos tiempo tarda en culminar. Lo cual lo hace el candidato ideal al momento de aumentar el tamaño de los conjuntos de datos.  
 
@@ -368,7 +368,7 @@ ENN-RSS-CHC & 84.84 & 78.46 & 72.24 & 60.30 & 93.33 & 171.79 & 1.0723 \\
 
 \end{table}
 
-Al estudiar los resultados obtenidos en la tabla \ref{peq-all}, se pueden destacar, sobre las combinaciones de GGA, que RSS-GGA presenta los mejores niveles de \emph{accuracy} + reducción y a la vez es de las combinaciones que tarden la menor cantidad de tiempo en regresar un resultado. Al comparar RSS-GGA con CNN-GGA (la combinación que presenta los niveles de \emph{accuracy} + reducción más cercanos a RSS-GGA) se tiene que el p-valor de la prueba \emph{Wilcoxon} (ver tabla \ref{wilcox-gga-peq} en el apéndice A) es de 4.458e-04, lo que significa que estadísticamente son distintas. Por estas razones, RSS-GGA es la mejor combinación de GGA.
+Al estudiar los resultados obtenidos en la tabla \ref{peq-all}, se pueden destacar, sobre las combinaciones de GGA, que RSS-GGA presenta los mejores niveles de \emph{accuracy} + reducción y a la vez es de las combinaciones que tarden la menor cantidad de tiempo en regresar un resultado. Al comparar RSS-GGA con CNN-GGA (la combinación que presenta los niveles de \emph{accuracy} + reducción más cercanos a RSS-GGA) se tiene que el p-valor de la prueba \emph{Wilcoxon} (ver tabla \ref{wilcox-gga-peq} en el apéndice B) es de 4.458e-04, lo que significa que estadísticamente son distintas. Por estas razones, RSS-GGA es la mejor combinación de GGA.
 
 %\begin{itemize}
 
@@ -382,11 +382,11 @@ Al estudiar los resultados obtenidos en la tabla \ref{peq-all}, se pueden destac
 
 %De las observaciones anteriores se puede concluir que ENN-GGA es la mejor combinación de GGA, ya que obtiene los mayores niveles de \emph{accuracy y kappa} en el menor tiempo. Cabe acotar que aunque RSS-GGA, CNN-GGA y CNN-RSS-GGA tienen un mayor nivel de \emph{accuracy + reducción}, obtienen un nivel de \emph{kappa} inferior al 50\%, lo que indica que el clasificador no tiene información útil para etiquetar las instancias correctamente y toma la mayoría de sus decisiones al azar.
 
-Al pasar a los resultados obtenidos por las combinaciones de SSGA, se puede observar que RSS-SSGA presenta los mejores niveles de \emph{accuracy} + reducción, gracias a la selección de instancias realizada por RSS, la cual introduce variedad en la búsqueda de SSGA. Además, los tiempos más cortos son los obtenidos por ENN-SSGA y RSS-SSGA. 
+Al pasar a los resultados obtenidos por las combinaciones de SSGA, se puede observar que RSS-SSGA presenta los mejores niveles de \emph{accuracy} + reducción, gracias a la selección de instancias realizada por RSS, la cual introduce variedad en la búsqueda de SSGA.
 
-De las consideraciones anteriores, se puede concluir que RSS-SSGA es la mejor combinación de SSGA, ya que presenta el mejor nivel de \emph{accuracy} + reducción y se encuentra entre las combinaciones más rápidas. Cabe acotar que cuando se compara con CNN-SSGA (la combinación con valores más cercanos RSS-SSGA) al usar la prueba \emph{Wilcoxon}, se obtiene un p-valor de 1.186e-03 (ver tabla \ref{wilcox-SSGA-peq} en el apéndice A), lo que implica que existe una diferencia real en los promedios y por lo tanto la diferencia de 5.33\% en la tasa de reducción es significativa.
+De las consideraciones anteriores, se puede concluir que RSS-SSGA es la mejor combinación de SSGA, ya que presenta el mejor nivel de \emph{accuracy} + reducción y se encuentra entre las combinaciones más rápidas. Cabe acotar que cuando se compara con CNN-SSGA (la combinación con valores más cercanos RSS-SSGA) al usar la prueba \emph{Wilcoxon}, se obtiene un p-valor de 1.186e-03 (ver tabla \ref{wilcox-SSGA-peq} en el apéndice B), lo que implica que existe una diferencia real en los promedios y por lo tanto la diferencia de 5.33\% en la tasa de reducción es significativa.
 
-Al evaluar los resultados obtenidos por las combinaciones de MA y CHC, se observa que todas presentan \emph{accuracy + reducción} similares. Los p-valores de las tablas \ref{wilcox-MA-peq} y \ref{wilcox-CHC-peq} en el apéndice A corroboran este hecho. Razón por la cual, las mejores combinaciones se eligen en base al tiempo de cómputo, que en este caso las que tardan menos tiempo son ENN-MA y RSS-CHC.
+Al evaluar los resultados obtenidos por las combinaciones de MA y CHC, se observa que todas presentan \emph{accuracy + reducción} similares. Los p-valores de las tablas \ref{wilcox-MA-peq} y \ref{wilcox-CHC-peq} en el apéndice B corroboran este hecho. Razón por la cual, las mejores combinaciones se eligen en base al tiempo de cómputo, que en este caso las que tardan menos tiempo son ENN-MA y RSS-CHC.
 
 %Por lo tanto, se concluye que MA y CHC son metaheurísticas capaces de obtener resultados consistentes independientemente de la población inicial que utilicen. 
 
@@ -439,13 +439,13 @@ RSS-CHC & 83.83 & 77.79 & 69.63 & 58.36 & 95.46 & 173.25 & 0.7137 \\
 
 \begin{itemize}
  
-\item RSS-GGA presenta un mejor valor de \emph{accuracy} + reducción que GGA, principalmente por tener una tasa de reducción 7.84\% por encima de SSGA, mientras mantiene niveles similares de \emph{accuracy y kappa}. Al hacer la prueba de \emph{Wilcoxon} para \emph{accuracy} + reducción se obtiene el p-valor 1.128e-04 (ver tabla \ref{wilcox-gga-peq} en el apéndice A), lo que significa que hay una diferencia real entre RSS-SSGA y SSGA. Estas razones justifican el tiempo adicional de cómputo de RSS-GGA, por lo que se determina como una mejoría real sobre GGA.
+\item RSS-GGA presenta un mejor valor de \emph{accuracy} + reducción que GGA, principalmente por tener una tasa de reducción 7.84\% por encima de SSGA, mientras mantiene niveles similares de \emph{accuracy y kappa}. Al hacer la prueba de \emph{Wilcoxon} para \emph{accuracy} + reducción se obtiene el p-valor 1.128e-04 (ver tabla \ref{wilcox-gga-peq} en el apéndice B), lo que significa que hay una diferencia real entre RSS-SSGA y SSGA. Estas razones justifican el tiempo adicional de cómputo de RSS-GGA, por lo que se determina como una mejoría real sobre GGA.
 
-\item RSS-SSGA presenta un mejor valor de \emph{accuracy} + reducción que SSGA, principalmente por tener una tasa de reducción 5.26\% por encima de SSGA, mientras mantiene niveles similares de \emph{accuracy y kappa}. Al hacer la prueba de \emph{Wilcoxon} para \emph{accuracy} + reducción se obtiene el p-valor 1.941e-04 (ver tabla \ref{wilcox-SSGA-peq} en el apéndice A), lo que significa que hay una diferencia real entre RSS-SSGA y SSGA. Estas razones justifican el tiempo adicional de cómputo de RSS-SSGA, por lo que se determina como una mejoría real sobre SSGA.
+\item RSS-SSGA presenta un mejor valor de \emph{accuracy} + reducción que SSGA, principalmente por tener una tasa de reducción 5.26\% por encima de SSGA, mientras mantiene niveles similares de \emph{accuracy y kappa}. Al hacer la prueba de \emph{Wilcoxon} para \emph{accuracy} + reducción se obtiene el p-valor 1.941e-04 (ver tabla \ref{wilcox-SSGA-peq} en el apéndice B), lo que significa que hay una diferencia real entre RSS-SSGA y SSGA. Estas razones justifican el tiempo adicional de cómputo de RSS-SSGA, por lo que se determina como una mejoría real sobre SSGA.
 
-\item Los valores de \emph{accuracy} + reducción son similares entre MA y ENN-MA. El p-valor de la prueba estadística es 5.629e-01 (ver tabla \ref{wilcox-MA-peq} en el apéndice A), por lo que no hay una diferencia significativa. Por lo tanto, ENN-MA no representa una mejora sobre MA y sólo aumenta el tiempo de cómputo.
+\item Los valores de \emph{accuracy} + reducción son similares entre MA y ENN-MA. El p-valor de la prueba estadística es 5.629e-01 (ver tabla \ref{wilcox-MA-peq} en el apéndice B), por lo que no hay una diferencia significativa. Por lo tanto, ENN-MA no representa una mejora sobre MA y sólo aumenta el tiempo de cómputo.
 
-\item  Los valores de \emph{accuracy} + reducción son similares entre CHC y RSS-CHC. El p-valor de la prueba estadística es 7.982e-01 (ver tabla \ref{wilcox-CHC-peq} en el apéndice A), por lo que no hay una diferencia significativa. Por lo tanto, RSS-CHC no representa una mejora sobre CHC y sólo aumenta el tiempo de cómputo.
+\item  Los valores de \emph{accuracy} + reducción son similares entre CHC y RSS-CHC. El p-valor de la prueba estadística es 7.982e-01 (ver tabla \ref{wilcox-CHC-peq} en el apéndice B), por lo que no hay una diferencia significativa. Por lo tanto, RSS-CHC no representa una mejora sobre CHC y sólo aumenta el tiempo de cómputo.
 
 \end{itemize}
 
@@ -484,20 +484,16 @@ CHC          & 7.07  & 0 & RSS-GGA      & 15.96 & 0 & ENN-RSS-GGA  & 23.46 & 0 \
 
 La tabla \ref{rank-peq} muestra que las combinaciones de MA y CHC obtienen los mejores niveles de \emph{accuracy} + reducción. Donde las combinaciones de MA contabilizan la mayor cantidad de conjuntos para los cuales han obtenido los mejores valores.
 
-Del análisis hecho previamente sobre  la tabla de promedios y lo mostrado en la tabla \ref{rank-peq}, se puede concluir que MA y CHC con población inicial aleatoria son las mejores metaheurísticas para resolver el problema de selección de prototipos sobre conjuntos pequeños. Al hacer la comparación estadística con la prueba \emph{Wilcoxon}, se obtiene un p-valor sobre \emph{accuracy} + reducción de 6.934e-02 (ver tabla \ref{wilcox-best-peq} en el apéndice A), lo que implica que ambos algoritmos son estadísticamente similares. Como la diferencia entre MA y CHC es el tiempo de cómputo, se tiene que CHC con población inicial aleatoria presenta los tiempos más cortos y por lo tanto es la mejor metaheurística.
+La figura \ref{small-accu-all}  muestra \emph{boxplots} de todas las combinaciones de metaheurísticas para los conjuntos pequeños, de izquierda a derecha los \emph{boxplots} representan las siguientes combinaciones: '1':GGA, '2':CNN-GGA, '3':ENN-GGA, '4':RSS-GGA, '5':CNN-RSS-GGA, '6':ENN-RSS-GGA, '7':SSGA, '8':CNN-SSGA, '9':ENN-SSGA, '10':RSS-SSGA, '11':CNN-RSS-SSGA, '12':ENN-RSS-SSGA, '13':MA, '14':CNN-MA, '15':ENN-MA, '16':RSS-MA, '17':CNN-RSS-MA, '18':ENN-RSS-MA, '19':CHC, '20':CNN-CHC, '21':ENN-CHC, '22':RSS-CHC, '23':CNN-RSS-CHC y '24':ENN-RSS-CHC.
 
+\begin{figure}[h!]
 
+	\centering
+	\includegraphics[scale=0.7]{acc_small_all.png}
 
-%Las figuras \ref{small-accu-all} y \ref{small-kap-all} muestran \emph{boxplots} de todas las combinaciones de metaheurísticas para los conjuntos pequeños, de izquierda a derecha los \emph{boxplots} representan las siguientes combinaciones: '1':GGA, '2':CNN-GGA, '3':ENN-GGA, '4':RSS-GGA, '5':CNN-RSS-GGA, '6':ENN-RSS-GGA, '7':SSGA, '8':CNN-SSGA, '9':ENN-SSGA, '10':RSS-SSGA, '11':CNN-RSS-SSGA, '12':ENN-RSS-SSGA, '13':MA, '14':CNN-MA, '15':ENN-MA, '16':RSS-MA, '17':CNN-RSS-MA, '18':ENN-RSS-MA, '19':CHC, '20':CNN-CHC, '21':ENN-CHC, '22':RSS-CHC, '23':CNN-RSS-CHC y '24':ENN-RSS-CHC.
-
-%\begin{figure}[h!]
-%
-%	\centering
-%	\includegraphics[scale=1]{acc_small_all.png}
-%
-%\caption{\emph{Accuracy} + reducción de las combinaciones de las metaheurísticas para los conjuntos pequeños}
-%\label{small-accu-all}
-%\end{figure}
+\caption{\emph{Accuracy} + reducción de las combinaciones de las metaheurísticas para los conjuntos pequeños}
+\label{small-accu-all}
+\end{figure}
 
 %\newpage
 
@@ -510,7 +506,11 @@ Del análisis hecho previamente sobre  la tabla de promedios y lo mostrado en la
 %\label{small-kap-all}
 %\end{figure}
 
-%Los \emph{boxplots} que van desde el número 13 hasta el 18 confirman que todas las combinaciones de MA presentan valores similares. Esto también sucede con CHC al ver los \emph{boxpĺots} que van desde el 19 hasta el 24. Los p-valores de las tablas \ref{wilcox-MA-peq} y \ref{wilcox-CHC-peq} en el anexo A muestran que todas las variantes son estadísticamente similares en \emph{accuracy} + reducción y \emph{kappa} + reducción.
+Los \emph{boxplots} que van desde el número 13 hasta el 18 confirman que todas las combinaciones de MA presentan valores similares. Esto también sucede con CHC al ver los \emph{boxpĺots} que van desde el 19 hasta el 24. Los p-valores de las tablas \ref{wilcox-MA-peq} y \ref{wilcox-CHC-peq} en el anexo A muestran que todas las variantes son estadísticamente similares en \emph{accuracy} + reducción.
+
+Del análisis hecho previamente sobre las tablas \ref{peq-best-all}, \ref{rank-peq} y los boxplots de la figura \ref{small-accu-all}, se puede concluir que MA y CHC con población inicial aleatoria son las mejores metaheurísticas para resolver el problema de selección de prototipos sobre conjuntos pequeños. Al hacer la comparación estadística con la prueba \emph{Wilcoxon}, se obtiene un p-valor sobre \emph{accuracy} + reducción de 6.934e-02 (ver tabla \ref{wilcox-best-peq} en el apéndice B), lo que implica que ambos algoritmos son estadísticamente similares. Como la diferencia entre MA y CHC es el tiempo de cómputo, se tiene que CHC con población inicial aleatoria presenta los tiempos más cortos y por lo tanto es la mejor metaheurística.
+
+
 
 %De las figuras \ref{small-accu-all} y \ref{small-kap-all} también se puede apreciar que las combinaciones de MA y las de CHC presentan valores similares. Los resultados de la prueba \emph{Wilcoxon} (ver tabla \ref{wilcox-best-peq} en el anexo A) para MA y CHC muestran p-valores iguales a 6.934e-02 para \emph{accuracy} + reducción y 7.800e-02 para \emph{kappa} + reducción, lo que implica que ambos algoritmos son estadísticamente similares.
 
@@ -577,9 +577,9 @@ ENN-RSS-CHC  & 82.55 & 80.74 & 63.55 & 59.44 & 91.54 & 172.28 & 7.0284 \\
 
 Al estudiar los resultados obtenidos en la tabla \ref{med-all}, se pueden destacar, sobre las combinaciones de GGA, que RSS-GGA y CNN-GGA presentan los mejores valores de \emph{accuracy} + reducción. El p-valor de la tabla \ref{wilcox-gga-med} es de 6.874e-01 lo que implica que ambas metaheurísticas son estadísticamente similares. Ya que CNN-GGA es más rápida que RSS-GGA, se elige como la mejor combinación de GGA.
 
-Al estudiar las combinaciones de SSGA, se tiene que RSS-SSGA y CNN-SSGA presentan los mejores valores en \emph{accuracy} + reducción. Como los resultados entre las dos metaheurísticas son muy similares, se necesita evaluar los p-valores de la prueba \emph{Wilcoxon}. En la tabla \ref{wilcox-SSGA-med} del apéndice A se puede apreciar que el p-valor de la comparación entre RSS-SSGA y CNN-SSGA en \emph{accuracy} + reducción es de 2.772e-01, lo que implica que ambas metaheurísticas son estadísticamente similares. Además, tiene tiempos de cómputo similares. Por lo tanto, se elige RSS-SSGA como la mejor combinación de SSGA.
+Al estudiar las combinaciones de SSGA, se tiene que RSS-SSGA y CNN-SSGA presentan los mejores valores en \emph{accuracy} + reducción. Como los resultados entre las dos metaheurísticas son muy similares, se necesita evaluar los p-valores de la prueba \emph{Wilcoxon}. En la tabla \ref{wilcox-SSGA-med} del apéndice B se puede apreciar que el p-valor de la comparación entre RSS-SSGA y CNN-SSGA en \emph{accuracy} + reducción es de 2.772e-01, lo que implica que ambas metaheurísticas son estadísticamente similares. Además, tiene tiempos de cómputo similares. Por lo tanto, se elige RSS-SSGA como la mejor combinación de SSGA.
 
-Al estudiar las combinaciones de MA, se observa que todas presentan \emph{accuracy + reducción} similares y los p-valores de las tablas \ref{wilcox-MA-med} en el apéndice A corroboran este hecho. Por lo tanto, se elige CNN-MA como la mejor combinación de MA por ser la que presenta el tiempo de cómputo más corto.
+Al estudiar las combinaciones de MA, se observa que todas presentan \emph{accuracy + reducción} similares y los p-valores de las tablas \ref{wilcox-MA-med} en el apéndice B corroboran este hecho. Por lo tanto, se elige CNN-MA como la mejor combinación de MA por ser la que presenta el tiempo de cómputo más corto.
 
 Al analizar los resultados de las combinaciones de CHC, se tiene que RSS-CHC, CNN-CHC y ENN-CHC presentan los mejores valores de \emph{accuracy} + reducción. Los p-valores de la tabla \ref{wilcox-CHC-med} muestran que estas tres combinaciones son estadísticamente similares en \emph{accuracy} + reducción. Por lo tanto, se puede considerar RSS-CHC como la mejor de CHC, ya que es de las que tarda menos tiempo.
 
@@ -629,13 +629,13 @@ RSS-CHC & 81.51 & 80.58 & 60.74 & 58.51 & 95.35 & 175.93 & 4.7450 \\
 
 \begin{itemize}
  
-\item  Los valores de \emph{accuracy} + reducción son similares entre GGA y CNN-GGA. El p-valor de la prueba estadística es 9.100e-02 (ver tabla \ref{wilcox-gga-med} en el apéndice A), por lo que no hay una diferencia significativa. Por lo tanto, RSS-GGA no representa una mejora sobre GGA, ya que sólo aumenta el tiempo de cómputo.
+\item  Los valores de \emph{accuracy} + reducción son similares entre GGA y CNN-GGA. El p-valor de la prueba estadística es 9.100e-02 (ver tabla \ref{wilcox-gga-med} en el apéndice B), por lo que no hay una diferencia significativa. Por lo tanto, RSS-GGA no representa una mejora sobre GGA, ya que sólo aumenta el tiempo de cómputo.
 
-\item RSS-SSGA presenta un mejor valor de \emph{accuracy} + reducción que SSGA, principalmente por tener una tasa de reducción 2.98\% por encima de SSGA, mientras mantiene niveles similares de \emph{accuracy y kappa}. Al hacer la prueba de \emph{Wilcoxon} para \emph{accuracy} + reducción se obtiene el p-valor 7.013e-03 (ver tabla \ref{wilcox-SSGA-med} en el apéndice A), lo que significa que hay una diferencia real entre RSS-SSGA y SSGA. Estas razones justifican el tiempo adicional de cómputo de RSS-GGA, por lo que se determina como una mejoría real sobre SSGA.
+\item RSS-SSGA presenta un mejor valor de \emph{accuracy} + reducción que SSGA, principalmente por tener una tasa de reducción 2.98\% por encima de SSGA, mientras mantiene niveles similares de \emph{accuracy y kappa}. Al hacer la prueba de \emph{Wilcoxon} para \emph{accuracy} + reducción se obtiene el p-valor 7.013e-03 (ver tabla \ref{wilcox-SSGA-med} en el apéndice B), lo que significa que hay una diferencia real entre RSS-SSGA y SSGA. Estas razones justifican el tiempo adicional de cómputo de RSS-GGA, por lo que se determina como una mejoría real sobre SSGA.
 
-\item Los valores de \emph{accuracy} + reducción son similares entre MA y CNN-MA. El p-valor de la prueba estadística es 1 (ver tabla \ref{wilcox-MA-med} en el apéndice A), por lo que son estadísticamente iguales. La diferencia se encuentra en el tiempo de cómputo, en cuyo caso CNN-MA tarda menos en devolver un resultado, esto se debe a que con la población proporcionada por CNN se disminuyó el número de veces que MA utilizó el proceso de optimización interna. En conclusión, CNN-MA representa una mejoría sobre MA, ya que disminuye los tiempos de cómputo y mantiene el mismo valor de \emph{accuracy} + reducción.
+\item Los valores de \emph{accuracy} + reducción son similares entre MA y CNN-MA. El p-valor de la prueba estadística es 1 (ver tabla \ref{wilcox-MA-med} en el apéndice B), por lo que son estadísticamente iguales. La diferencia se encuentra en el tiempo de cómputo, en cuyo caso CNN-MA tarda menos en devolver un resultado, esto se debe a que con la población proporcionada por CNN se disminuyó el número de veces que MA utilizó el proceso de optimización interna. En conclusión, CNN-MA representa una mejoría sobre MA, ya que disminuye los tiempos de cómputo y mantiene el mismo valor de \emph{accuracy} + reducción.
 
-\item  Los valores de \emph{accuracy} + reducción son similares entre CHC y RSS-CHC. El p-valor de la prueba estadística es 9.679e-01 (ver tabla \ref{wilcox-CHC-med} en el apéndice A), por lo que no hay una diferencia significativa. Por lo tanto, RSS-CHC no representa una mejora sobre CHC, ya que sólo aumenta el tiempo de cómputo.
+\item  Los valores de \emph{accuracy} + reducción son similares entre CHC y RSS-CHC. El p-valor de la prueba estadística es 9.679e-01 (ver tabla \ref{wilcox-CHC-med} en el apéndice B), por lo que no hay una diferencia significativa. Por lo tanto, RSS-CHC no representa una mejora sobre CHC, ya que sólo aumenta el tiempo de cómputo.
 
 \end{itemize}
 
@@ -668,19 +668,19 @@ RSS-MA       & 7.05  & 1 & CNN-GGA      & 16.41 & 0 & ENN-RSS-GGA  & 23.41 & 0 \
 \label{rank-med}
 \end{table}
 
-La tabla \ref{rank-med} muestra que las combinaciones de MA y CHC obtienen los mejores niveles de \emph{accuracy} + reducción. La tabla \ref{rank-med}, junto al análisis sobre los promedios de las métricas presentados en las tablas \ref{med-all} y \ref{med-best-all}, muestran que CNN-MA y CHC presentan los mejores niveles de \emph{accuracy} + reducción. Cuando se comparan ambas metaheurísticas con una prueba \emph{Wilcoxon}, se obtiene un p-valor de 5.197e-01 (ver tabla \ref{wilcox-best-med} en el anexo A), lo que significa que ambos algoritmos son estadísticamente similares. Como la diferencia entre CNN-MA y CHC es el tiempo de cómputo, se tiene que CHC con población inicial aleatoria presenta los tiempos más cortos y por lo tanto es la mejor metaheurística para resolver el problema de selección de prototipos sobre conjuntos medianos.
+La tabla \ref{rank-med} muestra que las combinaciones de MA y CHC obtienen los mejores niveles de \emph{accuracy} + reducción. Donde las combinaciones de MA contabilizan la mayor cantidad de conjuntos para los cuales han obtenido los mejores resultados.
 
+\begin{figure}[h!]
 
-%Las figuras \ref{medium-accu-all} y \ref{medium-kap-all} muestran \emph{boxplots} de todas las combinaciones de metaheurísticas para los conjuntos medianos, de izquierda a derecha los \emph{boxplots} representan las siguientes combinaciones: '1':GGA, '2':CNN-GGA, '3':ENN-GGA, '4':RSS-GGA, '5':CNN-RSS-GGA, '6':ENN-RSS-GGA, '7':SSGA, '8':CNN-SSGA, '9':ENN-SSGA, '10':RSS-SSGA, '11':CNN-RSS-SSGA, '12':ENN-RSS-SSGA, '13':MA, '14':CNN-MA, '15':ENN-MA, '16':RSS-MA, '17':CNN-RSS-MA, '18':ENN-RSS-MA, '19':CHC, '20':CNN-CHC, '21':ENN-CHC, '22':RSS-CHC, '23':CNN-RSS-CHC y '24':ENN-RSS-CHC.
+	\centering
+	\includegraphics[scale=0.7]{acc_medium_all.png}
 
-%\begin{figure}[h!]
-%
-%	\centering
-%	\includegraphics[scale=0.8]{acc_medium_all.png}
-%
-%\caption{\emph{Accuracy} + reducción de las combinaciones de las metaheurísticas para los conjuntos medianos}
-%\label{medium-accu-all}
-%\end{figure}
+\caption{\emph{Accuracy} + reducción de las combinaciones de las metaheurísticas para los conjuntos medianos}
+\label{medium-accu-all}
+\end{figure}
+
+La figura \ref{medium-accu-all}  muestra \emph{boxplots} de todas las combinaciones de metaheurísticas para los conjuntos medianos, de izquierda a derecha los \emph{boxplots} representan las siguientes combinaciones: '1':GGA, '2':CNN-GGA, '3':ENN-GGA, '4':RSS-GGA, '5':CNN-RSS-GGA, '6':ENN-RSS-GGA, '7':SSGA, '8':CNN-SSGA, '9':ENN-SSGA, '10':RSS-SSGA, '11':CNN-RSS-SSGA, '12':ENN-RSS-SSGA, '13':MA, '14':CNN-MA, '15':ENN-MA, '16':RSS-MA, '17':CNN-RSS-MA, '18':ENN-RSS-MA, '19':CHC, '20':CNN-CHC, '21':ENN-CHC, '22':RSS-CHC, '23':CNN-RSS-CHC y '24':ENN-RSS-CHC.
+
 %
 %
 %\begin{figure}[h!]
@@ -692,13 +692,15 @@ La tabla \ref{rank-med} muestra que las combinaciones de MA y CHC obtienen los m
 %\label{medium-kap-all}
 %\end{figure}
 
-%Los \emph{boxplots} que van desde el número 13 hasta el 18 confirman que todas las combinaciones de MA presentan valores similares. Los p-valores de la tabla \ref{wilcox-MA-med} en el anexo A muestran que todas las combinaciones de MA son estadísticamente similares en \emph{accuracy} + reducción y \emph{kappa} + reducción.
+Los \emph{boxplots} que van desde el número 13 hasta el 18 confirman que todas las combinaciones de MA presentan valores similares. Los p-valores de la tabla \ref{wilcox-MA-med} en el anexo A muestran que todas las combinaciones de MA son estadísticamente similares en \emph{accuracy} + reducción.
 
-%Los \emph{boxpĺots} que van desde el 19 hasta el 24 muestran similitud entre las combinaciones de CHC. Al evaluar los p-valores de la tabla \ref{wilcox-CHC-med} del anexo A se tiene que CHC, CNN-CHC, ENN-CHC y RSS-CHC son estadísticamente similares, mientras que CNN-RSS-CHC y ENN-RSS-CHC son distintos al resto; esto es porque presentan niveles más bajo de reducción.
+Los \emph{boxpĺots} que van desde el 19 hasta el 24 muestran similitud entre las combinaciones de CHC. Al evaluar los p-valores de la tabla \ref{wilcox-CHC-med} del anexo A se tiene que CHC, CNN-CHC, ENN-CHC y RSS-CHC son estadísticamente similares, mientras que CNN-RSS-CHC y ENN-RSS-CHC son distintos al resto; esto es porque presentan niveles más bajo de reducción.
 
 %De las figuras \ref{medium-accu-all} y \ref{medium-kap-all} también se puede apreciar que las combinaciones de MA y las de CHC presentan valores similares. Los resultados de la prueba \emph{Wilcoxon} (ver tabla \ref{wilcox-best-med} en el anexo A) para CNN-MA y CHC muestran p-valores iguales a 6.292e-01 para \emph{accuracy} + reducción y 5.197e-01 para \emph{kappa} + reducción, lo que implica que ambos algoritmos son estadísticamente similares.
 
 %Como la diferencia entre CNN-MA y CHC es el tiempo de cómputo, se tiene que CHC con población inicial aleatoria presenta los tiempos más cortos y por lo tanto es la mejor metaheurística para resolver el problema de selección de prototipos sobre conjuntos medianos.
+
+Las tablas \ref{med-best-all}, \ref{rank-med} y la figura \ref{medium-accu-all}, muestran que CNN-MA y CHC presentan los mejores niveles de \emph{accuracy} + reducción. Cuando se comparan ambas metaheurísticas con una prueba \emph{Wilcoxon}, se obtiene un p-valor de 5.197e-01 (ver tabla \ref{wilcox-best-med} en el anexo A), lo que significa que ambos algoritmos son estadísticamente similares. Como la diferencia entre CNN-MA y CHC es el tiempo de cómputo, se tiene que CHC con población inicial aleatoria presenta los tiempos más cortos y por lo tanto es la mejor metaheurística para resolver el problema de selección de prototipos sobre conjuntos medianos.
 
 
 \subsubsection{Conjuntos Grandes}
@@ -824,7 +826,7 @@ RSS-CHC & 89.72 & 89.62 & 65.91 & 65.26 & 98.19 & 187.81 & 41.1142 \\
 
 \end{itemize}
 
-\begin{table}[]
+\begin{table}[h!]
 \centering
 \begin{adjustbox}{max width =\textwidth}
 \begin{tabular}{l c c|l c c|l c c}

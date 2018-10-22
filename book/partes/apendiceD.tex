@@ -1,0 +1,835 @@
+\begin{table}[h!]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{3}{c|}{\textsc{Kappa + Reducción}}
+	& \multicolumn{3}{c}{\textsc{Tiempo}} \\
+\hline
+Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor \\
+\hline
+\hline
+
+MA           & 5.38  & 5 & CNN-MA       & 5.26  & 4  & CHC          & 1.34 & 20 \\
+ENN-MA       & 5.46  & 2 & ENN-MA       & 5.53  & 0  & SSGA         & 2.57 & 4 \\
+CNN-MA       & 5.57  & 4 & MA           & 5.57  & 5  & RSS-CHC      & 3.26 & 0 \\
+RSS-MA       & 6.07  & 6 & ENN-RSS-MA   & 6.00  & 3  & ENN-CHC      & 4.53 & 0 \\
+ENN-RSS-MA   & 6.30  & 3 & RSS-MA       & 6.76  & 6  & CNN-CHC      & 4.96 & 0 \\
+RSS-CHC      & 6.80  & 1 & CNN-RSS-MA   & 7.07  & 0  & ENN-SSGA     & 5.57 & 1 \\
+CNN-RSS-MA   & 6.96  & 0 & ENN-CHC      & 7.46  & 2  & RSS-SSGA     & 7.23 & 1 \\
+CHC          & 7.07  & 0 & CHC          & 7.50  & 1  & CNN-SSGA     & 7.73 & 0 \\
+ENN-CHC      & 7.53  & 0 & RSS-CHC      & 7.96  & 1  & ENN-RSS-CHC  & 8.88 & 0 \\
+CNN-RSS-CHC  & 7.65  & 2 & CNN-RSS-CHC  & 8.07  & 2  & CNN-RSS-CHC  & 9.26 & 0 \\
+ENN-RSS-CHC  & 7.88  & 2 & ENN-RSS-CHC  & 8.26  & 1  & ENN-RSS-SSGA & 11.80 & 0 \\
+CNN-CHC      & 8.73  & 1 & CNN-CHC      & 8.84  & 1  & CNN-RSS-SSGA & 12.38 & 0 \\
+RSS-SSGA     & 12.07 & 0 & RSS-SSGA     & 11.92 & 0  & MA           & 13.53 & 0 \\
+CNN-SSGA     & 14.53 & 0 & SSGA         & 14.30 & 0  & ENN-MA       & 13.69 & 0 \\
+SSGA         & 14.88 & 0 & CNN-RSS-SSGA & 14.26 & 0  & RSS-MA       & 14.15 & 0 \\
+CNN-RSS-SSGA & 15.07 & 0 & CNN-SSGA     & 14.46 & 0  & CNN-MA       & 15.30 & 0 \\
+ENN-SSGA     & 16.11 & 0 & ENN-SSGA     & 15.26 & 0  & CNN-RSS-MA   & 17.65 & 0 \\
+ENN-RSS-SSGA & 17.26 & 0 & ENN-RSS-SSGA & 16.42 & 0  & ENN-RSS-MA   & 17.80 & 0 \\
+RSS-GGA      & 19.11 & 0 & GGA          & 20.15 & 0  & GGA          & 19.84 & 0 \\
+GGA          & 20.73 & 0 & RSS-GGA      & 20.19 & 0  & ENN-GGA      & 20.38 & 0 \\
+CNN-RSS-GGA  & 20.84 & 0 & CNN-RSS-GGA  & 20.88 & 0  & CNN-GGA      & 20.42 & 0 \\
+CNN-GGA      & 21.30 & 0 & CNN-GGA      & 21.69 & 0  & ENN-RSS-GGA  & 23.26 & 0 \\
+ENN-GGA      & 22.73 & 0 & ENN-GGA      & 22.53 & 0  & RSS-GGA      & 21.00 & 0 \\
+ENN-RSS-GGA  & 23.84 & 0 & ENN-RSS-GGA  & 23.53 & 0  & CNN-RSS-GGA  & 23.34 & 0 \\
+
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy + reducción}, \emph{kappa + reducción} y tiempo para los conjuntos pequeños}
+\label{rank-peq}
+\end{table} 
+
+\begin{table}[h!]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{3}{c|}{\textsc{Kappa + Reducción}}
+	& \multicolumn{3}{c}{\textsc{Tiempo}} \\
+\hline
+Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor \\
+\hline
+\hline
+
+CNN-RSS-MA   & 4.76  & 5 & CHC          & 5.05  & 2  &  CHC          & 1.41 & 13 \\
+ENN-MA       & 5.05  & 4 & ENN-MA       & 5.41  & 4  &  SSGA         & 1.94 & 3 \\
+CHC          & 5.52  & 2 & CNN-RSS-MA   & 5.52  & 5  &  CNN-CHC      & 4.11 & 0 \\
+CNN-MA       & 5.94  & 3 & RSS-CHC      & 6.52  & 0  &  RSS-CHC      & 4.58 & 0 \\
+ENN-RSS-MA   & 5.94  & 1 & CNN-MA       & 6.76  & 2  &  ENN-CHC      & 5.00 & 0 \\
+RSS-CHC      & 5.94  & 0 & ENN-RSS-MA   & 7.05  & 1  &  ENN-SSGA     & 5.52 & 0 \\
+MA           & 6.29  & 0 & MA           & 7.23  & 1  &  RSS-SSGA     & 7.17 & 0 \\
+RSS-MA       & 7.05  & 1 & CNN-CHC      & 7.23  & 0  &  CNN-SSGA     & 7.36 & 1 \\
+CNN-CHC      & 7.35  & 0 & ENN-CHC      & 7.47  & 1  &  ENN-RSS-CHC  & 9.05 & 0 \\
+ENN-CHC      & 8.41  & 0 & CNN-RSS-CHC  & 8.29  & 0  &  CNN-RSS-CHC  & 9.11 & 0 \\
+CNN-RSS-CHC  & 8.70  & 0 & RSS-MA       & 8.41  & 0  &  ENN-RSS-SSGA & 11.23 & 0 \\
+ENN-RSS-CHC  & 10.00 & 1 & ENN-RSS-CHC  & 8.47  & 1  &  CNN-RSS-SSGA & 11.47 & 0 \\
+RSS-SSGA     & 13.47 & 0 & CNN-SSGA     & 12.94 & 0  &  MA           & 14.35 & 0 \\
+CNN-SSGA     & 13.47 & 0 & RSS-SSGA     & 13.05 & 0  &  RSS-MA       & 14.64 & 0 \\
+SSGA         & 14.70 & 0 & SSGA         & 14.23 & 0  &  CNN-MA       & 15.23 & 0 \\
+CNN-RSS-SSGA & 15.82 & 0 & CNN-RSS-SSGA & 15.05 & 0  &  ENN-MA       & 15.23 & 0 \\
+ENN-SSGA     & 16.64 & 0 & ENN-SSGA     & 16.76 & 0  &  CNN-RSS-MA   & 17.88 & 0 \\
+CNN-GGA      & 18.17 & 0 & ENN-RSS-SSGA & 18.00 & 0  &  ENN-RSS-MA   & 18.23 & 0 \\
+ENN-RSS-SSGA & 18.47 & 0 & CNN-GGA      & 18.52 & 0  &  GGA          & 18.88 & 0 \\
+RSS-GGA      & 19.94 & 0 & GGA          & 20.47 & 0  &  ENN-GGA      & 19.52 & 0 \\
+GGA          & 21.00 & 0 & RSS-GGA      & 20.52 & 0  &  RSS-GGA      & 20.05 & 0 \\
+CNN-RSS-GGA  & 21.41 & 0 & CNN-RSS-GGA  & 21.23 & 0  &  CNN-GGA      & 21.76 & 0 \\
+ENN-GGA      & 22.05 & 0 & ENN-GGA      & 22.05 & 0  &  ENN-RSS-GGA  & 22.76 & 0 \\
+ENN-RSS-GGA  & 23.82 & 0 & ENN-RSS-GGA  & 23.64 & 0  &  CNN-RSS-GGA  & 23.41 & 0 \\ 
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy + reducción}, \emph{kappa + reducción} y tiempo para los conjuntos medianos}
+\label{rank-med}
+\end{table}
+
+
+
+\begin{table}[h!]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{3}{c|}{\textsc{Kappa + Reducción}}
+	& \multicolumn{3}{c}{\textsc{Tiempo}} \\
+\hline
+Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor \\
+\hline
+\hline
+
+RSS-GGA     & 1.42 & 18 & GGA         & 2.15 & 7  & GGA         & 2.00 & 9  \\
+GGA         & 2.73 & 1  & RSS-GGA     & 2.19 & 10 & CNN-GGA     & 2.65 & 11 \\
+CNN-RSS-GGA & 3.00 & 6  & CNN-RSS-GGA & 2.88 & 6  & ENN-GGA     & 2.57 & 6  \\
+CNN-GGA     & 3.26 & 1  & CNN-GGA     & 3.69 & 2  & RSS-GGA     & 3.15 & 0  \\
+ENN-GGA     & 4.73 & 0  & ENN-GGA     & 4.53 & 1  & CNN-RSS-GGA & 5.34 & 0  \\
+ENN-RSS-GGA & 5.84 & 0  & ENN-RSS-GGA & 5.53 & 0  & ENN-RSS-GGA & 5.26 & 0  \\
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de GGA en \emph{accuracy + reducción}, \emph{kappa + reducción} y tiempo para los conjuntos pequeños}
+\label{rank-gga-peq}
+\end{table} 
+
+
+\begin{table}[h!]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{3}{c|}{\textsc{Kappa + Reducción}}
+	& \multicolumn{3}{c}{\textsc{Tiempo}} \\
+\hline
+Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor \\
+\hline
+\hline
+
+CNN-GGA     & 1.76 & 10 & CNN-GGA     & 2.00 & 11 & GGA         & 1.76 & 6 \\
+RSS-GGA     & 2.17 & 5  & GGA         & 2.58 & 2  & CNN-GGA     & 4.05 & 1 \\
+GGA         & 3.11 & 0  & RSS-GGA     & 2.88 & 1  & ENN-GGA     & 2.11 & 7 \\
+CNN-RSS-GGA & 3.58 & 0  & CNN-RSS-GGA & 3.35 & 1  & RSS-GGA     & 2.64 & 3 \\
+ENN-GGA     & 4.52 & 2  & ENN-GGA     & 4.52 & 2  & CNN-RSS-GGA & 5.47 & 0 \\
+ENN-RSS-GGA & 5.82 & 0  & ENN-RSS-GGA & 5.64 & 0  & ENN-RSS-GGA & 4.94 & 0 \\
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de GGA en \emph{accuracy + reducción}, \emph{kappa + reducción} y tiempo para los conjuntos medianos}
+\label{rank-gga-med}
+\end{table}
+
+
+
+
+\begin{table}[h!]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{3}{c|}{\textsc{Kappa + Reducción}}
+	& \multicolumn{3}{c}{\textsc{Tiempo}} \\
+\hline
+Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor & Algoritmo & Rank & Mejor \\
+\hline
+\hline
+
+RSS-GGA     & 1.0 & 2 & RSS-GGA     & 1.5 & 1 & GGA         & 1.5 & 1 \\ 
+CNN-GGA     & 2.5 & 0 & CNN-GGA     & 2.5 & 1 & CNN-GGA     & 4.5 & 0 \\
+CNN-RSS-GGA & 3.0 & 0 & GGA         & 3.0 & 0 & ENN-GGA     & 2.5 & 0 \\
+GGA         & 3.5 & 0 & CNN-RSS-GGA & 3.0 & 0 & RSS-GGA     & 2.0 & 1 \\
+ENN-GGA     & 5.5 & 0 & ENN-GGA     & 5.5 & 0 & CNN-RSS-GGA & 5.5 & 0 \\
+ENN-RSS-GGA & 5.5 & 0 & ENN-RSS-GGA & 5.5 & 0 & ENN-RSS-GGA & 5.0 & 0 \\
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de GGA en \emph{accuracy + reducción}, \emph{kappa + reducción} y tiempo para los conjuntos grandes}
+\label{rank-gga-large}
+\end{table}
+
+
+
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy}}
+	& \multicolumn{3}{c|}{\textsc{Kappa}}
+	& \multicolumn{3}{c}{\textsc{Reducción}} \\
+\hline
+Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor \\
+\hline
+\hline
+
+ENN-SSGA     & 7.80  & 1 & CNN-MA       & 8.42  & 3 & RSS-MA       & 2.84  & 11 \\
+CNN-MA       & 8.15  & 3 & ENN-SSGA     & 8.42  & 1 & RSS-CHC      & 3.80  & 7  \\
+ENN-GGA      & 8.38  & 2 & ENN-GGA      & 9.03  & 1 & MA           & 5.92  & 1  \\
+ENN-MA       & 9.11  & 0 & ENN-RSS-MA   & 9.26  & 2 & CHC          & 6.76  & 2  \\
+ENN-RSS-MA   & 9.34  & 1 & ENN-MA       & 9.38  & 0 & ENN-MA       & 6.88  & 1  \\
+MA           & 9.53  & 3 & MA           & 9.61  & 3 & CNN-RSS-CHC  & 6.96  & 2  \\
+ENN-RSS-GGA  & 9.65  & 4 & ENN-RSS-GGA  & 9.69  & 5 & CNN-RSS-MA   & 7.00  & 1  \\
+CHC          & 10.42 & 1 & ENN-RSS-SSGA & 9.88  & 1 & ENN-CHC      & 7.57  & 1  \\
+ENN-RSS-SGGA & 10.42 & 1 & ENN-CHC      & 10.65 & 0 & CNN-MA       & 7.76  & 0  \\
+ENN-CHC      & 10.65 & 0 & CHC          & 11.00 & 2 & ENN-RSS-MA   & 8.00  & 0  \\
+ENN-RSS-CHC  & 11.23 & 2 & RSS-MA       & 11.61 & 3 & CNN-CHC      & 8.03  & 0  \\
+RSS-MA       & 11.53 & 4 & ENN-RSS-CHC  & 11.73 & 0 & ENN-RSS-CHC  & 8.53  & 0  \\
+CNN-RSS-MA   & 12.03 & 0 & CNN-RSS-MA   & 11.80 & 0 & RSS-SSGA     & 13.03 & 0  \\
+RSS-CHC      & 12.19 & 0 & CNN-RSS-SSGA & 12.11 & 2 & CNN-SSGA     & 15.50 & 0  \\
+CNN-RSS-CHC  & 12.91 & 1 & SSGA         & 12.38 & 0 & SSGA         & 15.65 & 0  \\
+CNN-CHC      & 12.92 & 0 & CNN-CHC      & 13.15 & 0 & CNN-RSS-SSGA & 15.80 & 0  \\
+SSGA         & 13.00 & 0 & RSS-CHC      & 13.23 & 0 & RSS-GGA      & 17.30 & 0  \\
+CNN-RSS-SSGA & 13.03 & 0 & RSS-SSGA     & 13.42 & 2 & CNN-GGA      & 17.42 & 0  \\
+RSS-SSGA     & 13.73 & 2 & CNN-RSS-CHC  & 13.53 & 0 & ENN-SSGA     & 17.57 & 0  \\ 
+CNN-SSGA     & 14.50 & 1 & CNN-SSGA     & 14.50 & 1 & ENN-RSS-SSGA & 18.88 & 0  \\ 
+GGA          & 16.15 & 0 & GGA          & 15.26 & 0 & CNN-RSS-GGA  & 20.69 & 0  \\
+CNN-RSS-GGA  & 19.03 & 0 & CNN-RSS-GGA  & 18.03 & 0 & GGA          & 21.23 & 0  \\
+RSS-GGA      & 21.23 & 0 & RSS-GGA      & 20.73 & 0 & ENN-GGA      & 22.80 & 0  \\
+CNN-GGA      & 23.26 & 0 & CNN-GGA      & 23.07 & 0 & ENN-RSS-GGA  & 23.96 & 0  \\
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy}, \emph{kappa} y reducción para los conjuntos pequeños}
+\label{rank1-peq}
+\end{table} 
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy}}
+	& \multicolumn{3}{c|}{\textsc{Kappa}}
+	& \multicolumn{3}{c}{\textsc{Reducción}} \\
+\hline
+Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor \\
+\hline
+\hline
+
+ENN-RSS-GGA  & 5.64  & 7 & ENN-RSS-GGA  & 4.82  & 9 & RSS-MA       & 4.05  & 4 \\
+ENN-GGA      & 5.94  & 2 & ENN-GGA      & 6.11  & 1 & CNN-RSS-MA   & 4.70  & 2 \\ 
+ENN-SSGA     & 7.88  & 0 & ENN-RSS-SSGA & 8.64  & 0 & ENN-RSS-MA   & 4.76  & 3 \\
+ENN-RSS-SSGA & 8.17  & 1 & ENN-SSGA     & 8.88  & 0 & ENN-MA       & 4.76  & 3 \\ 
+CHC          & 9.23  & 1 & GGA          & 9.64  & 0 & MA           & 5.41  & 1 \\
+ENN-CHC      & 10.64 & 1 & CHC          & 9.88  & 1 & CNN-MA       & 6.00  & 3 \\
+ENN-RSS-CHC  & 10.64 & 0 & ENN-RSS-CHC  & 10.05 & 0 & RSS-CHC      & 6.29  & 1 \\
+GGA          & 11.29 & 0 & SSGA         & 10.64 & 1 & CHC          & 7.52  & 0 \\
+SSGA         & 11.52 & 0 & CNN-RSS-SSGA & 10.64 & 0 & CNN-CHC      & 8.35  & 0 \\
+CNN-RSS-SSGA & 11.82 & 0 & ENN-CHC      & 11.05 & 0 & CNN-RSS-CHC  & 9.23  & 0 \\
+CNN-CHC      & 11.94 & 0 & CNN-RSS-MA   & 12.41 & 0 & ENN-CHC      & 9.23  & 0 \\
+CNN-RSS-MA   & 12.41 & 1 & CNN-SSGA     & 12.76 & 0 & ENN-RSS-CHC  & 10.64 & 0 \\
+RSS-CHC      & 12.88 & 0 & CNN-CHC      & 13.23 & 0 & RSS-SSGA     & 13.64 & 0 \\
+RSS-SSGA     & 12.88 & 0 & CNN-RSS-GGA  & 13.70 & 1 & CNN-SSGA     & 13.70 & 0 \\
+CNN-MA       & 13.00 & 1 & RSS-SSGA     & 13.70 & 0 & SSGA         & 15.35 & 0 \\
+CNN-RSS-CHC  & 13.05 & 1 & RSS-CHC      & 13.94 & 0 & CNN-GGA      & 16.05 & 0 \\
+ENN-MA       & 13.70 & 1 & MA           & 14.05 & 0 & CNN-RSS-SSGA & 16.29 & 0 \\
+MA           & 13.94 & 0 & ENN-MA       & 14.11 & 2 & ENN-SSGA     & 17.05 & 0 \\
+CNN-SSGA     & 14.23 & 0 & CNN-RSS-CHC  & 14.23 & 1 & ENN-RSS-SSGA & 18.82 & 0 \\
+ENN-RSS-MA   & 14.41 & 0 & CNN-MA       & 14.52 & 0 & RSS-GGA      & 19.41 & 0 \\
+CNN-RSS-GGA  & 14.64 & 0 & ENN-RSS-MA   & 14.76 & 0 & GGA          & 21.23 & 0 \\
+RSS-MA       & 18.35 & 0 & RSS-MA       & 18.47 & 0 & CNN-RSS-GGA  & 21.47 & 0 \\
+RSS-GGA      & 20.58 & 1 & RSS-GGA      & 19.58 & 1 & ENN-GGA      & 22.11 & 0 \\
+CNN-GGA      & 21.11 & 0 & CNN-GGA      & 20.05 & 0 & ENN-RSS-GGA  & 23.82 & 0 \\
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy}, \emph{kappa} y reducción para los conjuntos medianos}
+\label{rank1-med}
+\end{table} 
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c|l c c}
+\hline
+\multicolumn{3}{c|}{\textsc{Accuracy}}
+	& \multicolumn{3}{c|}{\textsc{Kappa}}
+	& \multicolumn{3}{c}{\textsc{Reducción}} \\
+\hline
+Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor & Algoritmo & Rango & Mejor \\
+\hline
+\hline
+
+GGA          & 11.00 & 0 & ENN-GGA      & 6.50  & 0 & ENN-MA       & 2.00  & 1 \\
+CNN-GGA      & 24.00 & 0 & ENN-SSGA     & 7.00  & 0 & MA           & 3.00  & 0 \\
+ENN-GGA      & 9.50  & 0 & ENN-RSS-GGA  & 8.50  & 1 & ENN-RSS-MA   & 4.50  & 0 \\
+RSS-GGA      & 15.00 & 0 & ENN-RSS-CHC  & 8.50  & 0 & RSS-MA       & 5.50  & 1 \\
+CNN-RSS-GGA  & 12.50 & 0 & ENN-RSS-SSGA & 9.00  & 0 & CNN-MA       & 6.00  & 0 \\
+ENN-RSS-GGA  & 9.00  & 1 & CNN-MA       & 10.00 & 0 & RSS-CHC      & 6.50  & 0 \\
+SSGA         & 12.50 & 0 & ENN-CHC      & 10.00 & 1 & CNN-RSS-MA   & 7.00  & 0 \\
+CNN-SSGA     & 16.00 & 0 & GGA          & 11.00 & 0 & CNN-CHC      & 7.00  & 0 \\
+ENN-SSGA     & 8.50  & 0 & CHC          & 11.00 & 0 & CHC          & 9.50  & 0 \\
+RSS-SSGA     & 14.50 & 0 & SSGA         & 11.50 & 0 & CNN-RSS-CHC  & 9.50  & 0 \\
+CNN-RSS-SSGA & 15.50 & 0 & RSS-CHC      & 11.50 & 0 & CNN-GGA      & 11.50 & 0 \\
+ENN-RSS-SSGA & 10.00 & 0 & MA           & 12.00 & 0 & CNN-SSGA     & 11.50 & 0 \\
+MA           & 11.50 & 1 & CNN-RSS-CHC  & 12.00 & 0 & RSS-SSGA     & 13.00 & 0 \\
+CNN-MA       & 8.00  & 0 & CNN-CHC      & 12.50 & 0 & ENN-CHC      & 13.00 & 0 \\
+ENN-MA       & 13.50 & 0 & CNN-RSS-GGA  & 13.00 & 0 & ENN-RSS-CHC  & 14.00 & 0 \\
+RSS-MA       & 8.50  & 0 & RSS-MA       & 13.00 & 0 & CNN-RSS-SSGA & 15.00 & 0 \\
+CNN-RSS-MA   & 9.00  & 0 & RSS-SSGA     & 14.00 & 0 & SSGA         & 16.00 & 0 \\
+ENN-RSS-MA   & 15.50 & 0 & CNN-RSS-SSGA & 14.50 & 0 & RSS-GGA      & 18.50 & 0 \\
+CHC          & 12.00 & 0 & CNN-SSGA     & 15.00 & 0 & ENN-SSGA     & 19.00 & 0 \\
+CNN-CHC      & 16.00 & 0 & CNN-RSS-MA   & 15.00 & 0 & ENN-RSS-SSGA & 19.00 & 0 \\
+ENN-CHC      & 11.00 & 0 & ENN-RSS-MA   & 15.50 & 0 & CNN-RSS-GGA  & 20.50 & 0 \\
+RSS-CHC      & 12.50 & 0 & RSS-GGA      & 17.00 & 0 & GGA          & 21.50 & 0 \\
+CNN-RSS-CHC  & 13.50 & 0 & ENN-MA       & 18.00 & 0 & ENN-GGA      & 23.50 & 0 \\
+ENN-RSS-CHC  & 11.00 & 0 & CNN-GGA      & 24.00 & 0 & ENN-RSS-GGA  & 23.50 & 0 \\
+
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rangos de las metaheurísticas en \emph{accuracy}, \emph{kappa} y reducción para los conjuntos grandes}
+\label{rank1-large}
+\end{table} 
+
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c c c c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \multicolumn{2}{c}{\textsc{Reducción}} 
+	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
+	& \multicolumn{2}{c}{\textsc{kappa + reducción}} \\
+ & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+\hline
+\hline
+
+ & & & & & & GGA & & & & \\
+
+CNN-GGA & 8.0 & 3.223e-05 & 8.0 & 3.223e-05 & 23.0 & 1.744e-04 & 82.0 & 3.031e-02 & 48.0 & 2.064e-03 \\ 
+ENN-GGA & 37.0 & 7.333e-04 & 49.0 & 2.258e-03 & 0.0 & 1.229e-05 & 1.0 & 1.390e-05 & 1.0 & 1.390e-05 \\ 
+RSS-GGA & 15.0 & 7.224e-05 & 14.0 & 6.451e-05 & 3.0 & 1.773e-05 & 14.0 & 6.446e-05 & 158.0 & 9.036e-01 \\ 
+CNN-RSS-GGA & 58.0 & 4.927e-03 & 63.0 & 7.423e-03 & 100.0 & 9.263e-02 & 153.5 & 8.086e-01 & 125.0 & 3.130e-01 \\ 
+ENN-RSS-GGA & 39.5 & 1.592e-03 & 41.0 & 1.079e-03 & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 \\
+
+\hline
+
+ & & & & & & CNN-GGA & & & & \\
+ENN-GGA & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 & 2.0 & 1.571e-05 & 23.0 & 1.744e-04 & 74.0 & 1.725e-02 \\ 
+RSS-GGA & 51.0 & 2.699e-03 & 70.0 & 1.281e-02 & 140.5 & 5.539e-01 & 6.0 & 3.884e-05 & 45.0 & 1.569e-03 \\ 
+CNN-RSS-GGA & 9.0 & 3.624e-05 & 8.0 & 3.223e-05 & 23.0 & 1.744e-04 & 107.0 & 1.353e-01 & 102.0 & 1.036e-01 \\ 
+ENN-RSS-GGA & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 & 2.0 & 1.571e-05 & 34.0 & 5.451e-04 \\ 
+
+\hline
+
+ & & & & & & ENN-GGA & & & & \\
+RSS-GGA & 3.0 & 1.773e-05 & 6.0 & 2.543e-05 & 0.0 & 1.229e-05 & 0.0 & 1.228e-05 & 4.0 & 2.001e-05 \\ 
+CNN-RSS-GGA & 20.0 & 1.260e-04 & 33.0 & 4.932e-04 & 10.0 & 4.073e-05 & 17.0 & 9.042e-05 & 19.0 & 1.128e-04 \\ 
+ENN-RSS-GGA & 104.0 & 4.651e-01 & 131.0 & 5.872e-01 & 0.0 & 1.229e-05 & 8.0 & 3.223e-05 & 20.0 & 1.260e-04 \\
+
+\hline
+
+ & & & & & & RSS-GGA & & & & \\
+CNN-RSS-GGA & 38.5 & 8.481e-04 & 21.0 & 1.405e-04 & 5.0 & 2.257e-05 & 53.0 & 3.216e-03 & 136.0 & 4.758e-01 \\ 
+ENN-RSS-GGA & 5.0 & 2.257e-05 & 6.0 & 2.543e-05 & 0.0 & 1.229e-05 & 0.0 & 1.229e-05 & 1.0 & 1.390e-05 \\ 
+
+\hline
+
+ & & & & & & CNN-RSS-GGA & & & & \\ 
+ENN-RSS-GGA & 12.5 & 8.538e-05 & 32.0 & 4.458e-04 & 1.0 & 1.390e-05 & 1.0 & 1.390e-05 & 1.0 & 1.390e-05 \\
+
+\hline 
+
+\end{tabular}
+\end{adjustbox}
+\caption[Pruebas de \emph{Wilcoxon} entre GGA y variaciones para conjuntos pequeños]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para GGA sobre conjuntos pequeños}
+\label{wilcox-gga-peq}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c c c c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \multicolumn{2}{c}{\textsc{Reducción}} 
+	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
+	& \multicolumn{2}{c}{\textsc{kappa + reducción}} \\
+ & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+\hline
+\hline
+
+ & & & & & & GGA & & & & \\
+
+CNN-GGA  & 10.0 & 6.249e-04 & 14.0 & 1.116e-03 & 22.0 & 3.307e-03 & 33.0 & 1.260e-02 & 51.0 & 7.662e-02 \\
+ENN-GGA & 24.0 & 4.274e-03 & 39.0 & 2.422e-02 & 3.0 & 2.137e-04 & 3.0 & 2.137e-04 & 5.0 & 2.926e-04 \\
+RSS-GGA  & 31.0 & 1.001e-02 & 27.0 & 6.210e-03 & 20.0 & 2.543e-03 & 30.0 & 8.903e-03 & 89.0 & 8.092e-01 \\
+CNN-RSS-GGA  & 27.0 & 6.210e-03 & 35.0 & 1.576e-02 & 87.0 & 7.475e-01 & 95.0 & 1.000e+00 & 75.0 & 4.209e-01 \\
+ENN-RSS-GGA & 2.0 & 1.822e-04 & 7.0 & 3.981e-04 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 \\
+
+\hline
+
+ & & & & & & CNN-GGA & & & & \\
+ENN-GGA  & 12.0 & 8.375e-04 & 16.0 & 1.477e-03 & 8.0 & 4.634e-04 & 15.0 & 1.285e-03 & 18.0 & 1.944e-03 \\ 
+RSS-GGA  & 31.0 & 1.001e-02 & 61.0 & 1.712e-01 & 36.0 & 1.758e-02 & 75.0 & 4.209e-01 & 62.0 & 1.842e-01 \\ 
+CNN-RSS-GGA & 3.0 & 2.137e-04 & 3.0 & 2.137e-04 & 0.0 & 1.318e-04 & 13.0 & 9.673e-04 & 32.0 & 1.124e-02 \\ 
+ENN-RSS-GGA & 2.0 & 1.822e-04 & 1.0 & 1.551e-04 & 2.0 & 1.822e-04 & 2.0 & 1.822e-04 & 3.0 & 2.137e-04 \\ 
+
+\hline
+
+ & & & & & & ENN-GGA & & & & \\
+RSS-GGA & 21.0 & 2.902e-03 & 24.0 & 4.274e-03 & 5.0 & 2.926e-04 & 3.0 & 2.134e-04 & 13.0 & 9.673e-04 \\ 
+CNN-RSS-GGA & 22.0 & 3.307e-03 & 36.0 & 1.758e-02 & 28.0 & 7.013e-03 & 30.0 & 8.903e-03 & 31.0 & 1.001e-02 \\ 
+ENN-RSS-GGA & 84.0 & 6.580e-01 & 60.0 & 1.589e-01 & 1.0 & 1.551e-04 & 1.0 & 1.551e-04 & 18.0 & 1.944e-03 \\
+
+\hline
+
+ & & & & & & RSS-GGA & & & & \\
+CNN-RSS-GGA & 26.0 & 5.491e-03 & 11.0 & 7.231e-04 & 0.0 & 1.318e-04 & 3.0 & 2.137e-04 & 62.0 & 1.842e-01 \\ 
+ENN-RSS-GGA & 16.0 & 1.477e-03 & 16.0 & 1.477e-03 & 0.0 & 1.318e-04 & 0.0 & 1.316e-04 & 1.0 & 1.551e-04 \\ 
+
+\hline
+
+ & & & & & & CNN-RSS-GGA & & & & \\ 
+ENN-RSS-GGA & 19.0 & 2.225e-03 & 22.0 & 3.307e-03 & 3.0 & 2.137e-04 & 3.0 & 2.137e-04 & 3.0 & 2.137e-04 \\ 
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\caption[Pruebas de \emph{Wilcoxon} entre GGA y variaciones para conjuntos medianos]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para GGA sobre conjuntos medianos}
+\label{wilcox-gga-med}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c c c c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \multicolumn{2}{c}{\textsc{Reducción}} 
+	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
+	& \multicolumn{2}{c}{\textsc{kappa + reducción}} \\
+ & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+\hline
+\hline
+
+ & & & & & & SSGA & & & & \\
+
+CNN-SSGA  & 150.0 & 7.366e-01 & 140.0 & 5.449e-01 & 147.0 & 9.317e-01 & 162.0 & 9.893e-01 & 154.0 & 8.191e-01 \\ 
+ENN-SSGA & 55.0 & 1.158e-02 & 106.0 & 1.285e-01 & 3.0 & 2.669e-05 & 49.0 & 3.905e-03 & 56.0 & 4.162e-03 \\ 
+RSS-SSGA  & 147.5 & 6.865e-01 & 159.0 & 9.250e-01 & 3.0 & 1.772e-05 & 24.0 & 1.941e-04 & 56.0 & 4.162e-03 \\ 
+CNN-RSS-SSGA  & 151.0 & 7.570e-01 & 144.5 & 6.281e-01 & 148.0 & 6.964e-01 & 159.0 & 9.250e-01 & 150.0 & 7.366e-01 \\ 
+ENN-RSS-SSGA & 63.0 & 3.925e-02 & 84.0 & 1.005e-01 & 0.0 & 1.228e-05 & 15.0 & 7.224e-05 & 36.0 & 6.647e-04 \\
+
+\hline
+
+ & & & & & & CNN-SSGA & & & & \\
+ENN-SSGA & 73.0 & 1.603e-02 & 88.0 & 4.501e-02 & 55.0 & 3.822e-03 & 100.5 & 9.526e-02 & 120.0 & 2.528e-01 \\ 
+RSS-SSGA & 130.5 & 5.774e-01 & 143.0 & 5.998e-01 & 6.5 & 2.692e-05 & 42.0 & 1.186e-03 & 44.0 & 1.430e-03 \\ 
+CNN-RSS-SSGA & 119.0 & 2.418e-01 & 89.0 & 4.797e-02 & 84.0 & 5.933e-02 & 160.0 & 9.464e-01 & 111.0 & 1.658e-01 \\ 
+ENN-RSS-SSGA& 80.0 & 4.550e-02 & 70.0 & 2.227e-02 & 11.0 & 4.574e-05 & 43.0 & 1.303e-03 & 76.0 & 1.994e-02 \\  
+
+\hline
+
+ & & & & & & ENN-SSGA & & & & \\
+RSS-SSGA & 88.0 & 4.501e-02 & 104.0 & 1.155e-01 & 3.0 & 1.773e-05 & 21.0 & 1.405e-04 & 40.0 & 9.804e-04 \\ 
+CNN-RSS-SSGA & 74.0 & 1.725e-02 & 116.0 & 2.109e-01 & 51.0 & 4.676e-03 & 96.0 & 7.356e-02 & 101.0 & 9.797e-02 \\ 
+ENN-RSS-SSGA& 112.5 & 2.840e-01 & 143.0 & 5.998e-01 & 11.0 & 4.559e-05 & 64.0 & 8.038e-03 & 93.0 & 6.148e-02 \\ 
+
+\hline
+
+ & & & & & & RSS-SSGA & & & & \\
+CNN-RSS-SSGA & 134.0 & 6.476e-01 & 121.0 & 4.073e-01 & 0.0 & 1.229e-05 & 16.0 & 8.085e-05 & 51.0 & 2.699e-03 \\ 
+ENN-RSS-SSGA & 80.0 & 4.548e-02 & 89.0 & 4.797e-02 & 0.0 & 1.229e-05 & 3.0 & 1.773e-05 & 17.0 & 9.042e-05 \\  
+
+\hline
+
+ & & & & & & CNN-RSS-SSGA & & & & \\ 
+ENN-RSS-SSGA & 91.0 & 5.437e-02 & 105.0 & 1.218e-01 & 8.0 & 3.223e-05 & 25.0 & 2.159e-04 & 37.0 & 7.329e-04 \\
+
+\hline 
+
+\end{tabular}
+\end{adjustbox}
+\caption[Pruebas de \emph{Wilcoxon} entre SSGA y variaciones para conjuntos pequeños]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para SSGA sobre conjuntos pequeños}
+\label{wilcox-SSGA-peq}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c c c c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \multicolumn{2}{c}{\textsc{Reducción}} 
+	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
+	& \multicolumn{2}{c}{\textsc{kappa + reducción}} \\
+ & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+\hline
+\hline
+
+ & & & & & & SSGA & & & & \\
+
+CNN-SSGA  & 45.0 & 4.421e-02 & 64.5 & 2.196e-01 & 46.0 & 4.862e-02 & 61.0 & 1.712e-01 & 61.0 & 1.712e-01 \\ 
+ENN-SSGA & 43.0 & 3.637e-02 & 70.0 & 3.144e-01 & 16.0 & 1.477e-03 & 15.0 & 1.285e-03 & 17.0 & 1.696e-03 \\ 
+RSS-SSGA  & 75.5 & 4.326e-01 & 53.0 & 9.100e-02 & 24.0 & 4.274e-03 & 28.0 & 7.013e-03 & 48.0 & 5.857e-02 \\ 
+CNN-RSS-SSGA  & 71.0 & 3.341e-01 & 88.0 & 7.782e-01 & 62.5 & 1.909e-01 & 63.0 & 1.978e-01 & 67.0 & 2.598e-01 \\ 
+ENN-RSS-SSGA & 35.0 & 1.573e-02 & 43.0 & 3.639e-02 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 \\
+
+\hline
+
+ & & & & & & CNN-SSGA & & & & \\
+ENN-SSGA  & 31.0 & 1.001e-02 & 49.0 & 6.415e-02 & 34.0 & 1.410e-02 & 34.0 & 1.410e-02 & 34.0 & 1.410e-02 \\ 
+RSS-SSGA   & 74.5 & 4.093e-01 & 81.0 & 5.732e-01 & 73.0 & 3.760e-01 & 68.0 & 2.772e-01 & 85.0 & 6.874e-01 \\ 
+CNN-RSS-SSGA  & 12.0 & 2.263e-03 & 38.0 & 3.858e-02 & 3.0 & 2.137e-04 & 8.0 & 4.634e-04 & 17.0 & 1.696e-03 \\ 
+ENN-RSS-SSGA & 25.0 & 4.844e-03 & 39.0 & 2.422e-02 & 7.0 & 3.981e-04 & 8.0 & 4.634e-04 & 10.0 & 6.249e-04 \\ 
+
+\hline
+
+ & & & & & & ENN-SSGA & & & & \\
+RSS-SSGA  & 39.0 & 2.422e-02 & 40.0 & 2.688e-02 & 14.0 & 1.116e-03 & 15.0 & 1.285e-03 & 17.0 & 1.696e-03 \\ 
+CNN-RSS-SSGA  & 43.0 & 3.639e-02 & 60.0 & 1.589e-01 & 35.0 & 1.576e-02 & 37.0 & 1.959e-02 & 39.0 & 2.422e-02 \\ 
+ENN-RSS-SSGA & 79.5 & 5.327e-01 & 63.0 & 1.978e-01 & 15.0 & 1.285e-03 & 15.0 & 1.285e-03 & 57.0 & 1.262e-01 \\
+
+\hline
+
+ & & & & & & RSS-SSGA & & & & \\
+CNN-RSS-SSGA & 92.0 & 9.039e-01 & 59.0 & 1.474e-01 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 & 10.0 & 6.249e-04 \\ 
+ENN-RSS-SSGA & 51.0 & 7.662e-02 & 41.0 & 2.977e-02 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 & 0.0 & 1.318e-04 \\  
+
+\hline
+
+ & & & & & & CNN-RSS-SSGA & & & & \\ 
+ENN-RSS-SSGA & 30.0 & 8.903e-03 & 47.0 & 5.341e-02 & 12.0 & 8.375e-04 & 14.0 & 1.116e-03 & 15.0 & 1.285e-03 \\ 
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\caption[Pruebas de \emph{Wilcoxon} entre SSGA y variaciones para conjuntos medianos]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para SSGA sobre conjuntos medianos}
+\label{wilcox-SSGA-med}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c c c c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \multicolumn{2}{c}{\textsc{Reducción}} 
+	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
+	& \multicolumn{2}{c}{\textsc{kappa + reducción}} \\
+ & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+\hline
+\hline
+
+ & & & & & & MA & & & & \\
+
+CNN-MA   & 135.0 & 6.682e-01 & 136.0 & 6.892e-01 & 44.0 & 1.430e-03 & 146.5 & 6.668e-01 & 3.0 & 1.773e-05 \\ 
+ENN-MA & 161.0 & 9.678e-01 & 158.0 & 9.036e-01 & 110.5 & 1.617e-01 & 141.0 & 5.629e-01 & 158.0 & 9.036e-01 \\ 
+RSS-MA  & 102.0 & 1.035e-01 & 103.0 & 1.094e-01 & 50.0 & 2.469e-03 & 134.0 & 4.432e-01 & 119.0 & 2.418e-01 \\ 
+CNN-RSS-MA  & 107.0 & 1.353e-01 & 95.0 & 6.934e-02 & 95.0 & 6.932e-02 & 87.0 & 4.215e-02 & 85.0 & 3.704e-02 \\ 
+ENN-RSS-MA & 110.5 & 6.034e-01 & 131.0 & 3.967e-01 & 47.5 & 3.404e-03 & 124.0 & 3.002e-01 & 147.0 & 6.766e-01 \\
+
+\hline
+
+ & & & & & & CNN-MA & & & & \\
+ENN-MA  & 114.0 & 1.918e-01 & 132.0 & 4.118e-01 & 96.5 & 1.261e-01 & 140.0 & 7.751e-01 & 4.0 & 2.001e-05 \\ 
+RSS-MA  & 70.0 & 2.227e-02 & 65.0 & 1.516e-02 & 10.0 & 4.073e-05 & 140.0 & 5.449e-01 & 0.0 & 1.229e-05 \\ 
+CNN-RSS-MA  & 58.0 & 8.571e-03 & 78.0 & 2.299e-02 & 123.0 & 2.879e-01 & 83.0 & 3.243e-02 & 0.0 & 1.229e-05 \\ 
+ENN-RSS-MA & 130.0 & 3.819e-01 & 141.0 & 5.629e-01 & 125.0 & 3.129e-01 & 125.5 & 3.194e-01 & 2.0 & 1.571e-05 \\
+
+\hline
+
+ & & & & & & ENN-MA & & & & \\
+RSS-MA  & 117.0 & 2.209e-01 & 114.0 & 1.919e-01 & 28.0 & 2.956e-04 & 158.0 & 9.036e-01 & 140.0 & 5.449e-01 \\ 
+CNN-RSS-MA  & 112.0 & 1.742e-01 & 125.0 & 3.129e-01 & 122.0 & 6.265e-01 & 75.0 & 1.855e-02 & 104.0 & 1.155e-01 \\ 
+ENN-RSS-MA & 160.0 & 9.464e-01 & 148.0 & 6.964e-01 & 33.5 & 1.479e-03 & 121.0 & 2.641e-01 & 155.0 & 8.401e-01 \\
+
+\hline
+
+ & & & & & & RSS-MA & & & & \\
+CNN-RSS-MA  & 124.0 & 4.576e-01 & 100.0 & 2.478e-01 & 0.0 & 1.822e-05 & 117.0 & 3.458e-01 & 143.0 & 8.415e-01 \\ 
+ENN-RSS-MA & 86.0 & 6.746e-02 & 86.0 & 3.955e-02 & 8.0 & 3.220e-05 & 153.0 & 7.982e-01 & 129.0 & 3.674e-01 \\  
+
+\hline
+
+ & & & & & & CNN-RSS-MA & & & & \\ 
+ENN-RSS-MA & 124.0 & 3.002e-01 & 113.0 & 1.829e-01 & 103.0 & 1.793e-01 & 159.0 & 9.250e-01 & 129.0 & 3.674e-01 \\ 
+
+\hline 
+
+\end{tabular}
+\end{adjustbox}
+\caption[Pruebas de \emph{Wilcoxon} entre MA y variaciones para conjuntos pequeños]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para MA sobre conjuntos pequeños}
+\label{wilcox-MA-peq}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c c c c c c c c c}
+\hline
+\multirow{2}{*}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \multicolumn{2}{c}{\textsc{Reducción}} 
+	& \multicolumn{2}{c}{\textsc{Accuracy + reducción}} 
+	& \multicolumn{2}{c}{\textsc{kappa + reducción}} \\
+ & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor & $W$ & $p$-valor \\
+\hline
+\hline
+
+ & & & & & & MA & & & & \\
+
+CNN-MA   & 73.0 & 3.760e-01 & 83.0 & 6.292e-01 & 77.0 & 4.688e-01 & 95.0 & 1.000e+00 & 5.0 & 2.926e-04 \\ 
+ENN-MA & 78.5 & 5.066e-01 & 74.0 & 3.981e-01 & 66.0 & 3.958e-01 & 73.5 & 3.869e-01 & 63.0 & 3.271e-01 \\ 
+RSS-MA   & 46.5 & 5.094e-02 & 46.0 & 4.862e-02 & 70.5 & 3.241e-01 & 77.0 & 4.688e-01 & 65.0 & 2.273e-01 \\ 
+CNN-RSS-MA   & 82.0 & 6.009e-01 & 75.0 & 4.209e-01 & 91.0 & 8.721e-01 & 85.0 & 6.874e-01 & 85.0 & 6.874e-01 \\ 
+ENN-RSS-MA & 81.0 & 8.446e-01 & 82.0 & 8.789e-01 & 94.0 & 9.679e-01 & 86.0 & 7.172e-01 & 93.0 & 9.359e-01 \\ 
+
+\hline
+
+ & & & & & & CNN-MA & & & & \\
+ENN-MA  & 82.0 & 8.789e-01 & 85.0 & 9.826e-01 & 69.0 & 2.954e-01 & 76.0 & 4.445e-01 & 9.0 & 5.385e-04 \\ 
+RSS-MA    & 47.0 & 5.341e-02 & 55.0 & 1.075e-01 & 76.0 & 4.445e-01 & 78.0 & 4.939e-01 & 2.0 & 1.822e-04 \\ 
+CNN-RSS-MA & 94.0 & 9.679e-01 & 86.0 & 7.172e-01 & 88.0 & 7.782e-01 & 82.0 & 6.009e-01 & 3.0 & 2.137e-04 \\ 
+ENN-RSS-MA & 64.0 & 2.122e-01 & 76.0 & 4.445e-01 & 56.0 & 1.989e-01 & 92.0 & 9.039e-01 & 8.0 & 4.634e-04 \\
+
+\hline
+
+ & & & & & & ENN-MA & & & & \\
+RSS-MA  & 55.0 & 1.075e-01 & 61.0 & 1.712e-01 & 75.0 & 6.475e-01 & 69.0 & 2.954e-01 & 59.5 & 1.531e-01 \\ 
+CNN-RSS-MA & 72.0 & 3.547e-01 & 74.0 & 3.981e-01 & 74.0 & 3.981e-01 & 75.0 & 4.209e-01 & 84.0 & 6.580e-01 \\ 
+ENN-RSS-MA & 93.5 & 9.519e-01 & 89.0 & 8.092e-01 & 91.0 & 8.721e-01 & 91.0 & 8.721e-01 & 81.0 & 5.732e-01 \\ 
+
+\hline
+
+ & & & & & & RSS-MA & & & & \\
+CNN-RSS-MA & 29.0 & 7.908e-03 & 36.0 & 1.758e-02 & 62.0 & 1.842e-01 & 66.0 & 2.432e-01 & 51.0 & 7.662e-02 \\  
+ENN-RSS-MA & 51.0 & 7.662e-02 & 47.0 & 5.341e-02 & 78.0 & 4.939e-01 & 91.0 & 8.721e-01 & 80.0 & 5.461e-01 \\ 
+
+\hline
+
+ & & & & & & CNN-RSS-MA & & & & \\ 
+ENN-RSS-MA & 58.0 & 1.365e-01 & 64.0 & 2.122e-01 & 81.0 & 5.732e-01 & 62.0 & 1.842e-01 & 73.0 & 3.760e-01 \\ 
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\caption[Pruebas de \emph{Wilcoxon} entre MA y variaciones para conjuntos medianos]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para MA sobre conjuntos medianos}
+\label{wilcox-MA-med}
+\end{table}
+
+
+
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c| l c c}
+\hline
+	  \textsc{Algoritmo}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{1}{|c}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \multicolumn{1}{|c}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Reducción}}\\ 
+ & $W$ & $p$-valor & & $W$ & $p$-valor & & $W$ & $p$-valor  \\
+\hline
+\hline
+
+ & & ENN-GGA & & & ENN-GGA & & & RSS-GGA \\
+
+ENN-SSGA & 138.5 & 5.184e-01 & SSGA & 77 & 6.355e-02 &  RSS-SSGA & 11 & 4.574e-05 \\
+MA & 149.5 & 9.886e-01 & MA & 149 & 9.772e-01 & RSS-MA & 0 & 1.229e-05 \\
+CHC & 116 & 5.034e-01 & CHC & 146.5 & 6.668e-01 & RSS-CHC & 2 & 1.571e-05 \\
+
+\hline
+ 
+  & & ENN-SSGA & & & SSGA & & & RSS-SSGA \\
+
+MA & 147 & 6.766e-01 & MA & 101 & 1.615e-01 & RSS-MA & 0 & 1.229e-05 \\
+CHC & 118 & 2.312e-01 & CHC & 127 & 3.395e-01 & RSS-CHC & 0 & 1.229e-05 \\
+
+\hline
+
+  & & MA & & & MA & & & RSS-MA \\
+
+CHC & 113.5 & 1.873e-01 & CHC & 108 & 1.425e-01 & RSS-CHC & 143 & 5.998e-01 \\
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\caption[Pruebas de \emph{Wilcoxon} entre las mejores metaheurísticas para los conjuntos pequeños sobre \emph{accuracy}, \emph{kappa} y reducción]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para las mejores metaheurísticas sobre conjuntos pequeños de \emph{accuracy}, \emph{kappa} y reducción}
+\label{wilcox1-all-peq}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c}
+\hline
+	  \textsc{Algoritmo}
+	& \multicolumn{2}{c}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{1}{|c}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Kappa +  Reducción}} \\
+ & $W$ & $p$-valor & & $W$ & $p$-valor \\
+\hline
+\hline
+
+ & & RSS-GA & & & GGA \\
+
+RSS-SSGA & 0 & 1.229e-05 & RSS-SSGA & 0 & 1.229e-05 \\
+MA & 0 & 1.229e-05 & CNN-MA & 0 & 1.229e-05  \\
+CHC & 0 & 1.229e-05 & CHC & 0 & 1.229e-05 \\
+
+\hline
+ 
+ & & RSS-SSGA & & & RSS-SSGA \\
+
+MA & 21 & 1.405e-04 & CNN-MA & 2 & 1.571e-05 \\
+CHC & 24 & 1.941e-04 & CHC & 46 & 1.720e-03 \\
+
+\hline
+
+ & & MA & & & CNN-MA \\
+
+CHC & 95 & 6.934e-02 & CHC & 1 & 1.390e-05 \\
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\caption[Pruebas de \emph{Wilcoxon} entre las mejores metaheurísticas para los conjuntos pequeños sobre \emph{accuracy + reducción} y \emph{kappa + reducción}]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} de \emph{accuracy + reducción} y \emph{kappa + reducción} para las mejores metaheurísticas sobre conjuntos pequeños}
+\label{wilcox2-all-peq}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c| l c c}
+\hline
+	  \textsc{Algoritmo}
+	& \multicolumn{2}{c}{\textsc{Accuracy}}
+	& \multicolumn{1}{|c}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Kappa}}
+	& \multicolumn{1}{|c}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Reducción}}\\ 
+ & $W$ & $p$-valor & & $W$ & $p$-valor & & $W$ & $p$-valor  \\
+\hline
+\hline
+
+ & & ENN-GGA & & & ENN-GGA & & & CNN-GGA \\
+
+ENN-SSGA & 49 & 6.415e-02 & SSGA & 39 & 2.422e-02 &  RSS-SSGA & 34 & 1.410e-02 \\
+MA & 90 & 8.405e-01 & MA & 72 & 3.547e-01 & MA & 5 & 2.926e-04 \\
+CHC & 52.5 & 8.718e-02 & CHC & 46 & 4.862e-02 & RSS-CHC & 3 & 2.134e-04 \\
+
+\hline
+ 
+  & & ENN-SSGA & & & SSGA & & & RSS-SSGA \\
+
+MA & 48.5 & 6.128e-02 & MA & 58 & 1.365e-01 & MA & 0 & 1.318e-04 \\
+CHC & 76 & 4.445e-01 & CHC & 78 & 4.939e-01 & RSS-CHC & 0 & 1.318e-04 \\
+
+\hline
+
+  & & MA & & & MA & & & MA \\
+
+CHC & 35 & 1.576e-02 & CHC & 47 & 5.338e-02 & RSS-CHC & 59 & 1.474e-01 \\
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\caption[Pruebas de \emph{Wilcoxon} entre las mejores metaheurísticas para los conjuntos medianos sobre \emph{accuracy}, \emph{kappa} y reducción]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} para las mejores metaheurísticas sobre conjuntos medianos \emph{accuracy}, \emph{kappa} y reducción}
+\label{wilcox1-all-med}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{adjustbox}{max width =\textwidth}
+\begin{tabular}{l c c|l c c}
+\hline
+	  \textsc{Algoritmo}
+	& \multicolumn{2}{c}{\textsc{Accuracy + Reducción}}
+	& \multicolumn{1}{|c}{\textsc{Algoritmo}}
+	& \multicolumn{2}{c}{\textsc{Kappa +  Reducción}} \\
+ & $W$ & $p$-valor & & $W$ & $p$-valor \\
+\hline
+\hline
+
+ & & CNN-GGA & & & GGA \\
+
+RSS-SSGA & 3 & 2.137e-04 & SSGA & 0 & 1.318e-04 \\
+MA & 1 & 1.551e-04 & CNN-MA & 0 & 1.314e-04 \\
+CHC & 0 & 1.318e-04 & CHC & 0 & 1.318e-04 \\
+
+\hline
+ 
+ & & RSS-SSGA & & & SSGA \\
+
+MA & 5 & 2.926e-04 & CNN-MA & 0 & 1.318e-04 \\
+CHC & 0 & 1.318e-04 & CHC & 0 & 1.316e-04 \\
+
+\hline
+
+ & & MA & & & CNN-MA \\
+
+CHC & 82 & 6.009e-01 & CHC & 4 & 2.502e-04 \\
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\caption[Pruebas de \emph{Wilcoxon} entre las mejores metaheurísticas para los conjuntos medianos sobre \emph{accuracy + reducción} y \emph{kappa + reducción}]{Estadístico $W$ y $p$-valor de pruebas de rangos con signo de \emph{Wilcoxon} de \emph{accuracy + reducción} y \emph{kappa + reducción} para las mejores metaheurísticas sobre conjuntos medianos}
+\label{wilcox2-all-med}
+\end{table}

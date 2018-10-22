@@ -32,24 +32,24 @@
 \contentsline {section}{\numberline {2.1}Representaci\IeC {\'o}n del cromosoma}{23}{section.55}
 \contentsline {section}{\numberline {2.2}Funci\IeC {\'o}n objetivo}{24}{section.58}
 \contentsline {section}{\numberline {2.3}Adaptaciones de los algoritmos evolutivos}{25}{section.60}
-\contentsline {section}{\numberline {2.4}Criterios para comparar los algoritmos de selecci\IeC {\'o}n de prototipos}{28}{section.65}
+\contentsline {section}{\numberline {2.4}Criterios para comparar los algoritmos de selecci\IeC {\'o}n de prototipos}{27}{section.65}
 \contentsline {section}{\numberline {2.5}Conjunto de datos}{29}{section.67}
 \contentsline {section}{\numberline {2.6}Validaci\IeC {\'o}n cruzada y estratificaci\IeC {\'o}n}{30}{section.71}
 \contentsline {subsection}{\numberline {2.6.1}Validaci\IeC {\'o}n cruzada}{30}{subsection.72}
-\contentsline {subsection}{\numberline {2.6.2}Estratificaci\IeC {\'o}n}{31}{subsection.74}
-\contentsline {section}{\numberline {2.7}Entonaci\IeC {\'o}n de las metaheur\IeC {\'\i }sticas}{32}{section.76}
-\contentsline {chapter}{\numberline {3}Evaluaci\IeC {\'o}n experimental}{35}{chapter.78}
-\contentsline {section}{\numberline {3.1}Dise\IeC {\~n}o experimental}{35}{section.79}
-\contentsline {section}{\numberline {3.2}Resultados}{38}{section.85}
-\contentsline {subsection}{\numberline {3.2.1}Heur\IeC {\'\i }sticas}{38}{subsection.86}
-\contentsline {subsection}{\numberline {3.2.2}Metaheur\IeC {\'\i }sticas}{39}{subsection.88}
-\contentsline {subsection}{\numberline {3.2.3}Combinaciones de las metaheur\IeC {\'\i }sticas}{42}{subsection.90}
-\contentsline {subsubsection}{\numberline {3.2.3.1}Conjuntos peque\IeC {\~n}os}{42}{subsubsection.91}
-\contentsline {subsubsection}{\numberline {3.2.3.2}Conjuntos medianos}{45}{subsubsection.95}
-\contentsline {subsubsection}{\numberline {3.2.3.3}Conjuntos Grandes}{49}{subsubsection.99}
-\contentsline {subsection}{\numberline {3.2.4}Comentarios finales}{52}{subsection.103}
-\contentsline {chapter}{Conclusiones y Recomendaciones}{53}{chapter*.104}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{55}{section*.105}
+\contentsline {subsection}{\numberline {2.6.2}Estratificaci\IeC {\'o}n}{30}{subsection.73}
+\contentsline {chapter}{\numberline {3}Evaluaci\IeC {\'o}n experimental}{32}{chapter.77}
+\contentsline {section}{\numberline {3.1}Dise\IeC {\~n}o experimental}{32}{section.78}
+\contentsline {section}{\numberline {3.2}Resultados}{35}{section.84}
+\contentsline {subsection}{\numberline {3.2.1}Heur\IeC {\'\i }sticas}{35}{subsection.85}
+\contentsline {subsection}{\numberline {3.2.2}Metaheur\IeC {\'\i }sticas}{36}{subsection.87}
+\contentsline {subsection}{\numberline {3.2.3}Combinaciones de las metaheur\IeC {\'\i }sticas}{39}{subsection.92}
+\contentsline {subsubsection}{\numberline {3.2.3.1}Conjuntos peque\IeC {\~n}os}{39}{subsubsection.93}
+\contentsline {subsubsection}{\numberline {3.2.3.2}Conjuntos medianos}{44}{subsubsection.98}
+\contentsline {subsubsection}{\numberline {3.2.3.3}Conjuntos Grandes}{48}{subsubsection.103}
+\contentsline {subsection}{\numberline {3.2.4}Comentarios finales}{51}{subsection.107}
+\contentsline {chapter}{Conclusiones y Recomendaciones}{52}{chapter*.108}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{54}{section*.109}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Pruebas por pares \emph {Wilcoxon}}{62}{appendix.107}
-\contentsline {chapter}{\numberline {B}Resultados de todos los conjuntos}{68}{appendix.120}
+\contentsline {chapter}{\numberline {A}Entonaci\IeC {\'o}n de las metaheur\IeC {\'\i }sticas}{61}{appendix.111}
+\contentsline {chapter}{\numberline {B}Pruebas por pares \emph {Wilcoxon}}{63}{appendix.113}
+\contentsline {chapter}{\numberline {C}Resultados de todos los conjuntos}{69}{appendix.126}

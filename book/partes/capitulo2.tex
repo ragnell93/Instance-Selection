@@ -2,7 +2,7 @@
 \label{capitulo2}
 \lhead{Capítulo 2. \emph{Marco metodológico}}
 
-En este capítulo se detalla la representación utilizada para los cromosomas, la función objetivo, las adaptaciones particulares que se hizo a cada algoritmo evolutivo usado en el experimento, el proceso de validación cruzada, la técnica de estratificación, se presenta los conjuntos de datos usados para el experimento y se explica el método de entonación utilizado para ajustar los algoritmos evolutivos.
+En este capítulo se detalla la representación utilizada para los cromosomas, la función objetivo, las adaptaciones particulares que se hizo a cada algoritmo evolutivo usado en el experimento, el proceso de validación cruzada, la técnica de estratificación y se presentan los conjuntos de datos usados para el experimento.
 
 \section{Representación del cromosoma}
 
@@ -109,8 +109,6 @@ El meme intenta remover una instancia de S en cada iteración para evaluar si la
 \end{algorithmic}
 \end{algorithm}
 
-\newpage
-
 \section{Criterios para comparar los algoritmos de selección de prototipos}
 
 Al momento de comparar los distintos algoritmos de PS, se usan los siguiente criterios para evaluar las fortalezas y debilidades relativas de cada algoritmo \cite{garcia2016data}:
@@ -141,9 +139,7 @@ kappa = \frac{N*\sum_{i=1}^{\Omega}y_{ii} - \sum_{i=1}^{\Omega}y_i.*y._i}{N^2 - 
 
 Los conjuntos de datos utilizados para validar el experimento provienen de \emph{UCI Machine Learning Repository} \cite{Dua:2017} y \emph{KEEL Data-Mining Software Tool} \cite{alcala2011keel}. Se hace una separación como la establecida en \cite{de2004reduccion} donde se considera como conjunto de datos pequeños aquellos con menos de 2000 instancias, los conjuntos medianos los que poseen entre 2000 y 20000 instancias y los conjuntos grandes aquellos con más de 20000 instancias. En las tablas \ref{pequenios}, \ref{medianos} y \ref{grandes} se detallan los conjuntos pequeños, medianos y grandes respectivamente. Solo se eligió conjunto de datos numéricos para poder utilizar la distancia euclídea con 1-NN sin tener problemas en la preservación de información al convertir datos categóricos a numéricos.
 
-\newpage
-
-\begin{table}[]
+\begin{table}[h!]
 \centering
 \begin{adjustbox}{max width =\textwidth}
 \begin{tabular}{l c c c|l c c c}
@@ -226,75 +222,36 @@ Shuttle          & 58000 & 9  & 7 \\
 
 \subsection{Validación cruzada}
 
-Dado un conjunto de datos T, el proceso de validación cruzada \cite{kohavi1995study} consta de dividir T en k subconjuntos disjuntos $T_1,T_2,\dots,T_k$ de aproximadamente el mismo tamaño, donde cada subconjunto mantiene la distribución de las clases presente en T. El conjunto de entrenamiento $TR = T \setminus T_i$ con $i \in \left\{1,2,\dots,k\right\}$ es usado por las metaheurísticas para devolver la mejor solución, la cual será usada para evaluar las instancias del conjunto de validación $ TS = T_i $. En la figura \ref{crossval} se muestra un esquema de cómo se aplica la validación cruzada para el problema de selección de prototipos dado que la partición k es seleccionada como conjunto de prueba.
+Dado un conjunto de datos T, el proceso de validación cruzada \cite{kohavi1995study} consta de dividir T en k subconjuntos disjuntos $T_1,T_2,\dots,T_k$ de aproximadamente el mismo tamaño, donde cada subconjunto mantiene la distribución de las clases presente en T. El conjunto de entrenamiento $TR = T \setminus T_i$ con $i \in \left\{1,2,\dots,k\right\}$ es usado por las metaheurísticas para devolver la mejor solución, la cual será usada para evaluar las instancias del conjunto de validación $ TS = T_i $. En la figura \ref{strat-val} se muestra un esquema de cómo se aplica la validación cruzada para el problema de selección de prototipos dado que la partición k es seleccionada como conjunto de prueba.
 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.5]{classicCV.png}
-\caption[Validación cruzada]{Validación cruzada}
-\label{crossval}
-\end{figure}
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.3]{classicCV.png}
+%\caption[Validación cruzada]{Validación cruzada}
+%\label{crossval}
+%\end{figure}
 
 \subsection{Estratificación}
 
 La estratificación es una técnica propuesta por \emph{Cano, J. et al.} en \cite{cano2005stratification} para solventar el problema de aplicación de los algoritmos de PS a conjunto de datos muy grandes. Dicho problema viene dado porque la mayoría de los algoritmos de PS y metaheurísticas utilizadas son $O(n^2)$, donde $n$ es la cantidad de instancias del conjunto a procesar, y por lo tanto, tienen un problema de escalamiento cuando se utilizan con conjuntos de datos grandes.
 
-Dado un conjunto de datos TR producto de la división hecha por un proceso de validación cruzada, la estratificación comienza con la división de TR en $k$ subconjuntos disjuntos, llamados estratos, $TR_1,TR_2,\dots,TR_k$ de aproximadamente el mismo tamaño. Luego, se aplica el algoritmo de PS directamente a cada uno de los $k$ subconjuntos seleccionados $TR_i$ para el entrenamiento, que más adelante forma subconjuntos reducidos $TRS_1,TRS_2,\dots,TRS_k$; acto seguido, se juntan todos los $TRS_i$ para formar el conjunto reducido S que va a ser usado por 1-NN para clasificar $TS$. La estratificación prueba ser un método efectivo, como lo demuestran en \cite{cano2005stratification}, ya que reduce la cantidad de instancias que debe tratar el algoritmo de PS a $TR/k$, por lo que la elección del número de estratos k se vuelve de especial importancia. En la figura \ref{strat} se muestra un esquema de cómo se aplica la estratificación, donde el estrato k es seleccionado como conjunto de prueba.
+Dado un conjunto de datos TR producto de la división hecha por un proceso de validación cruzada, la estratificación comienza con la división de TR en $k$ subconjuntos disjuntos, llamados estratos, $TR_1,TR_2,\dots,TR_k$ de aproximadamente el mismo tamaño. Luego, se aplica el algoritmo de PS directamente a cada uno de los $k$ subconjuntos seleccionados $TR_i$ para el entrenamiento, que más adelante forma subconjuntos reducidos $TRS_1,TRS_2,\dots,TRS_k$; acto seguido, se juntan todos los $TRS_i$ para formar el conjunto reducido S que va a ser usado por 1-NN para clasificar $TS$. La estratificación prueba ser un método efectivo, como lo demuestran en \cite{cano2005stratification}, ya que reduce la cantidad de instancias que debe tratar el algoritmo de PS a $TR/k$, por lo que la elección del número de estratos k se vuelve de especial importancia. En la figura \ref{strat-val} se muestra un esquema de cómo se aplica la estratificación, donde el estrato k es seleccionado como conjunto de prueba.
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.2]{stratCV.png}
+%\caption[Estratificación]{Estratificación}
+%\label{strat}
+%\end{figure}
+
 
 \begin{figure}[h!]
-\centering
-\includegraphics[scale=0.3]{stratCV.png}
-\caption[Estratificación]{Estratificación}
-\label{strat}
+
+	\centering
+	\subfigure[Validación cruzada]{\label{fig:a}\includegraphics[scale=0.35]{classicCV.png}}
+	\subfigure[Estratificación]{\label{fig:b}\includegraphics[scale=0.25]{stratCV.png}}
+
+\caption{Validación cruzada y estratificación}
+\label{strat-val}
 \end{figure}
 
-\section{Entonación de las metaheurísticas}
-
-Para la entonación de las metaheurísticas se usó \emph{irace} \cite{lopez2016irace}, el cual es un paquete de R que implementa el método de entonación automática conocido como \emph{iterated F-race}. La esencia de \emph{iterated F-race}
-es hacer varias carreras, las cuales son procesos internos del algoritmo que ponen a competir un conjunto de vectores de parámetros (también conocidos como configuraciones) con un repertorio de problemas, con el fin de recopilar datos referentes al desempeño de cada configuración para hacer pruebas estadísticas que determinan cuáles son las mejores y además, descartar las peores en una etapa temprana de la carrera. 
-
-\emph{Iterated F-race} trata de un método que consiste en tres pasos: (1) elegir varias configuraciones posibles de acuerdo a una distribución en particular y así formar una población, (2) elegir una población de configuraciones (3) actualizar la distribución de la población de tal manera que sea sesgada a favor de las mejores configuraciones. Estos tres pasos son repetidos hasta que pase un número de iteraciones dadas por el usuario. El algoritmo de \emph{iterated F-race} se presenta en \ref{irace}.
-
-\begin{algorithm}
-\caption{IRACE}
-\label{irace}
-\begin{algorithmic}[1]
-
-\Require{\texttt{I} conjunto de instancias del problema a entonar, \texttt{X} espacio de configuraciones, U función de utilidad, \texttt{B} número de iteraciones con el que se cuenta}
-\Ensure{$\theta^{elite}$ mejores configuraciones encontradas}
-
-\State $\theta_1 \gets$ una muestra uniforme de X
-\State $\theta^{elite} \gets$ resultado de una \textbf{carrera} al usar $\theta_1$ como población y con número de iteraciones $B_1$
-\State $j \gets 1$
-\While{$B^{usado} \leq B$}
-	\State $j \gets j + 1$
-	\State $\theta^{nueva} \gets$ muestra sesgada hacia $\theta^{elite}$ de X 
-	\State $\theta_j \gets \theta^{nueva} \cup \theta^{elite}$
-	\State $\theta^{elite} \gets$ resultado de una \textbf{carrera} al usar $\theta_j$ como población y con número de iteraciones $B_j$
-\EndWhile
-\State \Return $\theta^{elite}$
-
-\end{algorithmic}
-\end{algorithm}
-
-%\emph{Irace} empieza estimando cuántas iteraciones $N^{iter}$ va a ejecutar; este valor está en función al número de parámetros que se piensa entonar, por lo tanto $N^{iter} = \lfloor 2 + log_2 N^{parametros} \rfloor$, donde $N^{parametros}$ representa el número de parámetros, con la idea de que mientras más parámetros se necesite entonar, mayor será la cantidad de iteraciones que una carrera en específico necesita para conseguir las configuraciones élites. El cálculo de cuántas carreras se van a realizar en total, calculado $N^{iter}$, va en función de cuanto presupuesto B se le asigne a todo el proceso; se calcula la cantidad de carreras como $\lfloor B / N^{iter} \rfloor$. Si la cantidad de carreras es 0 entonces \emph{irace} pide que se introduzca un B mayor. Para este estudio, se asignó para los conjuntos pequeños y medianos $ B = 1000$ iteraciones y en cada carrera las metaheurísticas disponían de 1000 iteraciones para hallar el mejor valor posible; en cambio, para los conjuntos grandes se asignó $B = 400$ y cada metaherística en cada carrera disponía de 300 iteraciones.
-
-Cabe acotar que \emph{irace} asume que el problema sobre el cual se va a entonar es un problema de minimización. Por lo tanto, siempre se busca menores valores de la función de utilidad U para cada configuración; además, luego de cada carrera asigna un rango $r_z$ dependiendo de cómo se compare la configuración z con respecto al resto, a menor rango, mejor es la configuración; por lo tanto, el conjunto de élites $\theta^{elite}$ está conformado por los $k$ elementos con menor rango. El número $k$ es calculado al principio de la corrida de \emph{irace} y en este trabajo se deja su cálculo automático por defecto.
-
-%Por otra parte,en la primera línea del algoritmo \ref{irace}, se hace un muestreo uniforme del espacio de configuraciones X con una distribución normal truncada. En las siguientes iteraciones se va sesgando el muestreo con las configuraciones élites encontradas en la línea 6, esto se logra usando una probabilidad $p_z$ con la cual se toma una configuración $ \theta^z$ que se calcula como en la ecuación (2.5), donde $N^{elite}_{j-1}$ es el número de élites de la iteración j-1:
-
-%\begin{equation}
-%p_z = \frac{N^{elite}_{j-1} - r_z + 1}{N^{elite}_{j-1}*\frac{N^{elite}_{j-1}+1}{2}}
-%\end{equation} 
-
-%Una vez obtenido un $\theta^z$ se genera una nueva configuración tomando una muestra del espacio de parámetros X, un parámetro d a la vez de entre un rango $[d_{inf},d^{sup}]$ definido por el usuario, usando una distribución normal truncada $\mathcal{N}(\mu^z_d,(\sigma^j_d)^2)$ donde $\mu^z_d$, que representa la media, es el valor $\theta^z_d$ y la variancia $\sigma^j_d$ está definida como $(d^{sup}-d_{inf}) / 2 $ en la iteración j, con una actualización progresiva  en cada iteración dada por la ecuación (2.6), donde $N^{nuevo}_j$ es el número de configuraciones en la población que se va a generar en la línea 6 del algoritmo \ref{irace} en la iteración j, con el fin de acercar cada vez más los nuevos elementos a la élite encontrada en las últimas iteraciones del experimento.
-
-%\begin{equation}
-%\sigma^j_d = \sigma^{j-1}_d *\left(\frac{1}{N^{nuevo}_j}\right)^{\frac{1}{N^{parametros}}}
-%\end{equation}
-
-%El proceso de carrera (\emph{racing} en inglés) para la entonación de metaheurísticas con el cual se realiza el paso (2) (líneas 2 y 8), fue propuesto por \emph{Birattari, M. et al.} en \cite{birattari2002racing}. La carrera empieza usando una población con configuraciones; luego, a cada iteración de la carrera, las configuraciones son evaluadas en una sola instancia $I_j$. Después de un número iteraciones dadas por un parámetro T, aquellas configuraciones que estadísticamente tienen un desempeño inferior al resto son descartadas. \emph{Irace} establece  $T = 1$; además, puede usar una prueba Friedman no paramétrica o una prueba t-test como prueba estadística para hacer las comparaciones entre las configuraciones. Por recomendación de los autores, se usa una prueba t-test con un valor de significancia de 0.05 ya que, según sus criterios, es la más adecuada para la entonación de parámetros de valores continuos.
-
-La prueba estadística utilizada por la carrera para reemplazar las peores configuraciones y preservar las élites es la prueba \emph{Friedman} no paramétrica o la prueba \emph{t-test}. Por recomendación de los autores se usa una prueba \emph{t-test} con un valor de significancia de 0.05 ya que, según sus criterios, es la más adecuada para la entonación de parámetros de valores continuos.
-
-\emph{Irace}, además, implementa un método de reinicialización cuando la población de configuraciones converge prematuramente. En este proceso se mantienen las configuraciones élites de la última carrera y empieza de nuevo segun ciertas consideraciones. Aunado a esto, \emph{irace} también implementa un sistema de carrera elitista, el cual evita que las mejores configuraciones encontradas hasta el momento se pierdan en una carrera producto de una serie desfavorable de evaluaciones en un momento dado. En este trabajo se usa tanto el método de reinicialización como el sistema de carrera elitista. Para más información de todas las funciones y utilidades que presenta esta herramemienta, se recomienda leer \cite{lopez2016irace}.

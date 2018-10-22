@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  20 OCT 2018 18:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  21 OCT 2018 19:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1574,6 +1574,33 @@ LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 
 
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:b' multiply defined.
+
+
+LaTeX Warning: Label `Ap\IeC {\'e}ndices' multiply defined.
+
+
 LaTeX Warning: Label `Ap\IeC {\'e}ndices' multiply defined.
 
 )
@@ -1776,7 +1803,7 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 142.
 
-<img/taxonomia.png, id=774, 1161.98824pt x 286.24588pt>
+<img/taxonomia.png, id=781, 1161.98824pt x 286.24588pt>
 File: img/taxonomia.png Graphic file (type png)
 <use img/taxonomia.png>
 Package pdftex.def Info: img/taxonomia.png  used on input line 144.
@@ -1789,22 +1816,22 @@ put line 158.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 233.
 
-<img/banana.png, id=804, 625.33624pt x 387.4475pt>
+<img/banana.png, id=811, 625.33624pt x 387.4475pt>
 File: img/banana.png Graphic file (type png)
 <use img/banana.png>
 Package pdftex.def Info: img/banana.png  used on input line 236.
 (pdftex.def)             Requested size: 187.60231pt x 116.23514pt.
-<img/CNN.png, id=806, 609.27625pt x 378.41376pt>
+<img/CNN.png, id=813, 609.27625pt x 378.41376pt>
 File: img/CNN.png Graphic file (type png)
 <use img/CNN.png>
 Package pdftex.def Info: img/CNN.png  used on input line 237.
 (pdftex.def)             Requested size: 182.78427pt x 113.525pt.
-<img/ENN.png, id=807, 609.27625pt x 378.41376pt>
+<img/ENN.png, id=814, 609.27625pt x 378.41376pt>
 File: img/ENN.png Graphic file (type png)
 <use img/ENN.png>
 Package pdftex.def Info: img/ENN.png  used on input line 238.
 (pdftex.def)             Requested size: 182.78427pt x 113.525pt.
-<img/RSS.png, id=808, 619.31375pt x 397.485pt>
+<img/RSS.png, id=815, 619.31375pt x 397.485pt>
 File: img/RSS.png Graphic file (type png)
 <use img/RSS.png>
 Package pdftex.def Info: img/RSS.png  used on input line 239.
@@ -1838,7 +1865,7 @@ Cap\'{\i }tulo 2.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 15.
 
-<img/representacion.png, id=908, 503.8825pt x 171.64125pt>
+<img/representacion.png, id=915, 503.8825pt x 171.64125pt>
 File: img/representacion.png Graphic file (type png)
 <use img/representacion.png>
 Package pdftex.def Info: img/representacion.png  used on input line 17.
@@ -1846,31 +1873,30 @@ Package pdftex.def Info: img/representacion.png  used on input line 17.
 [23
 
 ] [24 <./img/representacion.png>]
-<img/cruce.png, id=926, 710.655pt x 170.6375pt>
+<img/cruce.png, id=933, 710.655pt x 170.6375pt>
 File: img/cruce.png Graphic file (type png)
 <use img/cruce.png>
 Package pdftex.def Info: img/cruce.png  used on input line 44.
 (pdftex.def)             Requested size: 435.96745pt x 104.68497pt.
  [25 <./img/cruce.png>] [26] [27] [28]
-[29]
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 146.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[30]
-<img/classicCV.png, id=974, 436.63126pt x 370.38374pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[29] [30]
+<img/classicCV.png, id=985, 436.63126pt x 370.38374pt>
 File: img/classicCV.png Graphic file (type png)
 <use img/classicCV.png>
-Package pdftex.def Info: img/classicCV.png  used on input line 233.
-(pdftex.def)             Requested size: 218.3151pt x 185.1914pt.
- [31 <./img/classicCV.png>]
-<img/stratCV.png, id=984, 948.01236pt x 627.75706pt>
+Package pdftex.def Info: img/classicCV.png  used on input line 251.
+(pdftex.def)             Requested size: 152.82323pt x 129.63625pt.
+<img/stratCV.png, id=986, 948.01236pt x 627.75706pt>
 File: img/stratCV.png Graphic file (type png)
 <use img/stratCV.png>
-Package pdftex.def Info: img/stratCV.png  used on input line 246.
-(pdftex.def)             Requested size: 284.4059pt x 188.32857pt.
- [32 <./img/stratCV.png>])
-(./partes/capitulo3.tex [33] [34]
+Package pdftex.def Info: img/stratCV.png  used on input line 252.
+(pdftex.def)             Requested size: 237.0025pt x 156.93887pt.
+) (./partes/capitulo3.tex [31 <./img/classicCV.png> <./img/stratCV.png>]
 Cap\'{\i }tulo 3.
 ------------------------------------------------------------------------------
  3 Evaluaci\IeC {\'o}n experimental
@@ -1879,7 +1905,7 @@ Cap\'{\i }tulo 3.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 11.
 
-[35
+[32
 
 ]
 
@@ -1898,35 +1924,77 @@ LaTeX Warning: No positions in optional float specifier.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 95.
 
-[36] [37] [38]
+[33] [34] [35]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[36] [37]
+<img/acc_small.png, id=1038, 462.528pt x 346.896pt>
+File: img/acc_small.png Graphic file (type png)
+<use img/acc_small.png>
+Package pdftex.def Info: img/acc_small.png  used on input line 283.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+<img/acc_medium.png, id=1039, 462.528pt x 346.896pt>
+File: img/acc_medium.png Graphic file (type png)
+<use img/acc_medium.png>
+Package pdftex.def Info: img/acc_medium.png  used on input line 284.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+ [38 <./img/acc_small.png> <./img/acc_medium.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [39] [40] [41]
+Overfull \hbox (28.78262pt too wide) in paragraph at lines 487--488
+\T1/cmr/m/n/12 '16':RSS-MA, '17':CNN-RSS-MA, '18':ENN-RSS-MA, '19':CHC, '20':CN
+N-CHC, '21':ENN-
+ []
+
+[42]
+<img/acc_small_all.png, id=1082, 462.528pt x 346.896pt>
+File: img/acc_small_all.png Graphic file (type png)
+<use img/acc_small_all.png>
+Package pdftex.def Info: img/acc_small_all.png  used on input line 492.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [43 <./img/acc_small_all.png>] [44] [45]
+<img/acc_medium_all.png, id=1114, 462.528pt x 346.896pt>
+File: img/acc_medium_all.png Graphic file (type png)
+<use img/acc_medium_all.png>
+Package pdftex.def Info: img/acc_medium_all.png  used on input line 676.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[42] [43] [44] [45] [46] [47] [48] [49] [50]
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 827.
+Overfull \hbox (28.78262pt too wide) in paragraph at lines 682--683
+\T1/cmr/m/n/12 '16':RSS-MA, '17':CNN-RSS-MA, '18':ENN-RSS-MA, '19':CHC, '20':CN
+N-CHC, '21':ENN-
+ []
 
-[51]) (./partes/conclusiones.tex [52] [53
+[46] [47 <./img/acc_medium_all.png>] [48] [49] [50]) (./partes/conclusiones.tex
+[51] [52
 
-]) [54] (./tesis.bbl [55
+]) [53] (./tesis.bbl [54
 
 
 
-] [56]
+] [55]
 Underfull \hbox (badness 1728) in paragraph at lines 148--152
 []\T1/cmr/m/n/12 Evelyn Fix and Jo-seph L Hod-ges Jr.  Dis-cri-mi-na-tory analy
 sis-
  []
 
-[57] [58] [59] [60]) (./partes/apendiceA.tex [61]
+[56] [57] [58] [59]) (./partes/apendiceA.tex [60]
 Ap\'{e}ndice A.
 ------------------------------------------------------------------------------
- A Pruebas por pares \emph {Wilcoxon}
+ A Entonaci\IeC {\'o}n de las metaheur\IeC {\'\i }sticas
+------------------------------------------------------------------------------
+[61
+
+]) (./partes/apendiceB.tex [62]
+Ap\'{e}ndice B.
+------------------------------------------------------------------------------
+ B Pruebas por pares \emph {Wilcoxon}
 ------------------------------------------------------------------------------
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1958,20 +2026,20 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./partes/apendiceB.tex [62
+) (./partes/apendiceC.tex [63
 
 ]
 
-LaTeX Warning: Text page 63 contains only floats.
-
-[63]
-
 LaTeX Warning: Text page 64 contains only floats.
 
-[64] [65] [66] [67]
-Ap\'{e}ndice B.
+[64]
+
+LaTeX Warning: Text page 65 contains only floats.
+
+[65] [66] [67] [68]
+Ap\'{e}ndice C.
 ------------------------------------------------------------------------------
- B Resultados de todos los conjuntos
+ C Resultados de todos los conjuntos
 ------------------------------------------------------------------------------
 
 LaTeX Warning: No positions in optional float specifier.
@@ -2039,9 +2107,9 @@ Overfull \hbox (21.09978pt too wide) in paragraph at lines 274--306
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 310.
 
-[68
+[69
 
-] [69] [70] [71] [72] [73]
+] [70] [71] [72] [73] [74]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 336.
@@ -2174,7 +2242,7 @@ Overfull \hbox (21.09978pt too wide) in paragraph at lines 946--978
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 984.
 
-[74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85]
+[75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 1010.
@@ -2307,7 +2375,7 @@ Overfull \hbox (24.4323pt too wide) in paragraph at lines 1611--1643
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 1648.
 
-[86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97]
+[87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 1673.
@@ -2440,7 +2508,7 @@ Overfull \hbox (21.09978pt too wide) in paragraph at lines 2273--2305
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 2310.
 
-[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109]
+[99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 2335.
@@ -2573,33 +2641,33 @@ Overfull \hbox (21.09978pt too wide) in paragraph at lines 2936--2968
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 2973.
 
-) [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121]
+) [111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122]
 ------------------------------------------------------------------------------
  Bibliograf\'{\i }a
 ------------------------------------------------------------------------------
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 201.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 201.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 202.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 202.
 (./tesis.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 201.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 201.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 202.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 202.
 Package rerunfilecheck Info: File `tesis.out' has not changed.
-(rerunfilecheck)             Checksum: 88FAB0CB3361CAC055D09A17B545895D;11410.
+(rerunfilecheck)             Checksum: 03213581EC4266EA2BC08EDA69D9652D;11393.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 201.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 202.
  ) 
 Here is how much of TeX's memory you used:
- 36924 strings out of 492982
- 654538 string characters out of 6134895
- 851221 words of memory out of 5000000
- 39477 multiletter control sequences out of 15000+600000
+ 36956 strings out of 492982
+ 655193 string characters out of 6134895
+ 852043 words of memory out of 5000000
+ 39495 multiletter control sequences out of 15000+600000
  557311 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,13n,103p,10416b,713s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2630,10 +2698,10 @@ public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm
 ublic/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1
 200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/
 texmf/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on tesis.pdf (132 pages, 1129141 bytes).
+Output written on tesis.pdf (133 pages, 1186989 bytes).
 PDF statistics:
- 1617 PDF objects out of 1728 (max. 8388607)
- 1418 compressed objects within 15 object streams
- 401 named destinations out of 1000 (max. 500000)
- 471 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1651 PDF objects out of 1728 (max. 8388607)
+ 1443 compressed objects within 15 object streams
+ 408 named destinations out of 1000 (max. 500000)
+ 491 words of extra memory for PDF output out of 10000 (max. 10000000)
 
